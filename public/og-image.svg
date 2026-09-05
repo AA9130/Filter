@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e458a"/>
+      <stop offset="55%" stop-color="#172b54"/>
+      <stop offset="100%" stop-color="#0b1b33"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#60b6fa"/>
+      <stop offset="55%" stop-color="#2579eb"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="0%" r="70%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <circle cx="1050" cy="120" r="190" fill="#06b6d4" opacity=".14"/>
+  <circle cx="150" cy="560" r="170" fill="#3b98f6" opacity=".12"/>
+
+  <g transform="translate(80 74)">
+    <rect width="76" height="76" rx="22" fill="url(#mark)"/>
+    <path d="M38 18c7.4 8 12.5 14.4 12.5 21.5A12.5 12.5 0 0 1 38 52a12.5 12.5 0 0 1-12.5-12.5C25.5 32.4 30.6 26 38 18Z" fill="#fff" fill-opacity=".95"/>
+  </g>
+
+  <text x="176" y="126" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="42" font-weight="800" fill="#ffffff">AquaPure UAE</text>
+  <text x="176" y="160" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#93d0fd" letter-spacing="3">WATER FILTRATION SPECIALISTS</text>
+
+  <text x="80" y="290" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="66" font-weight="800" fill="#ffffff">Pure Water, Healthy Life</text>
+  <text x="80" y="368" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="66" font-weight="800" fill="#67e8f9">UAE&#8217;s Trusted Filter Experts</text>
+
+  <text x="80" y="436" font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="27" font-weight="500" fill="#bfe2fe">Installation &#183; Maintenance &#183; Repair &#183; AMC &#183; All 7 Emirates</text>
+
+  <g font-family="'Segoe UI',Helvetica,Arial,sans-serif" font-size="21" font-weight="700">
+    <rect x="80" y="490" width="230" height="58" rx="16" fill="#f97316"/>
+    <text x="195" y="527" fill="#ffffff" text-anchor="middle">24hr Service</text>
+    <rect x="330" y="490" width="230" height="58" rx="16" fill="#25D366"/>
+    <text x="445" y="527" fill="#ffffff" text-anchor="middle">Free Demo</text>
+    <rect x="580" y="490" width="300" height="58" rx="16" fill="#ffffff" fill-opacity=".12" stroke="#ffffff" stroke-opacity=".25"/>
+    <text x="730" y="527" fill="#ffffff" text-anchor="middle">Certified Technicians</text>
+  </g>
+</svg>
