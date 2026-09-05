@@ -27,7 +27,13 @@ const fadeUp = {
   show: { opacity: 1, y: 0 },
 }
 
-export default function Hero() {
+export default function Hero({
+  rating,
+  customers,
+}: {
+  rating: string
+  customers: string
+}) {
   return (
     <section className="relative overflow-hidden bg-hero-radial pt-14 lg:pt-20">
       {/* Decorative layers */}
@@ -187,11 +193,11 @@ export default function Hero() {
                         <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
                       ))}
                       <span className="ml-1.5 text-sm font-bold text-ink">
-                        {site.stats.rating}/5
+                        {rating}/5
                       </span>
                     </div>
                     <p className="mt-1 text-xs text-ink-soft">
-                      From {site.stats.customers} UAE households &amp; businesses
+                      From {customers} UAE households &amp; businesses
                     </p>
                   </div>
                   <Link

@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import { site } from './site'
+import type { Business } from './content/types'
 
 const OG_IMAGE = {
   url: '/og-image.svg',
   width: 1200,
   height: 630,
-  alt: `${site.name} — ${site.tagline}. Water filter installation, service & AMC across the UAE.`,
+  alt: `${site.name} — water filter installation, service & AMC across the UAE.`,
 }
 
 /** Shared metadata builder so every page gets consistent, complete tags. */
@@ -59,77 +60,98 @@ export function buildMetadata({
   }
 }
 
-/** LocalBusiness + Service structured data for rich results in local search. */
-export function localBusinessJsonLd() {
+/** LocalBusiness structured data — drives Google local rich results. */
+export function localBusinessJsonLd(business: Business) {
   return {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'HVACBusiness'],
     '@id': `${site.url}/#business`,
-    name: site.name,
-    legalName: site.legalName,
-    description: site.description,
+    name: business.name,
+    legalName: business.legalName,
+    description: business.description,
     url: site.url,
     telephone: `+${site.phone.raw}`,
     email: site.email,
     image: `${site.url}/og-image.svg`,
-    priceRange: 'AED 120 – AED 12,000',
     currenciesAccepted: 'AED',
     paymentAccepted: 'Cash, Credit Card, Bank Transfer',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: site.address.street,
-      addressLocality: site.address.city,
-      addressRegion: site.address.region,
-      postalCode: site.address.postalCode,
-      addressCountry: site.address.country,
+      streetAddress: business.address.street,
+      addressLocality: business.address.city,
+      addressRegion: business.address.region,
+      postalCode: business.address.postalCode,
+      addressCountry: business.address.country,
     },
-    geo: { '@type': 'GeoCoordinates', latitude: 25.1193, longitude: 55.2277 },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: business.address.latitude,
+      longitude: business.address.longitude,
+    },
     areaServed: [
-      'Dubai',
-      'Abu Dhabi',
-      'Sharjah',
-      'Ajman',
-      'Ras Al Khaimah',
-      'Fujairah',
-      'Umm Al Quwain',
-    ].map((name) => ({ '@type': 'City', name, containedInPlace: { '@type': 'Country', name: 'United Arab Emirates' } })),
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'],
-        opens: '08:00',
-        closes: '21:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Friday',
-        opens: '14:00',
-        closes: '21:00',
-      },
-    ],
+      'Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al Khaimah', 'Fujairah', 'Umm Al Quwain',
+    ].map((name) => ({
+      '@type': 'City',
+      name,
+      containedInPlace: { '@type': 'Country', name: 'United Arab Emirates' },
+    })),
+    openingHoursSpecification: business.openingHoursSpec.map((spec) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: spec.days,
+      opens: spec.opens,
+      closes: spec.closes,
+    })),
     // aggregateRating intentionally omitted: publishing review figures you
     // cannot evidence breaches Google's review-snippet policy. Add it back
     // once you have real, verifiable counts.
-    sameAs: Object.values(site.social),
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Water Filtration Services',
-      itemListElement: [
-        'Water Filter Installation',
-        'RO Water Purifier Systems',
-        'Whole House Filtration Systems',
-        'Water Softeners',
-        'UV Sterilizer Systems',
-        'Filter Replacement & Spare Parts',
-        'Annual Maintenance Contracts (AMC)',
-        'Repair & Troubleshooting',
-        'Water Filter System Relocation',
-        'Free Demo & Consultation',
-      ].map((name) => ({
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name, areaServed: 'United Arab Emirates' },
-      })),
+    sameAs: Object.values(business.social),
+  }
+}
+
+/** Service page schema — one per service URL. */
+export function serviceJsonLd({
+  name, description, slug, business,
+}: { name: string; description: string; slug: string; business: Business }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name,
+    description,
+    serviceType: name,
+    url: `${site.url}/services/${slug}`,
+    provider: { '@type': 'LocalBusiness', '@id': `${site.url}/#business`, name: business.name },
+    areaServed: {
+      '@type': 'Country',
+      name: 'United Arab Emirates',
     },
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      servicePhone: `+${site.phone.raw}`,
+      serviceUrl: `${site.url}/contact`,
+    },
+  }
+}
+
+/**
+ * Product page schema. No `offers` block: prices are quoted per property and
+ * never published, so declaring a price in structured data would be a claim we
+ * cannot stand behind.
+ */
+export function productJsonLd({
+  name, description, slug, business,
+}: {
+  name: string
+  description: string
+  slug: string
+  business: Business
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name,
+    description,
+    url: `${site.url}/products/${slug}`,
+    brand: { '@type': 'Brand', name: business.name },
   }
 }
 

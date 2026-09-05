@@ -1,19 +1,16 @@
 import type { Metadata } from 'next'
-import Photo from '@/components/ui/Photo'
-import { Check, Phone, MessageCircle } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowRight, Check } from 'lucide-react'
 import PageHero from '@/components/sections/PageHero'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
 import Process from '@/components/sections/Process'
 import AmcPlans from '@/components/sections/AmcPlans'
 import CtaBanner from '@/components/sections/CtaBanner'
-import ContactSection from '@/components/sections/ContactSection'
 import TrustBar from '@/components/sections/TrustBar'
-import { services } from '@/lib/content'
-import { site, whatsappLink } from '@/lib/site'
-import { images } from '@/lib/images'
+import { icon } from '@/lib/icons'
+import { getServices, getAmcPlans, getProcessSteps, getTrustBadges } from '@/lib/content'
 import { buildMetadata, breadcrumbJsonLd } from '@/lib/seo'
-import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Water Filter Services in UAE — Installation, AMC, Repair & Filter Replacement',
@@ -25,24 +22,14 @@ export const metadata: Metadata = buildMetadata({
     'RO installation UAE',
     'water filter AMC Dubai',
     'water purifier repair Sharjah',
-    'water filter relocation UAE',
   ],
 })
 
-const sectionImages = [
-  images.plumbingWork,
-  images.kitchenTap,
-  images.cleanWater,
-  images.labTest,
-  images.waterDrop,
-  images.filterCartridge,
-  images.technician,
-  images.commercial,
-  images.heroGlass,
-  images.roSystem,
-]
+export default async function ServicesPage() {
+  const [services, plans, steps, badges] = await Promise.all([
+    getServices(), getAmcPlans(), getProcessSteps(), getTrustBadges(),
+  ])
 
-export default function ServicesPage() {
   return (
     <>
       <script
@@ -64,123 +51,68 @@ export default function ServicesPage() {
         subtitle="Supply, installation, scheduled maintenance, emergency repair and relocation — for apartments, villas, offices, restaurants and labour accommodation anywhere in the UAE."
       />
 
-      <TrustBar />
+      <TrustBar badges={badges} />
 
-      {/* Detailed service blocks */}
-      <div className="bg-white">
-        <div className="container-page section !pt-16">
+      <section className="section bg-white">
+        <div className="container-page">
           <SectionHeading
-            eyebrow="In Detail"
-            title="What each service actually includes"
-            subtitle="No vague packages. Here is exactly what our technicians do when they arrive at your property."
+            eyebrow="Browse"
+            title="Choose the service you need"
+            subtitle="Each one has its own page with what is included, what it costs and how quickly we can get to you."
           />
 
-          <div className="mt-16 space-y-16 lg:space-y-24">
+          <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => {
-              const Icon = service.icon
-              const flipped = i % 2 === 1
-
+              const Icon = icon(service.icon)
               return (
-                <article
-                  key={service.slug}
-                  id={service.slug}
-                  className="scroll-mt-28"
-                >
-                  <div
-                    className={cn(
-                      'grid items-center gap-8 lg:grid-cols-2 lg:gap-14',
-                      flipped && 'lg:[&>*:first-child]:order-2',
-                    )}
+                <Reveal as="li" key={service.slug} delay={(i % 3) * 0.06} className="h-full">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="group card card-hover flex h-full flex-col"
                   >
-                    <Reveal from={flipped ? 'right' : 'left'}>
-                      <div className="relative overflow-hidden rounded-3xl shadow-card">
-                        <Photo
-                          src={sectionImages[i % sectionImages.length]}
-                          alt={`${service.title} — AquaPure UAE service in progress`}
-                          width={1200}
-                          height={800}
-                          loading="lazy"
-                          sizes="(max-width: 1024px) 100vw, 48vw"
-                          className="h-64 w-full object-cover sm:h-80"
-                        />
-                        <div
-                          aria-hidden="true"
-                          className="absolute inset-0 bg-gradient-to-tr from-brand-950/45 to-transparent"
-                        />
-                        <span className="absolute left-5 top-5 grid h-12 w-12 place-items-center rounded-2xl bg-white/95 text-brand-700 shadow-lg backdrop-blur">
-                          <Icon className="h-6 w-6" />
+                    <div className="flex items-start justify-between gap-3">
+                      <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-brand-50 to-aqua-100 text-brand-700 transition-all duration-300 group-hover:from-brand-600 group-hover:to-aqua-500 group-hover:text-white">
+                        <Icon className="h-7 w-7" />
+                      </span>
+                      {service.highlight && (
+                        <span className="rounded-full bg-cta-50 px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-wide text-cta-700">
+                          {service.highlight}
                         </span>
-                      </div>
-                    </Reveal>
+                      )}
+                    </div>
 
-                    <Reveal from={flipped ? 'left' : 'right'} delay={0.08}>
-                      <div>
-                        <div className="flex flex-wrap items-center gap-3">
-                          <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand-600">
-                            Service {String(i + 1).padStart(2, '0')}
-                          </span>
-                          {service.highlight && (
-                            <span className="rounded-full bg-cta-50 px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-wide text-cta-700">
-                              {service.highlight}
-                            </span>
-                          )}
-                        </div>
+                    <h2 className="mt-5 text-lg font-bold leading-snug transition-colors group-hover:text-brand-700">
+                      {service.title}
+                    </h2>
+                    <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">{service.short}</p>
 
-                        <h3 className="mt-3 text-2xl leading-tight sm:text-3xl">{service.title}</h3>
-                        <p className="mt-4 text-base leading-relaxed text-ink-soft">
-                          {service.description}
-                        </p>
+                    <ul className="mt-4 flex-1 space-y-2">
+                      {service.bullets.slice(0, 2).map((bullet) => (
+                        <li key={bullet} className="flex items-start gap-2 text-sm text-ink-soft">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-eco-500" />
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
 
-                        <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                          {service.bullets.map((bullet) => (
-                            <li key={bullet} className="flex items-start gap-2.5 text-sm text-ink-soft">
-                              <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-eco-100">
-                                <Check className="h-3 w-3 text-eco-600" />
-                              </span>
-                              {bullet}
-                            </li>
-                          ))}
-                        </ul>
-
-                        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                          <a
-                            href={site.phone.href}
-                            data-analytics="call-click-service"
-                            className="btn-cta"
-                          >
-                            <Phone className="h-4 w-4" />
-                            Book this service
-                          </a>
-                          <a
-                            href={whatsappLink(
-                              `Hi, I'm interested in ${service.title}. Please share details and pricing.`,
-                            )}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            data-analytics="whatsapp-click-service"
-                            className="btn-outline"
-                          >
-                            <MessageCircle className="h-4 w-4" />
-                            Ask a question
-                          </a>
-                        </div>
-                      </div>
-                    </Reveal>
-                  </div>
-                </article>
+                    <span className="link-arrow mt-5">
+                      View service details
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </Link>
+                </Reveal>
               )
             })}
-          </div>
+          </ul>
         </div>
-      </div>
+      </section>
 
       <CtaBanner
         title="Book a certified technician — most areas same day"
         subtitle="Tell us the emirate and the problem. We confirm the slot and the price before we set off."
       />
-      <Process />
-      <AmcPlans />
-      <ContactSection />
+      <Process steps={steps} />
+      <AmcPlans plans={plans} />
     </>
   )
 }

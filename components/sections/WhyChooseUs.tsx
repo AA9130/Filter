@@ -1,37 +1,26 @@
 import Photo from '@/components/ui/Photo'
-import {
-  MapPin,
-  Clock,
-  BadgeCheck,
-  PackageCheck,
-  Wallet,
-  Zap,
-  type LucideIcon,
-} from 'lucide-react'
+
 import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
 import AnimatedCounter from '@/components/ui/AnimatedCounter'
-import { reasons } from '@/lib/content'
-import { site } from '@/lib/site'
+import { icon } from '@/lib/icons'
+import type { Reason, Business } from '@/lib/content'
 import { images } from '@/lib/images'
 
-const iconMap: Record<string, LucideIcon> = {
-  MapPin,
-  Clock,
-  BadgeCheck,
-  PackageCheck,
-  Wallet,
-  Zap,
-}
+export default function WhyChooseUs({
+  reasons,
+  stats: figures,
+}: {
+  reasons: Reason[]
+  stats: Business['stats']
+}) {
+  const stats = [
+    { value: figures.customers, label: 'Happy customers' },
+    { value: figures.emirates, label: 'Emirates covered' },
+    { value: `${figures.years}+`, label: 'Years experience' },
+    { value: figures.rating, label: 'Average rating' },
+  ]
 
-const stats = [
-  { value: site.stats.customers, label: 'Happy customers' },
-  { value: site.stats.emirates, label: 'Emirates covered' },
-  { value: `${site.stats.years}+`, label: 'Years experience' },
-  { value: site.stats.rating, label: 'Average rating' },
-]
-
-export default function WhyChooseUs() {
   return (
     <section id="why-us" className="section relative overflow-hidden bg-slate-50">
       <div
@@ -50,7 +39,7 @@ export default function WhyChooseUs() {
           {/* Reasons */}
           <ul className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
             {reasons.map((reason, i) => {
-              const Icon = iconMap[reason.icon] ?? BadgeCheck
+              const Icon = icon(reason.icon)
               return (
                 <Reveal as="li" key={reason.title} delay={(i % 2) * 0.08}>
                   <div className="group card card-hover h-full">

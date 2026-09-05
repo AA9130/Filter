@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 import FloatingActions from '@/components/layout/FloatingActions'
 import MobileCallBar from '@/components/layout/MobileCallBar'
 import { site } from '@/lib/site'
+import { getBusiness, getServices, getEmirates } from '@/lib/content'
 import { buildMetadata, localBusinessJsonLd } from '@/lib/seo'
 
 const jakarta = Plus_Jakarta_Sans({
@@ -14,36 +15,40 @@ const jakarta = Plus_Jakarta_Sans({
   variable: '--font-plus-jakarta',
 })
 
-export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
-  ...buildMetadata({
-    title: `Water Filter Installation & Service UAE | ${site.name}`,
-    description: site.description,
-    path: '/',
-  }),
-  title: {
-    default: `Water Filter Installation, Repair & AMC Across the UAE | ${site.name}`,
-    template: `%s | ${site.name}`,
-  },
-  applicationName: site.name,
-  authors: [{ name: site.legalName }],
-  creator: site.legalName,
-  publisher: site.legalName,
-  category: 'Home Services',
-  formatDetection: { telephone: true, address: true, email: true },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
-  },
-  icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
-    apple: [{ url: '/favicon.svg' }],
-  },
-  other: {
-    'geo.region': 'AE',
-    'geo.placename': 'Dubai, United Arab Emirates',
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const business = await getBusiness()
+
+  return {
+    metadataBase: new URL(site.url),
+    ...buildMetadata({
+      title: `Water Filter Installation & Service UAE | ${business.name}`,
+      description: business.description,
+      path: '/',
+    }),
+    title: {
+      default: `Water Filter Installation, Repair & AMC Across the UAE | ${business.name}`,
+      template: `%s | ${business.name}`,
+    },
+    applicationName: business.name,
+    authors: [{ name: business.legalName }],
+    creator: business.legalName,
+    publisher: business.legalName,
+    category: 'Home Services',
+    formatDetection: { telephone: true, address: true, email: true },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+    },
+    icons: {
+      icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+      apple: [{ url: '/favicon.svg' }],
+    },
+    other: {
+      'geo.region': 'AE',
+      'geo.placename': `${business.address.city}, ${business.address.countryName}`,
+    },
+  }
 }
 
 export const viewport: Viewport = {
@@ -52,14 +57,20 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // Read once here and pass down — components never reach into the content layer
+  const [business, services, emirates] = await Promise.all([
+    getBusiness(),
+    getServices(),
+    getEmirates(),
+  ])
+
   return (
     <html lang="en-AE" className={jakarta.variable}>
       <body className="font-sans">
-        {/* Local business structured data — drives Google local rich results */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd(business)) }}
         />
 
         <a
@@ -71,7 +82,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <Header />
         <main id="main">{children}</main>
-        <Footer />
+        <Footer
+          business={business}
+          services={services.map(({ slug, title }) => ({ slug, title }))}
+          emirates={emirates.map(({ name }) => ({ name }))}
+        />
 
         <FloatingActions />
         <MobileCallBar />

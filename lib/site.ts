@@ -15,14 +15,14 @@
  * =============================================================================
  */
 
-/** [INSERT_PHONE_NUMBER] — international format, digits only (no +, no spaces). */
-const PHONE_NUMBER_RAW = process.env.NEXT_PUBLIC_PHONE_NUMBER || '971500000000'
+/** Business phone — international format, digits only (no +, no spaces). */
+const PHONE_NUMBER_RAW = process.env.NEXT_PUBLIC_PHONE_NUMBER || '971569712464'
 
-/** [INSERT_WHATSAPP_NUMBER] — international format, digits only (no +, no spaces). */
-const WHATSAPP_NUMBER_RAW = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '971500000000'
+/** WhatsApp — international format, digits only. Same line as the phone by default. */
+const WHATSAPP_NUMBER_RAW = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '971569712464'
 
 /** How the number is printed on screen. */
-const PHONE_DISPLAY = process.env.NEXT_PUBLIC_PHONE_DISPLAY || '+971 50 000 0000'
+const PHONE_DISPLAY = process.env.NEXT_PUBLIC_PHONE_DISPLAY || '+971 56 971 2464'
 
 const EMAIL = process.env.NEXT_PUBLIC_EMAIL || 'info@aquapureuae.ae'
 
@@ -41,14 +41,13 @@ export function whatsappLink(message: string = WHATSAPP_DEFAULT_MESSAGE): string
 }
 
 export const site = {
+  /** Kept here (not in content/) because it is deployment configuration, not
+   *  editorial copy. Business facts — address, hours, stats, social — live in
+   *  content/business.json so the owner can change them without a developer. */
   name: 'AquaPure UAE',
-  legalName: 'AquaPure Water Filtration Services L.L.C.',
-  tagline: 'Pure Water, Healthy Life',
-  description:
-    'UAE-wide water filter installation, RO purifier servicing, filter replacement, repairs and Annual Maintenance Contracts. Certified technicians, 24-hour emergency support, same-day service across all 7 Emirates.',
+
   url: SITE_URL,
 
-  // --- Contact ---------------------------------------------------------------
   phone: {
     raw: PHONE_NUMBER_RAW,
     display: PHONE_DISPLAY,
@@ -56,41 +55,10 @@ export const site = {
   },
   whatsapp: {
     raw: WHATSAPP_NUMBER_RAW,
-    display: PHONE_DISPLAY,
     href: whatsappLink(),
   },
   email: EMAIL,
   emailHref: `mailto:${EMAIL}`,
-
-  address: {
-    street: 'Al Quoz Industrial Area 3',
-    city: 'Dubai',
-    region: 'Dubai',
-    country: 'AE',
-    countryName: 'United Arab Emirates',
-    postalCode: '00000',
-  },
-
-  hours: [
-    { days: 'Saturday – Thursday', time: '8:00 AM – 9:00 PM' },
-    { days: 'Friday', time: '2:00 PM – 9:00 PM' },
-    { days: 'Emergency call-outs', time: '24 hours, 7 days a week' },
-  ],
-
-  social: {
-    facebook: 'https://facebook.com/',
-    instagram: 'https://instagram.com/',
-    linkedin: 'https://linkedin.com/',
-    youtube: 'https://youtube.com/',
-  },
-
-  // --- Proof ----------------------------------------------------------------
-  stats: {
-    customers: '12,000+',
-    emirates: '7',
-    years: '15',
-    rating: '4.9',
-  },
 } as const
 
 export const navLinks = [

@@ -1,54 +1,38 @@
 import type { Metadata } from 'next'
-import { Droplets, Gauge, ThermometerSun, Building2 } from 'lucide-react'
+
 import PageHero from '@/components/sections/PageHero'
 import Products from '@/components/sections/Products'
 import TrustBar from '@/components/sections/TrustBar'
 import AmcPlans from '@/components/sections/AmcPlans'
 import CtaBanner from '@/components/sections/CtaBanner'
 import Faq from '@/components/sections/Faq'
-import ContactSection from '@/components/sections/ContactSection'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
+import { icon } from '@/lib/icons'
+import {
+  getProducts, getAmcPlans, getFaqs, getTrustBadges, getBuyingGuide,
+} from '@/lib/content'
 import { buildMetadata, breadcrumbJsonLd } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'RO Systems, Water Softeners & Whole House Filters — Prices in AED',
+  title: 'RO Systems, Water Softeners & Whole House Filters — Supply & Install UAE',
   description:
-    'Buy and install RO water purifiers, whole-house filtration, automatic water softeners, UV sterilizers and genuine filter cartridges in the UAE. Prices from AED 690, professional installation included.',
+    'RO water purifiers, whole-house filtration, automatic water softeners, UV sterilizers and genuine filter cartridges supplied and installed across the UAE. Free water test and a fixed written quotation.',
   path: '/products',
   keywords: [
-    'RO system price Dubai',
-    'water softener price UAE',
+    'RO system Dubai',
+    'water softener UAE',
     'whole house water filter Abu Dhabi',
     'UV water sterilizer Dubai',
     'water filter cartridge UAE',
   ],
 })
 
-const buyingGuide = [
-  {
-    icon: Droplets,
-    title: 'High TDS (above 300 ppm)',
-    body: 'Reverse osmosis is the only practical fix. Choose a 6 or 7-stage RO with a mineral cartridge so the water still tastes good after purification.',
-  },
-  {
-    icon: Gauge,
-    title: 'Hard water & limescale',
-    body: 'White marks on taps and glass, scale in the kettle, dry skin after showering — that is hardness. An automatic softener treats the whole property.',
-  },
-  {
-    icon: ThermometerSun,
-    title: 'Chlorine smell or bad taste',
-    body: 'A whole-house carbon stage removes chlorine, taste and odour at the point of entry, so every shower and tap in the building benefits.',
-  },
-  {
-    icon: Building2,
-    title: 'Roof tank or tanker supply',
-    body: 'Where water sits in storage, add UV sterilisation. It neutralises bacteria and viruses without chemicals and needs only an annual lamp change.',
-  },
-]
+export default async function ProductsPage() {
+  const [products, plans, faqs, badges, buyingGuide] = await Promise.all([
+    getProducts(), getAmcPlans(), getFaqs(), getTrustBadges(), getBuyingGuide(),
+  ])
 
-export default function ProductsPage() {
   return (
     <>
       <script
@@ -70,8 +54,8 @@ export default function ProductsPage() {
         subtitle="Domestic and commercial equipment we install and service every day — with honest AED pricing that already includes professional installation."
       />
 
-      <TrustBar />
-      <Products />
+      <TrustBar badges={badges} />
+      <Products products={products} grouped heading="Drinking water and whole-villa systems we supply, fit and service" />
 
       {/* Buying guide */}
       <section className="section bg-slate-50">
@@ -84,7 +68,7 @@ export default function ProductsPage() {
 
           <ul className="mt-14 grid gap-5 sm:grid-cols-2">
             {buyingGuide.map((item, i) => {
-              const Icon = item.icon
+              const Icon = icon(item.icon)
               return (
                 <Reveal as="li" key={item.title} delay={(i % 2) * 0.08}>
                   <div className="card card-hover flex h-full gap-4">
@@ -107,9 +91,8 @@ export default function ProductsPage() {
         title="Get a fixed quote for your property today"
         subtitle="Send us a photo of your existing setup on WhatsApp and we will tell you what fits, what it costs and when we can install it."
       />
-      <AmcPlans />
-      <Faq />
-      <ContactSection />
+      <AmcPlans plans={plans} />
+      <Faq faqs={faqs} />
     </>
   )
 }

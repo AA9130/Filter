@@ -12,14 +12,21 @@ import { Quote, ChevronLeft, ChevronRight, MapPin, Star } from 'lucide-react'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
 import StarRating from '@/components/ui/StarRating'
-import { testimonials } from '@/lib/content'
-import { site } from '@/lib/site'
+import type { Testimonial } from '@/lib/content'
 import { springMomentum, springDefault, project, GESTURE_THRESHOLD_PX } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 const AUTOPLAY_MS = 7000
 
-export default function Testimonials() {
+export default function Testimonials({
+  testimonials,
+  rating,
+  reviewCount,
+}: {
+  testimonials: Testimonial[]
+  rating: string
+  reviewCount: string
+}) {
   const trackRef = useRef<HTMLUListElement>(null)
   const [index, setIndex] = useState(0)
   const [perView, setPerView] = useState(1)
@@ -108,7 +115,7 @@ export default function Testimonials() {
           <SectionHeading
             align="left"
             eyebrow="Testimonials"
-            title="Rated 4.9/5 by UAE households and businesses"
+            title={`Rated ${rating}/5 by UAE households and businesses`}
             subtitle="Real feedback from customers across the Emirates — apartments, villas, offices and commercial kitchens."
             className="lg:max-w-2xl"
           />
@@ -117,8 +124,8 @@ export default function Testimonials() {
             <div className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-soft">
               <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
               <div className="leading-tight">
-                <p className="text-sm font-extrabold text-ink">{site.stats.rating} / 5</p>
-                <p className="text-[0.6875rem] text-ink-muted">1,284 reviews</p>
+                <p className="text-sm font-extrabold text-ink">{rating} / 5</p>
+                <p className="text-[0.6875rem] text-ink-muted">{reviewCount} reviews</p>
               </div>
             </div>
             <div className="hidden gap-2 sm:flex">

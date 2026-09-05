@@ -1,0 +1,9 @@
+[
+  { "name": "Dubai", "slug": "dubai", "areas": ["Dubai Marina", "JVC", "Business Bay", "Deira", "Al Barsha", "Mirdif", "Jumeirah"], "response": "Same-day" },
+  { "name": "Abu Dhabi", "slug": "abu-dhabi", "areas": ["Khalifa City", "Al Reem Island", "Mussafah", "Yas Island", "Al Bateen", "Al Raha"], "response": "Same-day" },
+  { "name": "Sharjah", "slug": "sharjah", "areas": ["Al Nahda", "Muweilah", "Al Majaz", "Al Khan", "University City", "Al Qasimia"], "response": "Same-day" },
+  { "name": "Ajman", "slug": "ajman", "areas": ["Al Nuaimiya", "Ajman Corniche", "Al Rashidiya", "Al Jurf", "Emirates City"], "response": "Within 24 hrs" },
+  { "name": "Ras Al Khaimah", "slug": "ras-al-khaimah", "areas": ["Al Nakheel", "Al Hamra", "Al Dhait", "Mina Al Arab", "Al Rams"], "response": "Within 24 hrs" },
+  { "name": "Fujairah", "slug": "fujairah", "areas": ["Fujairah City", "Dibba", "Al Faseel", "Sakamkam", "Merashid"], "response": "Within 48 hrs" },
+  { "name": "Umm Al Quwain", "slug": "umm-al-quwain", "areas": ["Al Salamah", "Al Raas", "Al Humrah", "UAQ Marina", "Al Riqqah"], "response": "Within 24 hrs" }
+]

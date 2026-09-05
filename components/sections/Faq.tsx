@@ -5,12 +5,12 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Plus, MessageCircle } from 'lucide-react'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
-import { faqs } from '@/lib/content'
+import type { Faq as FaqItem } from '@/lib/content'
 import { whatsappLink } from '@/lib/site'
 import { springDefault, springSnappy } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
-export default function Faq() {
+export default function Faq({ faqs }: { faqs: FaqItem[] }) {
   const [open, setOpen] = useState<number | null>(0)
 
   return (

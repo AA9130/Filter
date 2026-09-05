@@ -1,8 +1,8 @@
 import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
-import { processSteps } from '@/lib/content'
+import type { ProcessStep } from '@/lib/content'
 
-export default function Process() {
+export default function Process({ steps }: { steps: ProcessStep[] }) {
   return (
     <section className="section bg-white">
       <div className="container-page">
@@ -19,7 +19,7 @@ export default function Process() {
             className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-brand-100 via-brand-300 to-brand-100 lg:block"
           />
 
-          {processSteps.map((step, i) => (
+          {steps.map((step, i) => (
             <Reveal as="li" key={step.step} delay={i * 0.1} className="relative">
               <div className="flex flex-col items-start">
                 <span className="relative z-10 grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-brand-700 to-brand-500 text-lg font-extrabold text-white shadow-lift">

@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, CheckCircle2, AlertCircle, Loader2, MessageCircle } from 'lucide-react'
-import { services, emirates } from '@/lib/content'
+import type { Service, Emirate } from '@/lib/content'
 import { whatsappLink } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
@@ -57,10 +57,19 @@ function validate(values: FormState): Errors {
   return errors
 }
 
-export default function ContactForm() {
+export default function ContactForm({
+  services,
+  emirates,
+}: {
+  services: Pick<Service, 'slug' | 'title'>[]
+  emirates: Pick<Emirate, 'name'>[]
+}) {
   const [values, setValues] = useState<FormState>(EMPTY)
   const [errors, setErrors] = useState<Errors>({})
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  // Honeypot: hidden from people, irresistible to bots
+  const [company, setCompany] = useState('')
+  const startedAt = useRef(Date.now())
 
   const update = (field: keyof FormState) => (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
@@ -88,7 +97,7 @@ export default function ContactForm() {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, company, startedAt: startedAt.current }),
       })
 
       if (!response.ok) throw new Error(`Request failed with ${response.status}`)
@@ -149,13 +158,28 @@ export default function ContactForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8"
+      className="relative rounded-3xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8"
     >
       <h3 className="text-xl font-bold sm:text-2xl">Request a free water test or quote</h3>
       <p className="mt-2 text-sm leading-relaxed text-ink-soft">
         Fill this in and we will call you back with availability and a fixed price in AED. No
         call-out charge, no obligation.
       </p>
+
+      {/* Not display:none — some bots skip hidden inputs. Off-screen, untabbable
+          and announced to nobody. */}
+      <div aria-hidden="true" className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden">
+        <label htmlFor="field-company">Company (leave this empty)</label>
+        <input
+          id="field-company"
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={company}
+          onChange={(event) => setCompany(event.target.value)}
+        />
+      </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <div className="sm:col-span-1">

@@ -13,17 +13,27 @@ import {
 } from 'lucide-react'
 import { LogoMark } from '@/components/ui/Logo'
 import { site, navLinks, whatsappLink } from '@/lib/site'
-import { services, emirates } from '@/lib/content'
+import type { Business, Service, Emirate } from '@/lib/content'
 
-const socials = [
-  { href: site.social.facebook, icon: Facebook, label: 'Facebook' },
-  { href: site.social.instagram, icon: Instagram, label: 'Instagram' },
-  { href: site.social.linkedin, icon: Linkedin, label: 'LinkedIn' },
-  { href: site.social.youtube, icon: Youtube, label: 'YouTube' },
-]
+const socialIcons = { facebook: Facebook, instagram: Instagram, linkedin: Linkedin, youtube: Youtube }
 
-export default function Footer() {
+export default function Footer({
+  business,
+  services,
+  emirates,
+}: {
+  business: Business
+  services: Pick<Service, 'slug' | 'title'>[]
+  emirates: Pick<Emirate, 'name'>[]
+}) {
   const year = new Date().getFullYear()
+  const socials = Object.entries(business.social)
+    .filter(([key]) => key in socialIcons)
+    .map(([key, href]) => ({
+      href,
+      label: key.charAt(0).toUpperCase() + key.slice(1),
+      icon: socialIcons[key as keyof typeof socialIcons],
+    }))
 
   return (
     <footer className="relative overflow-hidden bg-brand-950 text-brand-100">
@@ -54,7 +64,7 @@ export default function Footer() {
             </Link>
 
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-brand-200/85">
-              {site.tagline} — installation, maintenance, repair and Annual Maintenance Contracts
+              {business.tagline} — installation, maintenance, repair and Annual Maintenance Contracts
               for homes and businesses across all seven Emirates. Certified technicians, genuine
               parts, 24-hour emergency support.
             </p>
@@ -96,7 +106,7 @@ export default function Footer() {
                   <MapPin className="h-4 w-4" />
                 </span>
                 <span className="pt-2">
-                  {site.address.street}, {site.address.city}, {site.address.countryName}
+                  {business.address.street}, {business.address.city}, {business.address.countryName}
                 </span>
               </p>
             </div>
@@ -153,7 +163,7 @@ export default function Footer() {
               {services.slice(0, 8).map((service) => (
                 <li key={service.slug}>
                   <Link
-                    href={`/services#${service.slug}`}
+                    href={`/services/${service.slug}`}
                     className="text-brand-200 transition-colors hover:text-aqua-300"
                   >
                     {service.title}
@@ -182,7 +192,7 @@ export default function Footer() {
               Business Hours
             </h3>
             <ul className="mt-4 space-y-2 text-sm text-brand-200">
-              {site.hours.map((h) => (
+              {business.hours.map((h) => (
                 <li key={h.days} className="flex flex-col">
                   <span className="font-semibold text-white/90">{h.days}</span>
                   <span className="text-brand-300">{h.time}</span>
@@ -209,7 +219,7 @@ export default function Footer() {
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-brand-300 sm:flex-row">
           <p>
-            © {year} {site.legalName}. All rights reserved.
+            © {year} {business.legalName}. All rights reserved.
           </p>
           <p className="flex items-center gap-1.5">
             Made with <span className="text-base leading-none text-red-400">❤</span> in the UAE

@@ -2,13 +2,16 @@ import Link from 'next/link'
 import { ArrowRight, Phone } from 'lucide-react'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
-import { services } from '@/lib/content'
+import { icon } from '@/lib/icons'
+import type { Service } from '@/lib/content'
 import { site, whatsappLink } from '@/lib/site'
 
 export default function ServicesGrid({
+  services,
   limit,
   showAllLink = true,
 }: {
+  services: Service[]
   limit?: number
   showAllLink?: boolean
 }) {
@@ -25,7 +28,7 @@ export default function ServicesGrid({
 
         <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((service, i) => {
-            const Icon = service.icon
+            const Icon = icon(service.icon)
             return (
               <Reveal
                 as="li"
@@ -34,9 +37,8 @@ export default function ServicesGrid({
                 className="h-full"
               >
                 <Link
-                  href={`/services#${service.slug}`}
-                  id={service.slug}
-                  className="group card card-hover flex h-full scroll-mt-28 flex-col"
+                  href={`/services/${service.slug}`}
+                  className="group card card-hover flex h-full flex-col"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <span className="relative grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-brand-50 to-aqua-100 text-brand-700 transition-all duration-300 group-hover:from-brand-600 group-hover:to-aqua-500 group-hover:text-white group-hover:shadow-lg">

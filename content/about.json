@@ -1,0 +1,20 @@
+{
+  "story": [
+    "AquaPure Water Filtration Services L.L.C. started in 2010 with two technicians, one van and a simple observation: plenty of companies were happy to sell UAE residents a water filter, and almost none of them came back to service it.",
+    "Fifteen years later that is still the whole business model. We install systems properly, we keep a record of every cartridge in every property we look after, and we call our customers before the filters are due rather than waiting for the water to taste bad.",
+    "Today mobile teams operate out of Dubai, Abu Dhabi and Sharjah with scheduled routes covering the northern Emirates — more than 12,000 households and businesses on our books, most of them from referrals."
+  ],
+  "values": [
+    { "icon": "target", "title": "Honest recommendations", "body": "We test your water and recommend what the reading justifies — nothing more. If your existing system just needs a cartridge, we will say so." },
+    { "icon": "heart-handshake", "title": "Aftercare that continues", "body": "The install is the beginning, not the end. We track your service dates and contact you before the filters are due, for as long as you stay with us." },
+    { "icon": "users", "title": "Technicians, not salespeople", "body": "The person at your door is a trained plumber and filtration technician who can diagnose and fix the problem on the spot." },
+    { "icon": "award", "title": "Genuine parts only", "body": "Original cartridges, membranes and pumps sourced through authorised channels — never grey-market copies that fail within months." }
+  ],
+  "milestones": [
+    { "year": "2010", "title": "Founded in Dubai", "body": "Started as a two-technician operation servicing apartments in Deira and Bur Dubai." },
+    { "year": "2014", "title": "Abu Dhabi branch", "body": "Opened a second base to cover the capital and Al Ain with same-day response." },
+    { "year": "2018", "title": "Commercial division", "body": "Began designing and maintaining RO plants for restaurants, clinics and labour accommodation." },
+    { "year": "2021", "title": "All 7 Emirates", "body": "Completed northern Emirates coverage with scheduled routes to RAK, Fujairah and UAQ." },
+    { "year": "Today", "title": "12,000+ customers", "body": "Over 12,000 households and businesses on our books, with a 4.9/5 average service rating." }
+  ]
+}

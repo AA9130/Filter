@@ -1,0 +1,65 @@
+{
+  "name": "AquaPure UAE",
+  "legalName": "AquaPure Water Filtration Services L.L.C.",
+  "tagline": "Pure Water, Healthy Life",
+  "description": "UAE-wide water filter installation, RO purifier servicing, filter replacement, repairs and Annual Maintenance Contracts. Certified technicians, 24-hour emergency support, same-day service across all 7 Emirates.",
+  "address": {
+    "street": "Al Quoz Industrial Area 3",
+    "city": "Dubai",
+    "region": "Dubai",
+    "country": "AE",
+    "countryName": "United Arab Emirates",
+    "postalCode": "00000",
+    "latitude": 25.1193,
+    "longitude": 55.2277,
+    "mapQuery": "Al Quoz Industrial Area 3, Dubai, UAE"
+  },
+  "hours": [
+    {
+      "days": "Saturday – Thursday",
+      "time": "8:00 AM – 9:00 PM"
+    },
+    {
+      "days": "Friday",
+      "time": "2:00 PM – 9:00 PM"
+    },
+    {
+      "days": "Emergency call-outs",
+      "time": "24 hours, 7 days a week"
+    }
+  ],
+  "openingHoursSpec": [
+    {
+      "days": [
+        "Saturday",
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday"
+      ],
+      "opens": "08:00",
+      "closes": "21:00"
+    },
+    {
+      "days": [
+        "Friday"
+      ],
+      "opens": "14:00",
+      "closes": "21:00"
+    }
+  ],
+  "social": {
+    "facebook": "https://facebook.com/",
+    "instagram": "https://instagram.com/",
+    "linkedin": "https://linkedin.com/",
+    "youtube": "https://youtube.com/"
+  },
+  "stats": {
+    "customers": "12,000+",
+    "emirates": "7",
+    "years": "15",
+    "rating": "4.9",
+    "reviewCount": "1,284"
+  }
+}

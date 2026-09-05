@@ -8,7 +8,7 @@ import TrustBar from '@/components/sections/TrustBar'
 import Reveal from '@/components/ui/Reveal'
 import { site, whatsappLink } from '@/lib/site'
 import { buildMetadata, breadcrumbJsonLd, faqJsonLd } from '@/lib/seo'
-import { faqs } from '@/lib/content'
+import { getFaqs, getBusiness, getServices, getEmirates, getTrustBadges } from '@/lib/content'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Contact Us — Water Filter Service Across the UAE, 24 Hours',
@@ -52,7 +52,11 @@ const quickActions = [
   },
 ]
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const [faqs, business, services, emirates, badges] = await Promise.all([
+    getFaqs(), getBusiness(), getServices(), getEmirates(), getTrustBadges(),
+  ])
+
   return (
     <>
       <script
@@ -114,10 +118,14 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <ContactSection />
-      <TrustBar />
-      <ServiceAreas />
-      <Faq />
+      <ContactSection
+        business={business}
+        services={services.map(({ slug, title }) => ({ slug, title }))}
+        emirates={emirates.map(({ name }) => ({ name }))}
+      />
+      <TrustBar badges={badges} />
+      <ServiceAreas emirates={emirates} />
+      <Faq faqs={faqs} />
     </>
   )
 }

@@ -3,8 +3,17 @@ import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
 import ContactForm from './ContactForm'
 import { site, whatsappLink } from '@/lib/site'
+import type { Business, Service, Emirate } from '@/lib/content'
 
-export default function ContactSection() {
+export default function ContactSection({
+  business,
+  services,
+  emirates,
+}: {
+  business: Business
+  services: Pick<Service, 'slug' | 'title'>[]
+  emirates: Pick<Emirate, 'name'>[]
+}) {
   return (
     <section id="contact" className="section relative overflow-hidden bg-white">
       <div
@@ -70,7 +79,7 @@ export default function ContactSection() {
                     <dd>
                       <p className="font-bold text-white">Business hours</p>
                       <ul className="mt-1.5 space-y-1 text-brand-200">
-                        {site.hours.map((h) => (
+                        {business.hours.map((h) => (
                           <li key={h.days}>
                             <span className="text-white/85">{h.days}:</span> {h.time}
                           </li>
@@ -90,7 +99,7 @@ export default function ContactSection() {
                       <p className="font-bold text-white">Service area</p>
                       <p className="mt-1.5 text-brand-200">
                         All 7 Emirates — Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah
-                        and Umm Al Quwain. Office: {site.address.street}, {site.address.city}.
+                        and Umm Al Quwain. Office: {business.address.street}, {business.address.city}.
                       </p>
                     </dd>
                   </div>
@@ -125,7 +134,7 @@ export default function ContactSection() {
               <div className="mt-6 overflow-hidden rounded-3xl border border-slate-200 shadow-soft">
                 <iframe
                   title="AquaPure UAE service area map"
-                  src="https://www.google.com/maps?q=Al%20Quoz%20Industrial%20Area%203%2C%20Dubai%2C%20UAE&output=embed"
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(business.address.mapQuery)}&output=embed`}
                   width="100%"
                   height="280"
                   loading="lazy"
@@ -139,7 +148,7 @@ export default function ContactSection() {
           {/* Form */}
           <div id="quote" className="scroll-mt-28 lg:col-span-7">
             <Reveal from="right">
-              <ContactForm />
+              <ContactForm services={services} emirates={emirates} />
             </Reveal>
           </div>
         </div>

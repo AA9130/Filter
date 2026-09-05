@@ -2,11 +2,11 @@ import Photo from '@/components/ui/Photo'
 import { MapPin, Truck, Phone, MessageCircle } from 'lucide-react'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
-import { emirates } from '@/lib/content'
+import type { Emirate } from '@/lib/content'
 import { site, whatsappLink } from '@/lib/site'
 import { images } from '@/lib/images'
 
-export default function ServiceAreas() {
+export default function ServiceAreas({ emirates }: { emirates: Emirate[] }) {
   return (
     <section id="service-areas" className="relative overflow-hidden bg-brand-950 py-16 sm:py-20 lg:py-28">
       {/* Skyline backdrop */}

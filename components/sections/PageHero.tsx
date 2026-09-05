@@ -15,7 +15,7 @@ export default function PageHero({
   breadcrumb: string
 }) {
   return (
-    <section className="relative overflow-hidden bg-hero-radial pb-16 pt-12 sm:pb-20 sm:pt-16">
+    <section className="relative overflow-hidden bg-hero-radial pb-0 pt-12 sm:pt-16">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-grid-light bg-grid opacity-[0.07]"

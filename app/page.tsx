@@ -10,30 +10,48 @@ import Testimonials from '@/components/sections/Testimonials'
 import Faq from '@/components/sections/Faq'
 import CtaBanner from '@/components/sections/CtaBanner'
 import ContactSection from '@/components/sections/ContactSection'
-import { faqs } from '@/lib/content'
+import {
+  getBusiness, getServices, getProducts, getAmcPlans, getEmirates,
+  getTestimonials, getFaqs, getReasons, getProcessSteps, getTrustBadges,
+} from '@/lib/content'
 import { faqJsonLd } from '@/lib/seo'
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [
+    business, services, products, plans, emirates,
+    testimonials, faqs, reasons, steps, badges,
+  ] = await Promise.all([
+    getBusiness(), getServices(), getProducts(), getAmcPlans(), getEmirates(),
+    getTestimonials(), getFaqs(), getReasons(), getProcessSteps(), getTrustBadges(),
+  ])
+
   return (
     <>
-      {/* FAQ rich-result markup for the questions rendered below */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(faqs)) }}
       />
 
-      <Hero />
-      <TrustBar />
-      <ServicesGrid limit={6} />
-      <WhyChooseUs />
+      <Hero rating={business.stats.rating} customers={business.stats.customers} />
+      <TrustBar badges={badges} />
+      <ServicesGrid services={services} limit={6} />
+      <WhyChooseUs reasons={reasons} stats={business.stats} />
       <CtaBanner />
-      <Process />
-      <ServiceAreas />
-      <Products limit={3} />
-      <AmcPlans />
-      <Testimonials />
-      <Faq />
-      <ContactSection />
+      <Process steps={steps} />
+      <ServiceAreas emirates={emirates} />
+      <Products products={products} limit={3} />
+      <AmcPlans plans={plans} />
+      <Testimonials
+        testimonials={testimonials}
+        rating={business.stats.rating}
+        reviewCount={business.stats.reviewCount}
+      />
+      <Faq faqs={faqs} />
+      <ContactSection
+        business={business}
+        services={services.map(({ slug, title }) => ({ slug, title }))}
+        emirates={emirates.map(({ name }) => ({ name }))}
+      />
     </>
   )
 }

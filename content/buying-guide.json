@@ -1,0 +1,6 @@
+[
+  { "icon": "droplets", "title": "High TDS (above 300 ppm)", "body": "Reverse osmosis is the only practical fix. Choose a 6 or 7-stage RO with a mineral cartridge so the water still tastes good after purification." },
+  { "icon": "gauge", "title": "Hard water & limescale", "body": "White marks on taps and glass, scale in the kettle, dry skin after showering — that is hardness. An automatic softener treats the whole property." },
+  { "icon": "thermometer-sun", "title": "Chlorine smell or bad taste", "body": "A whole-house carbon stage removes chlorine, taste and odour at the point of entry, so every shower and tap in the building benefits." },
+  { "icon": "building-2", "title": "Roof tank or tanker supply", "body": "Where water sits in storage, add UV sterilisation. It neutralises bacteria and viruses without chemicals and needs only an annual lamp change." }
+]

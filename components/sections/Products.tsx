@@ -2,23 +2,59 @@ import Photo from '@/components/ui/Photo'
 import { Check, ArrowRight } from 'lucide-react'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
-import { products } from '@/lib/content'
+import type { Product } from '@/lib/content'
 import { whatsappLink } from '@/lib/site'
 
-export default function Products({ limit }: { limit?: number }) {
+export default function Products({
+  products,
+  limit,
+  /** Split the grid into one block per category (Drinking / Villa). */
+  grouped = false,
+  heading = 'Systems sized for UAE water — supplied, fitted and serviced',
+}: {
+  products: Product[]
+  limit?: number
+  grouped?: boolean
+  heading?: string
+}) {
   const list = limit ? products.slice(0, limit) : products
+
+  // Preserve the order categories first appear in the content file, so the
+  // owner controls the running order by reordering products.json.
+  const groups = grouped
+    ? list.reduce<{ category: string; items: Product[] }[]>((acc, product) => {
+        const existing = acc.find((g) => g.category === product.category)
+        if (existing) existing.items.push(product)
+        else acc.push({ category: product.category, items: [product] })
+        return acc
+      }, [])
+    : [{ category: '', items: list }]
 
   return (
     <section id="products" className="section bg-white">
       <div className="container-page">
         <SectionHeading
           eyebrow="Products & Systems"
-          title="Systems sized for UAE water — supplied, fitted and serviced"
-          subtitle="Every price includes professional installation, a leak test and a walkthrough of how to use and maintain your system."
+          title={heading}
+          subtitle="Supplied, fitted and serviced by one team — every installation includes a leak test and a walkthrough of how to use and maintain your system."
         />
 
-        <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {list.map((product, i) => (
+        {groups.map((group, groupIndex) => (
+          <div key={group.category || 'all'} className={groupIndex === 0 ? 'mt-14' : 'mt-16'}>
+            {grouped && (
+              <Reveal>
+                <div className="mb-8 flex items-center gap-4">
+                  <h3 className="text-xl font-bold sm:text-2xl">{group.category}</h3>
+                  <span className="h-px flex-1 bg-gradient-to-r from-brand-200 to-transparent" />
+                  <span className="text-sm text-ink-muted">
+                    {group.items.length} system{group.items.length === 1 ? '' : 's'}
+                  </span>
+                </div>
+              </Reveal>
+            )}
+
+            <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {group.items.map((product, i) => (
             <Reveal as="li" key={product.slug} delay={(i % 3) * 0.08} className="h-full">
               <article
                 id={product.slug}
@@ -34,9 +70,12 @@ export default function Products({ limit }: { limit?: number }) {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute left-3 top-3 rounded-lg bg-white/95 px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-wide text-brand-700 backdrop-blur">
-                    {product.category}
-                  </span>
+                  {/* Redundant once the grid is split by category */}
+                  {!grouped && (
+                    <span className="absolute left-3 top-3 rounded-lg bg-white/95 px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-wide text-brand-700 backdrop-blur">
+                      {product.category}
+                    </span>
+                  )}
                   {product.badge && (
                     <span className="absolute right-3 top-3 rounded-lg bg-cta-500 px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-wide text-white shadow">
                       {product.badge}
@@ -46,7 +85,6 @@ export default function Products({ limit }: { limit?: number }) {
 
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="text-base font-bold leading-snug">{product.name}</h3>
-                  <p className="mt-1.5 text-lg font-extrabold text-brand-700">{product.price}</p>
                   <p className="mt-2.5 text-sm leading-relaxed text-ink-soft">{product.blurb}</p>
 
                   <ul className="mt-4 flex-1 space-y-2">
@@ -60,7 +98,7 @@ export default function Products({ limit }: { limit?: number }) {
 
                   <a
                     href={whatsappLink(
-                      `Hi, I would like a quote for the ${product.name} (${product.price}). My location is:`,
+                      `Hi, I would like a quote for the ${product.name}. My location is:`,
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -72,14 +110,16 @@ export default function Products({ limit }: { limit?: number }) {
                   </a>
                 </div>
               </article>
-            </Reveal>
-          ))}
-        </ul>
+              </Reveal>
+            ))}
+            </ul>
+          </div>
+        ))}
 
         <Reveal delay={0.1}>
           <p className="mt-10 text-center text-sm text-ink-muted">
-            All prices in UAE Dirhams (AED), inclusive of standard installation. Final pricing
-            confirmed after the free on-site water test.
+            Every property is different, so we quote after a free on-site water test — a fixed
+            written price in AED, with installation included and no call-out fee.
           </p>
         </Reveal>
       </div>

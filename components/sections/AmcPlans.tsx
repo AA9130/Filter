@@ -1,11 +1,11 @@
 import { Check, X, Phone, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
-import { amcPlans } from '@/lib/content'
+import type { AmcPlan } from '@/lib/content'
 import { site, whatsappLink } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
-export default function AmcPlans() {
+export default function AmcPlans({ plans }: { plans: AmcPlan[] }) {
   return (
     <section id="amc-plans" className="section relative overflow-hidden bg-slate-50">
       <div
@@ -16,12 +16,12 @@ export default function AmcPlans() {
       <div className="container-page relative">
         <SectionHeading
           eyebrow="AMC Plans"
-          title="Annual Maintenance Contracts from AED 349"
-          subtitle="Scheduled visits, genuine consumables, labour and priority response bundled into one predictable yearly fee — we contact you when a service is due."
+          title="Annual Maintenance Contracts"
+          subtitle="Scheduled visits, genuine consumables, labour and priority response bundled into one predictable yearly fee. Tell us what you run and we will quote the right tier — we contact you when a service is due."
         />
 
         <ul className="mt-14 grid items-start gap-6 lg:grid-cols-3">
-          {amcPlans.map((plan, i) => (
+          {plans.map((plan, i) => (
             <Reveal as="li" key={plan.name} delay={i * 0.1} className="h-full">
               <div
                 className={cn(
@@ -56,12 +56,10 @@ export default function AmcPlans() {
                   {plan.tagline}
                 </p>
 
-                <div className="mt-5 flex items-end gap-1.5 border-b border-slate-100 pb-6">
-                  <span className="text-sm font-bold text-ink-muted">AED</span>
-                  <span className="text-4xl font-extrabold leading-none tracking-tight text-ink">
-                    {plan.price}
-                  </span>
-                  <span className="text-sm font-medium text-ink-muted">{plan.period}</span>
+                <div className="mt-5 border-b border-slate-100 pb-6">
+                  <p className="text-sm font-semibold text-brand-700">
+                    Annual contract · quoted per property
+                  </p>
                 </div>
 
                 <ul className="mt-6 flex-1 space-y-3">
@@ -89,7 +87,7 @@ export default function AmcPlans() {
                 <div className="mt-7 space-y-2.5">
                   <a
                     href={whatsappLink(
-                      `Hi, I am interested in the ${plan.name} AMC plan (AED ${plan.price}/year). Please share details.`,
+                      `Hi, I am interested in the ${plan.name} AMC plan. Please share details.`,
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
