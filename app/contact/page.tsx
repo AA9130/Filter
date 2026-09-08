@@ -11,9 +11,9 @@ import { buildMetadata, breadcrumbJsonLd, faqJsonLd, jsonLdGraph } from '@/lib/s
 import { getFaqsByIds, getBusiness, getServices, getLocations, getCredentials } from '@/lib/content'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Contact AquaPure UAE — Book a Free Water Test',
+  title: 'Contact Us — Book a Free Water Test',
   description:
-    'Call or WhatsApp AquaPure UAE for water filter installation, servicing, filter replacement or emergency repair. Same-day slots usually available in Dubai, Abu Dhabi and Sharjah; 24-hour emergency line.',
+    'Call or WhatsApp for water filter installation, servicing, replacement or emergency repair. Same-day slots usually available; 24-hour emergency line.',
   path: '/contact',
 })
 

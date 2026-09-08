@@ -48,10 +48,13 @@ const SITE_URL = canonicalOrigin()
  *  build a URL for metadata, JSON-LD or the sitemap. */
 export function absoluteUrl(path = '/'): string {
   if (/^https?:\/\//i.test(path)) return path
-  const clean = `/${path.replace(/^\/+/, '')}`
-  // The homepage keeps its slash; every other path drops any trailing one, so
-  // /services and /services/ can never both appear as canonicals.
-  return clean === '/' ? `${SITE_URL}/` : `${SITE_URL}${clean.replace(/\/+$/, '')}`
+  const clean = `/${path.replace(/^\/+/, '')}`.replace(/\/+$/, '')
+  // The homepage resolves to the bare origin, which is exactly the form Next
+  // normalises `alternates.canonical` to. Matching it means the canonical tag,
+  // the JSON-LD `url`, the sitemap entry and every internal absolute URL are
+  // byte-identical — so there is no trailing-slash variant of any URL anywhere
+  // for a crawler to treat as a second page.
+  return `${SITE_URL}${clean}`
 }
 
 export const WHATSAPP_DEFAULT_MESSAGE =

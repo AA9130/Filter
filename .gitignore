@@ -33,3 +33,14 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Content pipeline drafts. Approved records ARE committed — the audit trail of
+# what was approved and by whom belongs in the repository history, which is
+# where it is useful a year later. Only in-flight drafts are ignored.
+/content/pipeline/*.draft.json
+
+# The knowledge export is generated (npm run knowledge:sync) and committed, so
+# a diff shows what actually changed when content moved. Nothing to ignore.
+
+# Visibility observations ARE committed — the value of the data is the trend.
+/content/visibility/report.json

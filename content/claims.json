@@ -152,7 +152,8 @@
       "source": "",
       "lastVerified": "",
       "allowedForPublication": false,
-      "reverifyAfterDays": 90
+      "reverifyAfterDays": 90,
+      "notes": "Must be read from the same public profile as `average_rating`, on the same date — a rating and a count from different sources or different days do not describe the same thing, and Google's review-snippet policy expects both to be verifiable."
     },
     {
       "id": "years_in_business",

@@ -12,7 +12,7 @@ import { buildMetadata, breadcrumbJsonLd, collectionJsonLd, jsonLdGraph } from '
 export const metadata: Metadata = buildMetadata({
   title: 'Water Filtration Guides for the UAE',
   description:
-    'Practical guides on water treatment in the UAE: RO vs UV, RO vs softener, tank vs tankless, filter replacement intervals, limescale, TDS, leaks and low pressure. Written by the technicians who fit and repair these systems.',
+    'Guides on water treatment in the UAE: RO vs UV, RO vs softener, tank vs tankless, replacement intervals, limescale, TDS, leaks and low pressure.',
   path: '/guides',
 })
 

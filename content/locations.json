@@ -6,7 +6,24 @@
     "responseTime": "Same-day",
     "responseNote": "Usually same-day when you call before early afternoon.",
     "image": "dubaiSkyline",
-    "areas": ["Dubai Marina", "JLT", "Jumeirah Village Circle", "Business Bay", "Downtown Dubai", "Deira", "Bur Dubai", "Al Barsha", "Al Quoz", "Mirdif", "Jumeirah", "Arabian Ranches", "Dubai Hills", "Silicon Oasis", "International City", "Discovery Gardens"],
+    "areas": [
+      "Dubai Marina",
+      "JLT",
+      "Jumeirah Village Circle",
+      "Business Bay",
+      "Downtown Dubai",
+      "Deira",
+      "Bur Dubai",
+      "Al Barsha",
+      "Al Quoz",
+      "Mirdif",
+      "Jumeirah",
+      "Arabian Ranches",
+      "Dubai Hills",
+      "Silicon Oasis",
+      "International City",
+      "Discovery Gardens"
+    ],
     "intro": "AquaPure installs, services and repairs water filtration systems across Dubai — from single under-sink RO units in Marina and JVC apartments to whole-villa systems in Mirdif, Al Barsha and the Ranches. Our base is in Al Quoz, which is why Dubai is the emirate where same-day attendance is most often possible.",
     "propertyMix": "Dubai's housing splits sharply for filtration purposes. High-rise apartments make up most of the stock in Marina, JLT, Business Bay, Downtown, JVC and Silicon Oasis; there you treat one outlet, because the incoming supply and the building's storage are not yours to touch. Villa and townhouse communities — Mirdif, Al Barsha, Jumeirah, Arabian Ranches, Dubai Hills — have their own incoming line, tanks and pump arrangement, which puts point-of-entry treatment on the table.",
     "supply": [
@@ -15,22 +32,65 @@
       "The older districts — parts of Deira, Bur Dubai, Al Quoz — have the oldest pipework in the emirate, and that is where we most often find sediment and rust staining rather than a dissolved-solids complaint."
     ],
     "commonRequests": [
-      { "title": "Under-sink RO in an apartment", "body": "The default Dubai job. A compact or tankless RO inside the sink cupboard, a dedicated drinking faucet, and a booster pump where the tower's pressure at your floor needs one — common on higher floors and in older buildings." },
-      { "title": "Whole-villa filtration and softening", "body": "A sediment stage at the point of entry, carbon for chlorine, taste and odour, and a softener where limescale on glass and fittings is the actual complaint. Configured after a water test rather than sold as a package." },
-      { "title": "Filter and membrane replacement", "body": "Cartridge changes on systems we fitted and on systems fitted by someone else, including brands whose cartridges have to be ordered rather than carried on the van." },
-      { "title": "Emergency leak call-outs", "body": "Under-sink leaks, split housings and failed tank fittings. These are treated as priority because the cabinet damage compounds while the job waits." }
+      {
+        "title": "Under-sink RO in an apartment",
+        "body": "The default Dubai job. A compact or tankless RO inside the sink cupboard, a dedicated drinking faucet, and a booster pump where the tower's pressure at your floor needs one — common on higher floors and in older buildings."
+      },
+      {
+        "title": "Whole-villa filtration and softening",
+        "body": "A sediment stage at the point of entry, carbon for chlorine, taste and odour, and a softener where limescale on glass and fittings is the actual complaint. Configured after a water test rather than sold as a package."
+      },
+      {
+        "title": "Filter and membrane replacement",
+        "body": "Cartridge changes on systems we fitted and on systems fitted by someone else, including brands whose cartridges have to be ordered rather than carried on the van."
+      },
+      {
+        "title": "Emergency leak call-outs",
+        "body": "Under-sink leaks, split housings and failed tank fittings. These are treated as priority because the cabinet damage compounds while the job waits."
+      }
     ],
     "localConsiderations": [
-      { "title": "Building approval on anything past your own unit", "body": "An under-sink filter inside your apartment normally needs no permission. Anything that touches the riser, the building's incoming supply or a common area does, and it should be in writing before the job is scheduled. Tell us the building and we will tell you which category the work falls into." },
-      { "title": "Pressure on high floors", "body": "Weak pressure at the tap starves an RO membrane: the system produces slowly, sends more water to the drain and wears out early. On upper floors we check static pressure before quoting, because fitting a system without the pump it needs creates a complaint six months later." },
-      { "title": "Cupboard depth in newer towers", "body": "Kitchen cabinets in a lot of recent Dubai apartments will not take a conventional RO plus a separate storage tank. That is the situation a tankless unit exists for, and it is worth measuring the cupboard before choosing." }
+      {
+        "title": "Building approval on anything past your own unit",
+        "body": "An under-sink filter inside your apartment normally needs no permission. Anything that touches the riser, the building's incoming supply or a common area does, and it should be in writing before the job is scheduled. Tell us the building and we will tell you which category the work falls into."
+      },
+      {
+        "title": "Pressure on high floors",
+        "body": "Weak pressure at the tap starves an RO membrane: the system produces slowly, sends more water to the drain and wears out early. On upper floors we check static pressure before quoting, because fitting a system without the pump it needs creates a complaint six months later."
+      },
+      {
+        "title": "Cupboard depth in newer towers",
+        "body": "Kitchen cabinets in a lot of recent Dubai apartments will not take a conventional RO plus a separate storage tank. That is the situation a tankless unit exists for, and it is worth measuring the cupboard before choosing."
+      }
     ],
-    "priorityServices": ["ro-water-purifier", "water-filter-installation", "water-filter-replacement", "water-filter-repair", "whole-house-water-filtration", "water-filter-amc"],
-    "priorityProducts": ["compact-under-sink-ro", "slim-tankless-ro", "whole-villa-filtration"],
-    "relatedGuides": ["is-uae-tap-water-safe-to-drink", "best-water-purifier-dubai-apartment", "ro-installation-cost-dubai", "hard-water-and-limescale-uae"],
-    "faqIds": ["need-ro-in-dubai", "apartment-purifier", "apartment-permission", "ro-installation-cost", "emergency-repairs"],
-    "metaTitle": "Water Filter & RO Installation in Dubai — Service, Repair & AMC",
-    "metaDescription": "Water filter and RO purifier installation, servicing, filter replacement and repair across Dubai — Marina, JVC, Business Bay, Deira, Al Barsha, Mirdif and the villa communities. Free on-site water test."
+    "priorityServices": [
+      "ro-water-purifier",
+      "water-filter-installation",
+      "water-filter-replacement",
+      "water-filter-repair",
+      "whole-house-water-filtration",
+      "water-filter-amc"
+    ],
+    "priorityProducts": [
+      "compact-under-sink-ro",
+      "slim-tankless-ro",
+      "whole-villa-filtration"
+    ],
+    "relatedGuides": [
+      "is-uae-tap-water-safe-to-drink",
+      "best-water-purifier-dubai-apartment",
+      "ro-installation-cost-dubai",
+      "hard-water-and-limescale-uae"
+    ],
+    "faqIds": [
+      "need-ro-in-dubai",
+      "apartment-purifier",
+      "apartment-permission",
+      "ro-installation-cost",
+      "emergency-repairs"
+    ],
+    "metaTitle": "Water Filter & RO Services in Dubai",
+    "metaDescription": "Water filter and RO installation, servicing and repair across Dubai — Marina, JVC, Business Bay, Deira, Al Barsha, Mirdif and the villa communities."
   },
   {
     "name": "Abu Dhabi",
@@ -39,7 +99,20 @@
     "responseTime": "Same-day",
     "responseNote": "Usually same-day on the island and in the main suburbs; outlying areas are scheduled.",
     "image": "commercial",
-    "areas": ["Khalifa City", "Al Reem Island", "Al Reef", "Mussafah", "Yas Island", "Al Bateen", "Al Raha", "Corniche", "Mohammed Bin Zayed City", "Shakhbout City", "Saadiyat Island", "Al Shamkha"],
+    "areas": [
+      "Khalifa City",
+      "Al Reem Island",
+      "Al Reef",
+      "Mussafah",
+      "Yas Island",
+      "Al Bateen",
+      "Al Raha",
+      "Corniche",
+      "Mohammed Bin Zayed City",
+      "Shakhbout City",
+      "Saadiyat Island",
+      "Al Shamkha"
+    ],
     "intro": "AquaPure covers Abu Dhabi from a base in the emirate, serving island apartments, the villa suburbs around Khalifa City and Mohammed Bin Zayed City, and the commercial and industrial premises in Mussafah. The mix of villa stock and heavy commercial demand makes Abu Dhabi the emirate where we fit the widest range of system sizes.",
     "propertyMix": "Abu Dhabi is more villa-heavy than Dubai once you leave the island. Khalifa City, Al Reef, Mohammed Bin Zayed City, Shakhbout City and Al Shamkha are largely villa and townhouse communities with their own tanks and pump rooms — the configuration point-of-entry filtration is designed for. On the island and Al Reem, apartment towers dominate and the practical answer is a point-of-use system. Mussafah is different again: workshops, cafeterias, labour accommodation and light industry, where duty cycles are high enough that domestic sizing fails.",
     "supply": [
@@ -48,22 +121,64 @@
       "Groundwater in the emirate is used extensively for irrigation and landscaping. It is not the potable supply, but it is worth knowing about if a property has a separate irrigation line — a filter fitted on the wrong line is a mistake we occasionally get called to correct."
     ],
     "commonRequests": [
-      { "title": "Villa point-of-entry systems", "body": "Sediment, carbon and — where hardness is the complaint — a softener, sized to the villa's actual demand and mounted in the pump room or on the roof rather than wherever there happens to be a wall." },
-      { "title": "Commercial RO for Mussafah premises", "body": "Cafeterias, workshops and accommodation blocks, sized to measured demand. Commercial jobs come with service records, because commercial premises are inspected and the paperwork matters as much as the plant." },
-      { "title": "Scale reduction ahead of kitchen equipment", "body": "Coffee machines, combi ovens and steamers fail on scale long before anything else in a commercial kitchen does. Treating the feed to that equipment is often more urgent than treating the drinking-water tap." },
-      { "title": "Scheduled AMC visits", "body": "Because travel across the emirate is a real cost, Abu Dhabi customers get more value out of scheduled maintenance than out of calling per visit." }
+      {
+        "title": "Villa point-of-entry systems",
+        "body": "Sediment, carbon and — where hardness is the complaint — a softener, sized to the villa's actual demand and mounted in the pump room or on the roof rather than wherever there happens to be a wall."
+      },
+      {
+        "title": "Commercial RO for Mussafah premises",
+        "body": "Cafeterias, workshops and accommodation blocks, sized to measured demand. Commercial jobs come with service records, because commercial premises are inspected and the paperwork matters as much as the plant."
+      },
+      {
+        "title": "Scale reduction ahead of kitchen equipment",
+        "body": "Coffee machines, combi ovens and steamers fail on scale long before anything else in a commercial kitchen does. Treating the feed to that equipment is often more urgent than treating the drinking-water tap."
+      },
+      {
+        "title": "Scheduled AMC visits",
+        "body": "Because travel across the emirate is a real cost, Abu Dhabi customers get more value out of scheduled maintenance than out of calling per visit."
+      }
     ],
     "localConsiderations": [
-      { "title": "Pump-room installations, not cupboard installations", "body": "A villa point-of-entry system belongs in the pump room or on the roof, on a frame, with isolation valves and a drain port so a service visit does not mean shutting off the whole villa. Retrofitting valves later costs more than fitting them at the start." },
-      { "title": "Commercial duty cycles change the sizing", "body": "A cartridge rated for a family's daily draw is exhausted in weeks in a cafeteria. We size commercial systems on measured demand and set service intervals from throughput rather than the calendar." },
-      { "title": "Travel windows for outlying areas", "body": "Al Shamkha, Al Samha and the further suburbs are covered on scheduled routes rather than ad hoc. Booking a visit into an existing route is faster than requesting an emergency slot for a non-urgent job." }
+      {
+        "title": "Pump-room installations, not cupboard installations",
+        "body": "A villa point-of-entry system belongs in the pump room or on the roof, on a frame, with isolation valves and a drain port so a service visit does not mean shutting off the whole villa. Retrofitting valves later costs more than fitting them at the start."
+      },
+      {
+        "title": "Commercial duty cycles change the sizing",
+        "body": "A cartridge rated for a family's daily draw is exhausted in weeks in a cafeteria. We size commercial systems on measured demand and set service intervals from throughput rather than the calendar."
+      },
+      {
+        "title": "Travel windows for outlying areas",
+        "body": "Al Shamkha, Al Samha and the further suburbs are covered on scheduled routes rather than ad hoc. Booking a visit into an existing route is faster than requesting an emergency slot for a non-urgent job."
+      }
     ],
-    "priorityServices": ["water-filter-installation", "whole-house-water-filtration", "ro-water-purifier", "water-filter-amc", "water-softener", "water-filter-replacement"],
-    "priorityProducts": ["whole-villa-filtration", "self-cleaning-villa-pre-filter", "automatic-water-softener"],
-    "relatedGuides": ["whole-house-water-filter-uae", "hard-water-and-limescale-uae", "is-uae-tap-water-safe-to-drink"],
-    "faqIds": ["villa-filter", "commercial-systems", "whole-house-needed", "amc-includes", "coverage-emirates"],
-    "metaTitle": "Water Filter & RO Installation in Abu Dhabi — Villas & Commercial",
-    "metaDescription": "Water filtration, RO purifier installation, softeners and commercial systems across Abu Dhabi — Khalifa City, Al Reem, Mussafah, Yas Island, Al Raha and Mohammed Bin Zayed City. Free water test."
+    "priorityServices": [
+      "water-filter-installation",
+      "whole-house-water-filtration",
+      "ro-water-purifier",
+      "water-filter-amc",
+      "water-softener",
+      "water-filter-replacement"
+    ],
+    "priorityProducts": [
+      "whole-villa-filtration",
+      "self-cleaning-villa-pre-filter",
+      "automatic-water-softener"
+    ],
+    "relatedGuides": [
+      "whole-house-water-filter-uae",
+      "hard-water-and-limescale-uae",
+      "is-uae-tap-water-safe-to-drink"
+    ],
+    "faqIds": [
+      "villa-filter",
+      "commercial-systems",
+      "whole-house-needed",
+      "amc-includes",
+      "coverage-emirates"
+    ],
+    "metaTitle": "Water Filter & RO Services, Abu Dhabi",
+    "metaDescription": "Water filtration, RO purifiers, softeners and commercial systems across Abu Dhabi — Khalifa City, Al Reem, Mussafah, Yas Island and Al Raha."
   },
   {
     "name": "Sharjah",
@@ -72,7 +187,20 @@
     "responseTime": "Same-day",
     "responseNote": "Usually same-day across the city; outlying areas within 24 hours.",
     "image": "kitchenTap",
-    "areas": ["Al Nahda", "Al Majaz", "Muweilah", "Al Khan", "University City", "Al Qasimia", "Al Taawun", "Abu Shagara", "Al Mamzar", "Al Nud", "Bu Tina", "Sharjah Industrial Area"],
+    "areas": [
+      "Al Nahda",
+      "Al Majaz",
+      "Muweilah",
+      "Al Khan",
+      "University City",
+      "Al Qasimia",
+      "Al Taawun",
+      "Abu Shagara",
+      "Al Mamzar",
+      "Al Nud",
+      "Bu Tina",
+      "Sharjah Industrial Area"
+    ],
     "intro": "AquaPure operates in Sharjah from a base in the emirate, and the work here is dominated by apartments — Al Nahda, Al Majaz, Al Taawun, Abu Shagara and Muweilah are dense family-apartment districts where a well-fitted under-sink system is the whole job. Sharjah is also where we do the most cartridge-replacement work per household, because family apartments draw hard on drinking-water systems.",
     "propertyMix": "Sharjah's stock is more apartment-weighted than Dubai's or Abu Dhabi's, and the apartments are more often occupied by larger families. That combination matters: a family of six draws through a drinking-water system several times faster than a couple does, which shortens cartridge intervals and makes storage capacity — or a tankless system's continuous output — a real consideration rather than a specification detail. Villa areas exist, particularly towards Al Mamzar and the outer districts, and the industrial area brings commercial work.",
     "supply": [
@@ -81,22 +209,63 @@
       "Some outlying areas rely on tanker delivery for part of their supply, which changes the recommendation: stored and handled water is the case for disinfection on the drinking line, not just filtration."
     ],
     "commonRequests": [
-      { "title": "Under-sink RO for family apartments", "body": "The most common Sharjah installation, and the one where storage capacity matters most. A larger household drawing several litres at once is the case for a tanked system rather than a slim tankless one." },
-      { "title": "Cartridge replacement on a shorter cycle", "body": "Higher household draw and older building storage both shorten pre-filter life. We set the interval from your usage and what the old cartridges actually look like when we pull them, not from a generic schedule." },
-      { "title": "Repairs on systems bought elsewhere", "body": "A large share of Sharjah call-outs are for units bought from a retailer and never serviced. Leaking housings, exhausted carbon and flat storage tanks account for most of them." },
-      { "title": "Commercial systems in the industrial area", "body": "Workshops, staff accommodation and canteens, sized on measured demand." }
+      {
+        "title": "Under-sink RO for family apartments",
+        "body": "The most common Sharjah installation, and the one where storage capacity matters most. A larger household drawing several litres at once is the case for a tanked system rather than a slim tankless one."
+      },
+      {
+        "title": "Cartridge replacement on a shorter cycle",
+        "body": "Higher household draw and older building storage both shorten pre-filter life. We set the interval from your usage and what the old cartridges actually look like when we pull them, not from a generic schedule."
+      },
+      {
+        "title": "Repairs on systems bought elsewhere",
+        "body": "A large share of Sharjah call-outs are for units bought from a retailer and never serviced. Leaking housings, exhausted carbon and flat storage tanks account for most of them."
+      },
+      {
+        "title": "Commercial systems in the industrial area",
+        "body": "Workshops, staff accommodation and canteens, sized on measured demand."
+      }
     ],
     "localConsiderations": [
-      { "title": "Household size changes the system, not just the schedule", "body": "This is the single most useful local point in Sharjah. A drinking-water system that suits two people is undersized for six, and the symptom is not a fault — it is slow refill and a family that stops using the filtered tap. Sizing for actual occupancy is worth more than any extra filtration stage." },
-      { "title": "Older blocks, sediment first", "body": "In the districts with the oldest buildings, a sediment stage does more for the water than an extra polishing stage does. It also protects the carbon and the membrane behind it, which is what makes the cartridges last." },
-      { "title": "Landlord permission for anything structural", "body": "Most Sharjah installations are in rented apartments. An under-sink system connects to existing plumbing and is normally straightforward, but drilling a granite worktop for a drinking faucet is worth clearing with the landlord first. We can usually fit the faucet without new drilling." }
+      {
+        "title": "Household size changes the system, not just the schedule",
+        "body": "This is the single most useful local point in Sharjah. A drinking-water system that suits two people is undersized for six, and the symptom is not a fault — it is slow refill and a family that stops using the filtered tap. Sizing for actual occupancy is worth more than any extra filtration stage."
+      },
+      {
+        "title": "Older blocks, sediment first",
+        "body": "In the districts with the oldest buildings, a sediment stage does more for the water than an extra polishing stage does. It also protects the carbon and the membrane behind it, which is what makes the cartridges last."
+      },
+      {
+        "title": "Landlord permission for anything structural",
+        "body": "Most Sharjah installations are in rented apartments. An under-sink system connects to existing plumbing and is normally straightforward, but drilling a granite worktop for a drinking faucet is worth clearing with the landlord first. We can usually fit the faucet without new drilling."
+      }
     ],
-    "priorityServices": ["ro-water-purifier", "water-filter-replacement", "water-filter-repair", "water-filter-installation", "water-filter-amc"],
-    "priorityProducts": ["compact-under-sink-ro", "modular-ro-with-uv", "slim-tankless-ro"],
-    "relatedGuides": ["best-water-purifier-dubai-apartment", "how-often-to-replace-ro-filters", "ro-purifier-low-pressure"],
-    "faqIds": ["apartment-purifier", "how-often-replace-filters", "service-other-brands", "apartment-permission", "ro-low-pressure"],
-    "metaTitle": "Water Filter & RO Installation in Sharjah — Apartments & Villas",
-    "metaDescription": "RO purifier installation, filter replacement and repairs across Sharjah — Al Nahda, Al Majaz, Muweilah, Al Khan, University City and Al Taawun. Systems sized for family households."
+    "priorityServices": [
+      "ro-water-purifier",
+      "water-filter-replacement",
+      "water-filter-repair",
+      "water-filter-installation",
+      "water-filter-amc"
+    ],
+    "priorityProducts": [
+      "compact-under-sink-ro",
+      "modular-ro-with-uv",
+      "slim-tankless-ro"
+    ],
+    "relatedGuides": [
+      "best-water-purifier-dubai-apartment",
+      "how-often-to-replace-ro-filters",
+      "ro-purifier-low-pressure"
+    ],
+    "faqIds": [
+      "apartment-purifier",
+      "how-often-replace-filters",
+      "service-other-brands",
+      "apartment-permission",
+      "ro-low-pressure"
+    ],
+    "metaTitle": "Water Filter & RO Services in Sharjah",
+    "metaDescription": "RO purifier installation, filter replacement and repairs across Sharjah — Al Nahda, Al Majaz, Muweilah, Al Khan and University City."
   },
   {
     "name": "Ajman",
@@ -105,7 +274,17 @@
     "responseTime": "Within 24 hours",
     "responseNote": "Covered on scheduled routes from Sharjah and Dubai, typically within 24 hours.",
     "image": "cleanWater",
-    "areas": ["Al Nuaimiya", "Ajman Corniche", "Al Rashidiya", "Al Jurf", "Emirates City", "Al Rumailah", "Al Mowaihat", "Al Zorah", "Ajman Industrial Area"],
+    "areas": [
+      "Al Nuaimiya",
+      "Ajman Corniche",
+      "Al Rashidiya",
+      "Al Jurf",
+      "Emirates City",
+      "Al Rumailah",
+      "Al Mowaihat",
+      "Al Zorah",
+      "Ajman Industrial Area"
+    ],
     "intro": "AquaPure covers Ajman on scheduled routes from our Sharjah and Dubai bases, typically within 24 hours. The work here spans two quite different property types: high-rise apartment towers in Emirates City and Al Nuaimiya, and villa plots in Al Mowaihat, Al Rumailah and towards Al Zorah.",
     "propertyMix": "Emirates City and the Corniche towers put a lot of Ajman's population in high-rise apartments served by building storage tanks and booster pumps — point-of-use territory. The villa districts inland are the opposite case: your own incoming line, your own tank, and the option of treating the whole property. Ajman's industrial area adds commercial demand at a smaller scale than Mussafah but with the same sizing logic.",
     "supply": [
@@ -114,22 +293,62 @@
       "Parts of some developments take tanker top-up. Where they do, sediment loading is higher and disinfection on the drinking-water line is the appropriate response, because a sediment or carbon cartridge does not disinfect anything."
     ],
     "commonRequests": [
-      { "title": "Under-sink RO in tower apartments", "body": "Emirates City and Al Nuaimiya apartments, where pressure at the tap and cupboard space are the two constraints worth checking before choosing a system." },
-      { "title": "Villa pre-filtration and softening", "body": "A self-cleaning sediment pre-filter first — it rinses out through a valve instead of blocking a cartridge — then carbon, and a softener where scale is the complaint." },
-      { "title": "Scheduled cartridge replacement", "body": "Because Ajman runs on scheduled routes, booking a filter change into a planned visit is both faster and easier to arrange than calling on the day." },
-      { "title": "Repairs and second-hand system revivals", "body": "Systems inherited with a property, often several years past a service. Whether reviving one is worth it depends on the membrane, and we will say if it is not." }
+      {
+        "title": "Under-sink RO in tower apartments",
+        "body": "Emirates City and Al Nuaimiya apartments, where pressure at the tap and cupboard space are the two constraints worth checking before choosing a system."
+      },
+      {
+        "title": "Villa pre-filtration and softening",
+        "body": "A self-cleaning sediment pre-filter first — it rinses out through a valve instead of blocking a cartridge — then carbon, and a softener where scale is the complaint."
+      },
+      {
+        "title": "Scheduled cartridge replacement",
+        "body": "Because Ajman runs on scheduled routes, booking a filter change into a planned visit is both faster and easier to arrange than calling on the day."
+      },
+      {
+        "title": "Repairs and second-hand system revivals",
+        "body": "Systems inherited with a property, often several years past a service. Whether reviving one is worth it depends on the membrane, and we will say if it is not."
+      }
     ],
     "localConsiderations": [
-      { "title": "Scheduled coverage rewards planning", "body": "Ajman is served on routes, not from a permanent local base. Routine work booked in advance lands sooner than routine work requested as urgent, and emergencies — leaks, total loss of flow — are slotted in ahead of routine visits." },
-      { "title": "High towers, pressure first", "body": "The same rule as Dubai Marina applies in Emirates City: check static pressure at the tap before choosing a system, because an RO membrane starved of pressure produces slowly and fails early." },
-      { "title": "Villa tanks are part of the system", "body": "Treating villa water while ignoring the tank it sits in solves half the problem. Tank condition is worth inspecting at the same visit as the filtration, even though cleaning it is a separate job." }
+      {
+        "title": "Scheduled coverage rewards planning",
+        "body": "Ajman is served on routes, not from a permanent local base. Routine work booked in advance lands sooner than routine work requested as urgent, and emergencies — leaks, total loss of flow — are slotted in ahead of routine visits."
+      },
+      {
+        "title": "High towers, pressure first",
+        "body": "The same rule as Dubai Marina applies in Emirates City: check static pressure at the tap before choosing a system, because an RO membrane starved of pressure produces slowly and fails early."
+      },
+      {
+        "title": "Villa tanks are part of the system",
+        "body": "Treating villa water while ignoring the tank it sits in solves half the problem. Tank condition is worth inspecting at the same visit as the filtration, even though cleaning it is a separate job."
+      }
     ],
-    "priorityServices": ["water-filter-installation", "ro-water-purifier", "water-filter-replacement", "whole-house-water-filtration", "water-filter-amc"],
-    "priorityProducts": ["compact-under-sink-ro", "self-cleaning-villa-pre-filter", "whole-villa-filtration"],
-    "relatedGuides": ["is-uae-tap-water-safe-to-drink", "whole-house-water-filter-uae", "how-often-to-replace-ro-filters"],
-    "faqIds": ["coverage-emirates", "villa-filter", "tanker-water", "how-often-replace-filters"],
-    "metaTitle": "Water Filter & RO Installation in Ajman — Towers & Villas",
-    "metaDescription": "RO purifier installation, whole-villa filtration, filter replacement and repairs across Ajman — Al Nuaimiya, Emirates City, Al Rashidiya, Al Mowaihat and Al Jurf."
+    "priorityServices": [
+      "water-filter-installation",
+      "ro-water-purifier",
+      "water-filter-replacement",
+      "whole-house-water-filtration",
+      "water-filter-amc"
+    ],
+    "priorityProducts": [
+      "compact-under-sink-ro",
+      "self-cleaning-villa-pre-filter",
+      "whole-villa-filtration"
+    ],
+    "relatedGuides": [
+      "is-uae-tap-water-safe-to-drink",
+      "whole-house-water-filter-uae",
+      "how-often-to-replace-ro-filters"
+    ],
+    "faqIds": [
+      "coverage-emirates",
+      "villa-filter",
+      "tanker-water",
+      "how-often-replace-filters"
+    ],
+    "metaTitle": "Water Filter & RO Services in Ajman",
+    "metaDescription": "RO purifier installation, whole-villa filtration and repairs across Ajman — Al Nuaimiya, Emirates City, Al Rashidiya, Al Mowaihat and Al Jurf."
   },
   {
     "name": "Ras Al Khaimah",
@@ -138,7 +357,17 @@
     "responseTime": "Within 24 hours",
     "responseNote": "Scheduled routes to RAK, typically within 24 hours for the city and coastal communities.",
     "image": "wholeHouse",
-    "areas": ["Al Nakheel", "Al Hamra Village", "Al Dhait", "Mina Al Arab", "Al Rams", "Al Jazirah Al Hamra", "Khuzam", "Al Qusaidat", "Julphar"],
+    "areas": [
+      "Al Nakheel",
+      "Al Hamra Village",
+      "Al Dhait",
+      "Mina Al Arab",
+      "Al Rams",
+      "Al Jazirah Al Hamra",
+      "Khuzam",
+      "Al Qusaidat",
+      "Julphar"
+    ],
     "intro": "AquaPure covers Ras Al Khaimah on scheduled routes, typically within 24 hours. RAK's mix — coastal villa and townhouse communities like Al Hamra Village and Mina Al Arab, city apartments around Al Nakheel and Al Qusaidat, and spread-out inland districts towards the mountains — means the same emirate contains both the simplest and the most involved jobs we do.",
     "propertyMix": "The master-planned coastal communities are the clearest case for point-of-entry treatment: villas and townhouses on their own supply, with tanks and pump arrangements that are consistent across a development, so a configuration proven on one property usually transfers. City apartments around Al Nakheel and Al Qusaidat are point-of-use jobs. The inland and northern districts — Al Rams, towards the mountains — are more spread out, and travel is a genuine part of scheduling there.",
     "supply": [
@@ -147,22 +376,64 @@
       "We do not publish a water-quality figure for RAK or any other emirate. Real values vary by supply zone, season and the property's own storage, and the only number worth acting on is the one measured at your tap."
     ],
     "commonRequests": [
-      { "title": "Whole-villa systems in coastal communities", "body": "Al Hamra Village and Mina Al Arab townhouses and villas: sediment, carbon and softening at the point of entry, plus an under-sink RO for drinking water." },
-      { "title": "Sediment control on tank-fed properties", "body": "A self-cleaning pre-filter is the right first fitting where sand and rust are the daily reality, because a disposable cartridge in that duty blocks faster than anyone wants to keep replacing it." },
-      { "title": "UV on the drinking line", "body": "Where a property is fed from a tank or a tanker rather than continuously from the network, disinfection addresses what storage introduces. Filtration on its own does not." },
-      { "title": "Annual maintenance for second homes", "body": "A number of RAK properties are used seasonally. A system left standing for months needs sanitising and flushing before use, and that is worth scheduling rather than discovering on arrival." }
+      {
+        "title": "Whole-villa systems in coastal communities",
+        "body": "Al Hamra Village and Mina Al Arab townhouses and villas: sediment, carbon and softening at the point of entry, plus an under-sink RO for drinking water."
+      },
+      {
+        "title": "Sediment control on tank-fed properties",
+        "body": "A self-cleaning pre-filter is the right first fitting where sand and rust are the daily reality, because a disposable cartridge in that duty blocks faster than anyone wants to keep replacing it."
+      },
+      {
+        "title": "UV on the drinking line",
+        "body": "Where a property is fed from a tank or a tanker rather than continuously from the network, disinfection addresses what storage introduces. Filtration on its own does not."
+      },
+      {
+        "title": "Annual maintenance for second homes",
+        "body": "A number of RAK properties are used seasonally. A system left standing for months needs sanitising and flushing before use, and that is worth scheduling rather than discovering on arrival."
+      }
     ],
     "localConsiderations": [
-      { "title": "Mount equipment out of the salt air", "body": "In the coastal communities, a frame or housing mounted in the open weathers noticeably faster. Sheltered mounting, and stainless fixings where they are exposed, is the difference between a system that looks serviceable in five years and one that does not." },
-      { "title": "Standing water in seasonally used homes", "body": "Water that has sat in a system for months is not the same as water that has sat for a weekend. Sanitisation and a full flush before use — and, ideally, isolating the system before a long absence — is the honest procedure." },
-      { "title": "Travel windows for the inland districts", "body": "Al Rams and the inland areas are covered on the same routes as the city, but slotting a routine visit into a planned run is much faster than requesting one outside it." }
+      {
+        "title": "Mount equipment out of the salt air",
+        "body": "In the coastal communities, a frame or housing mounted in the open weathers noticeably faster. Sheltered mounting, and stainless fixings where they are exposed, is the difference between a system that looks serviceable in five years and one that does not."
+      },
+      {
+        "title": "Standing water in seasonally used homes",
+        "body": "Water that has sat in a system for months is not the same as water that has sat for a weekend. Sanitisation and a full flush before use — and, ideally, isolating the system before a long absence — is the honest procedure."
+      },
+      {
+        "title": "Travel windows for the inland districts",
+        "body": "Al Rams and the inland areas are covered on the same routes as the city, but slotting a routine visit into a planned run is much faster than requesting one outside it."
+      }
     ],
-    "priorityServices": ["whole-house-water-filtration", "uv-water-purification", "water-filter-installation", "water-softener", "water-filter-amc"],
-    "priorityProducts": ["self-cleaning-villa-pre-filter", "whole-villa-filtration", "modular-ro-with-uv", "chemical-free-disinfection"],
-    "relatedGuides": ["whole-house-water-filter-uae", "ro-vs-uv-water-purifier", "hard-water-and-limescale-uae"],
-    "faqIds": ["tanker-water", "villa-filter", "ro-vs-uv", "uv-lamp-replacement", "coverage-emirates"],
-    "metaTitle": "Water Filter & RO Installation in Ras Al Khaimah — Villas & UV",
-    "metaDescription": "Whole-villa filtration, UV disinfection, RO purifiers and filter replacement across Ras Al Khaimah — Al Hamra Village, Mina Al Arab, Al Nakheel, Al Dhait and Al Rams."
+    "priorityServices": [
+      "whole-house-water-filtration",
+      "uv-water-purification",
+      "water-filter-installation",
+      "water-softener",
+      "water-filter-amc"
+    ],
+    "priorityProducts": [
+      "self-cleaning-villa-pre-filter",
+      "whole-villa-filtration",
+      "modular-ro-with-uv",
+      "chemical-free-disinfection"
+    ],
+    "relatedGuides": [
+      "whole-house-water-filter-uae",
+      "ro-vs-uv-water-purifier",
+      "hard-water-and-limescale-uae"
+    ],
+    "faqIds": [
+      "tanker-water",
+      "villa-filter",
+      "ro-vs-uv",
+      "uv-lamp-replacement",
+      "coverage-emirates"
+    ],
+    "metaTitle": "Water Filter Services in Ras Al Khaimah",
+    "metaDescription": "Whole-villa filtration, UV disinfection and RO purifiers across Ras Al Khaimah — Al Hamra Village, Mina Al Arab, Al Nakheel and Al Dhait."
   },
   {
     "name": "Fujairah",
@@ -171,7 +442,16 @@
     "responseTime": "Within 48 hours",
     "responseNote": "Covered on scheduled east-coast routes, typically within 48 hours.",
     "image": "heroGlass",
-    "areas": ["Fujairah City", "Dibba Al Fujairah", "Al Faseel", "Sakamkam", "Merashid", "Qidfa", "Mirbah", "Al Hail"],
+    "areas": [
+      "Fujairah City",
+      "Dibba Al Fujairah",
+      "Al Faseel",
+      "Sakamkam",
+      "Merashid",
+      "Qidfa",
+      "Mirbah",
+      "Al Hail"
+    ],
     "intro": "AquaPure covers Fujairah on scheduled east-coast routes, typically within 48 hours. Fujairah is the emirate where planning matters most: the towns are spread along the coast and up into the Hajar mountains, so work is grouped into routes rather than attended ad hoc — and jobs are specified to need as few return visits as possible.",
     "propertyMix": "Fujairah's stock is mostly low-rise: villas, townhouses and small apartment blocks in Fujairah City, Al Faseel, Sakamkam and Dibba, with smaller settlements along the coast towards Qidfa and Mirbah. Most properties have their own storage. That makes point-of-entry treatment relevant to a larger share of Fujairah properties than of Dubai's, and it makes a robust, self-maintaining first stage more valuable than an extra polishing stage.",
     "supply": [
@@ -180,22 +460,63 @@
       "Distance from Dubai also changes what a good specification looks like. Consumables that have to be ordered specially are a poor choice for a Fujairah property; standard cartridge formats that we can carry on a route are worth more than a marginally better proprietary one."
     ],
     "commonRequests": [
-      { "title": "Point-of-entry sediment and carbon", "body": "The most valuable single fitting on a tank-fed Fujairah property, and the one that protects everything downstream." },
-      { "title": "UV disinfection for tank and tanker supply", "body": "Where water is stored before use, disinfection addresses the risk storage introduces. Annual lamp and sleeve service is scheduled into the route." },
-      { "title": "Under-sink RO with standard cartridges", "body": "Specified deliberately around common cartridge formats, so a replacement never depends on a special order reaching the east coast." },
-      { "title": "Annual maintenance contracts", "body": "AMC is the sensible arrangement in Fujairah, because it puts your visits into planned routes instead of relying on a call-out reaching you quickly." }
+      {
+        "title": "Point-of-entry sediment and carbon",
+        "body": "The most valuable single fitting on a tank-fed Fujairah property, and the one that protects everything downstream."
+      },
+      {
+        "title": "UV disinfection for tank and tanker supply",
+        "body": "Where water is stored before use, disinfection addresses the risk storage introduces. Annual lamp and sleeve service is scheduled into the route."
+      },
+      {
+        "title": "Under-sink RO with standard cartridges",
+        "body": "Specified deliberately around common cartridge formats, so a replacement never depends on a special order reaching the east coast."
+      },
+      {
+        "title": "Annual maintenance contracts",
+        "body": "AMC is the sensible arrangement in Fujairah, because it puts your visits into planned routes instead of relying on a call-out reaching you quickly."
+      }
     ],
     "localConsiderations": [
-      { "title": "Specify for serviceability, not for spec sheets", "body": "This is the real Fujairah engineering decision. A system built from cartridge formats we carry on the route gets serviced on time; one built from proprietary consumables waits for a delivery. On the east coast that difference outweighs a small difference in filtration performance." },
-      { "title": "Group the work into one visit", "body": "Because attendance is on a 48-hour route rather than same-day, jobs are scoped to be completed in one visit — spares, fittings and the likely failure parts carried, rather than diagnosed on one trip and fixed on the next." },
-      { "title": "Sediment first, everywhere", "body": "Almost every Fujairah property benefits from a proper sediment stage before anything else. It is also the stage most often missing on systems we are called to repair." }
+      {
+        "title": "Specify for serviceability, not for spec sheets",
+        "body": "This is the real Fujairah engineering decision. A system built from cartridge formats we carry on the route gets serviced on time; one built from proprietary consumables waits for a delivery. On the east coast that difference outweighs a small difference in filtration performance."
+      },
+      {
+        "title": "Group the work into one visit",
+        "body": "Because attendance is on a 48-hour route rather than same-day, jobs are scoped to be completed in one visit — spares, fittings and the likely failure parts carried, rather than diagnosed on one trip and fixed on the next."
+      },
+      {
+        "title": "Sediment first, everywhere",
+        "body": "Almost every Fujairah property benefits from a proper sediment stage before anything else. It is also the stage most often missing on systems we are called to repair."
+      }
     ],
-    "priorityServices": ["whole-house-water-filtration", "uv-water-purification", "water-filter-amc", "water-filter-installation", "water-filter-replacement"],
-    "priorityProducts": ["self-cleaning-villa-pre-filter", "modular-ro-with-uv", "chemical-free-disinfection", "whole-villa-filtration"],
-    "relatedGuides": ["ro-vs-uv-water-purifier", "whole-house-water-filter-uae", "how-often-to-replace-ro-filters"],
-    "faqIds": ["tanker-water", "coverage-emirates", "uv-lamp-replacement", "amc-includes"],
-    "metaTitle": "Water Filter & RO Installation in Fujairah — East Coast Service",
-    "metaDescription": "Water filtration, UV disinfection, RO purifiers and filter replacement across Fujairah — Fujairah City, Dibba, Al Faseel, Sakamkam and Qidfa. Scheduled east-coast routes."
+    "priorityServices": [
+      "whole-house-water-filtration",
+      "uv-water-purification",
+      "water-filter-amc",
+      "water-filter-installation",
+      "water-filter-replacement"
+    ],
+    "priorityProducts": [
+      "self-cleaning-villa-pre-filter",
+      "modular-ro-with-uv",
+      "chemical-free-disinfection",
+      "whole-villa-filtration"
+    ],
+    "relatedGuides": [
+      "ro-vs-uv-water-purifier",
+      "whole-house-water-filter-uae",
+      "how-often-to-replace-ro-filters"
+    ],
+    "faqIds": [
+      "tanker-water",
+      "coverage-emirates",
+      "uv-lamp-replacement",
+      "amc-includes"
+    ],
+    "metaTitle": "Water Filter Services in Fujairah",
+    "metaDescription": "Water filtration, UV disinfection and RO purifiers across Fujairah — Fujairah City, Dibba, Al Faseel, Sakamkam and Qidfa. Scheduled routes."
   },
   {
     "name": "Umm Al Quwain",
@@ -204,7 +525,16 @@
     "responseTime": "Within 24 hours",
     "responseNote": "Covered on scheduled northern routes, typically within 24 hours.",
     "image": "technician",
-    "areas": ["Al Salamah", "Al Raas", "Al Humrah", "UAQ Marina", "Al Riqqah", "Al Ramlah", "Al Haditha", "Falaj Al Mualla"],
+    "areas": [
+      "Al Salamah",
+      "Al Raas",
+      "Al Humrah",
+      "UAQ Marina",
+      "Al Riqqah",
+      "Al Ramlah",
+      "Al Haditha",
+      "Falaj Al Mualla"
+    ],
     "intro": "AquaPure covers Umm Al Quwain on scheduled northern routes, typically within 24 hours. UAQ is the smallest emirate we serve and almost entirely low-rise, which makes the work unusually consistent: most properties have their own incoming line and their own tank, so most jobs are point-of-entry plus a drinking-water system.",
     "propertyMix": "Villas, townhouses and small apartment blocks, concentrated along the coast at Al Salamah, Al Raas, Al Humrah and the Marina, with Falaj Al Mualla inland. Very little high-rise stock means very few of the constraints that dominate Dubai apartment work — building approval, riser access, cupboard depth — and correspondingly more scope to treat the whole property properly.",
     "supply": [
@@ -213,21 +543,62 @@
       "Inland at Falaj Al Mualla, properties are further apart and tanker delivery features more, which shifts the specification towards robust sediment removal and disinfection rather than additional polishing stages."
     ],
     "commonRequests": [
-      { "title": "Whole-property filtration for villas", "body": "The standard UAQ job: a sediment stage, carbon, and softening where hardness is the complaint — sized to the villa and mounted where it can be serviced." },
-      { "title": "Under-sink RO for drinking water", "body": "Fitted alongside the point-of-entry system rather than instead of it, because the two treat different problems." },
-      { "title": "Disinfection on tank-fed supply", "body": "UV, or a chemical-free contact media where a power supply at the point of installation is inconvenient." },
-      { "title": "Scheduled maintenance", "body": "Routine visits grouped into northern routes, which is both quicker to arrange and less disruptive than ad hoc call-outs." }
+      {
+        "title": "Whole-property filtration for villas",
+        "body": "The standard UAQ job: a sediment stage, carbon, and softening where hardness is the complaint — sized to the villa and mounted where it can be serviced."
+      },
+      {
+        "title": "Under-sink RO for drinking water",
+        "body": "Fitted alongside the point-of-entry system rather than instead of it, because the two treat different problems."
+      },
+      {
+        "title": "Disinfection on tank-fed supply",
+        "body": "UV, or a chemical-free contact media where a power supply at the point of installation is inconvenient."
+      },
+      {
+        "title": "Scheduled maintenance",
+        "body": "Routine visits grouped into northern routes, which is both quicker to arrange and less disruptive than ad hoc call-outs."
+      }
     ],
     "localConsiderations": [
-      { "title": "Low-rise stock means fewer constraints", "body": "In UAQ you can usually do the job properly the first time: point-of-entry treatment is available to most properties, there is space to mount a serviceable frame, and no building management approval is in the way. It is worth taking that opportunity rather than fitting only a kitchen filter." },
-      { "title": "Coastal siting for external equipment", "body": "Salt air near the coast shortens the life of exposed metalwork. Sheltered mounting and corrosion-resistant fixings are a specification decision, not a finish." },
-      { "title": "Inland properties: robustness over refinement", "body": "At Falaj Al Mualla and the inland plots, the priorities are a sediment stage that can be rinsed rather than replaced, and disinfection. Extra polishing stages add cost without addressing what is actually in stored, tankered water." }
+      {
+        "title": "Low-rise stock means fewer constraints",
+        "body": "In UAQ you can usually do the job properly the first time: point-of-entry treatment is available to most properties, there is space to mount a serviceable frame, and no building management approval is in the way. It is worth taking that opportunity rather than fitting only a kitchen filter."
+      },
+      {
+        "title": "Coastal siting for external equipment",
+        "body": "Salt air near the coast shortens the life of exposed metalwork. Sheltered mounting and corrosion-resistant fixings are a specification decision, not a finish."
+      },
+      {
+        "title": "Inland properties: robustness over refinement",
+        "body": "At Falaj Al Mualla and the inland plots, the priorities are a sediment stage that can be rinsed rather than replaced, and disinfection. Extra polishing stages add cost without addressing what is actually in stored, tankered water."
+      }
     ],
-    "priorityServices": ["whole-house-water-filtration", "water-filter-installation", "uv-water-purification", "water-softener", "water-filter-amc"],
-    "priorityProducts": ["whole-villa-filtration", "self-cleaning-villa-pre-filter", "chemical-free-disinfection", "compact-under-sink-ro"],
-    "relatedGuides": ["whole-house-water-filter-uae", "ro-vs-water-softener", "is-uae-tap-water-safe-to-drink"],
-    "faqIds": ["villa-filter", "tanker-water", "whole-house-needed", "coverage-emirates"],
-    "metaTitle": "Water Filter & RO Installation in Umm Al Quwain — Villa Systems",
-    "metaDescription": "Whole-property water filtration, RO purifiers, softeners and UV disinfection across Umm Al Quwain — Al Salamah, Al Raas, Al Humrah, UAQ Marina and Falaj Al Mualla."
+    "priorityServices": [
+      "whole-house-water-filtration",
+      "water-filter-installation",
+      "uv-water-purification",
+      "water-softener",
+      "water-filter-amc"
+    ],
+    "priorityProducts": [
+      "whole-villa-filtration",
+      "self-cleaning-villa-pre-filter",
+      "chemical-free-disinfection",
+      "compact-under-sink-ro"
+    ],
+    "relatedGuides": [
+      "whole-house-water-filter-uae",
+      "ro-vs-water-softener",
+      "is-uae-tap-water-safe-to-drink"
+    ],
+    "faqIds": [
+      "villa-filter",
+      "tanker-water",
+      "whole-house-needed",
+      "coverage-emirates"
+    ],
+    "metaTitle": "Water Filter Services, Umm Al Quwain",
+    "metaDescription": "Whole-property filtration, RO purifiers and UV disinfection across Umm Al Quwain — Al Salamah, Al Raas, Al Humrah and UAQ Marina."
   }
 ]

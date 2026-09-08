@@ -13,9 +13,9 @@ import {
 } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Water Filter Services by Emirate — All 7 Emirates',
+  title: 'Water Filter Services by Emirate',
   description:
-    'Where AquaPure works across the UAE: Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain — with the areas covered, typical response times and what differs locally.',
+    'Where AquaPure works: Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain — areas covered and typical response times.',
   path: '/locations',
 })
 

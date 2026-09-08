@@ -15,9 +15,9 @@ import {
 import { buildMetadata, breadcrumbJsonLd, collectionJsonLd, faqJsonLd, jsonLdGraph } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'RO Systems, Softeners & Villa Filters — Supplied and Installed',
+  title: 'RO Systems, Softeners & Villa Filters',
   description:
-    'RO water purifiers, whole-villa filtration, automatic water softeners, self-cleaning pre-filters and disinfection units supplied, installed and serviced across the UAE. Free water test and a fixed written quotation.',
+    'RO purifiers, whole-villa filtration, automatic softeners, self-cleaning pre-filters and disinfection units, supplied and installed across the UAE.',
   path: '/products',
 })
 

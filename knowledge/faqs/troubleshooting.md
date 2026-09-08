@@ -1,0 +1,26 @@
+---
+type: "faq-collection"
+category: "troubleshooting"
+count: "3"
+url: "https://aquapureuae.ae/faqs"
+last_verified: "2026-09-08"
+---
+# FAQs — troubleshooting
+
+## Why does my RO water purifier have low water pressure?
+
+In order of how often we find it: a blocked sediment or carbon pre-filter, which starves the membrane; a storage tank that has lost its air charge, so the tank holds water but cannot push it out; low incoming mains pressure, common on higher floors and fixable with a booster pump; a fouled membrane near the end of its life; or a kinked or partially closed feed line, often after someone has moved things around under the sink. The pre-filter and the tank charge account for most cases and both are quick to check.
+
+_id: `ro-low-pressure` · last verified 2026-09-08_
+
+## Why is my RO purifier leaking?
+
+Almost always at a joint rather than through a component. The usual culprits are a push-fit tube that was not seated fully or has been disturbed, a perished O-ring in a filter housing after a cartridge change, a housing overtightened until it deformed, a cracked storage tank fitting, or a faucet base that has loosened. Turn off the feed valve at the mains connection first, then the tank valve, and dry everything so you can see where the water reappears — a leak found at the highest wet point is usually the source. Do not run the system while you diagnose it: an under-sink leak damages the cabinet long before it reaches your floor.
+
+_id: `ro-leaking` · last verified 2026-09-08_
+
+## Why does my filtered water still taste bad?
+
+Three common reasons. The carbon stage is exhausted — carbon adsorbs until it is saturated, and a saturated cartridge stops improving taste while still passing water perfectly well. The water has been standing in the storage tank for days, which flattens the taste; drawing off a tank's worth restores it. Or the RO has no remineralisation stage, so the water is genuinely very low in dissolved minerals and reads as flat rather than dirty — a mineral cartridge addresses that. If the taste is metallic rather than flat, the pipework between the filter and the tap is worth inspecting.
+
+_id: `water-tastes-bad` · last verified 2026-09-08_

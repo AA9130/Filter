@@ -14,9 +14,9 @@ import { getServices, getAmcPlans, getProcessSteps, getCredentials, getLocations
 import { buildMetadata, breadcrumbJsonLd, collectionJsonLd, jsonLdGraph } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Water Filter Services in the UAE — Installation, Repair, AMC',
+  title: 'Water Filter Services in the UAE',
   description:
-    'Water filtration services across all seven Emirates: RO purifiers, whole-house filtration, water softeners, UV disinfection, filter and membrane replacement, repairs, AMC and relocation. Every job starts with a free on-site water test.',
+    'Water filtration services across all seven Emirates: RO purifiers, whole-house filtration, softeners, UV, filter replacement, repairs and AMC.',
   path: '/services',
 })
 

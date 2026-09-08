@@ -113,7 +113,10 @@ export function pageTitle(subject: string): string {
  * It is populated only from real profile URLs — see `isRealProfileUrl`.
  */
 export function organizationJsonLd(business: Business, social: Business['social']) {
-  const address = requireClaim('business_address')
+  // Throws if the address claim is ever set to unverified, which is the point:
+  // an Organization node with no address is a weak local entity, so the claim
+  // must be a deliberate decision rather than something that quietly lapses.
+  requireClaim('business_address')
 
   return {
     '@type': ['Organization', 'LocalBusiness'],
@@ -123,7 +126,7 @@ export function organizationJsonLd(business: Business, social: Business['social'
     alternateName: business.legalName,
     description: business.description,
     slogan: business.tagline,
-    url: `${site.url}/`,
+    url: absoluteUrl('/'),
     logo: {
       '@type': 'ImageObject',
       url: absoluteUrl('/og-image.svg'),
@@ -185,9 +188,6 @@ export function organizationJsonLd(business: Business, social: Business['social'
     // verified claims read from a real public profile. Publishing review figures
     // you cannot evidence breaches Google's review-snippet policy.
     ...aggregateRatingFragment(),
-    // `address` is destructured above; keeping the claim reference here documents
-    // why the field is allowed to exist at all.
-    identifier: address.id,
   }
 }
 
@@ -230,7 +230,7 @@ export function websiteJsonLd() {
   return {
     '@type': 'WebSite',
     '@id': WEBSITE_ID,
-    url: `${site.url}/`,
+    url: absoluteUrl('/'),
     name: site.name,
     inLanguage: site.lang,
     publisher: { '@id': ORGANIZATION_ID },

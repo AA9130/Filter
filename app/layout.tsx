@@ -21,12 +21,12 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(site.url),
     ...buildMetadata({
-      title: 'Water Filter Installation, Service & Repair Across the UAE',
-      description: business.description,
+      title: 'Water Filter Installation & Service UAE',
+      description: business.shortDescription,
       path: '/',
     }),
     title: {
-      default: `Water Filter Installation, Service & Repair Across the UAE | ${site.name}`,
+      default: `Water Filter Installation & Service UAE | ${site.name}`,
       // Page titles pass a short subject and the brand is appended here, so
       // every title is consistent and none of them repeat the brand twice.
       template: `%s | ${site.name}`,

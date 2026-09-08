@@ -13,9 +13,9 @@ import {
 } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Water Filtration FAQs — UAE',
+  title: 'Water Filtration FAQs for the UAE',
   description:
-    'Answers to the questions UAE households actually ask about water filtration: is tap water safe, do I need RO, how often to replace filters, what installation costs, RO vs UV, limescale, leaks and low pressure.',
+    'Answers to what UAE households ask about water filtration: is tap water safe, do I need RO, replacement intervals, costs, RO vs UV, limescale, leaks.',
   path: '/faqs',
 })
 

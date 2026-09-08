@@ -39,9 +39,9 @@ import { buildMetadata, breadcrumbJsonLd, jsonLdGraph, reviewJsonLd } from '@/li
  */
 
 export const metadata: Metadata = buildMetadata({
-  title: 'About AquaPure UAE — Water Filtration Specialists',
+  title: 'About AquaPure UAE',
   description:
-    'AquaPure UAE installs, services and repairs water filtration systems across all seven Emirates. What we do, how we specify systems, and which of our claims are verified — stated plainly.',
+    'AquaPure UAE installs, services and repairs water filtration systems across all seven Emirates. What we do, and how we specify a system.',
   path: '/about',
 })
 

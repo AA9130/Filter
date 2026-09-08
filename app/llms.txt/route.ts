@@ -46,7 +46,7 @@ export async function GET(): Promise<Response> {
     `- Name: ${business.name}`,
     `- Legal name: ${business.legalName}`,
     `- Type: ${business.entityType}`,
-    `- Website: ${site.url}/`,
+    `- Website: ${absoluteUrl('/')}`,
     `- Phone: ${site.phone.display} (${site.phone.e164})`,
     `- Email: ${site.email}`,
     `- Based in: ${business.address.street}, ${business.address.city}, ${business.address.countryName}`,
