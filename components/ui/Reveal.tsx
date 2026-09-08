@@ -1,69 +1,80 @@
 'use client'
 
-import { motion, useReducedMotion } from 'framer-motion'
-import type { ReactNode } from 'react'
-import { springDefault } from '@/lib/motion'
+import { useEffect, useRef, type ReactNode } from 'react'
 
 type RevealProps = {
   children: ReactNode
   /** Stagger helper — delay in seconds. */
   delay?: number
-  /** Direction the element travels in from. */
   from?: 'bottom' | 'left' | 'right' | 'none'
   className?: string
-  /** Render as a different element (e.g. 'li', 'article'). */
   as?: 'div' | 'li' | 'article' | 'section' | 'span'
 }
 
-const offsets = {
-  bottom: { y: 28, x: 0 },
-  left: { y: 0, x: -32 },
-  right: { y: 0, x: 32 },
-  none: { y: 0, x: 0 },
+/**
+ * Scroll-triggered entrance.
+ *
+ * The animation itself is pure CSS (see [data-reveal] in globals.css); this
+ * component only decides *when* to flip the attribute. All instances share ONE
+ * IntersectionObserver — the page has ~100 revealed elements, and giving each
+ * its own animation library instance cost more hydration time than every other
+ * script on the page combined.
+ *
+ * Elements are unobserved once shown, so the observer's work shrinks as the
+ * visitor scrolls.
+ */
+let sharedObserver: IntersectionObserver | null = null
+
+function getObserver(): IntersectionObserver | null {
+  if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return null
+  if (sharedObserver) return sharedObserver
+
+  sharedObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue
+        entry.target.setAttribute('data-revealed', '')
+        sharedObserver?.unobserve(entry.target)
+      }
+    },
+    { rootMargin: '0px 0px -80px 0px' },
+  )
+
+  return sharedObserver
 }
 
-/**
- * Scroll-triggered entrance. Settles on a critically damped spring rather than
- * a fixed-duration curve: nothing overshoots, because nothing here was thrown —
- * the bounce is reserved for motion the user's own gesture put in flight.
- */
 export default function Reveal({
   children,
   delay = 0,
   from = 'bottom',
   className,
-  as = 'div',
+  as: Tag = 'div',
 }: RevealProps) {
-  const reduce = useReducedMotion()
-  const MotionTag = motion[as]
-  const offset = offsets[from]
+  const ref = useRef<HTMLElement | null>(null)
 
-  // Reduced motion keeps the meaning (a fade) and drops the travel
-  if (reduce) {
-    return (
-      <MotionTag
-        data-reveal
-        className={className}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.2, delay }}
-      >
-        {children}
-      </MotionTag>
-    )
-  }
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const observer = getObserver()
+    // No observer support: show immediately rather than leaving content hidden
+    if (!observer) {
+      el.setAttribute('data-revealed', '')
+      return
+    }
+
+    observer.observe(el)
+    return () => observer.unobserve(el)
+  }, [])
 
   return (
-    <MotionTag
-      data-reveal
+    <Tag
+      ref={ref as React.Ref<never>}
+      data-reveal={from}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
       className={className}
-      initial={{ opacity: 0, y: offset.y, x: offset.x }}
-      whileInView={{ opacity: 1, y: 0, x: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ ...springDefault, delay }}
     >
       {children}
-    </MotionTag>
+    </Tag>
   )
 }

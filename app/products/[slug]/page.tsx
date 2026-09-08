@@ -1,20 +1,26 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowRight, Check, ChevronRight, Phone, MessageCircle } from 'lucide-react'
+import { Check, Phone, MessageCircle, Info } from 'lucide-react'
 import Photo from '@/components/ui/Photo'
 import Reveal from '@/components/ui/Reveal'
 import SectionHeading from '@/components/ui/SectionHeading'
-import TrustBar from '@/components/sections/TrustBar'
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import Credentials from '@/components/sections/Credentials'
+import AnswerBlock from '@/components/sections/AnswerBlock'
+import ProseSections from '@/components/sections/ProseSections'
+import RelatedLinks from '@/components/sections/RelatedLinks'
 import AmcPlans from '@/components/sections/AmcPlans'
 import CtaBanner from '@/components/sections/CtaBanner'
 import Faq from '@/components/sections/Faq'
 import { site, whatsappLink } from '@/lib/site'
 import {
-  getProduct, getProducts, getRelatedProducts, getBusiness, getAmcPlans,
-  getFaqs, getTrustBadges,
+  getProduct, getProducts, getRelatedProducts, getAmcPlans, getCredentials,
+  getFaqsByIds, getServicesBySlugs, getGuidesBySlugs, getLocationsBySlugs,
 } from '@/lib/content'
-import { buildMetadata, breadcrumbJsonLd, productJsonLd } from '@/lib/seo'
+import {
+  buildMetadata, breadcrumbJsonLd, productJsonLd, faqJsonLd, jsonLdGraph,
+} from '@/lib/seo'
+import type { Section } from '@/lib/content'
 
 export async function generateStaticParams() {
   const products = await getProducts()
@@ -36,7 +42,7 @@ export async function generateMetadata({
     title: product.metaTitle,
     description: product.metaDescription,
     path: `/products/${product.slug}`,
-    keywords: [product.name.toLowerCase(), `${product.category.toLowerCase()} UAE`],
+    image: product.image,
   })
 }
 
@@ -49,36 +55,40 @@ export default async function ProductDetailPage({
   const product = await getProduct(slug)
   if (!product) notFound()
 
-  const [related, business, plans, faqs, badges] = await Promise.all([
-    getRelatedProducts(slug), getBusiness(), getAmcPlans(), getFaqs(), getTrustBadges(),
+  const [related, plans, credentials, faqs, services, guides, locations] = await Promise.all([
+    getRelatedProducts(slug),
+    getAmcPlans(),
+    getCredentials(),
+    getFaqsByIds(product.faqIds),
+    getServicesBySlugs(product.relatedServices),
+    getGuidesBySlugs(product.relatedGuides),
+    getLocationsBySlugs(product.relatedLocations),
   ])
 
   const quoteMessage = `Hi, I would like a quote for the ${product.name}. My location is:`
+
+  const crumbs = [
+    { name: 'Home', path: '/' },
+    { name: 'Products', path: '/products' },
+    { name: product.name, path: `/products/${product.slug}` },
+  ]
+
+  const sections: Section[] = [
+    { heading: 'Who this suits', list: product.whoItSuits },
+    { heading: 'How it is fitted', paragraphs: product.howItFits },
+    { heading: 'Maintenance it will need', list: product.maintenance },
+    { heading: 'Things to consider before buying', list: product.considerations },
+  ]
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            productJsonLd({
-              name: product.name,
-              description: product.blurb,
-              slug: product.slug,
-              business,
-            }),
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbJsonLd([
-              { name: 'Home', path: '/' },
-              { name: 'Products', path: '/products' },
-              { name: product.name, path: `/products/${product.slug}` },
-            ]),
+          __html: jsonLdGraph(
+            productJsonLd(product),
+            breadcrumbJsonLd(crumbs),
+            faqJsonLd(faqs, `/products/${product.slug}`),
           ),
         }}
       />
@@ -88,26 +98,34 @@ export default async function ProductDetailPage({
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-grid-light bg-grid opacity-[0.07]"
         />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-20 -top-32 h-96 w-96 rounded-full bg-aqua-500/20 blur-3xl"
+        />
+
         <div className="container-page relative">
-          <nav aria-label="Breadcrumb">
-            <ol className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-brand-200">
-              <li><Link href="/" className="transition-colors hover:text-white">Home</Link></li>
-              <li aria-hidden="true"><ChevronRight className="h-3.5 w-3.5" /></li>
-              <li><Link href="/products" className="transition-colors hover:text-white">Products</Link></li>
-              <li aria-hidden="true"><ChevronRight className="h-3.5 w-3.5" /></li>
-              <li className="text-white">{product.name}</li>
-            </ol>
-          </nav>
+          <Breadcrumbs items={crumbs} />
 
           <div className="mt-7 grid items-center gap-10 lg:grid-cols-2">
             <div>
-              <span className="eyebrow-dark">{product.category}</span>
+              <span className="eyebrow-dark">{product.badge ?? product.category}</span>
               <h1 className="mt-5 text-3xl leading-[1.1] text-white sm:text-4xl lg:text-5xl">
-                {product.name}
+                {product.h1}
               </h1>
-              <p className="mt-4 text-base leading-relaxed text-brand-100/90">{product.blurb}</p>
+              <p className="mt-5 text-base leading-relaxed text-brand-100/90 sm:text-lg">
+                {product.blurb}
+              </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={site.phone.href}
+                  data-analytics="call-click-product"
+                  className="btn-cta btn-lg"
+                  aria-label={`Call ${site.name} on ${site.phone.display}`}
+                >
+                  <Phone aria-hidden="true" className="h-5 w-5" />
+                  Call {site.phone.display}
+                </a>
                 <a
                   href={whatsappLink(quoteMessage)}
                   target="_blank"
@@ -115,29 +133,25 @@ export default async function ProductDetailPage({
                   data-analytics="whatsapp-click-product"
                   className="btn-whatsapp btn-lg"
                 >
-                  <MessageCircle className="h-5 w-5" />
-                  Request a Quote
-                </a>
-                <a href={site.phone.href} data-analytics="call-click-product" className="btn-cta btn-lg">
-                  <Phone className="h-5 w-5" />
-                  Call {site.phone.display}
+                  <MessageCircle aria-hidden="true" className="h-5 w-5" />
+                  Get a quote
                 </a>
               </div>
-              <p className="mt-4 text-sm text-brand-200/80">
-                Quoted per property after a free water test. Installation and a full leak test
-                are always included.
-              </p>
             </div>
 
             <div className="relative overflow-hidden rounded-3xl border border-white/15 shadow-glow">
               <Photo
                 src={product.image}
-                alt={`${product.name} — ${product.category} system installed in the UAE`}
+                alt={`${product.name} — ${product.category.toLowerCase()} installed by AquaPure UAE`}
                 width={1200}
                 height={800}
                 priority
                 sizes="(max-width: 1024px) 100vw, 48vw"
                 className="h-64 w-full object-cover sm:h-80"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-brand-950/60 to-transparent"
               />
             </div>
           </div>
@@ -150,16 +164,27 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      <TrustBar badges={badges} />
+      <AnswerBlock answer={product.directAnswer} facts={product.keyFacts} />
 
-      <section className="section bg-white">
+      <Credentials credentials={credentials} />
+
+      {/* Features */}
+      <section className="section bg-slate-50">
         <div className="container-page">
-          <SectionHeading eyebrow="Specification" title="What is included" />
+          <SectionHeading
+            eyebrow="What it does"
+            title={`${product.name} — features`}
+            subtitle="What the unit actually provides, in plain terms."
+          />
+
           <ul className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">
             {product.features.map((feature, i) => (
               <Reveal as="li" key={feature} delay={(i % 2) * 0.06}>
                 <div className="card flex h-full items-start gap-3">
-                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-eco-100">
+                  <span
+                    aria-hidden="true"
+                    className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-eco-100"
+                  >
                     <Check className="h-3.5 w-3.5 text-eco-600" />
                   </span>
                   <p className="text-sm leading-relaxed text-ink-soft">{feature}</p>
@@ -167,49 +192,76 @@ export default async function ProductDetailPage({
               </Reveal>
             ))}
           </ul>
+
+          {/*
+            Why there is no specification table. Publishing capacities and
+            dimensions we have not confirmed per model would be inventing
+            product specifications — see claim `published_pricing` and §47 of
+            the content policy. The honest version is to say what determines
+            them and when they are confirmed.
+          */}
+          <div className="mx-auto mt-8 flex max-w-4xl items-start gap-3 rounded-2xl border border-brand-100 bg-brand-50/60 p-5">
+            <Info aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
+            <p className="text-sm leading-relaxed text-ink-soft">{product.specNote}</p>
+          </div>
         </div>
       </section>
 
-      <CtaBanner
-        title={`Want the ${product.name} fitted this week?`}
-        subtitle="Send us a photo of your existing setup and we will confirm the fit, the price and the slot."
-      />
-
       <section className="section bg-white">
         <div className="container-page">
-          <SectionHeading eyebrow="Related products" title="Other systems to consider" />
-          <ul className="mt-12 grid gap-5 sm:grid-cols-3">
-            {related.map((item, i) => (
-              <Reveal as="li" key={item.slug} delay={i * 0.07} className="h-full">
-                <Link
-                  href={`/products/${item.slug}`}
-                  className="group card card-hover flex h-full flex-col overflow-hidden !p-0"
-                >
-                  <Photo
-                    src={item.image}
-                    alt={item.name}
-                    width={600}
-                    height={400}
-                    sizes="(max-width: 640px) 100vw, 33vw"
-                    className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="flex flex-1 flex-col p-5">
-                    <h3 className="text-base font-bold leading-snug">{item.name}</h3>
-                    <p className="mt-1 text-sm text-ink-muted">{item.category}</p>
-                    <span className="link-arrow mt-4">
-                      View details
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </ul>
+          <ProseSections sections={sections} />
         </div>
       </section>
 
       <AmcPlans plans={plans} />
-      <Faq faqs={faqs} />
+
+      <CtaBanner
+        title={`Interested in the ${product.name}?`}
+        subtitle="The water test decides whether this is the right unit for your property. It is free, on site, and carries no obligation."
+      />
+
+      <Faq faqs={faqs} heading="Questions about this system" seeAllHref="/faqs" />
+
+      <RelatedLinks
+        groups={[
+          {
+            label: 'Other systems to consider',
+            items: related.map((item) => ({
+              name: item.name,
+              href: `/products/${item.slug}`,
+              description: item.blurb,
+              icon: 'package-check',
+            })),
+          },
+          {
+            label: 'Services for this system',
+            items: services.map((service) => ({
+              name: service.title,
+              href: `/services/${service.slug}`,
+              description: service.short,
+              icon: service.icon,
+            })),
+          },
+          {
+            label: 'Guides that cover this choice',
+            items: guides.map((guide) => ({
+              name: guide.title,
+              href: `/guides/${guide.slug}`,
+              description: guide.primaryQuestion,
+              icon: 'droplets',
+            })),
+          },
+          {
+            label: 'Where we fit it',
+            items: locations.map((location) => ({
+              name: `Water filter services in ${location.name}`,
+              href: `/locations/${location.slug}`,
+              description: `${location.responseTime} — ${location.areas.slice(0, 4).join(', ')} and more.`,
+              icon: 'map-pin',
+            })),
+          },
+        ]}
+      />
     </>
   )
 }

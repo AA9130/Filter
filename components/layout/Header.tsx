@@ -3,19 +3,10 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import {
-  animate,
-  motion,
-  useMotionValue,
-  useMotionValueEvent,
-  useReducedMotion,
-  useTransform,
-  type PanInfo,
-} from 'framer-motion'
 import { Menu, X, Phone, MessageCircle, Clock, MapPin, ChevronRight } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
 import { navLinks, site, whatsappLink } from '@/lib/site'
-import { springDrawer, springSnappy, project } from '@/lib/motion'
+import { springs, spring, project, rubberband, GESTURE_THRESHOLD_PX } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 const FALLBACK_PANEL_WIDTH = 360
@@ -24,87 +15,149 @@ export default function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
-  const reduce = useReducedMotion()
 
   const panelRef = useRef<HTMLDivElement>(null)
+  const scrimRef = useRef<HTMLDivElement>(null)
   const widthRef = useRef(FALLBACK_PANEL_WIDTH)
-  // Drag constraints are resolved at render, so the width has to be state,
-  // not just a ref that imperative code reads.
-  const [panelWidth, setPanelWidth] = useState(FALLBACK_PANEL_WIDTH)
+  const xRef = useRef(FALLBACK_PANEL_WIDTH)
+  const cancelRef = useRef<(() => void) | null>(null)
+  const dragRef = useRef<{ startX: number; startPanelX: number; lastX: number; lastT: number; v: number } | null>(null)
 
   /**
-   * The drawer is never unmounted. Keeping it in the tree is what lets a user
-   * grab it mid-close and throw it back open — an animation the interface
-   * refuses to hand back is the thing that reads as "computer", not "material".
+   * The panel position is written straight to the DOM, never held in React
+   * state. A drag produces a value every frame; routing that through a
+   * re-render would re-run the whole header sixty times a second for a
+   * transform the compositor could have handled alone.
    */
-  const x = useMotionValue(FALLBACK_PANEL_WIDTH)
-
-  // Scrim opacity tracks the sheet position 1:1 the whole way through the drag,
-  // rather than fading only once the gesture has been classified.
-  const scrimOpacity = useTransform(x, (value) =>
-    Math.max(0, Math.min(1, 1 - value / widthRef.current)),
-  )
-  const [interactive, setInteractive] = useState(false)
-  useMotionValueEvent(x, 'change', (value) => {
-    setInteractive(value < widthRef.current - 1)
-  })
-
-  const measure = useCallback(() => {
-    const width = panelRef.current?.offsetWidth
-    if (width) {
-      widthRef.current = width
-      setPanelWidth(width)
+  const applyX = useCallback((value: number) => {
+    xRef.current = value
+    const width = widthRef.current
+    const panel = panelRef.current
+    const scrim = scrimRef.current
+    if (panel) panel.style.transform = `translate3d(${value}px,0,0)`
+    if (scrim) {
+      // The scrim tracks the sheet 1:1 the whole way, not just at the end
+      scrim.style.opacity = String(Math.max(0, Math.min(1, 1 - value / width)))
+      scrim.style.pointerEvents = value < width - 1 ? 'auto' : 'none'
+    }
+    if (panel) {
+      const closed = value >= width - 1
+      panel.style.pointerEvents = closed ? 'none' : 'auto'
+      if (closed) panel.setAttribute('inert', '')
+      else panel.removeAttribute('inert')
     }
   }, [])
 
-  useLayoutEffect(() => {
-    measure()
-    x.set(widthRef.current)
-  }, [measure, x])
+  const measure = useCallback(() => {
+    const width = panelRef.current?.offsetWidth
+    if (width) widthRef.current = width
+  }, [])
 
-  useEffect(() => {
-    const onResize = () => {
-      measure()
-      if (!open) x.set(widthRef.current)
-    }
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-  }, [measure, open, x])
+  const settleTo = useCallback(
+    (target: number, velocity = 0) => {
+      cancelRef.current?.()
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (reduce) {
+        applyX(target)
+        return
+      }
+      cancelRef.current = spring({
+        from: xRef.current,
+        to: target,
+        velocity,
+        ...springs.drawer,
+        onUpdate: applyX,
+      })
+    },
+    [applyX],
+  )
 
   const openDrawer = useCallback(() => {
     measure()
     setOpen(true)
-    animate(x, 0, reduce ? { duration: 0 } : springDrawer)
-  }, [measure, reduce, x])
+    settleTo(0)
+  }, [measure, settleTo])
 
-  /** `velocity` hands the finger's speed to the spring so there is no seam. */
   const closeDrawer = useCallback(
     (velocity = 0) => {
       setOpen(false)
-      animate(x, widthRef.current, reduce ? { duration: 0 } : { ...springDrawer, velocity })
+      settleTo(widthRef.current, velocity)
     },
-    [reduce, x],
+    [settleTo],
   )
 
-  const handleDragEnd = useCallback(
-    (_event: PointerEvent | MouseEvent | TouchEvent, info: PanInfo) => {
-      // Land on where the throw is going, not where the finger left off.
-      const projected = x.get() + project(info.velocity.x)
-      const shouldClose = projected > widthRef.current / 2
+  useLayoutEffect(() => {
+    measure()
+    applyX(widthRef.current)
+  }, [measure, applyX])
 
-      if (shouldClose) {
-        closeDrawer(info.velocity.x)
-        return
+  useEffect(() => {
+    const onResize = () => {
+      measure()
+      if (!open) applyX(widthRef.current)
+    }
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [measure, applyX, open])
+
+  // --- Gesture ---------------------------------------------------------------
+  const onPointerDown = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return
+    // Grabbing cancels whatever the sheet was doing, so a closing drawer can be
+    // caught mid-flight and thrown back open.
+    cancelRef.current?.()
+    dragRef.current = {
+      startX: event.clientX,
+      startPanelX: xRef.current,
+      lastX: event.clientX,
+      lastT: event.timeStamp,
+      v: 0,
+    }
+  }, [])
+
+  const onPointerMove = useCallback(
+    (event: React.PointerEvent<HTMLDivElement>) => {
+      const drag = dragRef.current
+      if (!drag) return
+
+      const dx = event.clientX - drag.startX
+      if (!event.currentTarget.hasPointerCapture(event.pointerId)) {
+        if (Math.abs(dx) < GESTURE_THRESHOLD_PX) return
+        event.currentTarget.setPointerCapture(event.pointerId)
       }
 
-      // Where the sheet comes to rest is the truth, not the last intent. A user
-      // who catches a closing drawer and throws it back open has re-opened it —
-      // `open` has to agree, or the button label, aria-expanded and the body
-      // scroll lock all end up describing a drawer that is no longer there.
-      setOpen(true)
-      animate(x, 0, { ...springDrawer, velocity: info.velocity.x })
+      // Velocity from the last two samples, which is what the release needs
+      const dt = event.timeStamp - drag.lastT
+      if (dt > 0) drag.v = ((event.clientX - drag.lastX) / dt) * 1000
+      drag.lastX = event.clientX
+      drag.lastT = event.timeStamp
+
+      let next = drag.startPanelX + dx
+      // Past the open edge the sheet resists progressively rather than stopping
+      if (next < 0) next = -rubberband(-next, widthRef.current)
+      applyX(next)
     },
-    [closeDrawer, x],
+    [applyX],
+  )
+
+  const onPointerUp = useCallback(
+    (event: React.PointerEvent<HTMLDivElement>) => {
+      const drag = dragRef.current
+      if (!drag) return
+      dragRef.current = null
+      if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+        event.currentTarget.releasePointerCapture(event.pointerId)
+      }
+
+      // Land where the throw is heading, not where the finger stopped
+      const projected = xRef.current + project(drag.v)
+      if (projected > widthRef.current / 2) closeDrawer(drag.v)
+      else {
+        setOpen(true)
+        settleTo(0, drag.v)
+      }
+    },
+    [closeDrawer, settleTo],
   )
 
   // Solid, shadowed header once the user scrolls past the hero top
@@ -118,7 +171,7 @@ export default function Header() {
   // Close on navigation
   useEffect(() => {
     setOpen(false)
-    animate(x, widthRef.current, reduce ? { duration: 0 } : springDrawer)
+    settleTo(widthRef.current)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
 
@@ -188,11 +241,7 @@ export default function Header() {
                 >
                   {link.label}
                   {active && (
-                    <motion.span
-                      layoutId="nav-active"
-                      transition={springSnappy}
-                      className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-brand-600 to-aqua-500"
-                    />
+                    <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-brand-600 to-aqua-500" />
                   )}
                 </Link>
               )
@@ -254,42 +303,30 @@ export default function Header() {
       </header>
 
       {/* Scrim — dims to focus, and follows the sheet continuously */}
-      <motion.div
-        style={{ opacity: scrimOpacity }}
+      <div
+        ref={scrimRef}
         onClick={() => closeDrawer()}
         aria-hidden="true"
-        className={cn(
-          // Above the header (z-50) and the sticky call bar (z-50): a modal
-          // task dims everything behind it, and a light surface must never be
-          // left sitting on top of the dimmed layer.
-          'fixed inset-0 z-[55] bg-ink/40 backdrop-blur-sm lg:hidden',
-          interactive ? 'pointer-events-auto' : 'pointer-events-none',
-        )}
+        style={{ opacity: 0, pointerEvents: 'none' }}
+        // Above the header (z-50) and the sticky call bar (z-50): a modal task
+        // dims everything behind it, and a light surface must never be left
+        // sitting on top of the dimmed layer.
+        className="fixed inset-0 z-[55] bg-ink/40 backdrop-blur-sm lg:hidden"
       />
 
       {/* Drawer — enters and leaves along the same path, and is grabbable at
           any point in that journey, including mid-animation. */}
-      <motion.div
+      <div
         id="mobile-menu"
         ref={panelRef}
-        style={{ x }}
-        drag={reduce ? false : 'x'}
-        dragConstraints={{ left: 0, right: panelWidth }}
-        // Small elasticity past the open edge: resistance that builds, so the
-        // boundary reads as a limit rather than a wall.
-        dragElastic={0.06}
-        dragMomentum={false}
-        dragDirectionLock
-        onDragEnd={handleDragEnd}
-        // Inert follows the panel's real position, not the intent to close.
-        // Keying it to `open` would revoke pointer events the instant a close
-        // began — leaving a sheet that is still on screen but can no longer be
-        // grabbed, which is exactly the animation-you-cannot-take-back problem.
-        inert={!interactive}
-        className={cn(
-          'fixed right-0 top-0 z-[60] flex h-full w-[86%] max-w-sm flex-col overflow-y-auto bg-white shadow-2xl lg:hidden',
-          interactive ? 'pointer-events-auto' : 'pointer-events-none',
-        )}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+        // `pan-y` hands vertical scrolling to the browser and keeps horizontal
+        // gestures for the sheet. Inertness follows the panel's real position,
+        // not the intent to close, so a closing sheet stays grabbable.
+        className="fixed right-0 top-0 z-[60] flex h-full w-[86%] max-w-sm touch-pan-y flex-col overflow-y-auto bg-white shadow-2xl lg:hidden"
       >
         {/* Grab handle — tells the user this surface is draggable */}
         <div
@@ -348,11 +385,11 @@ export default function Header() {
           <div className="mt-6 rounded-2xl bg-brand-50 p-4 text-sm text-brand-900">
             <p className="font-semibold">Free water test &amp; demo</p>
             <p className="mt-1 text-brand-800/80">
-              Certified technicians across all 7 Emirates. 24-hour emergency support.
+              TDS and hardness measured at your tap, across all 7 Emirates. No call-out fee.
             </p>
           </div>
         </nav>
-      </motion.div>
+      </div>
     </>
   )
 }

@@ -4,22 +4,17 @@ import PageHero from '@/components/sections/PageHero'
 import ContactSection from '@/components/sections/ContactSection'
 import ServiceAreas from '@/components/sections/ServiceAreas'
 import Faq from '@/components/sections/Faq'
-import TrustBar from '@/components/sections/TrustBar'
+import Credentials from '@/components/sections/Credentials'
 import Reveal from '@/components/ui/Reveal'
 import { site, whatsappLink } from '@/lib/site'
-import { buildMetadata, breadcrumbJsonLd, faqJsonLd } from '@/lib/seo'
-import { getFaqs, getBusiness, getServices, getEmirates, getTrustBadges } from '@/lib/content'
+import { buildMetadata, breadcrumbJsonLd, faqJsonLd, jsonLdGraph } from '@/lib/seo'
+import { getFaqsByIds, getBusiness, getServices, getLocations, getCredentials } from '@/lib/content'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Contact Us — Water Filter Service Across the UAE, 24 Hours',
+  title: 'Contact AquaPure UAE — Book a Free Water Test',
   description:
-    'Call or WhatsApp AquaPure UAE for water filter installation, servicing, filter replacement or emergency repair. Same-day slots in Dubai, Abu Dhabi and Sharjah; 24-hour emergency line.',
+    'Call or WhatsApp AquaPure UAE for water filter installation, servicing, filter replacement or emergency repair. Same-day slots usually available in Dubai, Abu Dhabi and Sharjah; 24-hour emergency line.',
   path: '/contact',
-  keywords: [
-    'water filter service near me',
-    'water purifier repair Dubai contact',
-    'emergency water filter repair UAE',
-  ],
 })
 
 const quickActions = [
@@ -44,7 +39,7 @@ const quickActions = [
   {
     icon: Wrench,
     title: 'Filter replacement due',
-    body: 'Tell us your system model or send a photo — we bring the right genuine cartridges on the first visit.',
+    body: 'Tell us your system model or send a photo — we bring the right cartridges on the first visit.',
     label: 'Send a photo on WhatsApp',
     href: whatsappLink('Hi, my filters are due for replacement. Here is a photo of my system:'),
     style: 'btn-brand',
@@ -52,34 +47,36 @@ const quickActions = [
   },
 ]
 
+/** The questions people actually have at the point of getting in touch. */
+const CONTACT_FAQ_IDS = [
+  'water-test-free', 'coverage-emirates', 'emergency-repairs', 'ro-installation-cost',
+  'installation-duration', 'service-other-brands',
+] as const
+
 export default async function ContactPage() {
-  const [faqs, business, services, emirates, badges] = await Promise.all([
-    getFaqs(), getBusiness(), getServices(), getEmirates(), getTrustBadges(),
+  const [faqs, business, services, locations, credentials] = await Promise.all([
+    getFaqsByIds(CONTACT_FAQ_IDS), getBusiness(), getServices(), getLocations(), getCredentials(),
   ])
+
+  const crumbs = [
+    { name: 'Home', path: '/' },
+    { name: 'Contact', path: '/contact' },
+  ]
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbJsonLd([
-              { name: 'Home', path: '/' },
-              { name: 'Contact', path: '/contact' },
-            ]),
-          ),
+          __html: jsonLdGraph(breadcrumbJsonLd(crumbs), faqJsonLd(faqs, '/contact')),
         }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(faqs)) }}
       />
 
       <PageHero
-        breadcrumb="Contact"
+        breadcrumbs={crumbs}
         eyebrow="Contact Us"
-        title="Get clean water sorted today — call, WhatsApp or send the form"
-        subtitle="Our lines are answered by technicians, not a call centre. Same-day slots are usually available in Dubai, Abu Dhabi and Sharjah."
+        title="Call, WhatsApp, or send the form"
+        subtitle="Same-day slots are usually available in Dubai, Abu Dhabi and Sharjah, and the northern Emirates are covered on scheduled routes. The water test and the quotation are free, with no call-out fee."
       />
 
       {/* Quick routes by intent */}
@@ -121,11 +118,11 @@ export default async function ContactPage() {
       <ContactSection
         business={business}
         services={services.map(({ slug, title }) => ({ slug, title }))}
-        emirates={emirates.map(({ name }) => ({ name }))}
+        emirates={locations.map(({ name }) => ({ name }))}
       />
-      <TrustBar badges={badges} />
-      <ServiceAreas emirates={emirates} />
-      <Faq faqs={faqs} />
+      <Credentials credentials={credentials} />
+      <ServiceAreas locations={locations} />
+      <Faq faqs={faqs} heading="Before you get in touch" seeAllHref="/faqs" />
     </>
   )
 }

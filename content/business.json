@@ -2,64 +2,34 @@
   "name": "AquaPure UAE",
   "legalName": "AquaPure Water Filtration Services L.L.C.",
   "tagline": "Pure Water, Healthy Life",
-  "description": "UAE-wide water filter installation, RO purifier servicing, filter replacement, repairs and Annual Maintenance Contracts. Certified technicians, 24-hour emergency support, same-day service across all 7 Emirates.",
+  "shortDescription": "Water filtration and purification company serving all seven Emirates of the UAE.",
+  "description": "AquaPure UAE installs, services and repairs domestic and commercial water filtration systems across all seven Emirates — reverse osmosis drinking-water purifiers, whole-house and whole-villa filtration, water softeners, UV disinfection, filter and membrane replacement, and annual maintenance contracts. Every job starts with a free on-site water test and a fixed written quotation in AED.",
+  "entityType": "Water filtration and purification service company",
   "address": {
     "street": "Al Quoz Industrial Area 3",
     "city": "Dubai",
     "region": "Dubai",
     "country": "AE",
     "countryName": "United Arab Emirates",
-    "postalCode": "00000",
-    "latitude": 25.1193,
-    "longitude": 55.2277,
     "mapQuery": "Al Quoz Industrial Area 3, Dubai, UAE"
   },
+  "languages": ["English", "Arabic", "Hindi", "Urdu", "Malayalam"],
   "hours": [
-    {
-      "days": "Saturday – Thursday",
-      "time": "8:00 AM – 9:00 PM"
-    },
-    {
-      "days": "Friday",
-      "time": "2:00 PM – 9:00 PM"
-    },
-    {
-      "days": "Emergency call-outs",
-      "time": "24 hours, 7 days a week"
-    }
+    { "days": "Saturday – Thursday", "time": "8:00 AM – 9:00 PM" },
+    { "days": "Friday", "time": "2:00 PM – 9:00 PM" },
+    { "days": "Emergency call-outs", "time": "24 hours, 7 days a week" }
   ],
   "openingHoursSpec": [
     {
-      "days": [
-        "Saturday",
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday"
-      ],
+      "days": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
       "opens": "08:00",
       "closes": "21:00"
     },
-    {
-      "days": [
-        "Friday"
-      ],
-      "opens": "14:00",
-      "closes": "21:00"
-    }
+    { "days": ["Friday"], "opens": "14:00", "closes": "21:00" }
   ],
-  "social": {
-    "facebook": "https://facebook.com/",
-    "instagram": "https://instagram.com/",
-    "linkedin": "https://linkedin.com/",
-    "youtube": "https://youtube.com/"
-  },
-  "stats": {
-    "customers": "12,000+",
-    "emirates": "7",
-    "years": "15",
-    "rating": "4.9",
-    "reviewCount": "1,284"
-  }
+  "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+  "currenciesAccepted": "AED",
+  "social": [],
+  "_social_note": "Deliberately empty. These URLs become `sameAs` in Organization/LocalBusiness JSON-LD, which is how a search or AI system decides two mentions of 'AquaPure' are the same entity. A bare domain (https://facebook.com/) tells it nothing and is rejected at the content boundary. Add real profile URLs only — e.g. { \"platform\": \"facebook\", \"url\": \"https://www.facebook.com/<page>\" }. Google Business Profile is the highest-value entry here.",
+  "_stats_note": "Statistics deliberately do not live here. Every figure about the business (customers served, rating, review count, years trading) is a claim in content/claims.json and is published only when that claim is verified. This is what stopped the site rendering '0+ Happy customers' to crawlers while the JSON said 12,000+."
 }

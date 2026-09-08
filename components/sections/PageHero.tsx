@@ -1,19 +1,26 @@
-import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
+import Breadcrumbs, { type Crumb } from '@/components/ui/Breadcrumbs'
 import ContactButtons from '@/components/ui/ContactButtons'
 
-/** Compact hero used by the inner pages, with breadcrumbs and the CTA pair. */
+/**
+ * Compact hero for hub pages, with the breadcrumb trail and the CTA pair.
+ *
+ * Takes the same `Crumb[]` the page passes to `breadcrumbJsonLd`, so the
+ * visible trail and the structured data are built from one array and cannot
+ * describe different paths.
+ */
 export default function PageHero({
   eyebrow,
   title,
   subtitle,
-  breadcrumb,
+  breadcrumbs,
 }: {
   eyebrow: string
   title: string
   subtitle: string
-  breadcrumb: string
+  breadcrumbs: Crumb[]
 }) {
+  const current = breadcrumbs[breadcrumbs.length - 1]?.name ?? title
+
   return (
     <section className="relative overflow-hidden bg-hero-radial pb-0 pt-12 sm:pt-16">
       <div
@@ -26,19 +33,7 @@ export default function PageHero({
       />
 
       <div className="container-page relative">
-        <nav aria-label="Breadcrumb">
-          <ol className="flex items-center gap-1.5 text-xs font-medium text-brand-200">
-            <li>
-              <Link href="/" className="transition-colors hover:text-white">
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true">
-              <ChevronRight className="h-3.5 w-3.5" />
-            </li>
-            <li className="text-white">{breadcrumb}</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={breadcrumbs} />
 
         <div className="mt-7 max-w-3xl">
           <span className="eyebrow-dark">{eyebrow}</span>
@@ -47,7 +42,7 @@ export default function PageHero({
 
           <ContactButtons
             className="mt-8"
-            whatsappMessage={`Hi, I'm looking at your ${breadcrumb} page. Please share details.`}
+            whatsappMessage={`Hi, I'm looking at your ${current} page. Please share details.`}
           />
         </div>
       </div>

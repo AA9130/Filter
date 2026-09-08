@@ -7,58 +7,62 @@ import Reveal from '@/components/ui/Reveal'
 import Process from '@/components/sections/Process'
 import AmcPlans from '@/components/sections/AmcPlans'
 import CtaBanner from '@/components/sections/CtaBanner'
-import TrustBar from '@/components/sections/TrustBar'
+import ServiceAreas from '@/components/sections/ServiceAreas'
+import Credentials from '@/components/sections/Credentials'
 import { icon } from '@/lib/icons'
-import { getServices, getAmcPlans, getProcessSteps, getTrustBadges } from '@/lib/content'
-import { buildMetadata, breadcrumbJsonLd } from '@/lib/seo'
+import { getServices, getAmcPlans, getProcessSteps, getCredentials, getLocations } from '@/lib/content'
+import { buildMetadata, breadcrumbJsonLd, collectionJsonLd, jsonLdGraph } from '@/lib/seo'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Water Filter Services in UAE — Installation, AMC, Repair & Filter Replacement',
+  title: 'Water Filter Services in the UAE — Installation, Repair, AMC',
   description:
-    'Complete water filter services across the UAE: RO installation, whole-house filtration, water softeners, UV systems, filter replacement, AMC plans, 24-hour repairs and system relocation. Certified technicians in all 7 Emirates.',
+    'Water filtration services across all seven Emirates: RO purifiers, whole-house filtration, water softeners, UV disinfection, filter and membrane replacement, repairs, AMC and relocation. Every job starts with a free on-site water test.',
   path: '/services',
-  keywords: [
-    'water filter service Dubai',
-    'RO installation UAE',
-    'water filter AMC Dubai',
-    'water purifier repair Sharjah',
-  ],
 })
 
 export default async function ServicesPage() {
-  const [services, plans, steps, badges] = await Promise.all([
-    getServices(), getAmcPlans(), getProcessSteps(), getTrustBadges(),
+  const [services, plans, steps, credentials, locations] = await Promise.all([
+    getServices(), getAmcPlans(), getProcessSteps(), getCredentials(), getLocations(),
   ])
+
+  const crumbs = [
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+  ]
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbJsonLd([
-              { name: 'Home', path: '/' },
-              { name: 'Services', path: '/services' },
-            ]),
+          __html: jsonLdGraph(
+            breadcrumbJsonLd(crumbs),
+            collectionJsonLd({
+              name: 'AquaPure UAE water filtration services',
+              description:
+                'Installation, servicing, repair and maintenance of water treatment systems across the UAE.',
+              path: '/services',
+              items: services.map((s) => ({ name: s.title, path: `/services/${s.slug}` })),
+            }),
           ),
         }}
       />
 
       <PageHero
-        breadcrumb="Services"
+        breadcrumbs={crumbs}
         eyebrow="Our Services"
-        title="Every water filtration service you need, from one certified team"
-        subtitle="Supply, installation, scheduled maintenance, emergency repair and relocation — for apartments, villas, offices, restaurants and labour accommodation anywhere in the UAE."
+        title="Every water filtration service, from one team"
+        subtitle="Supply, installation, scheduled maintenance, emergency repair and relocation — for apartments, villas, offices, restaurants and accommodation blocks anywhere in the UAE. Every job starts with a water test, because the right system is the one your reading justifies."
       />
 
-      <TrustBar badges={badges} />
+      <Credentials credentials={credentials} />
 
       <section className="section bg-white">
         <div className="container-page">
           <SectionHeading
             eyebrow="Browse"
             title="Choose the service you need"
-            subtitle="Each one has its own page with what is included, what it costs and how quickly we can get to you."
+            subtitle="Each has its own page: what the service involves, who needs it, how it works, what maintenance it brings, what goes wrong and what drives the cost."
           />
 
           <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -108,11 +112,12 @@ export default async function ServicesPage() {
       </section>
 
       <CtaBanner
-        title="Book a certified technician — most areas same day"
-        subtitle="Tell us the emirate and the problem. We confirm the slot and the price before we set off."
+        title="Book a technician — same day in most of Dubai, Abu Dhabi and Sharjah"
+        subtitle="Tell us the emirate and the problem. We confirm the slot, and the quotation is fixed and in writing before work starts."
       />
       <Process steps={steps} />
       <AmcPlans plans={plans} />
+      <ServiceAreas locations={locations} />
     </>
   )
 }

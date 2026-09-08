@@ -1,39 +1,32 @@
-'use client'
-
 import Photo from '@/components/ui/Photo'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import {
   Phone,
   MessageCircle,
   Clock,
   BadgeCheck,
   Gift,
-  Star,
   Droplets,
   ArrowRight,
 } from 'lucide-react'
 import { site, whatsappLink } from '@/lib/site'
 import { images } from '@/lib/images'
 
+/**
+ * Trust indicators, each traceable to a publishable claim in
+ * content/claims.json: `emergency_line_24h`, `free_water_test` and
+ * `technicians_trained`. The third used to read "Certified Technicians /
+ * Municipality standards", which asserted a certification and a regulatory
+ * compliance the business has not evidenced — see claims
+ * `technicians_certified` and `dubai_municipality_compliant`.
+ */
 const trustIndicators = [
-  { icon: Clock, label: '24hr Service', sub: 'Emergency call-outs' },
-  { icon: Gift, label: 'Free Demo', sub: 'On-site water test' },
-  { icon: BadgeCheck, label: 'Certified Technicians', sub: 'Municipality standards' },
+  { icon: Clock, label: '24hr Emergency Line', sub: 'Answered every day' },
+  { icon: Gift, label: 'Free Water Test', sub: 'On site, no obligation' },
+  { icon: BadgeCheck, label: 'Trained Technicians', sub: 'Diagnose and repair on site' },
 ]
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0 },
-}
-
-export default function Hero({
-  rating,
-  customers,
-}: {
-  rating: string
-  customers: string
-}) {
+export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-hero-radial pt-14 lg:pt-20">
       {/* Decorative layers */}
@@ -53,40 +46,38 @@ export default function Hero({
       <div className="container-page relative pb-20 lg:pb-28">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Copy column */}
-          <motion.div initial="hidden" animate="show" transition={{ staggerChildren: 0.09 }}>
-            <motion.div variants={fadeUp} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
+          <div>
+            <div className="animate-fade-up">
               <span className="eyebrow-dark">
                 <Droplets className="h-3.5 w-3.5" />
                 All 7 Emirates · Same-day service
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={fadeUp}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-6 text-4xl leading-[1.08] text-white sm:text-5xl lg:text-[3.5rem]"
+            <h1
+              className="mt-6 animate-fade-up text-4xl leading-[1.08] text-white sm:text-5xl lg:text-[3.5rem]"
+              style={{ animationDelay: '0.09s' }}
             >
               Pure Water, Healthy Life
               <span className="mt-2 block text-gradient">
                 UAE&apos;s Trusted Water Filter Experts
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={fadeUp}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-6 max-w-xl text-lg leading-relaxed text-brand-100/90"
+            <p
+              className="mt-6 max-w-xl animate-fade-up text-lg leading-relaxed text-brand-100/90"
+              style={{ animationDelay: '0.18s' }}
             >
               Installation, maintenance &amp; repair services across all Emirates. RO systems,
-              whole-house filtration, softeners and UV — supplied, fitted and serviced by certified
-              technicians who arrive on time and charge what they quote.
-            </motion.p>
+              whole-house filtration, softeners and UV — supplied, fitted and serviced by trained
+              technicians who measure your water before recommending anything, and charge what they
+              quote.
+            </p>
 
             {/* Primary CTAs */}
-            <motion.div
-              variants={fadeUp}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
+            <div
+              className="mt-9 flex animate-fade-up flex-col gap-3 sm:flex-row sm:items-center"
+              style={{ animationDelay: '0.27s' }}
             >
               <a
                 href={site.phone.href}
@@ -118,12 +109,11 @@ export default function Hero({
                   </span>
                 </span>
               </a>
-            </motion.div>
+            </div>
 
-            <motion.p
-              variants={fadeUp}
-              transition={{ duration: 0.7 }}
-              className="mt-4 text-sm text-brand-200/80"
+            <p
+              className="mt-4 animate-fade-up text-sm text-brand-200/80"
+              style={{ animationDelay: '0.36s' }}
             >
               Or{' '}
               <Link
@@ -133,13 +123,12 @@ export default function Hero({
                 book a free water test
               </Link>{' '}
               — no obligation, no pressure.
-            </motion.p>
+            </p>
 
             {/* Trust indicators */}
-            <motion.ul
-              variants={fadeUp}
-              transition={{ duration: 0.7 }}
-              className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:items-stretch"
+            <ul
+              className="mt-10 grid animate-fade-up grid-cols-1 gap-3 sm:grid-cols-3 sm:items-stretch"
+              style={{ animationDelay: '0.45s' }}
             >
               {trustIndicators.map(({ icon: Icon, label, sub }) => (
                 <li
@@ -159,16 +148,11 @@ export default function Hero({
                   </span>
                 </li>
               ))}
-            </motion.ul>
-          </motion.div>
+            </ul>
+          </div>
 
           {/* Visual column */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-            className="relative lg:pl-6"
-          >
+          <div className="relative animate-fade-up lg:pl-6" style={{ animationDelay: '0.15s' }}>
             <div className="relative overflow-hidden rounded-4xl border border-white/15 shadow-glow">
               <Photo
                 src={images.heroFamily}
@@ -184,68 +168,69 @@ export default function Hero({
                 className="absolute inset-0 bg-gradient-to-t from-brand-950/75 via-brand-950/10 to-transparent"
               />
 
-              {/* Rating card */}
+              {/*
+                This was a rating card reading "4.9/5 — from 12,000+ UAE
+                households". Both figures are unverified claims, so the space
+                now carries the offer instead, which is a stronger call to
+                action than a rating nobody can check.
+              */}
               <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/20 bg-white/95 p-4 shadow-card backdrop-blur">
                 <div className="flex items-center justify-between gap-4">
                   <div>
-                    <div className="flex items-center gap-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                      ))}
-                      <span className="ml-1.5 text-sm font-bold text-ink">
-                        {rating}/5
-                      </span>
-                    </div>
-                    <p className="mt-1 text-xs text-ink-soft">
-                      From {customers} UAE households &amp; businesses
+                    <p className="text-sm font-bold text-ink">
+                      Free on-site water test
+                    </p>
+                    <p className="mt-1 text-xs leading-relaxed text-ink-soft">
+                      We measure your TDS and hardness at your own tap and show you the reading
+                      — then quote in writing, or tell you that you need nothing.
                     </p>
                   </div>
                   <Link
-                    href="/#testimonials"
+                    href="/contact#quote"
                     className="hidden shrink-0 items-center gap-1 text-xs font-bold text-brand-700 hover:text-cta-600 sm:inline-flex"
                   >
-                    Reviews
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    Book it
+                    <ArrowRight aria-hidden="true" className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               </div>
             </div>
 
             {/* Floating stat chips */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="absolute -left-2 top-8 hidden rounded-2xl border border-slate-200 bg-white p-3.5 shadow-card sm:block lg:-left-6"
+            <div
+              className="absolute -left-2 top-8 hidden animate-fade-up rounded-2xl border border-slate-200 bg-white p-3.5 shadow-card sm:block lg:-left-6"
+              style={{ animationDelay: '0.6s' }}
             >
               <div className="flex items-center gap-3">
                 <span className="grid h-10 w-10 place-items-center rounded-xl bg-eco-100 text-eco-600">
                   <Droplets className="h-5 w-5" />
                 </span>
                 <div className="leading-tight">
-                  <p className="text-lg font-extrabold text-ink">99%</p>
-                  <p className="text-[0.6875rem] font-medium text-ink-muted">TDS reduction</p>
+                  <p className="text-lg font-extrabold text-ink">95&ndash;99%</p>
+                  <p className="text-[0.6875rem] font-medium text-ink-muted">
+                    Typical RO TDS rejection
+                  </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.75, duration: 0.6 }}
-              className="absolute -right-2 top-1/3 hidden rounded-2xl border border-slate-200 bg-white p-3.5 shadow-card sm:block lg:-right-4"
+            <div
+              className="absolute -right-2 top-1/3 hidden animate-fade-up rounded-2xl border border-slate-200 bg-white p-3.5 shadow-card sm:block lg:-right-4"
+              style={{ animationDelay: '0.75s' }}
             >
               <div className="flex items-center gap-3">
                 <span className="grid h-10 w-10 place-items-center rounded-xl bg-cta-100 text-cta-600">
                   <Clock className="h-5 w-5" />
                 </span>
                 <div className="leading-tight">
-                  <p className="text-lg font-extrabold text-ink">60 min</p>
-                  <p className="text-[0.6875rem] font-medium text-ink-muted">Typical install</p>
+                  <p className="text-lg font-extrabold text-ink">~1 hr</p>
+                  <p className="text-[0.6875rem] font-medium text-ink-muted">
+                    Typical under-sink install
+                  </p>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
 

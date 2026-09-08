@@ -5,7 +5,7 @@ import { site, whatsappLink } from '@/lib/site'
 /** High-contrast mid/end-page conversion block. */
 export default function CtaBanner({
   title = 'Water tasting off? Filter overdue? Call us today.',
-  subtitle = 'Certified technicians across all 7 Emirates, genuine parts on the van and a fixed price before we start. Same-day slots are usually available.',
+  subtitle = 'Trained technicians across all 7 Emirates, manufacturer-supplied parts, and a fixed written price before we start. Same-day slots are usually available in Dubai, Abu Dhabi and Sharjah.',
 }: {
   title?: string
   subtitle?: string

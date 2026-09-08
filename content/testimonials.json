@@ -1,8 +1,65 @@
-[
-  { "name": "Fatima Al Suwaidi", "location": "Al Barsha, Dubai", "role": "Villa owner", "rating": 5, "quote": "They tested our water in front of us, explained the TDS reading honestly and did not try to upsell. The 7-stage RO was installed the same afternoon and the plumbing is spotless. Our kettle finally has no scale." },
-  { "name": "Rajesh Menon", "location": "Khalifa City, Abu Dhabi", "role": "AMC customer, 3 years", "rating": 5, "quote": "I am on the Standard AMC and I genuinely never think about my filters — they call me when the service is due. Reminder, visit, TDS report, done. Worth every dirham." },
-  { "name": "Sarah Thompson", "location": "Al Majaz, Sharjah", "role": "Apartment resident", "rating": 5, "quote": "Our under-sink filter started leaking at 10 PM on a Friday. I sent a WhatsApp message and a technician was at our door before midnight. He replaced the housing and refused to charge an emergency premium." },
-  { "name": "Ahmed Kareem", "location": "Mussafah, Abu Dhabi", "role": "Cafeteria owner", "rating": 5, "quote": "They installed and now maintain a commercial RO plant for our cafeteria. Municipality inspection went through without a single comment because they keep proper water-quality logs for us." },
-  { "name": "Priya Nair", "location": "Al Nahda, Ajman", "role": "Water softener customer", "rating": 5, "quote": "The softener changed our showers completely — no more dry skin and the bathroom glass stays clear. The technician came back after a week just to check the settings. No charge." },
-  { "name": "Mohammed Bin Hilal", "location": "Al Nakheel, Ras Al Khaimah", "role": "Relocation customer", "rating": 5, "quote": "We moved from RAK to Dubai and they uninstalled, transported and re-fitted our whole-house system in one day. Fresh cartridges, sanitised, tested. Excellent professionals." }
-]
+{
+  "_note": "Testimonials render ONLY where verification.status is \"verified\" AND the claim `testimonials_authentic` is publishable. Nothing below is verified, so the testimonials section and all Review/AggregateRating structured data are currently suppressed. To publish one: paste the public review URL into verification.sourceUrl (a Google Business Profile review is ideal), or record the date written consent was obtained in verification.consentRecordedOn, set status to \"verified\", and set the claim in content/claims.json. Do not invent reviewer names, do not paraphrase a review into something stronger, and do not publish a rating figure that is not read from a public profile.",
+  "items": [
+    {
+      "id": "t-1",
+      "name": "Fatima Al Suwaidi",
+      "location": "Al Barsha, Dubai",
+      "role": "Villa owner",
+      "rating": 5,
+      "quote": "They tested our water in front of us, explained the TDS reading honestly and did not try to upsell. The system was installed the same afternoon and the plumbing is spotless. Our kettle finally has no scale.",
+      "service": "ro-water-purifier",
+      "verification": { "status": "unverified", "sourceUrl": "", "consentRecordedOn": "" }
+    },
+    {
+      "id": "t-2",
+      "name": "Rajesh Menon",
+      "location": "Khalifa City, Abu Dhabi",
+      "role": "AMC customer",
+      "rating": 5,
+      "quote": "I am on a maintenance contract and I genuinely never think about my filters — they call me when the service is due. Reminder, visit, TDS report, done.",
+      "service": "water-filter-amc",
+      "verification": { "status": "unverified", "sourceUrl": "", "consentRecordedOn": "" }
+    },
+    {
+      "id": "t-3",
+      "name": "Sarah Thompson",
+      "location": "Al Majaz, Sharjah",
+      "role": "Apartment resident",
+      "rating": 5,
+      "quote": "Our under-sink filter started leaking late on a Friday. I sent a WhatsApp message and a technician was at our door before midnight. He replaced the housing and did not charge an emergency premium.",
+      "service": "water-filter-repair",
+      "verification": { "status": "unverified", "sourceUrl": "", "consentRecordedOn": "" }
+    },
+    {
+      "id": "t-4",
+      "name": "Ahmed Kareem",
+      "location": "Mussafah, Abu Dhabi",
+      "role": "Cafeteria owner",
+      "rating": 5,
+      "quote": "They installed and now maintain the system for our cafeteria. The inspection went through without a comment because they keep proper water-quality logs for us.",
+      "service": "water-filter-installation",
+      "verification": { "status": "unverified", "sourceUrl": "", "consentRecordedOn": "" }
+    },
+    {
+      "id": "t-5",
+      "name": "Priya Nair",
+      "location": "Al Nahda, Ajman",
+      "role": "Water softener customer",
+      "rating": 5,
+      "quote": "The softener changed our showers completely — no more dry skin and the bathroom glass stays clear. The technician came back after a week just to check the settings.",
+      "service": "water-softener",
+      "verification": { "status": "unverified", "sourceUrl": "", "consentRecordedOn": "" }
+    },
+    {
+      "id": "t-6",
+      "name": "Mohammed Bin Hilal",
+      "location": "Al Nakheel, Ras Al Khaimah",
+      "role": "Relocation customer",
+      "rating": 5,
+      "quote": "We moved from RAK to Dubai and they uninstalled, transported and re-fitted our whole-house system in one day. Fresh cartridges, sanitised, tested.",
+      "service": "system-relocation",
+      "verification": { "status": "unverified", "sourceUrl": "", "consentRecordedOn": "" }
+    }
+  ]
+}

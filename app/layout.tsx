@@ -6,8 +6,8 @@ import Footer from '@/components/layout/Footer'
 import FloatingActions from '@/components/layout/FloatingActions'
 import MobileCallBar from '@/components/layout/MobileCallBar'
 import { site } from '@/lib/site'
-import { getBusiness, getServices, getEmirates } from '@/lib/content'
-import { buildMetadata, localBusinessJsonLd } from '@/lib/seo'
+import { getBusiness, getServices, getLocations, getSocialProfiles, getCredentials } from '@/lib/content'
+import { buildMetadata, organizationJsonLd, websiteJsonLd, jsonLdGraph } from '@/lib/seo'
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -21,15 +21,17 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(site.url),
     ...buildMetadata({
-      title: `Water Filter Installation & Service UAE | ${business.name}`,
+      title: 'Water Filter Installation, Service & Repair Across the UAE',
       description: business.description,
       path: '/',
     }),
     title: {
-      default: `Water Filter Installation, Repair & AMC Across the UAE | ${business.name}`,
-      template: `%s | ${business.name}`,
+      default: `Water Filter Installation, Service & Repair Across the UAE | ${site.name}`,
+      // Page titles pass a short subject and the brand is appended here, so
+      // every title is consistent and none of them repeat the brand twice.
+      template: `%s | ${site.name}`,
     },
-    applicationName: business.name,
+    applicationName: site.name,
     authors: [{ name: business.legalName }],
     creator: business.legalName,
     publisher: business.legalName,
@@ -44,10 +46,12 @@ export async function generateMetadata(): Promise<Metadata> {
       icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
       apple: [{ url: '/favicon.svg' }],
     },
-    other: {
-      'geo.region': 'AE',
-      'geo.placename': `${business.address.city}, ${business.address.countryName}`,
-    },
+    // Verification tokens belong in the environment, not in the repository.
+    // Google Search Console accepts this meta tag as a verification method;
+    // see docs/DEPLOYMENT.md for the exact step.
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+      : {}),
   }
 }
 
@@ -59,18 +63,28 @@ export const viewport: Viewport = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   // Read once here and pass down — components never reach into the content layer
-  const [business, services, emirates] = await Promise.all([
+  const [business, services, locations, social, credentials] = await Promise.all([
     getBusiness(),
     getServices(),
-    getEmirates(),
+    getLocations(),
+    getSocialProfiles(),
+    getCredentials(),
   ])
 
   return (
-    <html lang="en-AE" className={jakarta.variable}>
+    <html lang={site.lang} className={jakarta.variable}>
       <body className="font-sans">
+        {/*
+          The organisation and the website, once, site-wide. Every page's own
+          schema references `#organization` by @id rather than restating the
+          business — so a crawler accumulates evidence about one entity instead
+          of reconciling forty descriptions of it.
+        */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd(business)) }}
+          dangerouslySetInnerHTML={{
+            __html: jsonLdGraph(organizationJsonLd(business, social), websiteJsonLd()),
+          }}
         />
 
         <a
@@ -85,7 +99,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Footer
           business={business}
           services={services.map(({ slug, title }) => ({ slug, title }))}
-          emirates={emirates.map(({ name }) => ({ name }))}
+          locations={locations.map(({ name, slug }) => ({ name, slug }))}
+          credentials={credentials}
         />
 
         <FloatingActions />

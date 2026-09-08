@@ -15,7 +15,80 @@
     ],
     "badge": "Most popular",
     "metaTitle": "Compact Under-Sink RO System — Fitted in UAE Apartments",
-    "metaDescription": "All-in-one under-sink reverse osmosis with the tank built in — designed for UAE apartment cupboards. Supplied, installed and serviced with a free water test."
+    "metaDescription": "All-in-one under-sink reverse osmosis with the tank built in — designed for UAE apartment cupboards. Supplied, installed and serviced with a free water test.",
+    "h1": "AquaPure Compact Under-Sink RO",
+    "directAnswer": "An all-in-one under-sink reverse osmosis system with the storage tank built into the body, so it occupies a single footprint inside a normal apartment sink cupboard instead of needing a separate tank beside it. It suits households that draw several litres at a time and have cupboard width but not room for two objects.",
+    "keyFacts": [
+      "Tank integrated into the unit — one footprint, not two",
+      "Stored purified water, so a fast flow at the faucet from a modest pump",
+      "Quick-connect cartridges, changed in minutes on a service visit",
+      "Built-in leak detection and a pressure-reducing valve"
+    ],
+    "whoItSuits": [
+      {
+        "title": "Apartment kitchens with cupboard width",
+        "body": "The common case. If the cupboard can take one unit but not a unit plus a tank, this is the system designed for that situation."
+      },
+      {
+        "title": "Families drawing several litres at once",
+        "body": "Stored water is what gives a fast flow when filling a jug or a pot. A tankless unit purifies on demand and delivers more slowly."
+      },
+      {
+        "title": "Buildings with adequate mains pressure",
+        "body": "Where pressure at your floor is weak, the booster pump option becomes part of the specification rather than an extra."
+      }
+    ],
+    "howItFits": [
+      "Mounted inside the sink cupboard, plumbed from the cold feed with an isolation valve, and drained to the sink waste through a properly clamped saddle.",
+      "A dedicated lead-free drinking faucet is fitted at the sink — using an existing tap hole or sink knockout where one is available, which matters in rented apartments and on stone worktops."
+    ],
+    "maintenance": [
+      {
+        "title": "Pre-filters about every 6 months",
+        "body": "Quick-connect formats make this a short visit rather than a plumbing job."
+      },
+      {
+        "title": "Membrane every 2 to 3 years",
+        "body": "Judged on the treated TDS reading rather than the date."
+      },
+      {
+        "title": "Tank air charge",
+        "body": "Checked at service. A tank that has lost its charge presents as low pressure at the faucet."
+      }
+    ],
+    "considerations": [
+      {
+        "title": "Measure the cupboard, including depth",
+        "body": "Behind the waste trap is where the space runs out. This is what decides between this unit and the tankless one more often than any specification."
+      },
+      {
+        "title": "Confirm pressure before buying",
+        "body": "A membrane starved of feed pressure produces slowly, drains more and fails early — and the symptom looks like a faulty system."
+      }
+    ],
+    "relatedServices": [
+      "ro-water-purifier",
+      "water-filter-installation",
+      "water-filter-replacement",
+      "water-filter-amc"
+    ],
+    "relatedGuides": [
+      "best-water-purifier-dubai-apartment",
+      "tank-vs-tankless-ro",
+      "how-often-to-replace-ro-filters"
+    ],
+    "faqIds": [
+      "apartment-purifier",
+      "tank-vs-tankless",
+      "ro-low-pressure",
+      "how-often-replace-filters"
+    ],
+    "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
+    "relatedLocations": [
+      "dubai",
+      "abu-dhabi",
+      "sharjah"
+    ]
   },
   {
     "slug": "slim-tankless-ro",
@@ -33,7 +106,77 @@
     ],
     "badge": "Space saver",
     "metaTitle": "Slim Tankless RO Water Purifier — Installed Across the UAE",
-    "metaDescription": "Tankless reverse osmosis that purifies on demand with a TDS readout and filter-change alerts. Slim enough for tight under-sink cupboards. Free water test."
+    "metaDescription": "Tankless reverse osmosis that purifies on demand with a TDS readout and filter-change alerts. Slim enough for tight under-sink cupboards. Free water test.",
+    "h1": "AquaPure Slim Tankless RO",
+    "directAnswer": "A tankless reverse osmosis system that purifies water as you draw it rather than storing it, in a slim upright casing that fits cupboards a conventional system will not. It is what we recommend when cupboard depth is genuinely the constraint, and it needs a higher-output membrane and pump to deliver a usable flow.",
+    "keyFacts": [
+      "Nothing is stored — water is purified on demand",
+      "Slim upright casing for narrow or shallow under-sink cupboards",
+      "TDS readout on the unit, so you can check the water yourself",
+      "Filter-change reminder plus low-pressure and leak warnings"
+    ],
+    "whoItSuits": [
+      {
+        "title": "Tight apartment cupboards",
+        "body": "The reason this system exists. No storage vessel means far less depth and no second object to find room for."
+      },
+      {
+        "title": "Households that dislike stored water",
+        "body": "On-demand purification means nothing sits between draws."
+      },
+      {
+        "title": "Countertop installations",
+        "body": "Neat enough to stand on a worktop where there is no usable cupboard at all."
+      }
+    ],
+    "howItFits": [
+      "Stands upright inside the cupboard or on the counter, plumbed from the cold feed with an isolation valve and drained to the sink waste.",
+      "Because production is on demand, the pump and membrane are doing more work per litre than in a tanked system — which is why feed pressure and a stable power supply both matter here."
+    ],
+    "maintenance": [
+      {
+        "title": "Tool-free cartridge changes",
+        "body": "Designed so a service visit does not mean dismantling the cupboard."
+      },
+      {
+        "title": "Watch the on-unit TDS readout",
+        "body": "The most useful early warning of a membrane losing rejection that any home system offers."
+      },
+      {
+        "title": "Membrane every 2 to 3 years",
+        "body": "Higher-output membranes are not longer-lived; the interval is the same."
+      }
+    ],
+    "considerations": [
+      {
+        "title": "Flow rate versus household size",
+        "body": "A large family filling several containers at once will find on-demand production slower than a tank. This is the real trade, and it is worth being honest about before purchase."
+      },
+      {
+        "title": "Higher purchase price for the same treatment",
+        "body": "You are paying for the space saving and the on-demand behaviour, not for better filtration."
+      }
+    ],
+    "relatedServices": [
+      "ro-water-purifier",
+      "water-filter-installation",
+      "water-filter-replacement"
+    ],
+    "relatedGuides": [
+      "tank-vs-tankless-ro",
+      "best-water-purifier-dubai-apartment"
+    ],
+    "faqIds": [
+      "tank-vs-tankless",
+      "apartment-purifier",
+      "ro-low-pressure"
+    ],
+    "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
+    "relatedLocations": [
+      "dubai",
+      "abu-dhabi",
+      "sharjah"
+    ]
   },
   {
     "slug": "modular-ro-with-uv",
@@ -50,7 +193,80 @@
       "Floor-standing or wall-mounted frame to suit the cupboard"
     ],
     "metaTitle": "Modular Under-Sink RO with UV — Villa Drinking Water UAE",
-    "metaDescription": "Serviceable modular RO with an optional UV sterilisation stage and booster pump, fitted for UAE villas on tanker or roof-tank supply."
+    "metaDescription": "Serviceable modular RO with an optional UV sterilisation stage and booster pump, fitted for UAE villas on tanker or roof-tank supply.",
+    "h1": "AquaPure Modular RO with UV Option",
+    "directAnswer": "A serviceable modular under-sink RO on a steel frame with an optional UV stage. It is what we fit for villas on tanker or roof-tank supply, where drinking water needs disinfecting as well as purifying — because filtration and disinfection are different jobs and a cartridge does not do the second one.",
+    "keyFacts": [
+      "Modular housings — each stage inspected and changed independently",
+      "Optional UV stage for tank-fed and tanker-fed properties",
+      "Pressure gauge, so a technician can read the membrane's condition",
+      "Optional booster pump where feed pressure is low"
+    ],
+    "whoItSuits": [
+      {
+        "title": "Villas on tank or tanker supply",
+        "body": "The primary case. Stored water carries a risk that filtration does not address, and the UV stage is the part that does."
+      },
+      {
+        "title": "Properties used seasonally",
+        "body": "Where a system may stand unused for months, serviceability and disinfection both matter more than compactness."
+      },
+      {
+        "title": "Anyone who wants the system readable",
+        "body": "A gauge and independent housings mean the system's condition can be assessed rather than guessed at."
+      }
+    ],
+    "howItFits": [
+      "Floor-standing or wall-mounted on a steel frame, sized to the cupboard or the utility space, with isolation valves and clearance to open each housing.",
+      "The UV stage sits after filtration, never before it: particles shield organisms from the light, so a UV chamber fed unfiltered water delivers much less protection than its rating suggests."
+    ],
+    "maintenance": [
+      {
+        "title": "Stages changed independently",
+        "body": "You replace what is exhausted rather than a sealed cartridge block."
+      },
+      {
+        "title": "UV lamp annually, on running hours",
+        "body": "Output falls long before a lamp stops lighting. The quartz sleeve is cleaned or replaced at the same visit."
+      },
+      {
+        "title": "Gauge readings recorded",
+        "body": "A growing pressure differential reports a developing blockage before flow noticeably drops."
+      }
+    ],
+    "considerations": [
+      {
+        "title": "Larger footprint than a sealed unit",
+        "body": "Modularity costs space. In an apartment cupboard that is usually the wrong trade; in a villa utility space it is the right one."
+      },
+      {
+        "title": "UV needs power that stays on",
+        "body": "A UV chamber with no power is a plain pipe. Worth siting on a circuit nobody switches off."
+      }
+    ],
+    "relatedServices": [
+      "ro-water-purifier",
+      "uv-water-purification",
+      "water-filter-replacement",
+      "water-filter-amc"
+    ],
+    "relatedGuides": [
+      "ro-vs-uv-water-purifier",
+      "whole-house-water-filter-uae",
+      "how-often-to-replace-ro-filters"
+    ],
+    "faqIds": [
+      "ro-vs-uv",
+      "tanker-water",
+      "uv-lamp-replacement",
+      "villa-filter"
+    ],
+    "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
+    "relatedLocations": [
+      "dubai",
+      "abu-dhabi",
+      "sharjah"
+    ]
   },
   {
     "slug": "self-cleaning-villa-pre-filter",
@@ -69,7 +285,77 @@
     ],
     "badge": "Villa essential",
     "metaTitle": "Self-Cleaning Villa Pre-Filter — Sand & Rust Protection UAE",
-    "metaDescription": "Point-of-entry self-cleaning filter with a reusable mesh you rinse by opening a valve. Protects villa plumbing and appliances from tanker-water sand and rust."
+    "metaDescription": "Point-of-entry self-cleaning filter with a reusable mesh you rinse by opening a valve. Protects villa plumbing and appliances from tanker-water sand and rust.",
+    "h1": "AquaPure Self-Cleaning Villa Pre-Filter",
+    "directAnswer": "A point-of-entry sediment filter with a reusable mesh element that you rinse by opening a drain valve, instead of a cartridge you replace. It is the first fitting we recommend on a villa fed by tanker or a storage tank, because sand and rust in that duty block a disposable cartridge faster than anyone wants to keep replacing it.",
+    "keyFacts": [
+      "Reusable mesh — rinsed clean through a valve, not replaced",
+      "Fitted at the point of entry, before everything else in the property",
+      "Clear bowl so the sand and rust it is catching is visible",
+      "Available for cold lines and for hot water lines"
+    ],
+    "whoItSuits": [
+      {
+        "title": "Villas on tanker or tank supply",
+        "body": "Where sediment loading is high enough that a disposable cartridge becomes a recurring chore."
+      },
+      {
+        "title": "Properties with older incoming pipework",
+        "body": "Rust and scale flaking from old galvanised pipe is exactly what this stage catches."
+      },
+      {
+        "title": "Anyone with a softener or filtration downstream",
+        "body": "Sediment in a resin bed or on a membrane is difficult to recover from. This is the stage that prevents it."
+      }
+    ],
+    "howItFits": [
+      "Fitted into the incoming supply ahead of every other treatment stage, with the drain valve piped to a point where flushing it is convenient rather than messy.",
+      "A pressure-gauge version makes developing blockage visible before flow to the property drops, which is worth having where nobody is checking the bowl regularly."
+    ],
+    "maintenance": [
+      {
+        "title": "Rinse rather than replace",
+        "body": "Open the drain valve and the mesh flushes itself. Frequency depends entirely on loading — weekly on a heavily tankered property, far less on mains supply."
+      },
+      {
+        "title": "Inspect the mesh periodically",
+        "body": "A reusable element is not a permanent one. It is checked at service visits."
+      },
+      {
+        "title": "Watch the pressure differential",
+        "body": "The honest indicator that a rinse is due, ahead of any visible symptom."
+      }
+    ],
+    "considerations": [
+      {
+        "title": "It is a sediment stage, nothing more",
+        "body": "It does not remove chlorine, taste, hardness or dissolved solids, and it does not disinfect. Its value is protecting what comes after it."
+      },
+      {
+        "title": "Needs a drain point",
+        "body": "The flush has to go somewhere. Solving that at installation is easier than living with a bucket."
+      }
+    ],
+    "relatedServices": [
+      "whole-house-water-filtration",
+      "water-filter-installation",
+      "water-softener"
+    ],
+    "relatedGuides": [
+      "whole-house-water-filter-uae",
+      "hard-water-and-limescale-uae"
+    ],
+    "faqIds": [
+      "tanker-water",
+      "villa-filter",
+      "whole-house-needed"
+    ],
+    "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
+    "relatedLocations": [
+      "dubai",
+      "abu-dhabi",
+      "ras-al-khaimah"
+    ]
   },
   {
     "slug": "whole-villa-filtration",
@@ -87,7 +373,83 @@
     ],
     "badge": "Whole property",
     "metaTitle": "Whole-Villa Water Filtration System — Every Tap, UAE",
-    "metaDescription": "Point-of-entry filtration sized for UAE villas in single, double or triple stage configurations. Treats every tap, shower and appliance in the property."
+    "metaDescription": "Point-of-entry filtration sized for UAE villas in single, double or triple stage configurations. Treats every tap, shower and appliance in the property.",
+    "h1": "AquaPure Whole-Villa Filtration System",
+    "directAnswer": "Large-capacity housings on a steel frame that treat every outlet in the property, configured as single, double or triple stage after a water test. More stages are not automatically better — stages your water does not need cost money at installation and again at every service.",
+    "keyFacts": [
+      "Treats every tap, shower and appliance in the property",
+      "Single, double or triple stage, configured to your water test",
+      "Large housings for longer cartridge life and strong whole-property flow",
+      "Gauge and drain ports so servicing does not mean draining the villa"
+    ],
+    "whoItSuits": [
+      {
+        "title": "Villas and townhouses",
+        "body": "You control the incoming line and there is space for a serviceable frame — the two conditions point-of-entry treatment needs."
+      },
+      {
+        "title": "Properties with shower or appliance complaints",
+        "body": "Chlorine smell in the shower, sediment in the washing machine, rust marks in a bath. None of those have a point-of-use solution."
+      },
+      {
+        "title": "Buildings and accommodation blocks",
+        "body": "One treatment point serving many outlets, sized on measured demand."
+      }
+    ],
+    "howItFits": [
+      "Mounted on a steel frame in the pump room, plant room or on the roof, cut into the incoming supply with isolation and bypass valves so the property keeps water during a service.",
+      "Housing size is chosen for cartridge life and for flow to the furthest outlet. Undersizing to save space starves the property's flow and shortens cartridge life at the same time."
+    ],
+    "maintenance": [
+      {
+        "title": "Cartridge intervals follow loading",
+        "body": "Set from what the removed cartridges actually look like on this property, not from a generic schedule."
+      },
+      {
+        "title": "Pressure drop is the health indicator",
+        "body": "A gauge before and after reports a developing blockage before flow noticeably falls."
+      },
+      {
+        "title": "Clear bowls make it visible",
+        "body": "Where the system is not in direct sunlight, a clear bowl lets you see when a change is due."
+      }
+    ],
+    "considerations": [
+      {
+        "title": "It is not a drinking-water system",
+        "body": "Point-of-entry filtration does not remove dissolved solids and does not disinfect. A drinking-water stage at the kitchen sink is a separate fitting, usually fitted alongside."
+      },
+      {
+        "title": "Hardness needs a softener, not a filter",
+        "body": "If the complaint is white scale, the answer is ion exchange. Filtration stages will not change it."
+      },
+      {
+        "title": "Site it sheltered, especially near the coast",
+        "body": "Salt-laden air shortens the life of exposed metalwork noticeably."
+      }
+    ],
+    "relatedServices": [
+      "whole-house-water-filtration",
+      "water-softener",
+      "water-filter-installation",
+      "water-filter-amc"
+    ],
+    "relatedGuides": [
+      "whole-house-water-filter-uae",
+      "ro-vs-water-softener",
+      "hard-water-and-limescale-uae"
+    ],
+    "faqIds": [
+      "whole-house-needed",
+      "villa-filter",
+      "limescale-cause"
+    ],
+    "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
+    "relatedLocations": [
+      "dubai",
+      "abu-dhabi",
+      "ras-al-khaimah"
+    ]
   },
   {
     "slug": "chemical-free-disinfection",
@@ -105,7 +467,73 @@
     ],
     "badge": "No power needed",
     "metaTitle": "Chemical-Free Water Disinfection — No Power, No Lamp, UAE",
-    "metaDescription": "Ceramic-media disinfection that destroys bacteria on contact without chemicals, electricity or a UV lamp. Fitted at point of entry or before a drinking tap."
+    "metaDescription": "Ceramic-media disinfection that destroys bacteria on contact without chemicals, electricity or a UV lamp. Fitted at point of entry or before a drinking tap.",
+    "h1": "AquaPure Chemical-Free Disinfection Unit",
+    "directAnswer": "A contact-disinfection stage using a ceramic media that acts on bacteria as water passes through it — no chemicals dosed, no electricity, and no lamp to replace. It is the alternative to UV where mains power at the installation point is inconvenient or where a power cut must not interrupt protection.",
+    "keyFacts": [
+      "Acts on contact — nothing is dosed into the water",
+      "Needs no electricity, so a power cut does not interrupt it",
+      "No lamp or sleeve to replace, unlike a UV chamber",
+      "Leaves taste, odour and mineral content unchanged"
+    ],
+    "whoItSuits": [
+      {
+        "title": "Properties where power at the fitting point is awkward",
+        "body": "The main reason to choose this over UV. No supply to run, no circuit to protect."
+      },
+      {
+        "title": "Seasonally used and remote properties",
+        "body": "Nothing to fail silently while nobody is there, and no lamp whose life is quietly running out."
+      },
+      {
+        "title": "Anyone wanting disinfection without chemicals",
+        "body": "No chlorine dosing, no by-products, no change to how the water tastes."
+      }
+    ],
+    "howItFits": [
+      "Fitted at the point of entry, or in-line ahead of a drinking tap, after filtration — the same rule as UV: particles and turbidity reduce the effectiveness of any contact or light-based disinfection stage.",
+      "Silent, with no moving parts, which makes siting easier than a powered chamber."
+    ],
+    "maintenance": [
+      {
+        "title": "Media has a service life",
+        "body": "Longer than a UV lamp's, but not indefinite. It is checked and replaced on schedule."
+      },
+      {
+        "title": "Upstream filtration still matters",
+        "body": "Sediment reaching the media reduces contact effectiveness and shortens its life."
+      }
+    ],
+    "considerations": [
+      {
+        "title": "It removes nothing",
+        "body": "Like UV, it is a disinfection stage rather than a filtration stage. Dissolved solids, chlorine and sediment all need their own treatment."
+      },
+      {
+        "title": "Compare honestly with UV",
+        "body": "UV is well understood, standardised and easy to monitor with an alarm. Contact media wins on power independence and on having nothing that fails weekly. Which matters more depends on the property."
+      }
+    ],
+    "relatedServices": [
+      "uv-water-purification",
+      "whole-house-water-filtration",
+      "water-filter-installation"
+    ],
+    "relatedGuides": [
+      "ro-vs-uv-water-purifier",
+      "whole-house-water-filter-uae"
+    ],
+    "faqIds": [
+      "tanker-water",
+      "ro-vs-uv",
+      "villa-filter"
+    ],
+    "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
+    "relatedLocations": [
+      "dubai",
+      "abu-dhabi",
+      "ras-al-khaimah"
+    ]
   },
   {
     "slug": "automatic-water-softener",
@@ -122,6 +550,82 @@
       "Protects geysers, washing machines, taps and glassware from scale"
     ],
     "metaTitle": "Automatic Water Softener — Villa Installation Across the UAE",
-    "metaDescription": "Automatic ion-exchange water softener sized to your household and installed across all Emirates. Ends limescale on taps, glass, geysers and appliances."
+    "metaDescription": "Automatic ion-exchange water softener sized to your household and installed across all Emirates. Ends limescale on taps, glass, geysers and appliances.",
+    "h1": "AquaPure Automatic Water Softener",
+    "directAnswer": "An automatic ion-exchange softener that reduces the dissolved calcium and magnesium behind limescale, sized to your measured hardness and actual household demand. It regenerates itself with salt on a timer or on volume treated, and it treats the whole property rather than one tap.",
+    "keyFacts": [
+      "Reduces hardness across every outlet, so scale stops forming",
+      "Automatic regeneration — timer or metered, set at commissioning",
+      "Salt is flushed to drain during regeneration; it does not make water taste salty",
+      "Not a drinking-water treatment — dissolved solids other than hardness pass through"
+    ],
+    "whoItSuits": [
+      {
+        "title": "Villas with scale on fittings and glass",
+        "body": "The clearest case, and where the return is largest because the same water reaches several bathrooms, a geyser and a washing machine."
+      },
+      {
+        "title": "Households losing appliances early",
+        "body": "Scale on a heating element is both a failure risk and a running-cost increase."
+      },
+      {
+        "title": "Commercial kitchens and laundries",
+        "body": "Coffee, steam and dishwashing equipment specify soft feed water, and scale is the leading cause of failure in it."
+      }
+    ],
+    "howItFits": [
+      "Installed into the incoming supply with a bypass and a drain connection for regeneration, and — where an irrigation line shares the supply — with a take-off ahead of the softener, since plants gain nothing from softened water.",
+      "The salt tank needs to be somewhere you can actually carry salt to. Solving that at installation rather than afterwards is worth the thought."
+    ],
+    "maintenance": [
+      {
+        "title": "Salt level",
+        "body": "A softener out of salt keeps passing water untreated with no obvious symptom until the scale returns."
+      },
+      {
+        "title": "Brine draw and drain",
+        "body": "Checked at service. A failed brine valve is the fault behind almost every genuine complaint of salty water."
+      },
+      {
+        "title": "Settings versus reality",
+        "body": "Household usage changes. Regeneration settings should be revisited when it does, rather than left as commissioned."
+      }
+    ],
+    "considerations": [
+      {
+        "title": "Metered regeneration where budget allows",
+        "body": "It regenerates on volume treated rather than on a schedule, which uses less salt and less water."
+      },
+      {
+        "title": "Protect the resin",
+        "body": "A sediment and carbon stage ahead of the softener materially extends resin life, particularly on chlorinated supply."
+      },
+      {
+        "title": "Size on hardness and demand together",
+        "body": "Specifying from household size alone, without a hardness figure, is specifying from half the information."
+      }
+    ],
+    "relatedServices": [
+      "water-softener",
+      "whole-house-water-filtration",
+      "water-filter-amc",
+      "water-filter-repair"
+    ],
+    "relatedGuides": [
+      "hard-water-and-limescale-uae",
+      "ro-vs-water-softener"
+    ],
+    "faqIds": [
+      "limescale-cause",
+      "softener-salt",
+      "ro-vs-softener",
+      "villa-filter"
+    ],
+    "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
+    "relatedLocations": [
+      "dubai",
+      "abu-dhabi",
+      "ras-al-khaimah"
+    ]
   }
 ]

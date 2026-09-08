@@ -1,0 +1,358 @@
+{
+  "policy": {
+    "summary": "Every factual assertion about AquaPure that a reader could check lives here. Nothing in this file is published unless its status says so. See docs/CLAIMS.md.",
+    "statuses": {
+      "verified": "Evidence exists, is recorded in `source`, and was checked on `lastVerified`. Publishable.",
+      "self_asserted": "A first-person operational statement about how the business runs (what it offers, where it goes, how it quotes). Not third-party verifiable and does not claim to be. Publishable, phrased as the business's own statement.",
+      "unverified": "No evidence on file. NOT publishable — not in copy, not in metadata, not in structured data, not in generated content.",
+      "expired": "Was verified, but `reverifyAfterDays` has elapsed. Treated exactly like unverified until re-checked.",
+      "disputed": "Evidence conflicts. NOT publishable.",
+      "prohibited": "Must never be published regardless of evidence (superlatives, guarantees, health claims)."
+    },
+    "rules": [
+      "`allowedForPublication` must agree with `status` or the build fails — see lib/claims.ts.",
+      "A quantitative claim (counts, ratings, years, prices, percentages about the business) needs `source`. A regulatory, certification or licence claim needs `source`.",
+      "Statistics, ratings, review counts, certifications and licences are never `self_asserted`. They are `unverified` until evidence is filed.",
+      "Superlatives (#1, best, leading) are `prohibited` and cannot be unlocked by editing a status."
+    ]
+  },
+  "claims": [
+    {
+      "id": "coverage_seven_emirates",
+      "claim": "AquaPure serves all seven Emirates: Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain.",
+      "kind": "operational",
+      "status": "self_asserted",
+      "source": "content/locations.json — the coverage the business publishes and staffs.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true
+    },
+    {
+      "id": "regional_bases",
+      "claim": "Mobile teams are based in Dubai, Abu Dhabi and Sharjah, with scheduled routes covering the northern Emirates.",
+      "kind": "operational",
+      "status": "self_asserted",
+      "source": "Business operating model as stated by the owner.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true
+    },
+    {
+      "id": "response_times",
+      "claim": "Same-day attendance is usually available in Dubai, Abu Dhabi and Sharjah; northern Emirates are typically within 24 to 48 hours.",
+      "kind": "operational",
+      "status": "self_asserted",
+      "source": "content/locations.json responseTime per emirate. Phrased as typical, never guaranteed.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true,
+      "notes": "Must stay hedged ('usually', 'typically'). A hard guarantee would need measured dispatch data and would move to `unverified`."
+    },
+    {
+      "id": "emergency_line_24h",
+      "claim": "The emergency call-out line is answered 24 hours a day, every day.",
+      "kind": "operational",
+      "status": "self_asserted",
+      "source": "Published service commitment; reflected in content/business.json hours.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true
+    },
+    {
+      "id": "free_water_test",
+      "claim": "The on-site water test and consultation are free and carry no obligation.",
+      "kind": "operational",
+      "status": "self_asserted",
+      "source": "Published commercial offer.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true
+    },
+    {
+      "id": "fixed_written_quote",
+      "claim": "A fixed written quotation in AED is given before work starts, with no call-out fee.",
+      "kind": "operational",
+      "status": "self_asserted",
+      "source": "Published commercial offer.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true
+    },
+    {
+      "id": "genuine_parts_only",
+      "claim": "Only manufacturer-supplied cartridges, membranes and pumps are fitted.",
+      "kind": "operational",
+      "status": "self_asserted",
+      "source": "Stated sourcing policy.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true
+    },
+    {
+      "id": "all_brands_serviced",
+      "claim": "Systems installed by other companies are serviced and repaired, across all major brands.",
+      "kind": "operational",
+      "status": "self_asserted",
+      "source": "Stated service scope.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true
+    },
+    {
+      "id": "support_languages",
+      "claim": "Enquiries are answered in English, Arabic, Hindi, Urdu and Malayalam.",
+      "kind": "operational",
+      "status": "self_asserted",
+      "source": "Stated staffing capability.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true
+    },
+    {
+      "id": "business_address",
+      "claim": "AquaPure operates from Al Quoz Industrial Area 3, Dubai, United Arab Emirates.",
+      "kind": "identity",
+      "status": "self_asserted",
+      "source": "content/business.json — address as supplied by the business.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true,
+      "notes": "TODO(owner): add unit/building number and make this string match the Google Business Profile character for character. NAP mismatch is the most common cause of weak local ranking."
+    },
+    {
+      "id": "business_geo_coordinates",
+      "claim": "The premises are at latitude 25.1193, longitude 55.2277.",
+      "kind": "identity",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "Approximate area centroid, not a surveyed pin. Wrong coordinates actively damage local ranking, so `geo` is omitted from LocalBusiness until the owner supplies the exact pin from Google Maps."
+    },
+    {
+      "id": "customers_served",
+      "claim": "AquaPure has served 12,000+ UAE households and businesses.",
+      "kind": "statistic",
+      "value": "12,000+",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "reverifyAfterDays": 365,
+      "notes": "Needs a count from the job/CRM records with the date the count was taken."
+    },
+    {
+      "id": "average_rating",
+      "claim": "AquaPure holds an average customer rating of 4.9 out of 5.",
+      "kind": "statistic",
+      "value": "4.9",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "reverifyAfterDays": 90,
+      "notes": "Publishing a rating without a verifiable public review profile breaches Google's review-snippet policy. Needs a Google Business Profile or equivalent, and the figure must be read from it."
+    },
+    {
+      "id": "review_count",
+      "claim": "AquaPure has 1,284 customer reviews.",
+      "kind": "statistic",
+      "value": "1,284",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "reverifyAfterDays": 90
+    },
+    {
+      "id": "years_in_business",
+      "claim": "AquaPure has 15 years of experience, having been founded in 2010.",
+      "kind": "statistic",
+      "value": "15",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "Needs the trade-licence issue date. Once filed, publish the founding year and derive the years automatically rather than hardcoding a number that silently goes stale."
+    },
+    {
+      "id": "licensed_uae_business",
+      "claim": "AquaPure is a licensed UAE business holding a DED trade licence.",
+      "kind": "regulatory",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "reverifyAfterDays": 365,
+      "notes": "Needs the trade-licence number, issuing authority and expiry. This is the single highest-value claim to verify: it is what separates a real local business from a lead-generation page in both Google's and an AI system's eyes."
+    },
+    {
+      "id": "dubai_municipality_compliant",
+      "claim": "Installations comply with Dubai Municipality plumbing standards.",
+      "kind": "regulatory",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "Needs the specific approval, registration or code reference. 'Compliant' with no citation is not publishable."
+    },
+    {
+      "id": "esma_approved_equipment",
+      "claim": "Equipment supplied is ESMA approved.",
+      "kind": "regulatory",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "Terminology is also out of date: ESMA was folded into the Ministry of Industry and Advanced Technology (MOIAT) in 2020. Any republished version should name the current scheme and cite a certificate per product."
+    },
+    {
+      "id": "nsf_wqa_certified_media",
+      "claim": "Filtration components are NSF and/or WQA certified.",
+      "kind": "regulatory",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "NSF and WQA certify specific products against specific standards (e.g. NSF/ANSI 58 for RO). Needs per-product certificate numbers; a blanket claim is not publishable."
+    },
+    {
+      "id": "technicians_insured",
+      "claim": "Technicians are fully insured, including third-party liability.",
+      "kind": "regulatory",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "reverifyAfterDays": 365,
+      "notes": "Needs the policy number, insurer and cover period."
+    },
+    {
+      "id": "technicians_certified",
+      "claim": "Technicians are certified.",
+      "kind": "regulatory",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "'Certified' must name the certification body and scheme. Until then the publishable version is the operational statement in `technicians_trained`."
+    },
+    {
+      "id": "technicians_trained",
+      "claim": "The person who attends is a trained plumber and filtration technician who can diagnose and repair on site, not a salesperson.",
+      "kind": "operational",
+      "status": "self_asserted",
+      "source": "Stated staffing model.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true
+    },
+    {
+      "id": "amc_saving_30_40",
+      "claim": "AMC customers pay 30 to 40% less than they would paying per visit.",
+      "kind": "statistic",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "A price comparison needs both price lists to exist. Neither is published."
+    },
+    {
+      "id": "typical_install_duration",
+      "claim": "A typical under-sink installation takes about an hour.",
+      "kind": "operational",
+      "status": "self_asserted",
+      "source": "Stated typical job duration. Phrased as typical, not guaranteed.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true
+    },
+    {
+      "id": "testimonials_authentic",
+      "claim": "The named customer testimonials on the site are genuine, attributable and used with permission.",
+      "kind": "evidence",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "Until each testimonial has a verifiable origin (a public review URL, or a written consent record), no testimonial is rendered and no Review/AggregateRating schema is emitted. See content/testimonials.json `verification`."
+    },
+    {
+      "id": "ro_tds_rejection",
+      "claim": "Reverse osmosis membranes typically reject 95 to 99% of total dissolved solids.",
+      "kind": "technical",
+      "status": "verified",
+      "source": "Standard rejection range published on residential RO membrane datasheets (NSF/ANSI 58 is the certification standard for RO drinking-water systems). Industry-general, not an AquaPure performance measurement.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true,
+      "notes": "Publish as a range and as a property of the technology. Never as a measured AquaPure result, and never as a number for a specific customer's water."
+    },
+    {
+      "id": "uv_inactivation",
+      "claim": "UV disinfection inactivates upwards of 99.9% of common waterborne bacteria and viruses when the lamp delivers its rated dose to clear water.",
+      "kind": "technical",
+      "status": "verified",
+      "source": "Standard UV dose–response behaviour; NSF/ANSI 55 is the certification standard for UV drinking-water systems. Effectiveness is dose-dependent.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true,
+      "notes": "The dose and water-clarity caveat must travel with the figure. UV does not remove dissolved solids and does not work through turbid water."
+    },
+    {
+      "id": "uae_water_is_desalinated",
+      "claim": "Mains drinking water in the UAE is predominantly produced by seawater desalination.",
+      "kind": "technical",
+      "status": "verified",
+      "source": "Long-standing, widely documented characteristic of UAE municipal supply, reported by the emirate utilities (DEWA, ADDC, SEWA, Etihad Water and Electricity).",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true,
+      "notes": "TODO(owner): add direct links to each utility's published water-quality page — see docs/KNOWLEDGE-BASE.md. Qualitative statement only; no numeric water-quality figure is published from this claim."
+    },
+    {
+      "id": "storage_and_distribution_risk",
+      "claim": "Water quality at the tap can differ from quality at the plant, because water passes through distribution pipework and is commonly held in building or rooftop storage tanks before use.",
+      "kind": "technical",
+      "status": "verified",
+      "source": "General water-distribution engineering; the reason point-of-use treatment and tank cleaning are regulated activities in the UAE.",
+      "lastVerified": "2026-09-08",
+      "allowedForPublication": true
+    },
+    {
+      "id": "local_tds_figures",
+      "claim": "Specific TDS or hardness figures for a named emirate or neighbourhood.",
+      "kind": "technical",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "No numeric local water-quality figure is published. Real values vary by supply zone, blending, season and building storage, and must come from the utility's own report or from a measurement on the property. Content says 'measured on site' instead of quoting a number."
+    },
+    {
+      "id": "published_pricing",
+      "claim": "Prices, price ranges or 'starting from' figures in AED for any product or service.",
+      "kind": "commercial",
+      "status": "unverified",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "No price list exists in this repository. Content explains what drives cost and directs the reader to a free on-site quotation. No Offer/priceRange appears in structured data."
+    },
+    {
+      "id": "market_leadership",
+      "claim": "AquaPure is the best, #1, leading or top-rated water filtration company in Dubai or the UAE.",
+      "kind": "superlative",
+      "status": "prohibited",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "Unfalsifiable comparative advertising. Blocked at the validator, and cannot be unlocked by changing a status."
+    },
+    {
+      "id": "health_outcomes",
+      "claim": "Filtered water prevents, treats or cures any illness or medical condition.",
+      "kind": "health",
+      "status": "prohibited",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "Medical claim. Content may describe what a technology removes; it may never describe a health outcome."
+    },
+    {
+      "id": "safety_guarantee",
+      "claim": "Any absolute guarantee that water is safe, pure, or 100% free of contaminants.",
+      "kind": "health",
+      "status": "prohibited",
+      "source": "",
+      "lastVerified": "",
+      "allowedForPublication": false,
+      "notes": "No treatment system can be described in absolutes. Publishable language is what the technology reduces or inactivates, with its limits."
+    }
+  ]
+}

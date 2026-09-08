@@ -1,40 +1,63 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, Building2, Clock, Globe2, MapPin, Phone, Mail } from 'lucide-react'
 import Photo from '@/components/ui/Photo'
-import { Check } from 'lucide-react'
-import PageHero from '@/components/sections/PageHero'
-import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
-import AnimatedCounter from '@/components/ui/AnimatedCounter'
+import SectionHeading from '@/components/ui/SectionHeading'
+import PageHero from '@/components/sections/PageHero'
+import Credentials from '@/components/sections/Credentials'
+import StatsStrip from '@/components/sections/StatsStrip'
 import WhyChooseUs from '@/components/sections/WhyChooseUs'
 import ServiceAreas from '@/components/sections/ServiceAreas'
 import Testimonials from '@/components/sections/Testimonials'
 import CtaBanner from '@/components/sections/CtaBanner'
-import TrustBar from '@/components/sections/TrustBar'
+import RelatedLinks from '@/components/sections/RelatedLinks'
 import { icon } from '@/lib/icons'
+import { site } from '@/lib/site'
 import {
-  getAbout, getBusiness, getTrustBadges, getReasons, getEmirates, getTestimonials,
+  getAbout, getBusiness, getCredentials, getReasons, getLocations, getTestimonials,
+  getPublishedStats, getServices, getAuthors,
 } from '@/lib/content'
-import { images } from '@/lib/images'
-import { buildMetadata, breadcrumbJsonLd } from '@/lib/seo'
+import { isPublishable } from '@/lib/claims'
+import { buildMetadata, breadcrumbJsonLd, jsonLdGraph, reviewJsonLd } from '@/lib/seo'
+
+/**
+ * The About page carries the E-E-A-T load, which is exactly why it is the page
+ * most tempting to invent things on.
+ *
+ * What it therefore does NOT contain: a founding year, a number of years in
+ * business, a customer count, a rating, a licence claim, or any certification.
+ * Every one of those was on the previous version and none of them has evidence
+ * on file — see content/claims.json. The company history is still in
+ * content/about.json, gated behind `years_in_business`, and appears here the
+ * moment the trade-licence date is recorded.
+ *
+ * What it contains instead is the thing that is both true and actually
+ * persuasive: specific, checkable technical expertise. "We measure static
+ * pressure before quoting, because a starved membrane fails early" is a claim a
+ * reader can test on their next call-out, and it is worth more than a badge.
+ */
 
 export const metadata: Metadata = buildMetadata({
-  title: 'About Us — Certified Water Filtration Specialists in the UAE',
+  title: 'About AquaPure UAE — Water Filtration Specialists',
   description:
-    'AquaPure UAE has installed and maintained water filtration systems across all seven Emirates for over 15 years. Licensed, insured, Dubai Municipality compliant technicians serving 12,000+ customers.',
+    'AquaPure UAE installs, services and repairs water filtration systems across all seven Emirates. What we do, how we specify systems, and which of our claims are verified — stated plainly.',
   path: '/about',
-  keywords: ['water filter company Dubai', 'water treatment company UAE', 'licensed water filter technicians'],
 })
 
 export default async function AboutPage() {
-  const [about, business, badges, reasons, emirates, testimonials] = await Promise.all([
-    getAbout(), getBusiness(), getTrustBadges(), getReasons(), getEmirates(), getTestimonials(),
-  ])
+  const [about, business, credentials, reasons, locations, testimonials, stats, services, authors] =
+    await Promise.all([
+      getAbout(), getBusiness(), getCredentials(), getReasons(), getLocations(),
+      getTestimonials(), getPublishedStats(), getServices(), getAuthors(),
+    ])
 
-  const stats = [
-    { value: business.stats.customers, label: 'Customers served' },
-    { value: `${business.stats.years}+`, label: 'Years in the UAE' },
-    { value: business.stats.emirates, label: 'Emirates covered' },
-    { value: '24/7', label: 'Emergency support' },
+  const showHistory = isPublishable(about.history.claimId)
+  const team = authors[0]
+
+  const crumbs = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
   ]
 
   return (
@@ -42,119 +65,142 @@ export default async function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbJsonLd([
-              { name: 'Home', path: '/' },
-              { name: 'About', path: '/about' },
-            ]),
-          ),
+          __html: jsonLdGraph(breadcrumbJsonLd(crumbs), reviewJsonLd(testimonials)),
         }}
       />
 
       <PageHero
-        breadcrumb="About"
+        breadcrumbs={crumbs}
         eyebrow="About Us"
-        title="15 years keeping UAE water clean — one property at a time"
-        subtitle="We are a licensed Dubai-based water treatment company with mobile teams in every Emirate. Filtration is all we do, and we have been doing it since 2010."
+        title="Water filtration is all we do"
+        subtitle="AquaPure UAE installs, services and repairs drinking-water and whole-property treatment systems across all seven Emirates. Every recommendation starts from a reading taken at your own tap."
       />
 
-      <TrustBar badges={badges} />
+      <Credentials credentials={credentials} />
 
-      {/* Story */}
+      {/* Who we are */}
       <section className="section bg-white">
         <div className="container-page">
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <Reveal from="left">
-              <div className="relative">
+          <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-7">
+              <SectionHeading
+                align="left"
+                eyebrow="Who we are"
+                title="A service business that happens to sell equipment"
+              />
+              <p className="mt-8 text-base leading-relaxed text-ink">{about.intro}</p>
+              {about.story.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)} className="mt-5 text-base leading-relaxed text-ink-soft">
+                  {paragraph}
+                </p>
+              ))}
+
+              <StatsStrip stats={stats} />
+
+              <dl className="mt-8 grid gap-4 sm:grid-cols-2">
+                <div className="card">
+                  <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-600">
+                    <Building2 aria-hidden="true" className="h-4 w-4" />
+                    Legal name
+                  </dt>
+                  <dd className="mt-2 text-sm text-ink-soft">{business.legalName}</dd>
+                </div>
+                <div className="card">
+                  <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-600">
+                    <MapPin aria-hidden="true" className="h-4 w-4" />
+                    Based in
+                  </dt>
+                  <dd className="mt-2 text-sm text-ink-soft">
+                    {business.address.street}, {business.address.city},{' '}
+                    {business.address.countryName}
+                  </dd>
+                </div>
+                <div className="card">
+                  <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-600">
+                    <Globe2 aria-hidden="true" className="h-4 w-4" />
+                    Languages
+                  </dt>
+                  <dd className="mt-2 text-sm text-ink-soft">{business.languages.join(', ')}</dd>
+                </div>
+                <div className="card">
+                  <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-600">
+                    <Clock aria-hidden="true" className="h-4 w-4" />
+                    Hours
+                  </dt>
+                  <dd className="mt-2 space-y-1 text-sm text-ink-soft">
+                    {business.hours.map((entry) => (
+                      <span key={entry.days} className="block">
+                        {entry.days}: {entry.time}
+                      </span>
+                    ))}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            <div className="lg:col-span-5">
+              <Reveal from="right">
                 <div className="overflow-hidden rounded-3xl shadow-card">
                   <Photo
-                    src={images.teamAbout}
-                    alt="AquaPure UAE technician team preparing water filtration equipment for installation"
+                    src="/images/teamAbout.jpg"
+                    alt="AquaPure UAE technicians preparing a water filtration installation"
                     width={1200}
                     height={900}
-                    loading="lazy"
-                    sizes="(max-width: 1024px) 100vw, 48vw"
-                    className="h-80 w-full object-cover sm:h-96"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="h-72 w-full object-cover sm:h-96"
                   />
                 </div>
-                <div className="absolute -bottom-6 -right-4 hidden rounded-2xl bg-gradient-to-br from-brand-700 to-aqua-500 p-5 text-white shadow-lift sm:block">
-                  <p className="text-3xl font-extrabold leading-none">
-                    <AnimatedCounter value={business.stats.years} />+
-                  </p>
-                  <p className="mt-1 text-xs font-medium uppercase tracking-wider text-brand-100">
-                    Years in the UAE
-                  </p>
-                </div>
-              </div>
-            </Reveal>
+              </Reveal>
 
-            <Reveal from="right">
-              <div>
-                <span className="eyebrow">Our Story</span>
-                <h2 className="mt-5 text-3xl leading-tight sm:text-4xl">
-                  Built on repeat customers, not one-off sales
-                </h2>
-                <div className="mt-5 space-y-4 text-base leading-relaxed text-ink-soft">
-                  {about.story.map((paragraph) => (
-                    <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-                  ))}
-                </div>
-
-                <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-                  {badges.map((badge) => (
-                    <li key={badge.label} className="flex items-start gap-2.5 text-sm">
-                      <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-eco-100">
-                        <Check className="h-3 w-3 text-eco-600" />
-                      </span>
-                      <span>
-                        <span className="font-semibold text-ink">{badge.label}</span>
-                        <span className="block text-xs text-ink-muted">{badge.sub}</span>
-                      </span>
+              <Reveal delay={0.1}>
+                <div className="mt-6 rounded-3xl border border-brand-100 bg-brand-50/60 p-6">
+                  <h2 className="text-base font-bold">Contact us directly</h2>
+                  <ul className="mt-4 space-y-3 text-sm">
+                    <li>
+                      <a
+                        href={site.phone.href}
+                        className="flex items-center gap-2.5 font-semibold text-brand-700 hover:text-cta-600"
+                      >
+                        <Phone aria-hidden="true" className="h-4 w-4" />
+                        {site.phone.display}
+                      </a>
                     </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Stats */}
-          <Reveal delay={0.1}>
-            <dl className="mt-16 grid grid-cols-2 gap-4 rounded-3xl bg-gradient-to-br from-brand-900 to-brand-950 p-8 lg:grid-cols-4 lg:p-10">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <dd className="text-3xl font-extrabold text-white sm:text-4xl">
-                    <AnimatedCounter value={stat.value} />
-                  </dd>
-                  <dt className="mt-2 text-xs font-medium uppercase tracking-wider text-brand-200 sm:text-sm">
-                    {stat.label}
-                  </dt>
+                    <li>
+                      <a
+                        href={site.emailHref}
+                        className="flex items-center gap-2.5 font-semibold text-brand-700 hover:text-cta-600"
+                      >
+                        <Mail aria-hidden="true" className="h-4 w-4" />
+                        {site.email}
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-              ))}
-            </dl>
-          </Reveal>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Values */}
+      {/* Expertise — the substantive part */}
       <section className="section bg-slate-50">
         <div className="container-page">
           <SectionHeading
-            eyebrow="How We Work"
-            title="Four things we refuse to compromise on"
-            subtitle="These are the reasons customers stay with us for a decade and recommend us to their neighbours."
+            eyebrow="Expertise"
+            title="What we actually know how to do"
+            subtitle="Specific enough to be checked on your next call-out, which is the only kind of claim worth making."
           />
-
-          <ul className="mt-14 grid gap-5 sm:grid-cols-2">
-            {about.values.map((value, i) => {
-              const Icon = icon(value.icon)
+          <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {about.expertise.map((item, i) => {
+              const Icon = icon(item.icon)
               return (
-                <Reveal as="li" key={value.title} delay={(i % 2) * 0.08}>
-                  <div className="card card-hover h-full">
-                    <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-50 text-brand-700">
-                      <Icon className="h-6 w-6" />
+                <Reveal as="li" key={item.title} delay={(i % 3) * 0.06} className="h-full">
+                  <div className="card h-full">
+                    <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-brand-600 to-aqua-500 text-white">
+                      <Icon aria-hidden="true" className="h-6 w-6" />
                     </span>
-                    <h3 className="mt-4 text-lg font-bold">{value.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{value.body}</p>
+                    <h3 className="mt-4 text-base font-bold leading-snug">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{item.body}</p>
                   </div>
                 </Reveal>
               )
@@ -163,50 +209,122 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* How we work */}
       <section className="section bg-white">
         <div className="container-page">
           <SectionHeading
-            eyebrow="Milestones"
-            title="How we grew across the Emirates"
+            eyebrow="How we work"
+            title="The four rules the business runs on"
           />
-
-          <ol className="mx-auto mt-14 max-w-3xl">
-            {about.milestones.map((milestone, i) => (
-              <Reveal as="li" key={milestone.year} delay={i * 0.06}>
-                <div className="relative flex gap-5 pb-8 last:pb-0">
-                  {/* Connector */}
-                  {i < about.milestones.length - 1 && (
-                    <span
-                      aria-hidden="true"
-                      className="absolute left-[1.6875rem] top-14 h-[calc(100%-3.5rem)] w-px bg-gradient-to-b from-brand-300 to-brand-100"
-                    />
-                  )}
-                  <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-brand-700 to-aqua-500 text-sm font-extrabold text-white shadow-soft">
-                    {milestone.year}
-                  </span>
-                  <div className="pt-2">
-                    <h3 className="text-base font-bold">{milestone.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{milestone.body}</p>
+          <ul className="mx-auto mt-14 grid max-w-5xl gap-5 sm:grid-cols-2">
+            {about.values.map((value, i) => {
+              const Icon = icon(value.icon)
+              return (
+                <Reveal as="li" key={value.title} delay={(i % 2) * 0.07} className="h-full">
+                  <div className="card card-hover flex h-full gap-4">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-50 text-brand-700">
+                      <Icon aria-hidden="true" className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <h3 className="text-base font-bold">{value.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-ink-soft">{value.body}</p>
+                    </div>
                   </div>
-                </div>
-              </Reveal>
-            ))}
-          </ol>
+                </Reveal>
+              )
+            })}
+          </ul>
         </div>
       </section>
 
-      <WhyChooseUs reasons={reasons} stats={business.stats} />
-      <ServiceAreas emirates={emirates} />
-      <Testimonials
-        testimonials={testimonials}
-        rating={business.stats.rating}
-        reviewCount={business.stats.reviewCount}
-      />
+      {/* The technical team */}
+      {team && (
+        <section className="section bg-slate-50">
+          <div className="container-page">
+            <div className="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
+              <h2 className="text-xl font-bold">{team.name}</h2>
+              <p className="mt-1 text-sm font-semibold text-brand-700">{team.jobTitle}</p>
+              <p className="mt-4 text-sm leading-relaxed text-ink-soft">{team.bio}</p>
+              <h3 className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-ink-muted">
+                Areas of practice
+              </h3>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {team.expertise.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs text-ink-soft"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-xs leading-relaxed text-ink-muted">
+                Guides on this site are written by this team. Where a named individual can be
+                attributed, they are credited by name — we do not invent expert bylines.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Company history — only once the founding date is on record */}
+      {showHistory && (
+        <section className="section bg-white">
+          <div className="container-page">
+            <SectionHeading eyebrow="History" title="How the company grew" />
+            <ol className="mx-auto mt-14 max-w-3xl space-y-6">
+              {about.history.milestones.map((milestone, i) => (
+                <Reveal as="li" key={milestone.year} delay={i * 0.06}>
+                  <div className="flex gap-5">
+                    <span className="shrink-0 rounded-xl bg-brand-50 px-3 py-2 text-sm font-extrabold text-brand-700">
+                      {milestone.year}
+                    </span>
+                    <div>
+                      <h3 className="text-base font-bold">{milestone.title}</h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
+                        {milestone.body}
+                      </p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
+
+      <WhyChooseUs reasons={reasons} stats={stats} />
+      <ServiceAreas locations={locations} />
+      <Testimonials testimonials={testimonials} />
+
       <CtaBanner
-        title="Ready to have your water tested — free?"
-        subtitle="No obligation and no sales pressure. We test, we explain the numbers, and you decide in your own time."
+        title="Have your water measured before you buy anything"
+        subtitle="The on-site test and the written quotation are free, with no call-out fee — including when the recommendation is that you need nothing."
       />
+
+      <RelatedLinks
+        heading="What we do"
+        groups={[
+          {
+            label: 'Services',
+            items: services.slice(0, 6).map((service) => ({
+              name: service.title,
+              href: `/services/${service.slug}`,
+              description: service.short,
+              icon: service.icon,
+            })),
+          },
+        ]}
+      />
+
+      <section className="section-tight bg-white">
+        <div className="container-page text-center">
+          <Link href="/contact" className="link-arrow">
+            Contact AquaPure UAE
+            <ArrowRight aria-hidden="true" className="h-4 w-4" />
+          </Link>
+        </div>
+      </section>
     </>
   )
 }

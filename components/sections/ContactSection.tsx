@@ -3,7 +3,7 @@ import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
 import ContactForm from './ContactForm'
 import { site, whatsappLink } from '@/lib/site'
-import type { Business, Service, Emirate } from '@/lib/content'
+import type { Business, Service, Location } from '@/lib/content'
 
 export default function ContactSection({
   business,
@@ -12,7 +12,7 @@ export default function ContactSection({
 }: {
   business: Business
   services: Pick<Service, 'slug' | 'title'>[]
-  emirates: Pick<Emirate, 'name'>[]
+  emirates: Pick<Location, 'name'>[]
 }) {
   return (
     <section id="contact" className="section relative overflow-hidden bg-white">
@@ -123,8 +123,11 @@ export default function ContactSection({
 
                 <p className="mt-7 flex items-start gap-2 rounded-xl bg-white/5 p-3.5 text-xs leading-relaxed text-brand-200">
                   <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-eco-400" />
-                  Licensed UAE business · Dubai Municipality plumbing standards · fully insured,
-                  uniformed technicians.
+                  {/* Was "Licensed UAE business · Dubai Municipality plumbing
+                      standards · fully insured technicians" — three claims
+                      without evidence on file. Replaced with the commitments we
+                      can actually stand behind. */}
+                  Free on-site water test · fixed written quotation in AED · no call-out fee.
                 </p>
               </div>
             </Reveal>

@@ -110,6 +110,13 @@
     @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
+  /* A shorter vertical rhythm for blocks that sit directly under a hero — the
+     answer block, mainly, which must feel like part of the page's opening
+     rather than a separate section. */
+  .section-tight {
+    @apply py-10 sm:py-12;
+  }
+
   .section {
     @apply py-16 sm:py-20 lg:py-28;
   }
@@ -212,7 +219,67 @@
   }
 }
 
+@layer components {
+  /* Native disclosure, styled. The panel animates in with a keyframe rather
+     than a transition because the content goes from display:none to visible,
+     and transitions do not run across that change. */
+  .faq-item > summary::-webkit-details-marker,
+  .faq-item > summary::marker {
+    display: none;
+    content: '';
+  }
+
+  .faq-item[open] {
+    @apply border-brand-200 shadow-soft;
+  }
+
+  .faq-item[open] > summary h3 {
+    @apply text-brand-700;
+  }
+
+  .faq-item[open] > summary .faq-marker {
+    @apply rotate-45 bg-brand-600 text-white;
+  }
+
+  .faq-item[open] > .faq-answer {
+    animation: faq-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes faq-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -6px, 0);
+    }
+  }
+}
+
 @layer utilities {
+  /* Scroll reveal. Driven by Reveal.tsx flipping [data-revealed]; the motion
+     is entirely CSS so no animation library is instantiated per element.
+     Deliberately no `will-change`: ~100 promoted compositor layers costs far
+     more than it saves. */
+  [data-reveal] {
+    opacity: 0;
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-reveal='bottom'] {
+    transform: translate3d(0, 28px, 0);
+  }
+  [data-reveal='left'] {
+    transform: translate3d(-32px, 0, 0);
+  }
+  [data-reveal='right'] {
+    transform: translate3d(32px, 0, 0);
+  }
+
+  [data-reveal][data-revealed] {
+    opacity: 1;
+    transform: none;
+  }
+
   .text-gradient {
     @apply bg-gradient-to-r from-aqua-300 via-white to-aqua-200 bg-clip-text text-transparent;
   }
@@ -259,6 +326,8 @@
   /* Entrance reveals resolve to a plain cross-fade rather than a slide */
   [data-reveal] {
     transform: none !important;
+    transition-duration: 0.2s !important;
+    transition-delay: 0s !important;
   }
 
   .press:active {

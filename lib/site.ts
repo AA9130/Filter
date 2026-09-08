@@ -1,57 +1,82 @@
 /**
  * =============================================================================
- *  SINGLE SOURCE OF TRUTH FOR BUSINESS CONTACT DETAILS
+ *  DEPLOYMENT CONFIGURATION — canonical URL and contact channels
  * =============================================================================
- *  👉 REPLACE THE TWO PLACEHOLDERS BELOW (or set them in `.env.local`).
+ *  Business *facts* (address, hours, languages) live in content/business.json so
+ *  the owner can edit them. Business *figures* (customers, rating, years) live
+ *  in content/claims.json and publish only when verified. What lives here is
+ *  deployment configuration: the canonical origin and the phone/WhatsApp/email
+ *  channels every CTA on the site reads from.
  *
- *  Every tel: link, WhatsApp link, header button, floating button, footer entry
- *  and structured-data block on the site reads from this file — change it here
- *  once and the whole website updates.
- *
- *  .env.local (preferred for deployments):
- *    NEXT_PUBLIC_PHONE_NUMBER=971501234567
- *    NEXT_PUBLIC_PHONE_DISPLAY=+971 50 123 4567
- *    NEXT_PUBLIC_WHATSAPP_NUMBER=971501234567
+ *  Set these in the host's environment (Vercel → Settings → Environment
+ *  Variables), not by editing this file:
+ *    NEXT_PUBLIC_SITE_URL=https://aquapureuae.ae
+ *    NEXT_PUBLIC_PHONE_NUMBER=971569712464
+ *    NEXT_PUBLIC_PHONE_DISPLAY=+971 56 971 2464
+ *    NEXT_PUBLIC_WHATSAPP_NUMBER=971569712464
+ *    NEXT_PUBLIC_EMAIL=info@aquapureuae.ae
  * =============================================================================
  */
 
-/** Business phone — international format, digits only (no +, no spaces). */
 const PHONE_NUMBER_RAW = process.env.NEXT_PUBLIC_PHONE_NUMBER || '971569712464'
-
-/** WhatsApp — international format, digits only. Same line as the phone by default. */
 const WHATSAPP_NUMBER_RAW = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '971569712464'
-
-/** How the number is printed on screen. */
 const PHONE_DISPLAY = process.env.NEXT_PUBLIC_PHONE_DISPLAY || '+971 56 971 2464'
-
 const EMAIL = process.env.NEXT_PUBLIC_EMAIL || 'info@aquapureuae.ae'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.aquapureuae.ae'
+/**
+ * ONE canonical origin. Every duplicate-content problem this project could have
+ * — www vs non-www, http vs https, the vercel.app preview domain, a trailing
+ * slash — is the same problem: two URLs serving one page. It is solved by
+ * deciding here and redirecting everything else at the edge (see
+ * next.config.mjs and docs/DEPLOYMENT.md).
+ *
+ * Normalised rather than trusted: an env var set to `https://aquapureuae.ae/`
+ * would otherwise produce `https://aquapureuae.ae//services`, which is a
+ * different URL to a crawler.
+ */
+function canonicalOrigin(): string {
+  const raw = (process.env.NEXT_PUBLIC_SITE_URL || 'https://aquapureuae.ae').trim()
+  const withScheme = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`
+  // Force https: a canonical pointing at http invites the http/https duplicate
+  // it exists to prevent.
+  return withScheme.replace(/^http:\/\//i, 'https://').replace(/\/+$/, '')
+}
 
-/** Pre-filled WhatsApp message used by the default WhatsApp buttons. */
+const SITE_URL = canonicalOrigin()
+
+/** Absolute, canonical URL for a site-relative path. The only correct way to
+ *  build a URL for metadata, JSON-LD or the sitemap. */
+export function absoluteUrl(path = '/'): string {
+  if (/^https?:\/\//i.test(path)) return path
+  const clean = `/${path.replace(/^\/+/, '')}`
+  // The homepage keeps its slash; every other path drops any trailing one, so
+  // /services and /services/ can never both appear as canonicals.
+  return clean === '/' ? `${SITE_URL}/` : `${SITE_URL}${clean.replace(/\/+$/, '')}`
+}
+
 export const WHATSAPP_DEFAULT_MESSAGE =
   "Hi, I'm interested in water filter services. Please share details."
 
-/**
- * Build a wa.me deep link with a URL-encoded, pre-filled message.
- * Pass a custom message to attribute the lead to a specific section/service.
- */
+/** wa.me deep link with a URL-encoded, pre-filled message. Pass a custom
+ *  message to attribute the lead to a specific page or service. */
 export function whatsappLink(message: string = WHATSAPP_DEFAULT_MESSAGE): string {
   return `https://wa.me/${WHATSAPP_NUMBER_RAW}?text=${encodeURIComponent(message)}`
 }
 
 export const site = {
-  /** Kept here (not in content/) because it is deployment configuration, not
-   *  editorial copy. Business facts — address, hours, stats, social — live in
-   *  content/business.json so the owner can change them without a developer. */
+  /** The canonical business name. Used verbatim everywhere — page titles,
+   *  Organization schema, the footer — because an entity referred to by three
+   *  slightly different names is three weak entities instead of one strong one. */
   name: 'AquaPure UAE',
-
   url: SITE_URL,
+  locale: 'en_AE',
+  lang: 'en-AE',
 
   phone: {
     raw: PHONE_NUMBER_RAW,
     display: PHONE_DISPLAY,
     href: `tel:+${PHONE_NUMBER_RAW}`,
+    e164: `+${PHONE_NUMBER_RAW}`,
   },
   whatsapp: {
     raw: WHATSAPP_NUMBER_RAW,
@@ -61,10 +86,30 @@ export const site = {
   emailHref: `mailto:${EMAIL}`,
 } as const
 
+/**
+ * A social URL only counts as an entity signal if it points at an actual
+ * profile. `https://facebook.com/` identifies Facebook, not AquaPure — putting
+ * it in `sameAs` tells a search or AI system nothing and pollutes the entity
+ * graph it is trying to build. Bare domains are dropped here rather than being
+ * relied on not to be entered.
+ */
+export function isRealProfileUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url)
+    if (parsed.protocol !== 'https:') return false
+    const path = parsed.pathname.replace(/\/+$/, '')
+    return path.length > 1
+  } catch {
+    return false
+  }
+}
+
 export const navLinks = [
-  { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
   { label: 'Products', href: '/products' },
+  { label: 'Locations', href: '/locations' },
+  { label: 'Guides', href: '/guides' },
+  { label: 'FAQs', href: '/faqs' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ] as const

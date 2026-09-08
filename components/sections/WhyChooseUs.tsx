@@ -2,25 +2,19 @@ import Photo from '@/components/ui/Photo'
 
 import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/ui/Reveal'
-import AnimatedCounter from '@/components/ui/AnimatedCounter'
+import StatsStrip from '@/components/sections/StatsStrip'
 import { icon } from '@/lib/icons'
-import type { Reason, Business } from '@/lib/content'
+import type { Reason, PublishedStat } from '@/lib/content'
 import { images } from '@/lib/images'
 
 export default function WhyChooseUs({
   reasons,
-  stats: figures,
+  stats,
 }: {
   reasons: Reason[]
-  stats: Business['stats']
+  /** Verified figures only. Empty is the normal state — see StatsStrip. */
+  stats: PublishedStat[]
 }) {
-  const stats = [
-    { value: figures.customers, label: 'Happy customers' },
-    { value: figures.emirates, label: 'Emirates covered' },
-    { value: `${figures.years}+`, label: 'Years experience' },
-    { value: figures.rating, label: 'Average rating' },
-  ]
-
   return (
     <section id="why-us" className="section relative overflow-hidden bg-slate-50">
       <div
@@ -60,7 +54,7 @@ export default function WhyChooseUs({
               <div className="relative overflow-hidden rounded-3xl shadow-card">
                 <Photo
                   src={images.technician}
-                  alt="Certified AquaPure technician servicing a reverse osmosis water purifier under a kitchen sink"
+                  alt="AquaPure technician servicing a reverse osmosis water purifier under a kitchen sink"
                   width={1200}
                   height={900}
                   loading="lazy"
@@ -83,20 +77,7 @@ export default function WhyChooseUs({
               </div>
             </Reveal>
 
-            <Reveal delay={0.1}>
-              <dl className="mt-5 grid grid-cols-2 gap-4 rounded-3xl border border-brand-100 bg-white p-6 shadow-soft">
-                {stats.map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <dd className="text-2xl font-extrabold text-gradient-brand sm:text-3xl">
-                      <AnimatedCounter value={stat.value} />
-                    </dd>
-                    <dt className="mt-1 text-xs font-medium uppercase tracking-wide text-ink-muted">
-                      {stat.label}
-                    </dt>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
+            <StatsStrip stats={stats} />
           </div>
         </div>
       </div>

@@ -1,34 +1,281 @@
 [
   {
+    "id": "uae-tap-water-safe",
     "q": "Is UAE tap water safe to drink without a filter?",
-    "a": "Desalinated water leaves the plant to a high standard, but it travels through pipes and sits in building roof tanks before it reaches your tap. That journey can add sediment, rust, chlorine by-products and bacteria, and the water is also hard. A point-of-use filter is what guarantees the quality at the moment you drink it."
+    "a": "Mains water in the UAE is produced mainly by seawater desalination and leaves the plant treated to a drinking-water standard. What a filter addresses is the journey after that: the water travels through distribution pipework and, in most UAE buildings, sits in a ground or rooftop storage tank before it reaches your tap. That stage can reintroduce sediment, rust from older pipework, a chlorine taste, and — if a tank is poorly maintained — bacteria. A point-of-use filter is what fixes the quality at the moment you drink, rather than at the moment the water was produced.",
+    "category": "water-quality",
+    "relatedServices": ["ro-water-purifier", "water-filter-installation"],
+    "relatedGuides": ["is-uae-tap-water-safe-to-drink"],
+    "source": "claims:uae_water_is_desalinated, claims:storage_and_distribution_risk",
+    "lastVerified": "2026-09-08"
   },
   {
-    "q": "How often do water filter cartridges need replacing?",
-    "a": "As a rule: sediment and carbon stages every 6 months, RO membranes every 2 to 3 years, and UV lamps every 12 months. UAE water is demanding, so we base the exact schedule on your measured TDS and daily usage rather than a generic guess."
+    "id": "need-ro-in-dubai",
+    "q": "Do I need an RO water purifier in Dubai?",
+    "a": "It depends on what your water actually measures, which is why the answer should never come from a website. If your drinking water tastes salty, flat or metallic, or your building is on an older riser or a tank you do not control, RO is the treatment that addresses dissolved content rather than just particles and chlorine. If your only complaint is a chlorine smell or visible sediment, a carbon and sediment filter does the job for less money and wastes no water. We test TDS and hardness on site, show you the reading, and tell you which of the two your water justifies.",
+    "category": "choosing",
+    "relatedServices": ["ro-water-purifier"],
+    "relatedLocations": ["dubai"],
+    "relatedGuides": ["is-uae-tap-water-safe-to-drink", "how-to-reduce-water-tds"],
+    "source": "claims:free_water_test",
+    "lastVerified": "2026-09-08"
   },
   {
-    "q": "How do you price a water filter installation?",
-    "a": "Every property is different, so we quote after seeing it. A technician visits free of charge, measures your TDS and hardness, and gives you a fixed written quotation in AED before any work starts. There is no call-out fee and no obligation — the price we quote is the price you pay."
+    "id": "how-often-replace-filters",
+    "q": "How often should RO filters be replaced?",
+    "a": "As a working schedule: sediment and carbon pre-filters every 6 months, the RO membrane every 2 to 3 years, the post-carbon or mineral stage every 12 months, and a UV lamp every 12 months whether or not it still glows. Those are starting points, not rules — the real interval depends on your measured TDS, your household's daily draw and how much sediment your building's storage puts through the pre-filters. A villa on tanker supply can exhaust a sediment cartridge in half the time an apartment does.",
+    "category": "maintenance",
+    "relatedServices": ["water-filter-replacement", "water-filter-amc"],
+    "relatedGuides": ["how-often-to-replace-ro-filters"],
+    "source": "Manufacturer service intervals for residential RO stages; adjusted per property by on-site measurement.",
+    "lastVerified": "2026-09-08"
   },
   {
-    "q": "Do you cover all seven Emirates?",
-    "a": "Yes. We operate across Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain. Dubai, Abu Dhabi and Sharjah usually get same-day service; the northern Emirates are typically within 24 to 48 hours."
+    "id": "ro-membrane-life",
+    "q": "How often should an RO membrane be replaced?",
+    "a": "Typically every 2 to 3 years in UAE conditions. A membrane does not fail suddenly — it loses rejection gradually, so the honest test is a TDS reading rather than the calendar. If the purified water climbs towards a fifth of the feed water's TDS, or the system takes noticeably longer to fill, the membrane is near the end of its useful life. Membranes also fail early for a reason worth finding: skipped pre-filter changes let sediment and chlorine reach the membrane, and chlorine destroys the standard thin-film composite element.",
+    "category": "maintenance",
+    "relatedServices": ["water-filter-replacement", "ro-water-purifier"],
+    "relatedGuides": ["how-often-to-replace-ro-filters"],
+    "source": "Thin-film composite membrane behaviour and chlorine sensitivity, per membrane datasheets.",
+    "lastVerified": "2026-09-08"
   },
   {
-    "q": "What does an AMC actually include?",
-    "a": "Scheduled visits, the consumables listed in your tier, sanitisation, leak testing, labour and call-out charges — all in one annual fee. We contact you when a service is due, so nothing is forgotten. Most customers pay 30 to 40% less than they would per visit."
+    "id": "ro-installation-cost",
+    "q": "How much does RO installation cost in Dubai?",
+    "a": "We do not publish a price, because the number would be wrong for most people who read it. What you pay depends on the system your water justifies, whether a booster pump is needed for your building's pressure, whether a drinking faucet can use an existing tap hole or needs one drilled, and how far the unit sits from the drain and the feed point. What we do instead: a technician visits free of charge, measures your water, and gives you a fixed written quotation in AED before anything is bought or fitted. There is no call-out fee and no obligation.",
+    "category": "pricing",
+    "relatedServices": ["water-filter-installation", "ro-water-purifier"],
+    "relatedLocations": ["dubai"],
+    "relatedGuides": ["ro-installation-cost-dubai"],
+    "source": "claims:fixed_written_quote, claims:free_water_test, claims:published_pricing (blocked — no price list exists)",
+    "lastVerified": "2026-09-08"
   },
   {
+    "id": "ro-vs-uv",
+    "q": "What is the difference between RO and UV water purification?",
+    "a": "They solve different problems and are often fitted together. Reverse osmosis pushes water through a semi-permeable membrane and removes dissolved content — salts, metals, the mineral load behind a salty or flat taste. UV passes water under an ultraviolet lamp and inactivates living organisms — bacteria, viruses, cysts — without removing anything dissolved and without changing the taste. So RO changes what the water is made of; UV changes whether what is living in it can reproduce. If your concern is taste and TDS, you need RO. If your concern is a storage tank or tanker delivery, you need UV. Many UAE villas need both.",
+    "category": "choosing",
+    "relatedServices": ["ro-water-purifier", "uv-water-purification"],
+    "relatedGuides": ["ro-vs-uv-water-purifier"],
+    "source": "claims:ro_tds_rejection, claims:uv_inactivation",
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "ro-vs-softener",
+    "q": "Do I need a water softener as well as an RO purifier?",
+    "a": "Often, yes, because they treat different points in the property. An RO purifier treats one tap — the water you drink and cook with. A softener treats the whole supply and removes the calcium and magnesium that scale your geyser, kettle, washing machine, shower glass and taps. Fitting RO does nothing for limescale anywhere else in the property, and fitting a softener does not make water suitable for drinking on its own. If you have both a taste complaint and white scale on your fittings, you are looking at two devices, not one.",
+    "category": "choosing",
+    "relatedServices": ["water-softener", "ro-water-purifier"],
+    "relatedGuides": ["ro-vs-water-softener", "hard-water-and-limescale-uae"],
+    "source": "Ion exchange treats hardness; RO membranes treat dissolved solids at a single outlet.",
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "whole-house-needed",
+    "q": "Do I need a whole-house water filter?",
+    "a": "A whole-house — or point-of-entry — filter is worth it when your complaint is about water you do not drink: sediment in the washing machine, a chlorine smell in the shower, rust marks in a bath, scale on every fitting. It treats every outlet in the property, so it protects appliances and plumbing rather than just improving one glass of water. It is usually not the right first purchase for an apartment, where you rarely control the incoming supply, there is no plant room, and building management has to approve any work on the riser. Villas are where it earns its place.",
+    "category": "choosing",
+    "relatedServices": ["whole-house-water-filtration", "water-filter-installation"],
+    "relatedGuides": ["whole-house-water-filter-uae", "best-water-purifier-dubai-apartment"],
+    "source": "Point-of-entry versus point-of-use scope.",
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "apartment-purifier",
+    "q": "What water purifier is suitable for an apartment?",
+    "a": "An under-sink RO system, in almost every case. It fits inside the sink cupboard, needs no work on the building's riser and no permission beyond your own tenancy, and treats the one outlet that matters. If the cupboard is genuinely tight, a tankless unit takes less depth because it has no storage vessel to house. In towers where mains pressure at your floor is weak, the system needs a booster pump — a detail worth confirming before purchase, because a starved RO membrane produces water slowly and wears out early.",
+    "category": "choosing",
+    "relatedServices": ["ro-water-purifier", "water-filter-installation"],
+    "relatedProducts": ["compact-under-sink-ro", "slim-tankless-ro"],
+    "relatedGuides": ["best-water-purifier-dubai-apartment", "tank-vs-tankless-ro"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "villa-filter",
+    "q": "What water filter is suitable for a villa?",
+    "a": "Villas usually need treatment at two points. At the point of entry, a sediment pre-filter — ideally a self-cleaning one, because tanker and tank-fed supply carries sand and rust that will otherwise block a cartridge quickly — followed by a carbon or multimedia stage, and a softener if hardness is the complaint. At the point of use, an under-sink RO for drinking water, with a UV stage if the villa is fed from a tank or a tanker rather than straight off the mains. The specific configuration should follow a water test, not a package: paying for stages your water does not need is the most common way villa owners overspend.",
+    "category": "choosing",
+    "relatedServices": ["whole-house-water-filtration", "water-softener", "uv-water-purification"],
+    "relatedProducts": ["self-cleaning-villa-pre-filter", "whole-villa-filtration", "modular-ro-with-uv"],
+    "relatedGuides": ["whole-house-water-filter-uae"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "ro-low-pressure",
+    "q": "Why does my RO water purifier have low water pressure?",
+    "a": "In order of how often we find it: a blocked sediment or carbon pre-filter, which starves the membrane; a storage tank that has lost its air charge, so the tank holds water but cannot push it out; low incoming mains pressure, common on higher floors and fixable with a booster pump; a fouled membrane near the end of its life; or a kinked or partially closed feed line, often after someone has moved things around under the sink. The pre-filter and the tank charge account for most cases and both are quick to check.",
+    "category": "troubleshooting",
+    "relatedServices": ["water-filter-repair", "water-filter-replacement"],
+    "relatedGuides": ["ro-purifier-low-pressure"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "ro-leaking",
+    "q": "Why is my RO purifier leaking?",
+    "a": "Almost always at a joint rather than through a component. The usual culprits are a push-fit tube that was not seated fully or has been disturbed, a perished O-ring in a filter housing after a cartridge change, a housing overtightened until it deformed, a cracked storage tank fitting, or a faucet base that has loosened. Turn off the feed valve at the mains connection first, then the tank valve, and dry everything so you can see where the water reappears — a leak found at the highest wet point is usually the source. Do not run the system while you diagnose it: an under-sink leak damages the cabinet long before it reaches your floor.",
+    "category": "troubleshooting",
+    "relatedServices": ["water-filter-repair"],
+    "relatedGuides": ["ro-water-purifier-leaking"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "water-tastes-bad",
+    "q": "Why does my filtered water still taste bad?",
+    "a": "Three common reasons. The carbon stage is exhausted — carbon adsorbs until it is saturated, and a saturated cartridge stops improving taste while still passing water perfectly well. The water has been standing in the storage tank for days, which flattens the taste; drawing off a tank's worth restores it. Or the RO has no remineralisation stage, so the water is genuinely very low in dissolved minerals and reads as flat rather than dirty — a mineral cartridge addresses that. If the taste is metallic rather than flat, the pipework between the filter and the tap is worth inspecting.",
+    "category": "troubleshooting",
+    "relatedServices": ["water-filter-replacement", "water-filter-repair"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "limescale-cause",
+    "q": "What causes limescale on my taps and glass?",
+    "a": "Dissolved calcium and magnesium — water hardness. When hard water evaporates or is heated, those minerals come out of solution and stay behind as the white, chalky deposit you see on shower glass, taps and inside a kettle. It is not dirt and it is not a sign the water is unsafe; it is a sign of what the water is carrying. Nothing you fit at the kitchen sink will change it, because the scale is forming everywhere the water goes. Reducing hardness at the point of entry, with a softener, is the only treatment that stops it forming rather than cleaning it up afterwards.",
+    "category": "water-quality",
+    "relatedServices": ["water-softener"],
+    "relatedGuides": ["hard-water-and-limescale-uae"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "reduce-tds",
+    "q": "How do I reduce the TDS of my drinking water?",
+    "a": "Reverse osmosis is the practical answer for a home. A membrane rejects most of the dissolved content — typically 95 to 99% of total dissolved solids — which no cartridge filter can do, because sediment and carbon stages target particles, chlorine, taste and odour rather than dissolved salts. Distillation also works but is impractical at household scale. Worth knowing: very low TDS water tastes flat to most people, which is why a remineralising or alkaline post-stage is common on UAE installations. TDS is also a blunt instrument — it tells you how much is dissolved, not what.",
+    "category": "water-quality",
+    "relatedServices": ["ro-water-purifier"],
+    "relatedGuides": ["how-to-reduce-water-tds"],
+    "source": "claims:ro_tds_rejection",
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "tank-vs-tankless",
+    "q": "Is a tankless RO better than one with a storage tank?",
+    "a": "Neither is better; they trade different things. A tanked system stores several litres, so it delivers a fast flow on demand from a smaller, cheaper pump — but the tank takes cupboard space, water sits in storage between draws, and the tank's air charge is one more thing to maintain. A tankless system purifies as you draw, so nothing is stored and it occupies far less depth — but it needs a higher-output membrane and a pump to deliver a usable flow rate, which raises the purchase price. Tight apartment cupboard: tankless. Large family drawing several litres at once: tanked.",
+    "category": "choosing",
+    "relatedProducts": ["slim-tankless-ro", "compact-under-sink-ro"],
+    "relatedGuides": ["tank-vs-tankless-ro"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "carbon-vs-ro",
+    "q": "Is a carbon filter enough, or do I need RO?",
+    "a": "A carbon filter improves what you can smell and taste — chlorine, taste, odour — and a sediment stage removes what you can see. Neither removes dissolved salts and metals, because those pass straight through. So if your water reads high on TDS or tastes salty, carbon will not fix it. If your water reads low on TDS and the only complaint is a chlorine smell, carbon fixes it at a fraction of the cost, wastes no water and needs no drain connection. Measuring first is what tells you which situation you are in, and it takes ten minutes.",
+    "category": "choosing",
+    "relatedServices": ["ro-water-purifier", "water-filter-installation"],
+    "relatedGuides": ["how-to-reduce-water-tds"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "ro-wastewater",
+    "q": "How much water does an RO system waste?",
+    "a": "A residential RO system sends some water to the drain to carry away what the membrane rejects — the ratio depends on the system, the feed pressure and the membrane's condition, and is commonly a few litres to the drain for each litre purified. It is not wasted in the sense of being contaminated; it is ordinary water carrying a higher concentration of what was rejected. A well-matched pump and a healthy membrane improve the ratio noticeably, and a starved or fouled membrane worsens it — which is another reason a system that suddenly drains more is telling you something.",
+    "category": "maintenance",
+    "relatedServices": ["ro-water-purifier", "water-filter-repair"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "amc-includes",
+    "q": "What does a water filter AMC include?",
+    "a": "An annual maintenance contract bundles the scheduled visits, the consumables listed in the tier you choose, sanitisation, leak testing, labour and call-out into one annual fee — and, importantly, puts the responsibility for remembering on us rather than you. We contact you when a service is due. The reason it matters more in the UAE than in a temperate climate is that a skipped pre-filter change here does not just degrade taste; it lets sediment and chlorine reach an expensive membrane.",
+    "category": "maintenance",
+    "relatedServices": ["water-filter-amc", "water-filter-replacement"],
+    "source": "claims:fixed_written_quote",
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "service-other-brands",
     "q": "Can you service a system another company installed?",
-    "a": "Absolutely. We service and repair all major brands and stock genuine consumables for them. If your current system is beyond economical repair we will tell you honestly rather than keep charging for repairs."
+    "a": "Yes — servicing and repairing systems fitted by someone else is a large part of what we do, across all major brands, and we stock the common consumables for them. Two honest caveats. Some imported units use proprietary cartridge formats that have to be ordered rather than carried on the van, which affects timing. And if a system is beyond economical repair, we will say so rather than keep charging you for repairs on it.",
+    "category": "service",
+    "relatedServices": ["water-filter-repair", "water-filter-replacement"],
+    "source": "claims:all_brands_serviced",
+    "lastVerified": "2026-09-08"
   },
   {
+    "id": "coverage-emirates",
+    "q": "Which Emirates do you cover?",
+    "a": "All seven: Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain. Teams are based in Dubai, Abu Dhabi and Sharjah, with scheduled routes covering the northern Emirates. Dubai, Abu Dhabi and Sharjah are usually same-day; Ajman, Ras Al Khaimah and Umm Al Quwain are typically within 24 hours; Fujairah is typically within 48 hours. Send us your location and we will confirm the next slot for your specific area rather than for the emirate in general.",
+    "category": "service",
+    "relatedLocations": ["dubai", "abu-dhabi", "sharjah", "ajman", "ras-al-khaimah", "fujairah", "umm-al-quwain"],
+    "source": "claims:coverage_seven_emirates, claims:regional_bases, claims:response_times",
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "emergency-repairs",
     "q": "Do you offer emergency repairs at night or on Fridays?",
-    "a": "Yes — our emergency line is answered 24 hours a day, every day. Leaks and total loss of water flow are treated as priority call-outs."
+    "a": "Yes — the emergency line is answered 24 hours a day, every day. Leaks and a total loss of flow are treated as priority call-outs, because both get worse while they wait. If you have a leak right now, close the system's feed valve before you call: it stops the damage while we are on the way.",
+    "category": "service",
+    "relatedServices": ["water-filter-repair"],
+    "source": "claims:emergency_line_24h",
+    "lastVerified": "2026-09-08"
   },
   {
-    "q": "Is the demo and water test really free?",
-    "a": "Completely free with no obligation. We test your water in front of you, explain what the reading means and leave you a written quotation. Whether you buy is entirely up to you."
+    "id": "water-test-free",
+    "q": "Is the water test and demonstration really free?",
+    "a": "Yes, and with no obligation. A technician tests your water in front of you, explains what the reading means, and leaves you a written quotation. There is no call-out fee whether or not you buy anything. The reason we can offer it is straightforward commercially: most people who see their own TDS and hardness reading make a better-informed decision, and a well-matched system generates fewer complaints than an oversold one.",
+    "category": "service",
+    "relatedServices": ["water-filter-installation", "free-demo-consultation"],
+    "source": "claims:free_water_test, claims:fixed_written_quote",
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "installation-duration",
+    "q": "How long does a water filter installation take?",
+    "a": "A typical under-sink RO installation takes about an hour, including pressure testing and flushing the new cartridges before you use the water. A whole-house or villa system takes longer — usually a half day — because it involves cutting into the incoming supply, mounting a frame and isolating the property while the work is done. A softener install is similar, plus the initial regeneration cycle. We flush and test before we leave; water from a brand-new RO membrane should never be drunk straight away.",
+    "category": "installation",
+    "relatedServices": ["water-filter-installation"],
+    "source": "claims:typical_install_duration",
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "apartment-permission",
+    "q": "Do I need permission from building management to fit a water filter?",
+    "a": "For an under-sink filter, normally no — it connects to the existing supply inside your unit and nothing structural changes. For anything that touches the building's incoming supply, riser or common areas, yes, and you should get it in writing before work is scheduled. Villa work on your own incoming line is your decision, though community developments sometimes have rules about external equipment. If you are unsure which category your job falls into, tell us the building and we will tell you which approval, if any, applies.",
+    "category": "installation",
+    "relatedServices": ["water-filter-installation", "whole-house-water-filtration"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "relocation",
+    "q": "Can you move my water filter system to a new property?",
+    "a": "Yes. A relocation is an uninstall, a transport and a reinstall, and it is worth treating as one job rather than three: the system should be drained and sanitised before it travels, the cartridges are usually due for replacement anyway once a unit has been opened, and the new property's pressure and drain arrangement may not match the old one. We check all of that at the new address rather than assuming the old configuration still fits.",
+    "category": "service",
+    "relatedServices": ["system-relocation", "water-filter-installation"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "commercial-systems",
+    "q": "Do you install water filtration for restaurants, offices and labour accommodation?",
+    "a": "Yes — commercial work is a distinct part of the business, because the requirements are different. Duty cycles are far higher, so cartridge and membrane sizing that suits a family will fail in a cafeteria. Kitchens usually need scale reduction ahead of coffee and steam equipment, not just drinking-water treatment. And commercial premises are inspected, so water-quality records matter as much as the equipment. We size to measured demand and keep service records for the site.",
+    "category": "service",
+    "relatedServices": ["water-filter-installation", "water-filter-amc", "whole-house-water-filtration"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "softener-salt",
+    "q": "Does a water softener make my water salty?",
+    "a": "No. An ion-exchange softener uses salt to regenerate its resin, but the salt is flushed to the drain during regeneration rather than passing into your supply. What ends up in the water is a small amount of sodium exchanged for the calcium and magnesium that were removed — an amount you cannot taste. If your softened water does taste salty, something is wrong: usually a regeneration cycle that is not draining properly, or a valve that has failed and is bypassing brine into the service line. That is a fault worth calling about, not a characteristic of softening.",
+    "category": "maintenance",
+    "relatedServices": ["water-softener", "water-filter-repair"],
+    "relatedGuides": ["ro-vs-water-softener"],
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "uv-lamp-replacement",
+    "q": "Why does a UV lamp need replacing if it still lights up?",
+    "a": "Because a UV lamp's output falls long before it stops glowing. Disinfection depends on delivering a dose — intensity multiplied by exposure time — and a lamp near the end of its rated life can still look identical while delivering too little ultraviolet to inactivate anything reliably. That is why the interval is annual and based on running hours rather than on whether the lamp works. The quartz sleeve matters too: scale or film on the sleeve blocks the light before it reaches the water, so it is cleaned or replaced at the same visit.",
+    "category": "maintenance",
+    "relatedServices": ["uv-water-purification", "water-filter-replacement"],
+    "source": "claims:uv_inactivation",
+    "lastVerified": "2026-09-08"
+  },
+  {
+    "id": "tanker-water",
+    "q": "My villa is supplied by water tanker. Does that change what I need?",
+    "a": "Yes, in two ways. Tanker and tank-fed supply carries more sediment — sand and rust picked up in handling and storage — so a point-of-entry sediment stage stops that reaching everything downstream, and a self-cleaning pre-filter avoids the cartridge blocking every few weeks. And because the water has been stored rather than delivered straight from the network, UV disinfection on the drinking-water line addresses the risk that storage introduces. Filtration alone does not do that: a sediment or carbon cartridge is not a disinfection stage.",
+    "category": "water-quality",
+    "relatedServices": ["uv-water-purification", "whole-house-water-filtration"],
+    "relatedProducts": ["self-cleaning-villa-pre-filter", "modular-ro-with-uv"],
+    "source": "claims:storage_and_distribution_risk",
+    "lastVerified": "2026-09-08"
   }
 ]

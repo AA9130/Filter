@@ -1,20 +1,72 @@
 {
+  "intro": "AquaPure UAE is a water filtration and purification company serving all seven Emirates. We install, service and repair drinking-water and whole-property treatment systems — reverse osmosis, whole-house and whole-villa filtration, water softeners, UV disinfection — for apartments, villas, offices, restaurants and accommodation blocks.",
   "story": [
-    "AquaPure Water Filtration Services L.L.C. started in 2010 with two technicians, one van and a simple observation: plenty of companies were happy to sell UAE residents a water filter, and almost none of them came back to service it.",
-    "Fifteen years later that is still the whole business model. We install systems properly, we keep a record of every cartridge in every property we look after, and we call our customers before the filters are due rather than waiting for the water to taste bad.",
-    "Today mobile teams operate out of Dubai, Abu Dhabi and Sharjah with scheduled routes covering the northern Emirates — more than 12,000 households and businesses on our books, most of them from referrals."
+    "The company exists because of a gap that is easy to observe in the UAE market: plenty of businesses will sell a household a water filter, and far fewer will come back to service it. A filtration system is not a product you buy once. It is a system with consumables, a schedule and a failure mode that is completely invisible — an exhausted cartridge keeps passing water long after it has stopped treating it.",
+    "So the business is built around the service side rather than the sale. We measure water before recommending anything, we keep a record of what is fitted in every property we look after, and we make contact when a service is due rather than waiting for someone to notice their water tastes different.",
+    "That shapes what we will and will not do. We do not publish a water-quality figure for Dubai or any other emirate, because two apartments in the same tower can read differently and a number on a website cannot specify a system. We quote after seeing the property, in writing, in AED. And when the honest finding is that an existing system only needs a cartridge, that is the finding — a conclusion that costs us a sale often enough to be worth stating plainly."
+  ],
+  "expertise": [
+    {
+      "icon": "droplets",
+      "title": "Point-of-use and point-of-entry, as different disciplines",
+      "body": "Treating one tap and treating a whole property are separate engineering problems with separate failure modes. Most UAE villas need both; most apartments can only have one. Knowing which conversation you are in is the first thing we establish."
+    },
+    {
+      "icon": "gauge",
+      "title": "Pressure and pumping",
+      "body": "The most common cause of a system that 'does not work' is a membrane starved of feed pressure. We measure static pressure before quoting, because on a high floor or an older building a booster pump is part of the system rather than an accessory."
+    },
+    {
+      "icon": "filter",
+      "title": "Consumables and intervals",
+      "body": "Cartridge life in the UAE is shorter than manufacturer schedules assume, because sediment loading from tanks and tanker supply is higher. We set intervals from what the removed cartridges actually look like on this property, not from a generic calendar."
+    },
+    {
+      "icon": "sun",
+      "title": "Disinfection versus filtration",
+      "body": "A sediment or carbon cartridge does not disinfect anything. Where a property stores water before using it — which describes most UAE villas — that distinction decides whether UV or a contact-disinfection stage belongs in the specification."
+    },
+    {
+      "icon": "waves",
+      "title": "Hardness and scale",
+      "body": "Limescale is dissolved calcium and magnesium and it forms everywhere the water goes, so nothing fitted at the kitchen sink addresses it. Sizing a softener needs both a hardness reading and real demand figures — one without the other is half the information."
+    },
+    {
+      "icon": "building-2",
+      "title": "Commercial duty cycles",
+      "body": "A cartridge rated for a family's daily draw is exhausted in weeks in a cafeteria. Commercial work is sized on measured demand, with service intervals set from throughput and records kept for premises that get inspected."
+    }
   ],
   "values": [
-    { "icon": "target", "title": "Honest recommendations", "body": "We test your water and recommend what the reading justifies — nothing more. If your existing system just needs a cartridge, we will say so." },
-    { "icon": "heart-handshake", "title": "Aftercare that continues", "body": "The install is the beginning, not the end. We track your service dates and contact you before the filters are due, for as long as you stay with us." },
-    { "icon": "users", "title": "Technicians, not salespeople", "body": "The person at your door is a trained plumber and filtration technician who can diagnose and fix the problem on the spot." },
-    { "icon": "award", "title": "Genuine parts only", "body": "Original cartridges, membranes and pumps sourced through authorised channels — never grey-market copies that fail within months." }
+    {
+      "icon": "target",
+      "title": "Measure, then recommend",
+      "body": "Every specification traces back to a reading taken at your tap. A recommendation made without one is a guess dressed as advice, however confidently it is delivered."
+    },
+    {
+      "icon": "heart-handshake",
+      "title": "Aftercare is the product",
+      "body": "The install is the beginning. We track what is fitted and when it is next due, and we make the contact — because the failure mode is never a decision to skip a service, it is forgetting."
+    },
+    {
+      "icon": "users",
+      "title": "Say the unprofitable thing",
+      "body": "If a system only needs a cartridge, that is what we say. If a system is beyond economical repair, we say that too rather than keep charging for repairs on it."
+    },
+    {
+      "icon": "award",
+      "title": "Specify for serviceability",
+      "body": "Isolation valves, accessible mounting and standard cartridge formats cost nothing extra at installation and decide whether the system is still being properly maintained in five years."
+    }
   ],
-  "milestones": [
-    { "year": "2010", "title": "Founded in Dubai", "body": "Started as a two-technician operation servicing apartments in Deira and Bur Dubai." },
-    { "year": "2014", "title": "Abu Dhabi branch", "body": "Opened a second base to cover the capital and Al Ain with same-day response." },
-    { "year": "2018", "title": "Commercial division", "body": "Began designing and maintaining RO plants for restaurants, clinics and labour accommodation." },
-    { "year": "2021", "title": "All 7 Emirates", "body": "Completed northern Emirates coverage with scheduled routes to RAK, Fujairah and UAQ." },
-    { "year": "Today", "title": "12,000+ customers", "body": "Over 12,000 households and businesses on our books, with a 4.9/5 average service rating." }
-  ]
+  "history": {
+    "claimId": "years_in_business",
+    "intro": "Company history and founding date are held back from publication until the trade-licence record is on file. See docs/CLAIMS.md.",
+    "milestones": [
+      { "year": "2010", "title": "Founded in Dubai", "body": "Started as a two-technician operation servicing apartments in Deira and Bur Dubai." },
+      { "year": "2014", "title": "Abu Dhabi base", "body": "A second base opened to cover the capital with same-day response." },
+      { "year": "2018", "title": "Commercial division", "body": "Began designing and maintaining systems for restaurants, clinics and accommodation blocks." },
+      { "year": "2021", "title": "Northern Emirates coverage", "body": "Completed coverage with scheduled routes to Ras Al Khaimah, Fujairah and Umm Al Quwain." }
+    ]
+  }
 }

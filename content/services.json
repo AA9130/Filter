@@ -3,164 +3,733 @@
     "slug": "water-filter-installation",
     "icon": "wrench",
     "title": "Water Filter Installation",
-    "short": "Residential & commercial installation done right the first time.",
-    "description": "From a single under-sink cartridge unit in a Dubai Marina apartment to a full plant room for a Sharjah labour camp, our certified technicians size, plumb and commission your system to UAE plumbing code.",
+    "serviceType": "Water filter installation",
+    "short": "Supply and fitting of drinking-water and whole-property systems, sized to a measured water test.",
+    "description": "AquaPure sizes, plumbs and commissions water filtration systems across the UAE — from a single under-sink cartridge unit in a Dubai Marina apartment to a point-of-entry plant for a villa or a commercial kitchen. Every installation starts with an on-site water test, because the right system is the one your water justifies.",
     "bullets": [
-      "Free on-site water assessment (TDS + hardness test)",
-      "Under-sink, countertop, wall-mounted and plant-room installs",
-      "Neat, leak-tested plumbing with brand-new fittings",
-      "Same-day installation available across most areas"
+      "Free on-site water assessment — TDS and hardness measured in front of you",
+      "Under-sink, countertop, wall-mounted and point-of-entry installations",
+      "Leak-tested plumbing with new fittings and accessible isolation valves",
+      "System flushed and commissioned before you use the water"
     ],
-    "highlight": "Most popular",
+    "highlight": "Most requested",
     "image": "plumbingWork",
-    "metaTitle": "Water Filter Installation in UAE — Same-Day Fitting",
-    "metaDescription": "Certified water filter installation across all 7 Emirates. Under-sink, countertop and whole-property systems, fitted to UAE plumbing code with a free water test."
+    "h1": "Water Filter Installation in the UAE",
+    "directAnswer": "AquaPure installs domestic and commercial water filtration systems across all seven Emirates. A technician measures your water's TDS and hardness on site, recommends the system that reading justifies, and gives you a fixed written quotation in AED before anything is bought. A typical under-sink installation takes about an hour; a villa point-of-entry system usually takes a half day.",
+    "keyFacts": [
+      "Covers all seven Emirates, with same-day attendance usually available in Dubai, Abu Dhabi and Sharjah",
+      "Free on-site water test and written quotation, with no call-out fee",
+      "Under-sink point-of-use through to villa and commercial point-of-entry systems",
+      "Systems are flushed, pressure-tested and demonstrated before handover"
+    ],
+    "whatItIs": [
+      "A water filter installation is two decisions and one job. The decisions are where to treat the water — at one tap, or where it enters the property — and what to treat it for. The job is plumbing that connects a treatment system to your supply and your drain without leaking, without starving the system of pressure, and in a way that can be serviced later without dismantling a kitchen.",
+      "Point-of-use means treating one outlet, usually the kitchen cold tap, with a filter under the sink and a dedicated drinking faucet. Point-of-entry means treating everything, with a system fitted where the supply enters the property. They are not competing options: many UAE villas need both, because they solve different complaints."
+    ],
+    "whoNeedsIt": [
+      { "title": "Apartment residents", "body": "An under-sink system is the practical option: it fits inside your unit, needs no work on the building riser, and treats the water you actually drink. Nothing else in an apartment is usually yours to change." },
+      { "title": "Villa and townhouse owners", "body": "You control the incoming line, so a sediment and carbon stage at the point of entry protects every tap, shower and appliance — and a drinking-water system at the kitchen sink handles the rest." },
+      { "title": "New tenants and new owners", "body": "An inherited system that has not been serviced in years is a liability, not an asset. The first job is finding out what is fitted, what state the cartridges and membrane are in, and whether it is worth keeping." },
+      { "title": "Restaurants, offices and accommodation blocks", "body": "Duty cycles are far higher than domestic, so sizing has to follow measured demand. Scale reduction ahead of coffee, steam and dishwashing equipment is usually more urgent than the drinking tap." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Water test", "body": "TDS and hardness measured at your tap, in front of you. This is what separates a specification from a guess — the same building can read very differently on different risers." },
+      { "step": "02", "title": "Survey and quotation", "body": "Pressure at the tap, available space, drain and feed access, and whether a faucet can use an existing tap hole. You get a fixed written quotation in AED before anything is ordered." },
+      { "step": "03", "title": "Installation", "body": "New fittings, isolation valves you can reach, and a mounting position chosen so a service visit does not mean emptying a cupboard or draining the property." },
+      { "step": "04", "title": "Commission and handover", "body": "Pressure test, flush the new cartridges through, confirm the treated reading, and show you where the shut-off is. Water from a brand-new RO membrane is never handed over to drink." }
+    ],
+    "benefits": [
+      { "title": "Sized to your water, not to a package", "body": "Paying for filtration stages your water does not need is the most common way UAE households overspend. A measured reading tells you where to stop." },
+      { "title": "Serviceable from day one", "body": "Isolation valves, accessible housings and a sensible mounting position cost nothing extra at installation and save every service visit afterwards." },
+      { "title": "Pressure accounted for", "body": "Static pressure is checked before quoting. A membrane starved of pressure produces slowly, sends more water to the drain and fails early — and the symptom looks like a faulty system." },
+      { "title": "One accountable trade", "body": "The plumbing and the filtration are the same job. Splitting them between a plumber and a supplier is how leaks end up being nobody's responsibility." }
+    ],
+    "maintenance": [
+      { "title": "Pre-filters", "body": "Sediment and carbon stages roughly every 6 months, sooner on tank-fed or tanker-fed properties where sediment loading is higher." },
+      { "title": "RO membrane", "body": "Typically every 2 to 3 years, judged on a TDS reading rather than the calendar." },
+      { "title": "UV lamp and sleeve", "body": "Annually, on running hours — a lamp's output falls well before it stops lighting." },
+      { "title": "Records", "body": "We keep what was fitted and when, so the next visit starts from a known state rather than from an inspection." }
+    ],
+    "commonProblems": [
+      { "problem": "System fitted with no isolation valve", "cause": "Installed as fast as possible rather than as serviceably as possible.", "fix": "Adding a valve at the next service turns every future cartridge change from a plumbing job into a five-minute one." },
+      { "problem": "Drinking faucet drilled through a stone worktop unnecessarily", "cause": "Not checking whether an existing tap hole or sink knockout could be used.", "fix": "Ask before the drill comes out. In rented apartments this matters twice over." },
+      { "problem": "Drain saddle fitted badly", "cause": "A rushed connection to the sink waste.", "fix": "A correctly clamped and sealed connection. A weeping drain saddle is the leak people discover months later, by smell." }
+    ],
+    "choosingFactors": [
+      { "title": "Measure before you choose", "body": "TDS and hardness point to different technologies. Buying before measuring is how people end up with RO for a chlorine complaint, or a softener for a taste complaint." },
+      { "title": "Match capacity to household size", "body": "A system that suits two people is undersized for six. The symptom is not a fault — it is slow refill and a family that stops using the filtered tap." },
+      { "title": "Check the space honestly", "body": "Measure the cupboard, including depth behind the waste trap. This is what decides between a tanked and a tankless system more often than any specification does." },
+      { "title": "Prefer standard consumables", "body": "A system built around common cartridge formats gets serviced on time. One built around proprietary consumables waits for a delivery — which matters a great deal outside Dubai." }
+    ],
+    "uaeContext": [
+      "Mains water in the UAE is predominantly desalinated and leaves the plant treated to a drinking-water standard. What installation practice has to account for is what happens after that: most UAE buildings hold water in ground or roof tanks and lift it with booster pumps, and many villas are tank-fed or tanker-fed.",
+      "That has three practical consequences. Sediment loading is higher than the plant's output would suggest, so a proper sediment stage protects everything downstream. Pressure at the tap varies enormously between floors and buildings, so it has to be measured rather than assumed. And where water has been stored before use, disinfection is a separate question from filtration — a sediment or carbon cartridge does not disinfect anything."
+    ],
+    "pricingNote": "We do not publish installation prices, because the figure would be wrong for most people who read it: it depends on the system your water justifies, whether a booster pump is needed, and how your kitchen or plant room is laid out. A technician quotes on site, in writing, in AED, with no call-out fee.",
+    "relatedServices": ["ro-water-purifier", "whole-house-water-filtration", "water-filter-amc", "water-filter-replacement"],
+    "relatedProducts": ["compact-under-sink-ro", "slim-tankless-ro", "whole-villa-filtration"],
+    "relatedGuides": ["is-uae-tap-water-safe-to-drink", "best-water-purifier-dubai-apartment", "ro-installation-cost-dubai"],
+    "faqIds": ["installation-duration", "apartment-permission", "ro-installation-cost", "water-test-free", "apartment-purifier"],
+    "metaTitle": "Water Filter Installation in UAE — Sized to a Free Water Test",
+    "metaDescription": "Water filter and RO installation across all seven Emirates. Under-sink, whole-property and commercial systems, sized to a measured on-site water test with a fixed written quotation."
   },
   {
-    "slug": "ro-water-purifiers",
+    "slug": "ro-water-purifier",
     "icon": "droplets",
     "title": "RO Water Purifier Systems",
-    "short": "5, 6 & 7-stage reverse osmosis with mineral & alkaline options.",
-    "description": "Reverse osmosis removes up to 99% of dissolved solids — the single most effective answer to the high TDS of UAE tap and tanker water. We supply, install and service domestic and commercial RO systems.",
+    "serviceType": "Reverse osmosis water purifier supply, installation and service",
+    "short": "Reverse osmosis for drinking water — supplied, installed and serviced, domestic and commercial.",
+    "description": "Reverse osmosis is the treatment that addresses dissolved content rather than just particles and chlorine, which is why it is the usual answer to a salty, flat or metallic taste in UAE drinking water. AquaPure supplies, installs and services domestic and commercial RO systems, with the treated reading shown to you before and after.",
     "bullets": [
-      "5 / 6 / 7-stage domestic RO with mineral cartridge",
-      "Commercial RO plants from 100 GPD to 10,000 GPD",
-      "Pressure-boost pumps and storage tank integration",
-      "TDS reading shown to you before and after"
+      "Multi-stage domestic RO, with remineralising post-stage options",
+      "Commercial RO sized on measured demand rather than a catalogue figure",
+      "Booster pumps and storage integration where building pressure needs them",
+      "TDS shown to you before and after, at installation and at every service"
     ],
     "image": "kitchenTap",
-    "metaTitle": "RO Water Purifier Systems — Supply, Install & Service UAE",
-    "metaDescription": "Domestic and commercial reverse osmosis systems installed across the UAE. 5, 6 and 7-stage RO with mineral cartridges, booster pumps and before/after TDS readings."
+    "h1": "RO Water Purifier Systems in the UAE",
+    "directAnswer": "A reverse osmosis purifier pushes water through a semi-permeable membrane that rejects most dissolved content — typically 95 to 99% of total dissolved solids — which cartridge filters cannot do. AquaPure supplies, installs and services domestic and commercial RO systems across the UAE, sized to a measured TDS reading and fitted with the booster pump the building's pressure requires.",
+    "keyFacts": [
+      "RO membranes typically reject 95 to 99% of total dissolved solids",
+      "The right answer only when your water actually reads high — carbon is cheaper and wastes no water when TDS is low",
+      "Needs a drain connection and adequate feed pressure; a starved membrane fails early",
+      "Membrane life is typically 2 to 3 years, judged on a TDS reading rather than the calendar"
+    ],
+    "whatItIs": [
+      "Reverse osmosis forces water at pressure against a semi-permeable membrane. Water molecules pass through; most dissolved salts, metals and larger organic molecules do not, and are carried away to the drain in a concentrate stream. That rejection of dissolved content is what distinguishes RO from every cartridge-based filter — sediment and carbon stages target particles, chlorine, taste and odour, and dissolved salts pass straight through them.",
+      "A residential RO system is a train of stages, not a single device: sediment and carbon pre-filters that protect the membrane, the membrane itself, and a post-stage that polishes taste. Most UAE installations add a remineralising or alkaline cartridge, because water stripped to very low TDS tastes flat to most people. Systems either store purified water in a small pressure tank or purify on demand."
+    ],
+    "whoNeedsIt": [
+      { "title": "Households whose water tastes salty, flat or metallic", "body": "A taste that is not chlorine is usually a dissolved-solids complaint, and that is what RO addresses." },
+      { "title": "Properties on high-TDS supply", "body": "Where a measured reading is genuinely high, no cartridge filter changes it. RO or distillation are the only practical options, and distillation is impractical at household scale." },
+      { "title": "Apartments with no other option", "body": "You cannot treat the building's incoming supply, so treating the drinking outlet properly is the whole available strategy." },
+      { "title": "Commercial kitchens and cafeterias", "body": "Consistent water for coffee, ice and cooking, sized to measured throughput. Domestic sizing fails in weeks under commercial duty." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Sediment stage", "body": "Removes particles that would otherwise abrade and block the membrane. On tank-fed properties this is the stage that does the most work." },
+      { "step": "02", "title": "Carbon stage", "body": "Adsorbs chlorine, taste and odour. Critically, it protects the membrane: chlorine destroys the standard thin-film composite element, so a skipped carbon change is what kills membranes early." },
+      { "step": "03", "title": "Membrane", "body": "Rejects the dissolved load. Purified water continues; the concentrate goes to the drain. Rejection depends on feed pressure, temperature and the membrane's condition." },
+      { "step": "04", "title": "Post-treatment and delivery", "body": "A polishing carbon stage, and usually a remineralising cartridge so the water does not taste flat. Then either a storage tank or on-demand delivery to a dedicated faucet." }
+    ],
+    "benefits": [
+      { "title": "It addresses what other filters cannot", "body": "Dissolved salts and metals pass through sediment and carbon. If your complaint is taste that is not chlorine, this is the technology that changes it." },
+      { "title": "Verifiable at the tap", "body": "Unlike most home improvements, the result is measurable. We show you the feed reading and the treated reading, at installation and at every service visit." },
+      { "title": "Fits where nothing else can", "body": "A point-of-use system needs no work on the building's supply, which is what makes it viable in apartments and rented property." },
+      { "title": "Remineralisation is a choice you get to make", "body": "Very low TDS water tastes flat to most people. A mineral post-stage is a deliberate decision about taste, not an upsell to be defaulted into." }
+    ],
+    "maintenance": [
+      { "title": "Pre-filters every 6 months", "body": "Sediment and carbon. This is the interval that protects the expensive part; missing it is the most common cause of premature membrane failure." },
+      { "title": "Membrane every 2 to 3 years", "body": "Judged on rejection, not the date. Rising treated TDS or slower production are the signals." },
+      { "title": "Storage tank air charge", "body": "A tank that has lost its charge holds water but cannot push it out. It presents as low pressure at the faucet and is quick to correct." },
+      { "title": "Sanitisation at cartridge changes", "body": "Housings are opened at every service; sanitising them then costs nothing and prevents biofilm establishing inside." }
+    ],
+    "commonProblems": [
+      { "problem": "Slow flow or a trickle at the faucet", "cause": "Blocked pre-filters, a flat storage tank charge, low feed pressure, or a fouled membrane — in roughly that order of frequency.", "fix": "Check the pre-filters and tank charge first; both are quick. Persistent low feed pressure needs a booster pump, not a bigger membrane." },
+      { "problem": "Treated water tastes flat", "cause": "No remineralising stage, or an exhausted one.", "fix": "Fit or replace the mineral cartridge. This is a taste preference, not a fault." },
+      { "problem": "Membrane replaced far too soon", "cause": "Chlorine reaching it because the carbon stage was skipped or overrun.", "fix": "Restore the pre-filter schedule. Replacing membranes without fixing the cause repeats the expense." },
+      { "problem": "System runs constantly or drains more than it used to", "cause": "A failed shut-off valve, a fouled membrane, or a leaking check valve.", "fix": "Diagnose before replacing parts — a system that will not stop is telling you which component has failed." }
+    ],
+    "choosingFactors": [
+      { "title": "Measure your TDS first", "body": "RO is the right answer for a dissolved-solids problem and an expensive answer for a chlorine problem. Ten minutes of measurement decides which you have." },
+      { "title": "Tanked or tankless", "body": "Tanked delivers a fast flow from a smaller pump but occupies cupboard space and stores water between draws. Tankless stores nothing and takes far less depth but needs a higher-output membrane and a pump. Cupboard depth and household size decide it." },
+      { "title": "Pressure and pumping", "body": "Confirm static pressure at the tap before choosing. On high floors and in older buildings, a booster pump is part of the system rather than an accessory." },
+      { "title": "Cartridge availability", "body": "Standard formats get serviced on schedule. Proprietary ones wait for a delivery — a real consideration outside Dubai and Abu Dhabi." }
+    ],
+    "uaeContext": [
+      "UAE mains water is predominantly desalinated, and desalinated water leaving a plant is low in dissolved solids. What people measure at the tap can be different, because water is blended, distributed and then commonly held in building or property storage before use.",
+      "This is why a measured reading matters more here than a general statement about the country's water. Two apartments in the same district can read differently, and the same property can read differently after a tank has been cleaned. We do not publish a TDS figure for any emirate — the only number worth specifying a system against is the one measured at your tap."
+    ],
+    "pricingNote": "RO system prices are quoted after the water test, because the specification follows the reading: the number of stages, whether a booster pump is required, and whether the installation needs a new faucet position all change the figure. The quotation is fixed, written and in AED before anything is ordered.",
+    "relatedServices": ["water-filter-installation", "uv-water-purification", "water-filter-replacement", "water-filter-amc"],
+    "relatedProducts": ["compact-under-sink-ro", "slim-tankless-ro", "modular-ro-with-uv"],
+    "relatedGuides": ["ro-vs-uv-water-purifier", "how-to-reduce-water-tds", "tank-vs-tankless-ro", "how-often-to-replace-ro-filters"],
+    "faqIds": ["need-ro-in-dubai", "reduce-tds", "ro-vs-uv", "tank-vs-tankless", "ro-wastewater", "ro-membrane-life"],
+    "metaTitle": "RO Water Purifier Systems UAE — Supply, Installation & Service",
+    "metaDescription": "Reverse osmosis purifiers supplied, installed and serviced across the UAE. Membranes typically reject 95–99% of dissolved solids. Sized to a measured TDS reading, with before-and-after readings shown."
   },
   {
-    "slug": "whole-house-filtration",
+    "slug": "whole-house-water-filtration",
     "icon": "home",
-    "title": "Whole House Filtration",
-    "short": "Protect every tap, shower and appliance in the property.",
-    "description": "A point-of-entry system treats the water for the entire villa or building — no more chlorine smell in the shower, no more scale destroying your geyser, washing machine and taps.",
+    "title": "Whole House Water Filtration",
+    "serviceType": "Point-of-entry whole house water filtration",
+    "short": "Point-of-entry treatment for every tap, shower and appliance in the property.",
+    "description": "A point-of-entry system treats water where it enters the villa or building, so every outlet benefits — no chlorine smell in the shower, and far less sediment and scale reaching your geyser, washing machine and fittings. AquaPure sizes, mounts and services whole-house systems in single, double and triple-stage configurations.",
     "bullets": [
-      "Sediment, carbon and multimedia stages",
-      "Villa, townhouse and apartment-block sizing",
-      "Roof-tank and pump-room installation",
-      "Reduces chlorine, sand, rust and bad odour"
+      "Sediment, carbon and multimedia stages, configured to your water test",
+      "Villa, townhouse and apartment-block sizing on measured demand",
+      "Pump-room, roof and plant-room installation on serviceable frames",
+      "Reduces sediment, sand, rust, chlorine, taste and odour before the first tap"
     ],
     "image": "cleanWater",
-    "metaTitle": "Whole House Water Filtration Systems — UAE Villas & Buildings",
-    "metaDescription": "Point-of-entry filtration that treats every outlet in your villa or building. Sediment, carbon and multimedia stages sized and installed across the UAE."
+    "h1": "Whole House Water Filtration for UAE Properties",
+    "directAnswer": "A whole-house — point-of-entry — filter treats water where it enters the property, so every tap, shower and appliance is fed treated water. It is the right answer for complaints about water you do not drink: sediment, a chlorine smell in the shower, rust marks, and appliance wear. It is usually not the right answer for an apartment, where you do not control the incoming supply and building approval is required for work on the riser.",
+    "keyFacts": [
+      "Treats every outlet in the property, not just the kitchen tap",
+      "Best suited to villas, townhouses and buildings where you control the incoming line",
+      "Does not make water suitable for drinking on its own — a drinking-water stage is separate",
+      "Configured as single, double or triple stage after a water test; extra stages are not automatically better"
+    ],
+    "whatItIs": [
+      "Point-of-entry filtration is a set of large-capacity housings, usually on a steel frame, fitted into the incoming supply before it branches to the property. Water passes through them on its way to everything: taps, showers, the geyser, the washing machine, the irrigation line if it shares the supply.",
+      "The stages are chosen from what the water test shows. A sediment stage removes particles — the first and most valuable stage on almost every UAE property. A carbon stage removes chlorine, taste and odour. A multimedia stage handles a mix of sediment, iron and organics where the water justifies it. What point-of-entry filtration is not is a drinking-water system: it does not remove dissolved solids and it is not a disinfection stage."
+    ],
+    "whoNeedsIt": [
+      { "title": "Villa and townhouse owners", "body": "The clearest case. You control the incoming line, there is space for a serviceable frame, and appliance protection across the whole property is real money saved." },
+      { "title": "Properties on tank or tanker supply", "body": "Stored and handled water carries sand and rust. A sediment stage at the point of entry stops it reaching everything downstream, and a self-cleaning version avoids blocking a cartridge every few weeks." },
+      { "title": "Anyone with a shower or appliance complaint", "body": "Chlorine smell in the shower, sediment in the washing machine, rust marks in a bath. None of those are fixed by a kitchen filter, because the water reaching them was never treated." },
+      { "title": "Building and accommodation operators", "body": "One treatment point serving many outlets, sized on measured demand, with service records for the site." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Test and survey", "body": "Water tested, then the incoming line, available space, pressure and drainage assessed. The survey decides what is actually installable, which is as important as what is ideal." },
+      { "step": "02", "title": "Configuration", "body": "Single, double or triple stage, and housing size chosen for cartridge life and flow to the whole property — an undersized housing starves the property's flow and shortens cartridge life at the same time." },
+      { "step": "03", "title": "Installation", "body": "Cut into the incoming supply, mount the frame in the pump room, plant room or roof, and fit isolation and bypass valves plus a drain port, so servicing does not mean shutting the property off." },
+      { "step": "04", "title": "Commission", "body": "Flush the media through, pressure test, confirm flow at the furthest outlet, and record what was fitted." }
+    ],
+    "benefits": [
+      { "title": "Protects what filtration is usually not bought for", "body": "The geyser, the washing machine, the shower mixers and the taps all wear from sediment and scale. Treating the supply is cheaper than replacing them." },
+      { "title": "Every outlet, not one", "body": "A chlorine complaint in the shower has no point-of-use solution. Point-of-entry is the only place that fixes it." },
+      { "title": "Longer life for the drinking-water system", "body": "Cleaner feed water means the under-sink pre-filters and the RO membrane last longer. The two systems are complementary, not alternatives." },
+      { "title": "Serviceable by design", "body": "Bypass valves, a drain port and a mounting position with clearance around it turn a service visit into a routine job rather than an operation." }
+    ],
+    "maintenance": [
+      { "title": "Sediment cartridge or mesh", "body": "Interval depends entirely on loading. Tanker-fed properties can need attention several times more often than a mains-fed villa. A clear bowl or a pressure gauge makes it visible instead of guesswork." },
+      { "title": "Carbon media", "body": "Carbon adsorbs until saturated, then quietly stops working while still passing water. It is replaced on schedule, not on symptoms." },
+      { "title": "Pressure drop across the system", "body": "A gauge before and after is the honest health indicator: a growing differential means a blockage is developing before anyone notices the flow." },
+      { "title": "Backwash or rinse cycles", "body": "Self-cleaning and multimedia stages need their rinse performed properly. Skipped rinses are the most common reason a whole-house system underperforms." }
+    ],
+    "commonProblems": [
+      { "problem": "Flow to the whole property drops", "cause": "A blocked sediment stage, or an undersized housing for the property's demand.", "fix": "Service the stage; if it recurs quickly, the housing is too small for the duty and no service interval will fix that." },
+      { "problem": "System fitted without a bypass", "cause": "Installed as cheaply as possible.", "fix": "Adding a bypass means the property keeps water during a service. On a villa this is close to essential." },
+      { "problem": "Filter fitted on the irrigation line", "cause": "Properties with a separate landscaping supply, and an installer who did not trace it.", "fix": "Trace the lines before cutting in. We are occasionally called to correct exactly this." },
+      { "problem": "Expected drinking water to improve and it did not", "cause": "Point-of-entry filtration does not remove dissolved solids.", "fix": "A point-of-use RO handles drinking water. The two treat different problems and are usually fitted together." }
+    ],
+    "choosingFactors": [
+      { "title": "Stage count should follow the test", "body": "Triple-stage is not automatically better than double. Stages your water does not need cost money at installation and again at every service." },
+      { "title": "Housing size drives everything", "body": "Large housings give longer cartridge life and better flow. Undersizing to save space is the decision most often regretted." },
+      { "title": "Clear bowls versus solid", "body": "A clear bowl lets you see when a change is due, which is genuinely useful. Solid bowls are more robust where the system is exposed to sunlight." },
+      { "title": "Where it will be mounted", "body": "Sheltered, with clearance to open the housings, and near a drain. In coastal areas, out of the salt air — exposed metalwork weathers noticeably faster." }
+    ],
+    "uaeContext": [
+      "Whole-house filtration matters more in the UAE than the plant-side water quality would suggest, because most properties store water before using it. Villas commonly have ground or roof tanks; parts of the northern Emirates rely on tanker delivery. Storage is where sediment settles and where handling introduces sand and rust.",
+      "Hardness is the other local driver. Where the complaint is white scale on glass, taps and inside a kettle, filtration alone does not address it — that is dissolved calcium and magnesium, and reducing it needs a softener at the point of entry rather than a filter. The two are usually specified together on villa work, which is why the water test comes before the quotation."
+    ],
+    "pricingNote": "Whole-house systems are quoted after a survey, because the cost is driven by the configuration your test justifies, the housing size your property's demand needs, and how much plumbing work the incoming line requires. No price range is published, because the range would be too wide to be useful.",
+    "relatedServices": ["water-softener", "water-filter-installation", "uv-water-purification", "water-filter-amc"],
+    "relatedProducts": ["whole-villa-filtration", "self-cleaning-villa-pre-filter", "automatic-water-softener"],
+    "relatedGuides": ["whole-house-water-filter-uae", "hard-water-and-limescale-uae", "ro-vs-water-softener"],
+    "faqIds": ["whole-house-needed", "villa-filter", "tanker-water", "limescale-cause"],
+    "metaTitle": "Whole House Water Filtration UAE — Point-of-Entry Villa Systems",
+    "metaDescription": "Point-of-entry water filtration for UAE villas, townhouses and buildings. Sediment, carbon and multimedia stages sized to a water test, mounted on serviceable frames with bypass valves."
   },
   {
-    "slug": "water-softeners",
+    "slug": "water-softener",
     "icon": "waves",
     "title": "Water Softeners",
-    "short": "End limescale, dry skin and appliance damage for good.",
-    "description": "UAE water is notoriously hard. Our automatic ion-exchange softeners cut hardness at the source, protecting your plumbing and making a visible difference to skin, hair and laundry.",
+    "serviceType": "Water softener supply, installation and service",
+    "short": "Ion-exchange softening to stop limescale forming across the whole property.",
+    "description": "Limescale on glass, taps and inside a kettle is dissolved calcium and magnesium coming out of solution. A softener reduces that hardness where the water enters the property, which stops the scale forming rather than cleaning it up afterwards. AquaPure sizes, installs and services automatic ion-exchange softeners.",
     "bullets": [
-      "Automatic timer & metered regeneration valves",
-      "Correct resin volume calculated for your usage",
+      "Timer and metered regeneration valves, set to your actual usage",
+      "Resin volume calculated from hardness and household demand",
       "Salt supply and refill scheduling available",
-      "Noticeably softer water within hours"
+      "Fitted at the point of entry, so every outlet benefits"
     ],
-    "image": "labTest",
-    "metaTitle": "Water Softeners UAE — Stop Limescale at the Source",
-    "metaDescription": "Automatic ion-exchange water softeners sized, installed and maintained across the UAE. Ends limescale on taps, glass and appliances."
+    "image": "softener",
+    "h1": "Water Softeners for UAE Homes and Businesses",
+    "directAnswer": "A water softener removes the dissolved calcium and magnesium that cause limescale, using an ion-exchange resin that is periodically regenerated with salt. It is fitted at the point of entry so every outlet benefits. A softener does not purify water for drinking and does not remove dissolved solids generally — it addresses hardness specifically, which is why it is often fitted alongside an RO drinking-water system rather than instead of one.",
+    "keyFacts": [
+      "Treats hardness across the whole property; scale stops forming rather than being cleaned off",
+      "Regenerates with salt, which is flushed to the drain — it does not make your water taste salty",
+      "Not a drinking-water treatment: dissolved solids other than hardness pass through",
+      "Resin volume and regeneration settings must match measured hardness and actual demand"
+    ],
+    "whatItIs": [
+      "A softener is a vessel of ion-exchange resin with a control valve on top. As hard water passes through, calcium and magnesium ions are held by the resin and exchanged for sodium. When the resin's capacity is used up, the valve runs a regeneration cycle: brine from a salt tank is drawn through the resin, displacing the hardness, and the whole lot is flushed to the drain. Then it returns to service.",
+      "That cycle is why the two settings matter more than the hardware. A timer valve regenerates on a schedule whether the resin needs it or not; a metered valve regenerates on volume treated, which uses less salt and less water. Either way, a softener sized or set wrongly either regenerates constantly or delivers hard water part of the time."
+    ],
+    "whoNeedsIt": [
+      { "title": "Anyone with white scale on fittings and glass", "body": "The clearest indicator. Scale on shower glass, spotting on taps, a furred kettle element — that is hardness, and no point-of-use filter changes it." },
+      { "title": "Properties losing appliances early", "body": "Geysers, washing machines and dishwashers all fail earlier on hard water. Scale on a heating element is both a failure risk and a running-cost increase." },
+      { "title": "Households with skin and hair complaints after showering", "body": "Hard water and the extra soap it takes to lather are a common cause of the tight, dry feeling after a shower. Softened water is noticeably different to wash in." },
+      { "title": "Commercial kitchens and laundries", "body": "Coffee equipment, steamers, combi ovens and commercial laundry all specify soft feed water. Scale is the most common cause of failure in that equipment." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Measure hardness and demand", "body": "Hardness sets the exchange capacity needed per litre; household or site demand sets the litres. Both are needed to size resin volume — one without the other is a guess." },
+      { "step": "02", "title": "Size the resin and the salt tank", "body": "Undersized resin regenerates too often and wears out; oversized resin sits partly unused and channels. The salt tank is sized so refills fall at a sensible interval." },
+      { "step": "03", "title": "Install at the point of entry", "body": "Into the incoming supply with a bypass, a drain connection for regeneration, and — where irrigation shares the supply — a take-off ahead of the softener, since plants do not need softened water." },
+      { "step": "04", "title": "Commission and set the valve", "body": "Initial regeneration, then the valve programmed to your measured hardness and usage. Leaving factory defaults in place is the single most common reason a softener disappoints." }
+    ],
+    "benefits": [
+      { "title": "Scale stops forming", "body": "Cleaning scale off is maintenance. Preventing it is the only approach that also protects the parts you cannot reach — inside the geyser, inside the pipework." },
+      { "title": "Appliances last longer", "body": "Every heating element in the property runs cleaner. On a villa with a geyser, a washing machine and a dishwasher, that is the bulk of the return." },
+      { "title": "Less soap, less residue", "body": "Soft water lathers with far less detergent, which shows up in laundry, in glassware and on shower screens." },
+      { "title": "Protects downstream filtration", "body": "Hardness scales membranes and housings too. A softener ahead of the drinking-water system extends its consumable life." }
+    ],
+    "maintenance": [
+      { "title": "Salt level", "body": "Checked and topped up — a softener that runs out of salt keeps passing water, untreated, without any obvious symptom until the scale returns." },
+      { "title": "Resin condition", "body": "Resin degrades over years, faster if chlorine reaches it. A carbon stage ahead of the softener protects it." },
+      { "title": "Valve and brine draw", "body": "The regeneration cycle is checked for correct draw and drain. A failed brine valve is the fault behind almost every genuine complaint of salty water." },
+      { "title": "Settings versus reality", "body": "Household size and usage change. Regeneration settings should be revisited when they do, not left as commissioned years earlier." }
+    ],
+    "commonProblems": [
+      { "problem": "Water tastes salty", "cause": "A regeneration cycle that is not draining properly, or a failed valve bypassing brine into the service line. Not a normal characteristic of softening.", "fix": "Diagnose the valve and drain. This is a fault to call about." },
+      { "problem": "Scale is back, but the softener runs", "cause": "Out of salt, a bridged salt crust in the tank, or a valve regenerating without drawing brine.", "fix": "Check salt first — it is the most common and the cheapest. Then check the brine draw." },
+      { "problem": "Softener regenerates constantly", "cause": "Undersized resin for the demand, or a metered valve programmed with the wrong hardness figure.", "fix": "Recalculate against measured hardness and actual usage. Constant regeneration wastes salt and water and wears the resin." },
+      { "problem": "Softened water used on the garden", "cause": "No irrigation take-off ahead of the softener.", "fix": "Fit one. Softened water offers plants no benefit and the resin capacity is wasted on it." }
+    ],
+    "choosingFactors": [
+      { "title": "Metered rather than timer, where the budget allows", "body": "Metered regeneration uses less salt and less water because it responds to what you actually used." },
+      { "title": "Size on both hardness and demand", "body": "A softener specified from household size alone, without a hardness figure, is specified from half the information." },
+      { "title": "Protect the resin", "body": "A sediment and carbon stage ahead of the softener costs little and materially extends resin life, particularly on chlorinated supply." },
+      { "title": "Plan the drain and the salt refill", "body": "Regeneration needs a drain. Salt needs carrying to the tank. Both are worth solving at installation rather than living with." }
+    ],
+    "uaeContext": [
+      "Hardness is one of the most consistent water complaints across the UAE, and it is felt most in villas — where the same water reaches a geyser, a washing machine, several bathrooms and an outdoor line. The visible symptoms are so common here that many people assume they are unavoidable.",
+      "Two local details change the specification. Where a property is tank-fed or tanker-fed, a sediment stage ahead of the softener is close to mandatory: sand and rust in the resin bed is difficult to recover from. And where an irrigation line shares the incoming supply, a take-off ahead of the softener avoids spending exchange capacity on landscaping."
+    ],
+    "pricingNote": "Softeners are quoted after hardness and demand are measured, because resin volume, valve type and the plumbing work required all follow from those two numbers. Salt supply can be quoted separately or scheduled with maintenance visits.",
+    "relatedServices": ["whole-house-water-filtration", "water-filter-installation", "water-filter-amc", "water-filter-repair"],
+    "relatedProducts": ["automatic-water-softener", "self-cleaning-villa-pre-filter", "whole-villa-filtration"],
+    "relatedGuides": ["hard-water-and-limescale-uae", "ro-vs-water-softener", "whole-house-water-filter-uae"],
+    "faqIds": ["limescale-cause", "ro-vs-softener", "softener-salt", "villa-filter"],
+    "metaTitle": "Water Softeners UAE — Stop Limescale at the Point of Entry",
+    "metaDescription": "Automatic ion-exchange water softeners sized to measured hardness and demand, installed and serviced across the UAE. Stops limescale forming on taps, glass, geysers and appliances."
   },
   {
-    "slug": "uv-sterilizer-systems",
+    "slug": "uv-water-purification",
     "icon": "sun",
-    "title": "UV / Ultraviolet Systems",
-    "short": "Chemical-free sterilisation of bacteria and viruses.",
-    "description": "A UV chamber neutralises 99.99% of bacteria, viruses and cysts without adding a single chemical or changing the taste of your water. Ideal alongside RO or whole-house filtration.",
+    "title": "UV Water Purification",
+    "serviceType": "Ultraviolet water disinfection supply, installation and service",
+    "short": "Ultraviolet disinfection for tank-fed and tanker-fed supply — no chemicals, no taste change.",
+    "description": "A UV chamber passes water under an ultraviolet lamp, inactivating bacteria, viruses and cysts without adding chemicals and without changing the taste. It is the appropriate response where water has been stored before use — which describes most UAE villas on tank or tanker supply.",
     "bullets": [
-      "Stainless steel chambers, 6 GPM to 60 GPM",
-      "Annual lamp and quartz sleeve replacement",
-      "Lamp-failure alarm options",
-      "Perfect for villas on tanker-fed supply"
+      "Stainless steel chambers sized to the flow they must treat",
+      "Annual lamp and quartz sleeve service on running hours",
+      "Lamp-failure alarm options, so a silent failure is not possible",
+      "Fitted with filtration ahead of it — UV needs clear water to work"
     ],
-    "image": "waterDrop",
-    "metaTitle": "UV Water Sterilizer Systems UAE — Chemical-Free Protection",
-    "metaDescription": "UV sterilisation neutralising 99.99% of bacteria, viruses and cysts without chemicals. Installed and lamp-serviced across all Emirates."
+    "image": "uvSystem",
+    "h1": "UV Water Purification and Disinfection in the UAE",
+    "directAnswer": "UV disinfection inactivates upwards of 99.9% of common waterborne bacteria and viruses when the lamp delivers its rated dose to clear water. It adds nothing to the water and changes nothing about its taste, but it also removes nothing — no dissolved solids, no sediment, no chlorine. UV is therefore fitted alongside filtration, not instead of it, and is most relevant where water has been stored in a tank or delivered by tanker.",
+    "keyFacts": [
+      "Inactivates upwards of 99.9% of common bacteria and viruses at the rated dose, in clear water",
+      "Removes nothing — not dissolved solids, not sediment, not chlorine",
+      "Requires filtration upstream: turbidity shields organisms from the light",
+      "Lamp is replaced annually on running hours, because output falls long before the lamp stops lighting"
+    ],
+    "whatItIs": [
+      "A UV system is a stainless steel chamber with a lamp inside a quartz sleeve. Water flows around the sleeve and is exposed to ultraviolet light at a germicidal wavelength, which damages the DNA of micro-organisms so they cannot reproduce. Nothing is dosed into the water and nothing is taken out of it; the organisms remain present but are inactivated.",
+      "Two things determine whether it works. Dose — intensity multiplied by exposure time — which means the chamber must be sized to the flow rate it will actually see, not to a headline figure. And clarity: particles and turbidity shield organisms from the light, so a UV unit fitted without adequate filtration upstream is providing much less protection than its rating suggests."
+    ],
+    "whoNeedsIt": [
+      { "title": "Villas on tank or tanker supply", "body": "The main case in the UAE. Water that has been stored and handled carries a risk that filtration does not address, because a sediment or carbon cartridge is not a disinfection stage." },
+      { "title": "Properties used seasonally", "body": "Water standing in a system for months is a different proposition from water standing for a weekend. UV on the drinking line, plus sanitisation before use, is the honest treatment." },
+      { "title": "Households wanting disinfection without chemicals", "body": "UV adds nothing to the water — no chlorine, no taste, no by-products." },
+      { "title": "Commercial premises with storage", "body": "Accommodation blocks, kitchens and sites where water is tanked. Records of lamp service matter here as much as the equipment." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Filter first", "body": "Sediment removal ahead of the chamber is not optional. UV cannot reach organisms hidden behind particles, and a fouled sleeve blocks the light entirely." },
+      { "step": "02", "title": "Size the chamber to the flow", "body": "Dose depends on how long water spends in the chamber. Undersizing for peak flow silently reduces the dose exactly when the most water is being drawn." },
+      { "step": "03", "title": "Install and power", "body": "Mounted with clearance to withdraw the lamp and sleeve, on a supply that is not switched off casually — a UV system with no power is a plain pipe." },
+      { "step": "04", "title": "Service annually", "body": "Lamp replaced on running hours, sleeve cleaned or replaced, and the alarm tested if fitted." }
+    ],
+    "benefits": [
+      { "title": "Addresses what filtration cannot", "body": "Disinfection and filtration are different jobs. On stored water, one without the other leaves a real gap." },
+      { "title": "Adds nothing to the water", "body": "No chemical dosing, no by-products, no change in taste or mineral content." },
+      { "title": "Works continuously with no user action", "body": "Nothing to refill and nothing to dose. The only maintenance obligation is the annual lamp and sleeve." },
+      { "title": "Failure can be made visible", "body": "An alarm option means a dead lamp announces itself instead of being discovered at the next service." }
+    ],
+    "maintenance": [
+      { "title": "Lamp, annually", "body": "On running hours, not on whether it still lights. Output decays steadily; a lamp past its rated life can look perfect and deliver an inadequate dose." },
+      { "title": "Quartz sleeve", "body": "Cleaned or replaced at the same visit. Scale or film on the sleeve blocks the light before it reaches the water — often the real reason a UV system underperforms." },
+      { "title": "Upstream filtration", "body": "Serviced on its own schedule. A blocked sediment stage upstream and a UV system downstream is a combination that fails quietly." },
+      { "title": "Alarm test", "body": "If a lamp-failure alarm is fitted, it is worth confirming it still works. An untested alarm is not protection." }
+    ],
+    "commonProblems": [
+      { "problem": "UV fitted with no filtration upstream", "cause": "Sold as a standalone answer to a water-safety concern.", "fix": "Add sediment filtration ahead of it. Without clear water the rated dose is not being delivered, whatever the label says." },
+      { "problem": "Lamp never changed because it still glows", "cause": "A reasonable assumption that happens to be wrong.", "fix": "Replace on running hours. This is the most common UV maintenance failure we find." },
+      { "problem": "Expected the water to taste better and it did not", "cause": "UV removes nothing; it is not a taste treatment.", "fix": "A carbon stage addresses taste and odour. UV addresses organisms. They are not substitutes." },
+      { "problem": "Unit switched off to save power", "cause": "Not understanding that flow continues regardless.", "fix": "A UV chamber with no power provides no protection at all while still passing water normally." }
+    ],
+    "choosingFactors": [
+      { "title": "Size for peak flow, not average", "body": "Dose is delivered per pass. A chamber sized to average draw under-doses exactly when demand peaks." },
+      { "title": "Insist on upstream filtration", "body": "Any quotation for UV without a sediment stage ahead of it is quoting less protection than it appears to." },
+      { "title": "Alarm or monitor, on anything that matters", "body": "Especially on a property used seasonally or a commercial site, where a silent failure could run for months." },
+      { "title": "Consider chemical-free contact media as an alternative", "body": "Where mains power at the installation point is genuinely inconvenient, a contact-disinfection media is worth comparing — it needs no electricity and no lamp." }
+    ],
+    "uaeContext": [
+      "UV is more relevant in the UAE than in countries where water arrives continuously from a network, for a structural reason: a very large share of UAE properties store water on site before using it, in a ground tank, a roof tank, or a tank filled by tanker. Storage is the stage that introduces the risk UV addresses.",
+      "The northern Emirates and outlying areas are where this matters most, because tanker supply is most common there. It is also where sediment loading is highest — which reinforces the same engineering point: filtration ahead of UV is part of the disinfection system, not an optional extra bolted onto it."
+    ],
+    "pricingNote": "UV systems are quoted after the flow rate and the upstream filtration requirement are established, since chamber size and the filtration ahead of it are what drive the cost. Annual lamp and sleeve service can be scheduled into a maintenance contract.",
+    "relatedServices": ["ro-water-purifier", "whole-house-water-filtration", "water-filter-amc", "water-filter-replacement"],
+    "relatedProducts": ["modular-ro-with-uv", "chemical-free-disinfection", "self-cleaning-villa-pre-filter"],
+    "relatedGuides": ["ro-vs-uv-water-purifier", "whole-house-water-filter-uae", "is-uae-tap-water-safe-to-drink"],
+    "faqIds": ["ro-vs-uv", "uv-lamp-replacement", "tanker-water", "villa-filter"],
+    "metaTitle": "UV Water Purification UAE — Disinfection for Tank-Fed Supply",
+    "metaDescription": "UV water disinfection installed and serviced across the UAE. Inactivates upwards of 99.9% of common bacteria and viruses at the rated dose. Sized to flow, with filtration fitted upstream."
   },
   {
-    "slug": "filter-replacement",
+    "slug": "water-filter-replacement",
     "icon": "filter",
-    "title": "Filter Replacement & Spares",
-    "short": "Genuine cartridges, membranes, pumps and fittings in stock.",
-    "description": "Filters have a life. Replacing them on time is the difference between clean water and a breeding ground. We stock genuine consumables for all major brands and fit them in under an hour.",
+    "title": "Water Filter Replacement & Spares",
+    "serviceType": "Water filter cartridge and membrane replacement",
+    "short": "Cartridge, membrane and spare-part replacement for all major brands.",
+    "description": "Filters have a finite life, and an exhausted cartridge keeps passing water long after it has stopped treating it. AquaPure replaces cartridges, membranes, pumps, housings and fittings on systems we installed and on systems installed by someone else, and sets the next interval from your usage rather than a generic schedule.",
     "bullets": [
-      "Sediment, carbon block, CTO, GAC & mineral cartridges",
-      "RO membranes, booster pumps, solenoids & housings",
-      "All major brands supported",
-      "Free reminder before your next due date"
+      "Sediment, carbon block, CTO, GAC and mineral cartridges",
+      "RO membranes, booster pumps, solenoids, housings and fittings",
+      "Systems from other suppliers and all major brands supported",
+      "Housings sanitised while open, and the next due date recorded"
     ],
     "image": "filterCartridge",
-    "metaTitle": "Water Filter Replacement & Spare Parts — All Brands, UAE",
-    "metaDescription": "Genuine replacement cartridges, RO membranes, pumps and housings fitted at your property, usually in under an hour. All major brands supported."
+    "h1": "Water Filter and Membrane Replacement Across the UAE",
+    "directAnswer": "Sediment and carbon pre-filters are typically replaced every 6 months, RO membranes every 2 to 3 years, and UV lamps annually. Those are starting points: the real interval depends on your measured water, your household's daily draw and how much sediment your property's storage puts through the system. AquaPure replaces cartridges and membranes on all major brands, including systems fitted by other companies, and records what was fitted so the next visit starts from a known state.",
+    "keyFacts": [
+      "An exhausted cartridge keeps passing water — there is no symptom until quality has already dropped",
+      "Skipping carbon changes is the leading cause of premature RO membrane failure, because chlorine destroys the membrane",
+      "Intervals should follow measured usage and loading, not a fixed calendar",
+      "Housings are sanitised while open, which costs nothing extra and prevents biofilm establishing"
+    ],
+    "whatItIs": [
+      "Replacement is a service visit, not a product purchase. The cartridges are the consumable part; the value is in changing the right ones at the right time, sanitising the housings while they are open, checking the parts that fail silently — the tank's air charge, the pump, the check valves — and leaving a record of what is fitted and when it is next due.",
+      "The stages age differently, which is why a single interval for the whole system is wrong. Sediment cartridges block, which at least announces itself as reduced flow. Carbon exhausts, which announces nothing at all: it adsorbs until saturated, then passes chlorine and taste straight through while looking identical. Membranes lose rejection gradually. UV lamps lose output while still glowing."
+    ],
+    "whoNeedsIt": [
+      { "title": "Anyone whose filters are past due", "body": "Including — especially — anyone who is not sure when they were last changed. That uncertainty is itself the answer." },
+      { "title": "People whose water has started tasting different", "body": "Returning chlorine taste is usually exhausted carbon. Flat taste is usually an exhausted mineral stage. Both are cartridge answers." },
+      { "title": "Owners of systems bought from a retailer", "body": "A large share of our replacement work is on systems bought over the counter and never serviced. They are usually straightforward once we identify the cartridge formats." },
+      { "title": "New occupants of a property with a system already fitted", "body": "An inherited system of unknown history should be inspected, sanitised and re-cartridged before it is trusted." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Identify what is fitted", "body": "Cartridge formats, membrane rating, pump and housing types. On unbranded and imported systems this is the step that decides whether parts are on the van or need ordering." },
+      { "step": "02", "title": "Read the system before changing anything", "body": "Feed and treated TDS, pressure, tank charge. A cartridge change that ignores a fouled membrane or a flat tank fixes nothing the customer will notice." },
+      { "step": "03", "title": "Replace and sanitise", "body": "New cartridges, new O-rings where they have perished, housings sanitised while open, and everything torqued rather than overtightened — a deformed housing is a future leak." },
+      { "step": "04", "title": "Flush, test and record", "body": "Flush the new media through, confirm the treated reading, pressure test the joints, and record what was fitted with the next due date." }
+    ],
+    "benefits": [
+      { "title": "The expensive part is protected", "body": "Pre-filters exist to keep sediment and chlorine off the membrane. Changing them on time is the cheapest thing you can do for the system." },
+      { "title": "Sanitising while open", "body": "Housings are only ever open during a service. Sanitising then prevents the biofilm problem that otherwise develops out of sight." },
+      { "title": "Silent failures get caught", "body": "Tank air charge, check valves and pump output are all things that fail without an obvious symptom and are all checked at a service." },
+      { "title": "A record, so the next visit is informed", "body": "Knowing what is fitted and when it was fitted turns future servicing from investigation into maintenance." }
+    ],
+    "maintenance": [
+      { "title": "Sediment and carbon: about 6 months", "body": "Shorter on tank-fed and tanker-fed properties, and in buildings with older pipework." },
+      { "title": "RO membrane: 2 to 3 years", "body": "Judged on rejection. Rising treated TDS or slower production are the signals to act on." },
+      { "title": "Mineral or post-carbon: about 12 months", "body": "This is the stage behind most 'the water tastes different' calls." },
+      { "title": "UV lamp: 12 months", "body": "On running hours. The sleeve is cleaned or replaced at the same time." }
+    ],
+    "commonProblems": [
+      { "problem": "Leak appears after a cartridge change", "cause": "A perished O-ring reused, or a housing overtightened until it deformed.", "fix": "New O-rings as standard and correct torque. A housing that needed force to seal was already telling you something." },
+      { "problem": "Membrane replaced but water is still poor", "cause": "The pre-filters were the actual problem, or the new membrane is being starved by low pressure.", "fix": "Diagnose before replacing. A membrane is the most expensive part to change speculatively." },
+      { "problem": "Wrong cartridge fitted", "cause": "Similar dimensions, different micron rating or media.", "fix": "Match the specification, not just the size. A coarser sediment cartridge that fits will still let the membrane down." },
+      { "problem": "Interval far too long for the property", "cause": "A generic six-month schedule applied to a tanker-fed villa.", "fix": "Set the interval from what the removed cartridges actually look like. That is the only honest calibration." }
+    ],
+    "choosingFactors": [
+      { "title": "Genuine or equivalent, but always to specification", "body": "What matters is the micron rating, the media and the fit. A cheaper cartridge of the correct specification is fine; a cheaper cartridge of unknown specification is not." },
+      { "title": "Change the whole set, not one stage", "body": "Staggering changes across visits saves nothing and leaves the newest cartridge working behind an exhausted one." },
+      { "title": "Standard formats pay off over years", "body": "Especially outside Dubai and Abu Dhabi, where a special order can add days to a service visit." },
+      { "title": "A contract beats remembering", "body": "The failure mode is never a decision to skip a service. It is forgetting. That is what a maintenance contract actually solves." }
+    ],
+    "uaeContext": [
+      "Cartridge life is shorter in the UAE than manufacturer schedules assume, for a specific reason: sediment loading. Water held in ground and roof tanks, and water delivered by tanker, carries sand and rust that a mains-fed property in a temperate climate does not see. A sediment cartridge that lasts a year elsewhere can be finished in a few months here.",
+      "The second local factor is heat. Higher ambient temperatures accelerate biological growth inside housings and standing water, which is why sanitising at every cartridge change matters more here, and why a system left standing in an unoccupied property needs sanitising and flushing before use rather than simply being switched back on."
+    ],
+    "pricingNote": "Replacement is quoted per system once the cartridge formats and the system's condition are known, and confirmed before the work is done. We do not publish a cartridge price list, because the formats and stage counts vary too widely across the systems we service.",
+    "relatedServices": ["water-filter-amc", "water-filter-repair", "ro-water-purifier", "uv-water-purification"],
+    "relatedProducts": ["compact-under-sink-ro", "modular-ro-with-uv", "self-cleaning-villa-pre-filter"],
+    "relatedGuides": ["how-often-to-replace-ro-filters", "how-to-reduce-water-tds", "ro-purifier-low-pressure"],
+    "faqIds": ["how-often-replace-filters", "ro-membrane-life", "water-tastes-bad", "service-other-brands", "uv-lamp-replacement"],
+    "metaTitle": "Water Filter & RO Membrane Replacement UAE — All Major Brands",
+    "metaDescription": "Cartridge, RO membrane, pump and housing replacement across the UAE, including systems fitted by other companies. Housings sanitised, system tested, next interval set from your actual usage."
   },
   {
-    "slug": "amc-annual-maintenance",
-    "icon": "shield-check",
-    "title": "Annual Maintenance Contracts",
-    "short": "Fixed-price yearly plans — never think about it again.",
-    "description": "Our AMC plans bundle scheduled filter changes, sanitisation, priority call-outs and labour into one predictable annual fee. Most customers save 30–40% versus paying per visit.",
+    "slug": "water-filter-repair",
+    "icon": "life-buoy",
+    "title": "Water Filter Repair & Troubleshooting",
+    "serviceType": "Water filter and RO system repair",
+    "short": "Diagnosis and repair of leaks, low flow, noise and system failures — 24-hour emergency line.",
+    "description": "Most water filter faults are a small number of failures repeating: a blocked pre-filter, a flat storage tank, a perished O-ring, a failed check valve or a starved membrane. AquaPure diagnoses before replacing parts, and treats leaks and total loss of flow as priority call-outs because both get worse while they wait.",
     "bullets": [
-      "Scheduled visits — we call you, not the other way around",
-      "Labour, sanitisation and priority response included",
-      "Residential, villa and commercial tiers",
+      "Leaks, low flow, no flow, noise, taste changes and constant running",
+      "Diagnosis before parts — no speculative component replacement",
+      "Emergency line answered 24 hours a day, every day",
+      "Systems from any supplier, including unbranded and imported units"
+    ],
+    "image": "technician",
+    "h1": "Water Filter and RO System Repair in the UAE",
+    "directAnswer": "Most RO and filter faults come from a short list: blocked pre-filters, a storage tank that has lost its air charge, low feed pressure, a perished housing O-ring, a failed check valve or shut-off valve, or a fouled membrane. AquaPure diagnoses the cause before replacing parts, and answers an emergency line 24 hours a day. If you have a leak now, close the system's feed valve first — that stops the damage while we are on the way.",
+    "keyFacts": [
+      "Leaks and total loss of flow are treated as priority call-outs",
+      "Low pressure is most often a blocked pre-filter or a flat tank charge, not a failed membrane",
+      "Diagnosis comes before parts — replacing a membrane speculatively is the most expensive way to guess",
+      "Emergency line answered 24 hours a day, every day"
+    ],
+    "whatItIs": [
+      "Repair work on filtration systems is mostly diagnosis. The components are simple and few, but the symptoms overlap badly: low flow at the faucet can be a cartridge, a tank, the mains pressure, a valve or the membrane, and four of those five are cheap while the fifth is not. Working from symptom to cause in the right order is the whole skill.",
+      "The other half is knowing what fails silently. A storage tank loses its air charge without any visible sign. A check valve fails and the system runs continuously. A carbon cartridge exhausts and quietly stops treating. None of those present as a broken part, which is why an inspection reads the system's pressures and readings rather than just looking at it."
+    ],
+    "whoNeedsIt": [
+      { "title": "Anyone with a leak under the sink", "body": "Close the feed valve, then the tank valve, then call. Under-sink leaks damage the cabinet long before water reaches a floor." },
+      { "title": "Systems that have stopped producing", "body": "No flow or a trickle. Usually one of three cheap causes, occasionally the membrane." },
+      { "title": "Systems that never stop", "body": "Continuous running or a drain that never quite stops means a valve has failed. It also means water is being wasted continuously." },
+      { "title": "Systems nobody will service", "body": "Unbranded or imported units that the original supplier has abandoned. We work on them; the honest caveat is cartridge availability." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Take the readings", "body": "Feed pressure, feed and treated TDS, tank pressure, and where water actually appears if there is a leak. Readings separate the overlapping symptoms." },
+      { "step": "02", "title": "Work cheapest cause first", "body": "Pre-filters and tank charge before membranes and pumps. Not to save time — because they are genuinely the most common causes, and testing them is fast." },
+      { "step": "03", "title": "Repair, and say when it is not worth repairing", "body": "If a system is beyond economical repair, that is the finding. Continuing to charge for repairs on a system that needs replacing is the thing we most want not to be." },
+      { "step": "04", "title": "Fix the cause, not just the symptom", "body": "A membrane that failed from chlorine needs the carbon schedule fixed too, or the replacement fails the same way." }
+    ],
+    "benefits": [
+      { "title": "Diagnosis before expenditure", "body": "The most expensive part is the one most often replaced speculatively. Reading the system first avoids that." },
+      { "title": "Priority for damage-causing faults", "body": "Leaks and no-flow are dispatched ahead of routine work, because the cost of waiting is real." },
+      { "title": "Any supplier's system", "body": "Including units whose original seller has gone quiet. Cartridge availability is the only genuine limitation." },
+      { "title": "An honest end-of-life verdict", "body": "Sometimes the answer is that repair is not worth it. Getting that answer early saves more than the repair would have cost." }
+    ],
+    "maintenance": [
+      { "title": "Most repairs are deferred maintenance", "body": "Blocked pre-filters, exhausted carbon and perished O-rings are all schedule failures rather than component failures." },
+      { "title": "Know where your shut-off is", "body": "The single most useful thing an owner can know. It converts a leak from damage into an inconvenience." },
+      { "title": "Watch the drain", "body": "A system draining more than it used to is reporting a developing fault, usually before anything else changes." },
+      { "title": "Do not run a leaking system while you investigate", "body": "The investigation is easier dry, and the damage stops immediately." }
+    ],
+    "commonProblems": [
+      { "problem": "Low or no flow at the faucet", "cause": "Blocked pre-filters, flat tank air charge, low feed pressure, fouled membrane, or a partially closed feed valve.", "fix": "Test in that order. The first two account for the majority." },
+      { "problem": "Leak at a housing", "cause": "Perished O-ring, or a housing overtightened until it deformed.", "fix": "New O-ring and correct torque. A replacement housing where the thread or bowl has been damaged." },
+      { "problem": "Leak at a push-fit tube", "cause": "Tube not fully seated, or disturbed when something was moved under the sink.", "fix": "Cut back and reseat squarely. A tube cut at an angle will not seal reliably." },
+      { "problem": "System runs continuously", "cause": "Failed shut-off or check valve, or a storage tank that cannot build pressure.", "fix": "Identify which — the two present almost identically and the parts cost very different amounts." },
+      { "problem": "Noise or hammering when the pump runs", "cause": "Air in the line, a failing pump, or a pump mounted rigidly against a cabinet panel.", "fix": "Bleed, isolate the mounting, or replace the pump — in that order of cost." }
+    ],
+    "choosingFactors": [
+      { "title": "Repair or replace", "body": "The honest test is the cost of the repair against the remaining life of the rest of the system. A new membrane in a system with perished housings and a dead pump is money in the wrong place." },
+      { "title": "Insist on the cause, not just the fix", "body": "A fault that has an explanation will not repeat. A fault that was only patched will." },
+      { "title": "Emergency versus scheduled", "body": "Leaks and no-flow are emergencies. A taste change is not, and booking it as routine gets it a longer, more thorough visit." }
+    ],
+    "uaeContext": [
+      "Two conditions make certain faults more common here. Sediment loading from tanks and tanker delivery blocks pre-filters faster, so 'low flow' is a pre-filter far more often in the UAE than the fault statistics from a temperate mains-fed market would suggest.",
+      "And heat. High ambient temperatures accelerate the degradation of plastic housings, O-rings and push-fit tubing, particularly in a cabinet next to an oven or in an unshaded plant room. It is also why a system left standing in an empty property over a summer often needs more than switching back on."
+    ],
+    "pricingNote": "Repairs are diagnosed first and quoted before work proceeds, so you approve the cost knowing the cause. There is no call-out fee, and we do not publish a repair price list because the same symptom can have a very cheap or a very expensive cause.",
+    "relatedServices": ["water-filter-replacement", "water-filter-amc", "ro-water-purifier", "water-filter-installation"],
+    "relatedProducts": ["compact-under-sink-ro", "modular-ro-with-uv"],
+    "relatedGuides": ["ro-water-purifier-leaking", "ro-purifier-low-pressure", "how-often-to-replace-ro-filters"],
+    "faqIds": ["ro-leaking", "ro-low-pressure", "water-tastes-bad", "emergency-repairs", "service-other-brands", "softener-salt"],
+    "metaTitle": "Water Filter & RO Repair UAE — 24-Hour Emergency Call-Out",
+    "metaDescription": "Diagnosis and repair of RO and water filter faults across the UAE: leaks, low flow, no flow, noise and constant running. Emergency line answered 24 hours. Cause diagnosed before parts are replaced."
+  },
+  {
+    "slug": "water-filter-amc",
+    "icon": "shield-check",
+    "title": "Water Filter AMC (Annual Maintenance Contracts)",
+    "serviceType": "Water filtration annual maintenance contract",
+    "short": "Scheduled maintenance on a fixed annual fee — we contact you when a service is due.",
+    "description": "An annual maintenance contract bundles scheduled visits, the consumables in your tier, sanitisation, leak testing, labour and call-out into one predictable annual fee — and moves the responsibility for remembering from you to us. The failure mode a contract actually solves is not a decision to skip a service; it is forgetting.",
+    "bullets": [
+      "Scheduled visits — we contact you, rather than waiting for a problem",
+      "Labour, sanitisation, leak testing and call-out included in the tier",
+      "Residential, villa and commercial tiers with different visit counts",
       "Transferable if you move within the UAE"
     ],
-    "highlight": "Best value",
-    "image": "technician",
-    "metaTitle": "Water Purifier AMC Plans UAE — Annual Maintenance Contracts",
-    "metaDescription": "Annual maintenance contracts covering scheduled filter changes, sanitisation, labour and priority call-outs. Residential, villa and commercial tiers."
-  },
-  {
-    "slug": "repair-troubleshooting",
-    "icon": "life-buoy",
-    "title": "Repair & Troubleshooting",
-    "short": "24-hour emergency support for leaks and breakdowns.",
-    "description": "Leaking housing? No water flow? Strange taste or a humming pump that will not stop? Call us any hour — our emergency team diagnoses and repairs on the spot with parts on the van.",
-    "bullets": [
-      "Leaks, low flow, noisy pumps, bad taste & odour",
-      "Membrane, pump, valve and housing replacement",
-      "Electrical and pressure-switch faults",
-      "Transparent quote before any work starts"
+    "highlight": "Best for peace of mind",
+    "image": "labTest",
+    "h1": "Water Filter AMC Plans Across the UAE",
+    "directAnswer": "An AMC is a fixed annual fee covering scheduled service visits, the consumables listed in your tier, sanitisation, leak testing, labour and call-out. AquaPure contacts you when a service is due rather than waiting for you to notice a problem. Contracts are available for apartments, villas and commercial premises, differing in visit count and what consumables are included, and are transferable if you move within the UAE.",
+    "keyFacts": [
+      "Fixed annual fee covering scheduled visits, listed consumables, labour and call-out",
+      "We initiate the visit — the common failure is forgetting, not choosing to skip",
+      "Tiers differ by visit count and included consumables, not by quality of work",
+      "Commercial tiers include water-quality records for inspected premises"
     ],
-    "highlight": "24 hours",
-    "image": "commercial",
-    "metaTitle": "Emergency Water Filter Repair UAE — 24 Hour Call-Out",
-    "metaDescription": "Leaks, low flow, noisy pumps and bad taste diagnosed and repaired on the spot. Emergency line answered 24 hours a day across the UAE."
+    "whatItIs": [
+      "An AMC is a scheduling and accountability arrangement as much as a commercial one. What you buy is a defined number of visits per year, a defined list of consumables included, and the labour and call-out to deliver them — plus the obligation on us to make contact when a visit is due.",
+      "The reason that last part carries most of the value is behavioural. Almost nobody decides to skip a filter change. What happens is that six months pass, the water still comes out of the tap, and nothing prompts anyone. Meanwhile an exhausted carbon cartridge is passing chlorine onto a membrane that costs many times more than the cartridge did."
+    ],
+    "whoNeedsIt": [
+      { "title": "Households that would rather not track it", "body": "The honest majority. If you cannot say when your filters were last changed, a contract is aimed exactly at you." },
+      { "title": "Villas with several treatment points", "body": "A point-of-entry system, a softener and a drinking-water system have three different schedules. Consolidating them into planned visits is simpler and cheaper than three separate call-outs." },
+      { "title": "Commercial premises", "body": "Higher duty cycles mean shorter intervals, and inspected premises need the records as much as the servicing." },
+      { "title": "Properties outside Dubai and Abu Dhabi", "body": "Where attendance is on scheduled routes, having your visits inside a planned route is materially faster than requesting them ad hoc." },
+      { "title": "Seasonally used homes", "body": "A system that stands unused for months needs sanitisation and flushing before use. Scheduling that before arrival is better than discovering it on arrival." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Survey the systems", "body": "What is fitted, what condition it is in, and what the realistic service interval is for this property's water and usage. A contract written from assumptions is a contract that disappoints." },
+      { "step": "02", "title": "Choose a tier", "body": "Visit count and included consumables, matched to the systems and the duty. Tiers exist because a single under-sink unit and a villa with a softener are not the same commitment." },
+      { "step": "03", "title": "Scheduled visits", "body": "We contact you when each is due, at a time you choose. Consumables in your tier are carried to the visit rather than ordered after it." },
+      { "step": "04", "title": "Records and reporting", "body": "What was serviced, what was replaced, the readings taken, and the next due date. Commercial contracts include the water-quality log the premises needs." }
+    ],
+    "benefits": [
+      { "title": "The remembering is ours", "body": "This is the actual product. Everything else in a contract is available piecemeal; the reminder is not." },
+      { "title": "Predictable cost", "body": "One annual figure rather than an unpredictable sequence of call-outs, cartridges and labour charges." },
+      { "title": "The expensive parts last longer", "body": "On-time pre-filter changes are what protect membranes and softener resin. Contracts exist largely to make that happen reliably." },
+      { "title": "Faults are found at a visit, not at a failure", "body": "Tank charges, valve conditions and pressure drift are all checked routinely, which is when they are cheap to correct." },
+      { "title": "Transferable within the UAE", "body": "A contract follows you to a new property rather than being written off when you move." }
+    ],
+    "maintenance": [
+      { "title": "Visit frequency follows duty", "body": "Two visits a year suits a single under-sink unit in a small household. A villa with several treatment points, or a commercial kitchen, needs more." },
+      { "title": "Consumables list is the thing to read", "body": "The difference between tiers is what is included. A membrane or a UV lamp included in the tier is worth more than an extra visit that carries neither." },
+      { "title": "Records travel with the property", "body": "A serviced system with history is straightforward to maintain. One without is an investigation each time." }
+    ],
+    "commonProblems": [
+      { "problem": "Contract bought that does not cover the expensive consumable", "cause": "Not reading which consumables the tier includes.", "fix": "Match the tier to the systems you actually have. A UV lamp or a membrane excluded from the tier is the item most likely to surprise you." },
+      { "problem": "Visits scheduled but nobody home", "cause": "Fixed dates rather than agreed ones.", "fix": "Visits are confirmed with you rather than assigned. A missed visit is a lapsed schedule, which defeats the point." },
+      { "problem": "Contract on a system already beyond repair", "cause": "Signing before surveying.", "fix": "The survey comes first. Putting a maintenance contract on a system that needs replacing is not a service we want to sell." }
+    ],
+    "choosingFactors": [
+      { "title": "Count the treatment points, not the properties", "body": "One villa can be three systems. That is what sets the sensible visit count." },
+      { "title": "Check what is excluded", "body": "The exclusions tell you more than the inclusions. Membranes, UV lamps and softener resin are the items worth confirming." },
+      { "title": "Match the interval to your water", "body": "A tanker-fed villa genuinely needs more frequent pre-filter attention than a mains-fed apartment. A contract that ignores that is the wrong contract." },
+      { "title": "Ask what the records look like", "body": "For commercial premises this is not optional. For domestic it is what makes the next service efficient." }
+    ],
+    "uaeContext": [
+      "Maintenance contracts do more work in the UAE than in a temperate, mains-fed market, for the same two reasons that shorten cartridge life here: sediment loading from tanks and tanker supply, and heat accelerating biological growth in housings and standing water.",
+      "Geography matters too. Outside Dubai and Abu Dhabi, attendance is on scheduled routes rather than same-day. A contract puts your visits inside those routes, which turns 'within 24 to 48 hours' from a constraint into a plan."
+    ],
+    "pricingNote": "AMC pricing is quoted after the survey, because the fee follows the number of treatment points, the consumables included and the visit count the property's water justifies. We do not publish tier prices or a saving percentage against per-visit servicing, because neither price list exists in a form we could stand behind.",
+    "relatedServices": ["water-filter-replacement", "water-filter-repair", "whole-house-water-filtration", "uv-water-purification"],
+    "relatedProducts": ["compact-under-sink-ro", "whole-villa-filtration", "automatic-water-softener"],
+    "relatedGuides": ["how-often-to-replace-ro-filters", "whole-house-water-filter-uae"],
+    "faqIds": ["amc-includes", "how-often-replace-filters", "commercial-systems", "coverage-emirates"],
+    "metaTitle": "Water Filter AMC UAE — Scheduled Maintenance Contracts",
+    "metaDescription": "Annual maintenance contracts for water filtration across the UAE. Scheduled visits, included consumables, sanitisation, leak testing, labour and call-out on one fixed annual fee."
   },
   {
     "slug": "system-relocation",
     "icon": "truck",
     "title": "System Relocation",
-    "short": "Moving home? Your filtration comes with you.",
-    "description": "We safely uninstall, transport, re-plumb and re-commission your existing system at your new address anywhere in the UAE — including flushing, sanitising and a full performance check.",
+    "serviceType": "Water filtration system relocation",
+    "short": "Uninstall, transport and refit when you move within the UAE.",
+    "description": "Moving a filtration system is one job, not three. The system should be drained and sanitised before it travels, the cartridges are usually due once a unit has been opened, and the new property's pressure and drain arrangement may not match the old one. AquaPure handles the whole sequence and checks the new address rather than assuming the old configuration still fits.",
     "bullets": [
-      "Careful uninstall, capping and safe transport",
-      "Re-installation and leak testing at the new property",
-      "Full sanitisation and fresh cartridge option",
-      "Emirate-to-emirate moves handled"
+      "Drained, sanitised and packed before transport",
+      "New property surveyed for pressure, drain and mounting before refit",
+      "Fresh cartridges fitted where a unit has been opened",
+      "Leak tested and recommissioned at the new address"
     ],
-    "image": "heroGlass",
-    "metaTitle": "Water Filter System Relocation — Emirate to Emirate",
-    "metaDescription": "Uninstall, transport and re-commission your existing water filtration system at a new UAE address, including sanitisation and a full performance check."
+    "image": "plumbingWork",
+    "h1": "Water Filter System Relocation Within the UAE",
+    "directAnswer": "Relocating a water filtration system means uninstalling it, draining and sanitising it, transporting it, and recommissioning it at the new property — with the new address surveyed first, because pressure, drain access and mounting space rarely match the old one. AquaPure handles it as a single job and fits fresh cartridges where a unit has been opened, since standing water in a transported system is not water to hand back.",
+    "keyFacts": [
+      "One job, not an uninstall and a separate install — the sequence matters",
+      "System is drained and sanitised before transport; standing water in a moved unit is a contamination risk",
+      "New property surveyed for pressure, drain and space before refitting",
+      "Cartridges are usually replaced, because the housings have been opened"
+    ],
+    "whatItIs": [
+      "A relocation is a controlled shutdown, a move and a fresh commissioning. The shutdown matters because a system full of standing water that is then carried in a hot vehicle is not something to reconnect and drink from. The commissioning matters because the new property is a different hydraulic situation: different static pressure, a different drain arrangement, a different amount of space under a different sink.",
+      "The most common mistake is treating it as furniture — unbolt it, carry it, bolt it back. That produces the two complaints we get called back for: a leak at a joint that was disturbed and not properly reseated, and a system that now performs worse because the new property's pressure is lower than the old one's."
+    ],
+    "whoNeedsIt": [
+      { "title": "Anyone moving home within the UAE", "body": "A good system is worth taking. It is usually far cheaper to move than to replace, provided the move is done properly." },
+      { "title": "Kitchen renovations", "body": "The system has to come out and go back. Doing it as a planned relocation rather than around the joinery avoids the leak that appears a week after the kitchen is finished." },
+      { "title": "Businesses changing premises", "body": "Commercial systems are worth relocating and are also the ones where sizing to the new site's demand must be rechecked rather than assumed." },
+      { "title": "Anyone repositioning a system in place", "body": "Moving a unit from a cramped position to a serviceable one is worth doing on its own merits." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Survey the destination first", "body": "Static pressure, drain access, feed point, space and mounting. Doing this before the move is what prevents arriving with a system that will not fit or will not perform." },
+      { "step": "02", "title": "Shut down and prepare", "body": "Isolate, drain, sanitise, cap the connections and pack. A drained system travels safely; a full one does not." },
+      { "step": "03", "title": "Refit at the new address", "body": "Mount, connect with new fittings where old ones have been disturbed, and add the isolation valves the old installation may have lacked." },
+      { "step": "04", "title": "Recommission", "body": "Fresh cartridges, flush, pressure test, confirm the treated reading, and record the new configuration and next service date." }
+    ],
+    "benefits": [
+      { "title": "Cheaper than replacing a good system", "body": "Particularly for point-of-entry and commercial equipment, where the hardware is the significant cost." },
+      { "title": "The new property gets checked", "body": "Pressure and drain arrangement are verified rather than assumed, which is where the performance complaints come from." },
+      { "title": "A chance to fix the original install", "body": "Missing isolation valves, an awkward mounting position, an overdue cartridge set — a relocation is the natural moment to correct all of it." },
+      { "title": "Hygienic by procedure", "body": "Drained, sanitised, re-cartridged. Not because it sounds thorough, but because a transported system full of warm standing water is a genuine risk." }
+    ],
+    "maintenance": [
+      { "title": "Treat the refit as a service", "body": "New cartridges, new O-rings on disturbed joints, and a full flush. The cost of doing this is small against the cost of not doing it." },
+      { "title": "Reset the schedule", "body": "The service clock restarts at the new address, and the record should say so." },
+      { "title": "Recheck pressure after a few weeks", "body": "Pressure in a new building can differ from what a one-off reading suggested, particularly in a partially occupied tower." }
+    ],
+    "commonProblems": [
+      { "problem": "Leak appears days after the move", "cause": "A push-fit joint disturbed and reseated onto a tube that was already cut at an angle.", "fix": "Cut back and reseat squarely, with new fittings where the old ones have been reused too often." },
+      { "problem": "System performs worse at the new property", "cause": "Lower static pressure than the previous address.", "fix": "This is why the destination is surveyed first. The fix is usually a booster pump, but it is much better known in advance." },
+      { "problem": "System will not fit the new cupboard", "cause": "Moved before measuring.", "fix": "Survey first. Sometimes the honest answer is that a tanked system should become a tankless one at the new address." }
+    ],
+    "choosingFactors": [
+      { "title": "Survey before you commit to moving it", "body": "If the destination cannot take the system, knowing that before the van arrives is worth a great deal." },
+      { "title": "Budget for cartridges as part of the move", "body": "Not an upsell — a consequence of opening the housings. Plan for it rather than being surprised by it." },
+      { "title": "Consider whether the system still suits you", "body": "Household size and water may both have changed. A relocation is a reasonable moment to reconsider the specification." }
+    ],
+    "uaeContext": [
+      "Moving within the UAE is common enough that relocation is a routine service rather than an exception, and the emirate-to-emirate variation is what makes the destination survey worthwhile: a system that worked on a mains-fed apartment riser in Dubai can be feeding from a tank in Ajman, or from a tanker-filled tank in the northern Emirates.",
+      "That changes more than pressure. A system moving onto stored or tankered supply may now need a sediment stage it never needed before, and may justify disinfection it previously did not. The equipment travels; the water it is treating does not."
+    ],
+    "pricingNote": "Relocation is quoted after the destination survey, since the work depends on what the new property needs — new fittings, added valves, a booster pump, or simply a straightforward refit. Cartridges are quoted as part of the job rather than added afterwards.",
+    "relatedServices": ["water-filter-installation", "water-filter-replacement", "water-filter-repair", "water-filter-amc"],
+    "relatedProducts": ["compact-under-sink-ro", "slim-tankless-ro", "whole-villa-filtration"],
+    "relatedGuides": ["best-water-purifier-dubai-apartment", "tank-vs-tankless-ro"],
+    "faqIds": ["relocation", "installation-duration", "apartment-permission", "coverage-emirates"],
+    "metaTitle": "Water Filter System Relocation UAE — Uninstall, Move & Refit",
+    "metaDescription": "Water filtration system relocation across the UAE. Drained, sanitised and transported, with the new property surveyed for pressure and drain access before refitting and recommissioning."
   },
   {
     "slug": "free-demo-consultation",
     "icon": "sparkles",
-    "title": "Free Demo & Consultation",
-    "short": "See your own water tested before you spend a dirham.",
-    "description": "Book a no-obligation home or office visit. We test your TDS and hardness in front of you, explain the results in plain language and recommend only what you actually need.",
+    "title": "Free Water Test & Consultation",
+    "serviceType": "On-site water testing and consultation",
+    "short": "TDS and hardness measured at your tap, explained, with a written quotation and no obligation.",
+    "description": "A technician visits at a time you choose, measures your water's TDS and hardness in front of you, explains what the readings mean for your property, and leaves a written quotation in AED. There is no call-out fee and no obligation — including the outcome where the honest recommendation is that you do not need to buy anything.",
     "bullets": [
-      "Live TDS & hardness test at your property",
-      "Honest recommendation — no pressure selling",
-      "Written quotation in AED, valid 30 days",
-      "Completely free, all 7 Emirates"
+      "TDS and hardness measured at your own tap, in front of you",
+      "What the readings mean for your property, explained plainly",
+      "Fixed written quotation in AED, with no call-out fee",
+      "No obligation, including when the answer is that you need nothing"
     ],
-    "highlight": "Free",
-    "image": "roSystem",
-    "metaTitle": "Free Water Test & Demo — No Obligation, All 7 Emirates",
-    "metaDescription": "Book a free on-site water test. We measure your TDS and hardness in front of you, explain the reading and leave a written quotation in AED."
+    "image": "labTest",
+    "h1": "Free On-Site Water Test and Consultation",
+    "directAnswer": "AquaPure will test your water free of charge, at your property, at a time you choose. A technician measures TDS and hardness at your tap, explains what those readings mean for your specific situation, and leaves a fixed written quotation in AED. There is no call-out fee and no obligation, and the recommendation is sometimes that your existing system only needs a cartridge.",
+    "keyFacts": [
+      "Free, on site, with no call-out fee and no obligation",
+      "TDS and hardness measured at your tap — not a figure quoted for your emirate",
+      "The reading is what determines whether you need RO, carbon, softening, disinfection or nothing",
+      "You leave with a written quotation in AED rather than a verbal figure"
+    ],
+    "whatItIs": [
+      "The water test is the step that turns a purchase into a decision. TDS tells you how much is dissolved in your water; hardness tells you how much of that is the calcium and magnesium behind limescale. Those two readings, taken at your tap, point to different technologies — and they differ between buildings, between risers in the same building, and before and after a tank has been cleaned.",
+      "That is why we do not publish a water-quality figure for any emirate, and why any recommendation made without a reading is a guess dressed as advice. The consultation is the reading plus the explanation: what it means for your property, what it does not mean, and which of the available options the number actually justifies."
+    ],
+    "whoNeedsIt": [
+      { "title": "Anyone considering a purchase", "body": "Ten minutes of measurement is the difference between buying RO for a chlorine complaint and buying the carbon stage that actually fixes it." },
+      { "title": "People with an existing system and a new complaint", "body": "A taste change, slower flow or returning scale. The reading usually identifies whether it is a cartridge, the membrane, or something else entirely." },
+      { "title": "New tenants and owners", "body": "You have inherited whatever the last occupant fitted. A test and inspection tells you what is there and whether it is working." },
+      { "title": "Anyone who has been quoted for something large", "body": "A second reading and a second opinion costs nothing here. If the recommendation you have been given is right, we will say so." }
+    ],
+    "howItWorks": [
+      { "step": "01", "title": "Book a slot", "body": "By phone or WhatsApp, at a time that suits you. Tell us the emirate and area so we can confirm the realistic window." },
+      { "step": "02", "title": "Measure at your tap", "body": "TDS and hardness, taken in front of you, from the outlet you actually use — and where relevant from more than one point in the property." },
+      { "step": "03", "title": "Explain the readings", "body": "What the numbers indicate, what they cannot tell you, and which complaints they do and do not explain. TDS in particular is a blunt instrument: it says how much is dissolved, not what." },
+      { "step": "04", "title": "Written quotation, no obligation", "body": "A fixed price in AED for whatever is recommended — or a clear statement that nothing is needed. Whether you proceed is entirely your decision." }
+    ],
+    "benefits": [
+      { "title": "You see your own numbers", "body": "Not an emirate average and not a figure from a website. The reading from your tap is the only one your system should be specified against." },
+      { "title": "It prevents the expensive mistake", "body": "Overspecifying is the most common way UAE households overspend on filtration. A reading is what tells you where to stop." },
+      { "title": "The 'you need nothing' outcome is real", "body": "If your existing system just needs a cartridge, that is what the visit concludes. It happens often enough to be worth saying." },
+      { "title": "Costs you nothing either way", "body": "No call-out fee, no obligation, no follow-up pressure." }
+    ],
+    "maintenance": [
+      { "title": "Retest when something changes", "body": "After a tank clean, after a building changes its supply arrangement, or when a taste changes for no obvious reason." },
+      { "title": "Retest at service visits", "body": "Feed and treated readings at each service are how membrane condition is actually judged, rather than by date." }
+    ],
+    "commonProblems": [
+      { "problem": "A recommendation made without a reading", "cause": "Selling a package rather than diagnosing a property.", "fix": "Ask for the measured figures and where they were taken. Any specification should be traceable to a reading." },
+      { "problem": "TDS treated as a quality score", "cause": "It is the number most easily measured, so it gets over-interpreted.", "fix": "Understand it as a quantity, not an identity. A low TDS reading does not by itself mean the water is safe, and a high one does not by itself mean it is unsafe." }
+    ],
+    "choosingFactors": [
+      { "title": "Test before you shop, not after", "body": "The reading narrows the options considerably, which makes every subsequent conversation shorter." },
+      { "title": "Test at the outlet you use", "body": "A reading from a garden tap or a bathroom tap can differ from the kitchen cold tap you drink from." },
+      { "title": "Ask what the reading does not cover", "body": "TDS and hardness do not identify specific contaminants. If you have a specific concern, laboratory analysis is the honest route, and we will say so rather than pretend a handheld meter answers it." }
+    ],
+    "uaeContext": [
+      "An on-site test matters more in the UAE than a national or emirate-level figure ever could, because the biggest variable is not the utility's output — it is what happens between the network and your tap. Building storage, riser age, tanker delivery and how long water has been standing all move the reading.",
+      "It is also why we decline to publish a TDS figure for Dubai, Abu Dhabi or anywhere else. Two apartments in the same tower can read differently. The number that should decide what you buy is the one measured where you drink."
+    ],
+    "pricingNote": "The test and consultation are free, with no call-out fee and no obligation. Any work that follows is quoted in writing, in AED, before it begins.",
+    "relatedServices": ["water-filter-installation", "ro-water-purifier", "water-filter-replacement", "whole-house-water-filtration"],
+    "relatedProducts": ["compact-under-sink-ro", "whole-villa-filtration", "automatic-water-softener"],
+    "relatedGuides": ["how-to-reduce-water-tds", "is-uae-tap-water-safe-to-drink", "ro-installation-cost-dubai"],
+    "faqIds": ["water-test-free", "need-ro-in-dubai", "reduce-tds", "ro-installation-cost"],
+    "metaTitle": "Free Water Test & Consultation UAE — TDS and Hardness Measured",
+    "metaDescription": "Free on-site water test across the UAE. TDS and hardness measured at your own tap and explained, with a fixed written quotation in AED, no call-out fee and no obligation."
   }
 ]

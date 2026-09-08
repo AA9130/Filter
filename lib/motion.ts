@@ -1,5 +1,3 @@
-import type { Transition } from 'framer-motion'
-
 /**
  * =============================================================================
  *  MOTION VOCABULARY
@@ -11,8 +9,8 @@ import type { Transition } from 'framer-motion'
  *    · response      — how quickly the value reaches the target, in seconds.
  *                      NOT a duration; a spring has no fixed duration.
  *
- *  Motion exposes exactly these as `bounce` (inverse of damping ratio) and
- *  `visualDuration` (time to first reach the target, independent of settling).
+ *  `spring()` below integrates exactly that model, so the whole site's motion
+ *  is described in these two numbers and nothing else.
  *
  *  House rule: critically damped by default. Overshoot is reserved for motion
  *  the user's own gesture put in flight — a flick, a throw, a drag release.
@@ -21,32 +19,83 @@ import type { Transition } from 'framer-motion'
  * =============================================================================
  */
 
-/** damping 1.0 · response 0.4 — repositioning, reveals, layout settles. */
-export const springDefault: Transition = {
-  type: 'spring',
-  bounce: 0,
-  visualDuration: 0.4,
+/**
+ * Spring presets as Apple describes them: a damping ratio and a response time.
+ * `dampingRatio` 1 is critically damped (no overshoot); `response` is how long
+ * the value takes to reach the target, not a duration — a spring has none.
+ */
+export const springs = {
+  /** Repositioning, reveals, layout settles. */
+  default: { dampingRatio: 1, response: 0.4 },
+  /** Small, frequent changes that must feel instant. */
+  snappy: { dampingRatio: 1, response: 0.25 },
+  /** Drawers and sheets the user can throw. */
+  drawer: { dampingRatio: 0.8, response: 0.3 },
+  /** Landings after a flick. */
+  momentum: { dampingRatio: 0.8, response: 0.4 },
+} as const
+
+type SpringOptions = {
+  from: number
+  to: number
+  /** Release velocity in px/s — this is what removes the seam between a drag
+   *  and the animation that follows it. */
+  velocity?: number
+  dampingRatio?: number
+  response?: number
+  onUpdate: (value: number) => void
+  onComplete?: () => void
 }
 
-/** damping 1.0 · response 0.25 — small, frequent UI changes that must feel instant. */
-export const springSnappy: Transition = {
-  type: 'spring',
-  bounce: 0,
-  visualDuration: 0.25,
-}
+/**
+ * A spring, integrated per animation frame.
+ *
+ * This is the standard second-order model Apple's `response`/`dampingRatio`
+ * describes: acceleration = -ω²x - 2ζωv. Around twenty lines replaces an
+ * animation library that cost 42 KB gzipped and a measurable slice of hydration
+ * time on every page — for the one interaction on this site that genuinely
+ * needs physics.
+ *
+ * Returns a cancel function. Cancelling mid-flight and starting a new spring
+ * from the current value and velocity is what makes the motion interruptible.
+ */
+export function spring({
+  from,
+  to,
+  velocity = 0,
+  dampingRatio = 1,
+  response = 0.4,
+  onUpdate,
+  onComplete,
+}: SpringOptions): () => void {
+  const omega = (2 * Math.PI) / response
+  let offset = from - to
+  let v = velocity
+  let last = performance.now()
+  let frame = 0
 
-/** damping ~0.8 · response 0.3 — drawers and sheets the user can throw. */
-export const springDrawer: Transition = {
-  type: 'spring',
-  bounce: 0.2,
-  visualDuration: 0.3,
-}
+  const tick = (now: number) => {
+    // Clamp dt so a backgrounded tab does not integrate one enormous step
+    const dt = Math.min((now - last) / 1000, 1 / 30)
+    last = now
 
-/** damping ~0.8 · response 0.4 — momentum landings after a flick. */
-export const springMomentum: Transition = {
-  type: 'spring',
-  bounce: 0.2,
-  visualDuration: 0.4,
+    const acceleration = -omega * omega * offset - 2 * dampingRatio * omega * v
+    v += acceleration * dt
+    offset += v * dt
+
+    // Settled: within half a pixel and effectively still
+    if (Math.abs(offset) < 0.5 && Math.abs(v) < 10) {
+      onUpdate(to)
+      onComplete?.()
+      return
+    }
+
+    onUpdate(to + offset)
+    frame = requestAnimationFrame(tick)
+  }
+
+  frame = requestAnimationFrame(tick)
+  return () => cancelAnimationFrame(frame)
 }
 
 /**

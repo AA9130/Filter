@@ -1,15 +1,18 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
 import { MessageCircle, ArrowUp, X, Phone } from 'lucide-react'
 import { site, whatsappLink, WHATSAPP_DEFAULT_MESSAGE } from '@/lib/site'
-import { springDefault, springDrawer } from '@/lib/motion'
+import { cn } from '@/lib/utils'
 
 /**
- * Always-visible WhatsApp entry point plus a back-to-top control.
- * On first scroll a small nudge bubble opens once to invite the chat, then
- * stays dismissed for the session.
+ * Always-visible WhatsApp entry point, a back-to-top control, and a one-time
+ * nudge bubble.
+ *
+ * Both enter and exit are plain CSS transitions on always-mounted elements:
+ * keeping them in the tree and toggling opacity/scale gives the same in-and-out
+ * motion an animation library's presence wrapper provides, at no JS cost.
+ * `pointer-events` follows visibility so hidden controls are never clickable.
  */
 export default function FloatingActions() {
   const [showTop, setShowTop] = useState(false)
@@ -18,6 +21,7 @@ export default function FloatingActions() {
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 600)
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -35,73 +39,72 @@ export default function FloatingActions() {
 
   return (
     <div className="pointer-events-none fixed bottom-[5.5rem] right-4 z-40 flex flex-col items-end gap-3 md:bottom-6 md:right-6">
-      <AnimatePresence>
-        {showTop && (
-          <motion.button
-            type="button"
-            initial={{ opacity: 0, scale: 0.8, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 10 }}
-            transition={springDefault}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="press pointer-events-auto grid h-11 w-11 place-items-center rounded-full border border-slate-200 material-panel text-brand-700 shadow-card hover:bg-brand-50"
-            aria-label="Back to top"
-          >
-            <ArrowUp className="h-5 w-5" />
-          </motion.button>
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+        aria-hidden={!showTop}
+        tabIndex={showTop ? 0 : -1}
+        className={cn(
+          'press grid h-11 w-11 place-items-center rounded-full border border-slate-200 material-panel text-brand-700 shadow-card',
+          'transition-all duration-300 hover:bg-brand-50',
+          showTop
+            ? 'pointer-events-auto translate-y-0 scale-100 opacity-100'
+            : 'pointer-events-none translate-y-2 scale-90 opacity-0',
         )}
-      </AnimatePresence>
+      >
+        <ArrowUp className="h-5 w-5" />
+      </button>
 
-      {/* Nudge bubble */}
-      <AnimatePresence>
-        {nudge && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 8, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, scale: 0.9, y: 8, filter: 'blur(8px)' }}
-            transition={springDrawer}
-            // Anchored to the button it belongs to, so the spatial relationship
-            // between trigger and content is never in question
-            style={{ transformOrigin: 'bottom right' }}
-            className="pointer-events-auto relative w-[17rem] rounded-2xl rounded-br-sm border border-slate-200 bg-white p-4 shadow-card"
-          >
-            <button
-              type="button"
-              onClick={dismissNudge}
-              className="press absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full text-ink-muted hover:bg-slate-100"
-              aria-label="Dismiss message"
-            >
-              <X className="h-3.5 w-3.5" />
-            </button>
-            <p className="pr-6 text-sm font-semibold text-ink">Need clean water today?</p>
-            <p className="mt-1 text-xs leading-relaxed text-ink-soft">
-              Send us a message — we reply in minutes and can often visit the same day.
-            </p>
-            <div className="mt-3 flex gap-2">
-              <a
-                href={whatsappLink(WHATSAPP_DEFAULT_MESSAGE)}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={dismissNudge}
-                data-analytics="whatsapp-click-nudge"
-                className="btn-whatsapp flex-1 !px-3 !py-2 !text-xs"
-              >
-                <MessageCircle className="h-3.5 w-3.5" />
-                WhatsApp
-              </a>
-              <a
-                href={site.phone.href}
-                onClick={dismissNudge}
-                data-analytics="call-click-nudge"
-                className="btn-outline !px-3 !py-2 !text-xs"
-              >
-                <Phone className="h-3.5 w-3.5" />
-                Call
-              </a>
-            </div>
-          </motion.div>
+      {/* Nudge bubble — grows from the button it belongs to */}
+      <div
+        aria-hidden={!nudge}
+        className={cn(
+          'relative w-[17rem] origin-bottom-right rounded-2xl rounded-br-sm border border-slate-200 bg-white p-4 shadow-card',
+          'transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
+          nudge
+            ? 'pointer-events-auto translate-y-0 scale-100 opacity-100 blur-0'
+            : 'pointer-events-none translate-y-2 scale-90 opacity-0 blur-sm',
         )}
-      </AnimatePresence>
+      >
+        <button
+          type="button"
+          onClick={dismissNudge}
+          tabIndex={nudge ? 0 : -1}
+          className="press absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full text-ink-muted hover:bg-slate-100"
+          aria-label="Dismiss message"
+        >
+          <X className="h-3.5 w-3.5" />
+        </button>
+        <p className="pr-6 text-sm font-semibold text-ink">Need clean water today?</p>
+        <p className="mt-1 text-xs leading-relaxed text-ink-soft">
+          Send us a message — we reply in minutes and can often visit the same day.
+        </p>
+        <div className="mt-3 flex gap-2">
+          <a
+            href={whatsappLink(WHATSAPP_DEFAULT_MESSAGE)}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={dismissNudge}
+            tabIndex={nudge ? 0 : -1}
+            data-analytics="whatsapp-click-nudge"
+            className="btn-whatsapp flex-1 !px-3 !py-2 !text-xs"
+          >
+            <MessageCircle className="h-3.5 w-3.5" />
+            WhatsApp
+          </a>
+          <a
+            href={site.phone.href}
+            onClick={dismissNudge}
+            tabIndex={nudge ? 0 : -1}
+            data-analytics="call-click-nudge"
+            className="btn-outline !px-3 !py-2 !text-xs"
+          >
+            <Phone className="h-3.5 w-3.5" />
+            Call
+          </a>
+        </div>
+      </div>
 
       {/* Floating WhatsApp button */}
       <a

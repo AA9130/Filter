@@ -1,32 +1,38 @@
 [
   {
+    "claimId": "coverage_seven_emirates",
     "icon": "map-pin",
-    "title": "UAE-Wide Coverage",
-    "body": "Fully mobile teams operating in all 7 Emirates — from Dubai Marina to Fujairah city, we come to you."
+    "title": "All Seven Emirates",
+    "body": "Mobile teams based in Dubai, Abu Dhabi and Sharjah, with scheduled routes covering Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain. Tell us the area and we confirm a realistic window rather than a slogan."
   },
   {
+    "claimId": "emergency_line_24h",
     "icon": "clock",
-    "title": "24-Hour Emergency Support",
-    "body": "Burst housing at midnight? Our emergency line is answered around the clock, every day of the year."
+    "title": "24-Hour Emergency Line",
+    "body": "Leaks and total loss of flow are answered around the clock and dispatched ahead of routine work, because both cause damage while they wait."
   },
   {
+    "claimId": "technicians_trained",
     "icon": "badge-check",
-    "title": "Certified Technicians",
-    "body": "Trained, background-checked, uniformed technicians who work to Dubai Municipality plumbing standards."
+    "title": "Technicians, Not Salespeople",
+    "body": "The person at your door is a trained plumber and filtration technician who can diagnose and repair on the spot — which is also why the recommendation is sometimes that you need nothing."
   },
   {
+    "claimId": "genuine_parts_only",
     "icon": "package-check",
-    "title": "Genuine Spare Parts",
-    "body": "Only original cartridges, membranes and pumps — never grey-market copies that fail in three months."
+    "title": "Manufacturer-Supplied Parts",
+    "body": "Cartridges, membranes and pumps sourced through authorised channels, matched to specification rather than to whatever happens to fit the housing."
   },
   {
+    "claimId": "fixed_written_quote",
     "icon": "wallet",
-    "title": "Affordable AMC Plans",
-    "body": "Transparent annual contracts with no hidden labour or call-out charges — one predictable fee, quoted up front."
+    "title": "Fixed Written Quotes",
+    "body": "A price in AED, in writing, before work starts — with no call-out fee. What we quote is what you pay."
   },
   {
-    "icon": "zap",
-    "title": "Same-Day Service",
-    "body": "Call before 2 PM and we will usually be at your door the same day, parts already on the van."
+    "claimId": "free_water_test",
+    "icon": "sparkles",
+    "title": "Measured, Not Guessed",
+    "body": "Every recommendation starts from TDS and hardness measured at your own tap. We publish no water-quality figures for any emirate, because the only reading worth specifying against is yours."
   }
 ]

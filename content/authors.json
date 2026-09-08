@@ -1,0 +1,21 @@
+{
+  "_note": "Only real, attributable authors belong here. A fabricated expert byline is worse than no byline: it is the exact signal E-E-A-T evaluation is designed to detect, and it is trivially falsifiable. Where no named individual can be attributed, an organisational author is honest and valid — schema.org accepts an Organization as `author`. To add a named technician or engineer, fill in `name`, `jobTitle` and real `credentials`, set `type` to \"Person\", and add a `sameAs` profile if one exists.",
+  "authors": [
+    {
+      "id": "aquapure-technical-team",
+      "type": "Organization",
+      "name": "AquaPure UAE Technical Team",
+      "jobTitle": "Installation and service technicians",
+      "bio": "The technicians who install, service and repair water treatment systems across the seven Emirates. Guidance here reflects what the team measures and repairs on UAE properties every day: point-of-use and point-of-entry systems, softeners, UV disinfection, and the failure modes that recur in tank-fed and tanker-fed supply.",
+      "expertise": [
+        "Reverse osmosis system specification and commissioning",
+        "Point-of-entry filtration for villas and buildings",
+        "Ion-exchange softener sizing and regeneration setup",
+        "UV and contact disinfection for stored water",
+        "Fault diagnosis on RO, softener and filtration systems"
+      ],
+      "credentials": [],
+      "sameAs": []
+    }
+  ]
+}

@@ -1,9 +1,8 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Send, CheckCircle2, AlertCircle, Loader2, MessageCircle } from 'lucide-react'
-import type { Service, Emirate } from '@/lib/content'
+import type { Service, Location } from '@/lib/content'
 import { whatsappLink } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
@@ -62,7 +61,7 @@ export default function ContactForm({
   emirates,
 }: {
   services: Pick<Service, 'slug' | 'title'>[]
-  emirates: Pick<Emirate, 'name'>[]
+  emirates: Pick<Location, 'name'>[]
 }) {
   const [values, setValues] = useState<FormState>(EMPTY)
   const [errors, setErrors] = useState<Errors>({})
@@ -122,10 +121,8 @@ export default function ContactForm({
 
   if (status === 'success') {
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="rounded-3xl border border-eco-100 bg-eco-50 p-8 text-center sm:p-10"
+      <div
+        className="animate-fade-up rounded-3xl border border-eco-100 bg-eco-50 p-8 text-center sm:p-10"
         role="status"
       >
         <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-eco-500 text-white">
@@ -150,7 +147,7 @@ export default function ContactForm({
             Send another request
           </button>
         </div>
-      </motion.div>
+      </div>
     )
   }
 
@@ -340,23 +337,18 @@ export default function ContactForm({
         )}
       </button>
 
-      <AnimatePresence>
-        {status === 'error' && (
-          <motion.p
-            initial={{ opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            role="alert"
-            className="mt-4 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 p-3.5 text-sm text-red-700"
-          >
-            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
-            <span>
-              Something went wrong sending your request. Please call or WhatsApp us instead — we will
-              answer right away.
-            </span>
-          </motion.p>
-        )}
-      </AnimatePresence>
+      {status === 'error' && (
+        <p
+          role="alert"
+          className="mt-4 flex animate-fade-up items-start gap-2 rounded-xl border border-red-200 bg-red-50 p-3.5 text-sm text-red-700"
+        >
+          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+          <span>
+            Something went wrong sending your request. Please call or WhatsApp us instead — we will
+            answer right away.
+          </span>
+        </p>
+      )}
 
       <p className="mt-4 text-center text-xs leading-relaxed text-ink-muted">
         Your details are used only to contact you about this enquiry. We never share or sell your
