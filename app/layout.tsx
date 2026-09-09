@@ -75,6 +75,34 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang={site.lang} className={jakarta.variable}>
       <body className="font-sans">
         {/*
+          Opt into the scroll-reveal animations, and guarantee they cannot hide
+          the page.
+
+          The reveal CSS starts elements at `opacity: 0` and JavaScript reveals
+          them. That is fine as decoration and unacceptable as a dependency —
+          81 elements on the homepage carry [data-reveal], including five of the
+          six images, so a blocked or broken script turns the site blank rather
+          than merely static.
+
+          So the hiding is opt-in, twice over:
+            1. This script sets `data-js`, which is the only thing that arms the
+               CSS. No JavaScript, blocked JavaScript, a CSP violation, or a
+               failed chunk → the attribute is never set and nothing is hidden.
+            2. If the attribute IS set but React never hydrates — the chunk
+               404s, hydration throws — no Reveal ever mounts, so
+               `data-reveal-ready` is never set and the timeout below disarms
+               the CSS, showing everything.
+
+          It is inline and first in <body> so it runs during parse, before any
+          revealed content paints. An external or deferred script would flash.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var d=document.documentElement;d.setAttribute('data-js','');setTimeout(function(){if(!d.hasAttribute('data-reveal-ready'))d.removeAttribute('data-js')},2500)})()`,
+          }}
+        />
+
+        {/*
           The organisation and the website, once, site-wide. Every page's own
           schema references `#organization` by @id rather than restating the
           business — so a crawler accumulates evidence about one entity instead

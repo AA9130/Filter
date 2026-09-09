@@ -257,21 +257,36 @@
   /* Scroll reveal. Driven by Reveal.tsx flipping [data-revealed]; the motion
      is entirely CSS so no animation library is instantiated per element.
      Deliberately no `will-change`: ~100 promoted compositor layers costs far
-     more than it saves. */
-  [data-reveal] {
+     more than it saves.
+
+     EVERY RULE HERE IS SCOPED TO [data-js]. That scoping is the whole point.
+
+     These rules start content at `opacity: 0` and rely on JavaScript to reveal
+     it. Unscoped, that makes JavaScript a hard requirement for the page being
+     *visible at all* — and on this page 81 elements carry [data-reveal],
+     including five of the six images. If the script is blocked, fails to load,
+     or throws, the visitor gets a blank page and the site looks broken rather
+     than unstyled.
+
+     `data-js` is set by an inline script at the top of <body> (see
+     app/layout.tsx), which also clears it if hydration never happens. So:
+       · no JS, blocked JS, failed JS → nothing is hidden, everything renders
+       · JS working                   → reveals animate as designed
+     The inline script runs before the body paints, so there is no flash. */
+  [data-js] [data-reveal] {
     opacity: 0;
     transition:
       opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  [data-reveal='bottom'] {
+  [data-js] [data-reveal='bottom'] {
     transform: translate3d(0, 28px, 0);
   }
-  [data-reveal='left'] {
+  [data-js] [data-reveal='left'] {
     transform: translate3d(-32px, 0, 0);
   }
-  [data-reveal='right'] {
+  [data-js] [data-reveal='right'] {
     transform: translate3d(32px, 0, 0);
   }
 
@@ -324,7 +339,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   /* Entrance reveals resolve to a plain cross-fade rather than a slide */
-  [data-reveal] {
+  [data-js] [data-reveal] {
     transform: none !important;
     transition-duration: 0.2s !important;
     transition-delay: 0s !important;

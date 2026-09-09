@@ -9,11 +9,15 @@
  * a corporate firewall or an offline laptop must never be able to break the
  * site's images, and a placeholder CDN is not a dependency worth having.
  *
+ * They are gradients, not photographs — see PHOTOGRAPHIC_KEYS below, which is
+ * what stops the site describing them as photographs it does not have.
+ *
  * TO USE YOUR OWN PHOTOGRAPHY: drop files into public/images/ with these exact
  * names (any web format — update the extension below), or point a value at a
  * full https:// URL and add that hostname to `images.remotePatterns` in
- * next.config.mjs. Real photos of your technicians and installations convert
- * considerably better than any placeholder.
+ * next.config.mjs, then add the key to PHOTOGRAPHIC_KEYS. Real photos of your
+ * technicians and installations convert considerably better than any
+ * placeholder.
  */
 export const images = {
   heroFamily: '/images/heroFamily.jpg',
@@ -47,6 +51,46 @@ export function isImageKey(value: unknown): value is ImageKey {
 export function resolveImage(value: string, fallback: ImageKey = 'technician'): string {
   if (value.startsWith('/') || value.startsWith('http')) return value
   return isImageKey(value) ? images[value] : images[fallback]
+}
+
+/**
+ * Which registry keys hold a real photograph.
+ *
+ * The files currently in public/images/ are generated brand gradients — 1600x1000
+ * blue washes produced by ffmpeg, around 16 KB each. `heroFamily.jpg` contains
+ * no family. `technician.jpg` contains no technician.
+ *
+ * That matters for more than looks. Every call site passes descriptive alt text
+ * ("Family pouring a glass of clean filtered drinking water in a modern UAE
+ * kitchen"), and on a gradient that sentence is simply false — to a screen
+ * reader, to Google Images, and to any AI system reading the page. It is the
+ * same failure the claim registry exists to prevent, in a different medium, so
+ * it is gated the same way: while a key is a placeholder its image is marked
+ * decorative and asserts nothing. The gradient still renders; it just stops
+ * claiming to be a photograph of this business.
+ *
+ * TO PUBLISH A REAL PHOTO: replace public/images/<key>.jpg with the photograph
+ * and add the key here. The descriptive alt text is already written at every
+ * call site and starts being used again with no other change.
+ */
+export const PHOTOGRAPHIC_KEYS: ReadonlySet<ImageKey> = new Set<ImageKey>([])
+
+/** Registry path -> key, so a literal `src` can be recognised as a placeholder. */
+const PATH_TO_KEY: ReadonlyMap<string, ImageKey> = new Map(
+  (Object.entries(images) as [ImageKey, string][]).map(([key, path]) => [path, key]),
+)
+
+/**
+ * Does this `src` point at a real photograph?
+ *
+ * Anything the registry does not know about — an imported asset, a remote URL,
+ * a path a CMS supplied later — is treated as deliberate and keeps its alt
+ * text. Only the known placeholder files are demoted to decoration.
+ */
+export function isPhotograph(src: unknown): boolean {
+  if (typeof src !== 'string') return true
+  const key = PATH_TO_KEY.get(src)
+  return key === undefined || PHOTOGRAPHIC_KEYS.has(key)
 }
 
 /** Tiny blur placeholder shown while an image decodes. */

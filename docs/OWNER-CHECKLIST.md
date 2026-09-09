@@ -200,8 +200,28 @@ figure a competitor can contradict.
 
 ## 8. Photography
 
-`public/images/` holds sixteen on-brand placeholder images at 1600×1000. Real
-photographs of your own technicians and installations convert considerably better
-and are a genuine E-E-A-T signal.
+`public/images/` holds sixteen **generated gradients** at 1600×1000 — on-brand
+colour washes, not photographs. `heroFamily.jpg` contains no family;
+`technician.jpg` contains no technician. This is the most visible outstanding
+item on the site: a visitor sees blue panels where photographs belong.
 
-Drop replacements in with the same filenames and nothing else needs changing.
+Because they are not photographs, they are published as decoration with **no alt
+text**. The descriptive alt text is already written at every call site — it is
+withheld rather than deleted, on the same principle as the claim registry: the
+site does not describe something it does not have. `PHOTOGRAPHIC_KEYS` in
+`lib/images.ts` is the gate.
+
+**To publish real photography:**
+
+1. Replace `public/images/<key>.jpg` with the real photograph. Keep the filename.
+   Aim for 1600×1000 or larger; Next.js generates every smaller size and serves
+   AVIF/WebP automatically.
+2. Add that key to `PHOTOGRAPHIC_KEYS` in `lib/images.ts`.
+3. Run `npm run verify`. The descriptive alt text switches back on by itself.
+
+Photograph your own technicians, vans and installations rather than buying stock.
+Stock photography of a generic plumber is a weaker E-E-A-T signal than a slightly
+imperfect real photo of your own work, and reverse image search makes stock
+obvious. Highest-value shots, in order: a technician mid-installation under a
+kitchen sink, a completed under-sink RO system, a TDS meter showing a reading,
+your team, your van.

@@ -56,6 +56,12 @@ export default function Reveal({
     const el = ref.current
     if (!el) return
 
+    // Tells the inline guard in app/layout.tsx that hydration happened, so it
+    // leaves `data-js` in place. If no Reveal ever mounts — a failed chunk, a
+    // hydration error — the guard disarms the reveal CSS and the page shows
+    // rather than staying blank.
+    document.documentElement.setAttribute('data-reveal-ready', '')
+
     const observer = getObserver()
     // No observer support: show immediately rather than leaving content hidden
     if (!observer) {

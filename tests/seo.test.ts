@@ -4,6 +4,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
 import { site, absoluteUrl, isRealProfileUrl } from '@/lib/site'
 import { buildMetadata } from '@/lib/seo'
+import { PHOTOGRAPHIC_KEYS } from '@/lib/images'
 
 /**
  * SEO tests in two halves.
@@ -286,6 +287,98 @@ describe('prerendered HTML', { skip: hasBuild ? false : 'no build — run `npm r
     for (const page of indexable()) {
       const internal = (page.html.match(/href="\/[^"]*"/g) ?? []).length
       assert.ok(internal >= 10, `${page.path}: only ${internal} internal links`)
+    }
+  })
+
+  test('no content is hidden from a visitor whose JavaScript does not run', () => {
+    // The regression test for a defect that made the live site look empty.
+    //
+    // The scroll-reveal CSS starts elements at `opacity: 0` and JavaScript
+    // reveals them. Unscoped, that makes JavaScript a requirement for the page
+    // being *visible* — and 81 elements on the homepage carry [data-reveal],
+    // including five of the six images. A blocked or failed script produced a
+    // near-blank page, which is indistinguishable from "the images are broken".
+    //
+    // Every hiding rule must therefore be gated on [data-js], which an inline
+    // script sets only when JavaScript actually runs.
+    const cssFiles = readdirSync(join(process.cwd(), '.next', 'static', 'css'))
+      .filter((file) => file.endsWith('.css'))
+    assert.ok(cssFiles.length > 0, 'no built stylesheet found')
+
+    for (const file of cssFiles) {
+      const css = readFileSync(join(process.cwd(), '.next', 'static', 'css', file), 'utf8')
+
+      // A keyframe's `0% { opacity: 0 }` is an animation start state that CSS
+      // completes without JavaScript, so it is not a dependency.
+      const withoutKeyframes = css.replace(
+        /@keyframes[^{]*\{(?:[^{}]*\{[^}]*\})*[^{}]*\}/g,
+        '',
+      )
+
+      for (const rule of withoutKeyframes.matchAll(/([^{}]+)\{([^}]*)\}/g)) {
+        const selector = rule[1].trim()
+        const declarations = rule[2]
+        if (!/opacity:\s*0(?![.\d])/.test(declarations)) continue
+        if (selector.includes('[data-js]')) continue
+        // FloatingActions' collapsed controls are supplementary, not content.
+        if (selector === '.opacity-0') continue
+        assert.fail(
+          `"${selector}" hides content with opacity:0 and is not gated on [data-js]. ` +
+            'Without the gate, a visitor whose JavaScript does not run sees a blank page.',
+        )
+      }
+    }
+  })
+
+  test('the inline JS guard ships, and runs before any revealed content', () => {
+    for (const page of indexable()) {
+      const revealAt = page.html.indexOf('data-reveal=')
+      if (revealAt === -1) continue
+
+      const guardAt = page.html.indexOf("setAttribute('data-js'")
+      assert.notEqual(guardAt, -1, `${page.path}: the inline JS guard is missing`)
+      assert.ok(
+        guardAt < revealAt,
+        `${page.path}: the guard runs after revealed content, which would flash`,
+      )
+      // The second failsafe: if React never hydrates, the guard disarms the CSS.
+      assert.ok(
+        page.html.includes('data-reveal-ready'),
+        `${page.path}: the guard has no hydration failsafe`,
+      )
+    }
+  })
+
+  test('no placeholder gradient is described as a photograph', () => {
+    // The regression test for the other half of the "images are not showing"
+    // report: the files in public/images/ are generated gradients, and every
+    // call site passes alt text describing a photograph ("Family pouring a
+    // glass of clean filtered drinking water..."). On a gradient that sentence
+    // is false — to a screen reader, to Google Images, and to any AI system
+    // reading the page. Photo.tsx suppresses it until the key is listed in
+    // PHOTOGRAPHIC_KEYS; this asserts the suppression reached the HTML.
+    for (const page of pages) {
+      for (const [, attrs] of page.html.matchAll(/<img\b([^>]*)>/g)) {
+        const src = /\ssrc="([^"]*)"/.exec(attrs)?.[1] ?? ''
+        const alt = /\salt="([^"]*)"/.exec(attrs)?.[1] ?? ''
+        // Every <img> must carry an alt attribute at all, empty or not.
+        assert.match(attrs, /\salt="/, `${page.path}: an <img> has no alt attribute`)
+
+        // Which underlying file is this? next/image rewrites the src through
+        // /_next/image?url=%2Fimages%2Ffoo.jpg, so decode before matching.
+        const key = /images%2F([A-Za-z0-9]+)\.|\/images\/([A-Za-z0-9]+)\./.exec(src)
+        const name = key?.[1] ?? key?.[2]
+        if (!name) continue
+        if (!PHOTOGRAPHIC_KEYS.has(name as never)) {
+          assert.equal(
+            alt,
+            '',
+            `${page.path}: "${name}" is a generated placeholder but is described ` +
+              `as "${alt}". Either add the key to PHOTOGRAPHIC_KEYS once a real ` +
+              `photograph is in place, or leave the image decorative.`,
+          )
+        }
+      }
     }
   })
 
