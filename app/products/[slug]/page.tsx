@@ -142,7 +142,7 @@ export default async function ProductDetailPage({
             <div className="relative overflow-hidden rounded-3xl border border-white/15 shadow-glow">
               <Photo
                 src={product.image}
-                alt={`${product.name} — ${product.category.toLowerCase()} installed by AquaPure UAE`}
+                alt={`${product.name} — ${product.category.toLowerCase()} of the type AquaPure UAE supplies and installs`}
                 width={1200}
                 height={800}
                 priority
@@ -204,46 +204,6 @@ export default async function ProductDetailPage({
             <Info aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
             <p className="text-sm leading-relaxed text-ink-soft">{product.specNote}</p>
           </div>
-
-          {/*
-            Operating limits, which are a different kind of fact from the
-            specification table above and must not be confused with it.
-            A spec table would describe the unit we sell you. These describe the
-            water this class of equipment needs in order to work at all — the
-            envelope, from manufacturer documentation on file, published so a
-            reader can check their own property against it before buying.
-            `limitsNote` carries the provenance and is required alongside them
-            by content validation, so a figure can never appear unattributed.
-          */}
-          {product.operatingLimits && product.limitsNote && (
-            <div className="mx-auto mt-10 max-w-4xl">
-              <h3 className="text-lg font-bold tracking-tight text-ink">
-                What the water reaching it has to be like
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                Check these against your own supply. Where your water falls outside them,
-                the fix is upstream treatment — not a different drinking-water unit.
-              </p>
-
-              <dl className="mt-6 divide-y divide-slate-200 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                {product.operatingLimits.map((limit) => (
-                  <div key={limit.label} className="p-5 sm:flex sm:gap-6">
-                    <dt className="text-sm font-bold text-ink sm:w-56 sm:shrink-0">
-                      {limit.label}
-                    </dt>
-                    <dd className="mt-1 sm:mt-0">
-                      <p className="text-sm font-semibold text-brand-700">{limit.value}</p>
-                      {limit.note && (
-                        <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{limit.note}</p>
-                      )}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-
-              <p className="mt-4 text-xs leading-relaxed text-ink-soft">{product.limitsNote}</p>
-            </div>
-          )}
         </div>
       </section>
 

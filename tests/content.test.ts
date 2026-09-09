@@ -268,101 +268,78 @@ describe('search query database', () => {
   })
 })
 
-describe('equipment data taken from manufacturer documentation', () => {
+describe('equipment photography', () => {
   /**
-   * Operating limits are the one place the site publishes hard numbers about
-   * equipment, so they get the tightest guard rails in the suite. Every figure
-   * traces to a document in Files/, mapped in docs/EQUIPMENT-DATA.md.
+   * The photographs in public/images/ were composed from supplier documentation
+   * in Files/, mapped in docs/EQUIPMENT-DATA.md. Some carry the maker's mark on
+   * the product, which is recorded there and deliberately not erased.
    *
-   * The failure being prevented is specific: a number appearing on a product
-   * page with nothing saying where it came from or what it is not. That is
-   * indistinguishable from an invented specification, which is the whole thing
-   * this project is built to avoid.
+   * What must not happen is the brands migrating from the pixels into the prose.
+   * A photograph of equipment we supply is ordinary; a page that starts naming
+   * another company's product line is claiming a relationship nobody evidenced.
    */
-  test('no figure is published without the note that sources it', async () => {
-    for (const product of (await getProducts())) {
-      if (!product.operatingLimits) {
-        // No documentation on file is a legitimate state. What is not
-        // legitimate is a note with nothing to source.
-        assert.equal(
-          product.limitsNote,
-          undefined,
-          `${product.slug}: has limitsNote but no operatingLimits`,
-        )
-        continue
-      }
-      assert.ok(
-        product.limitsNote && product.limitsNote.trim().length > 80,
-        `${product.slug}: publishes ${product.operatingLimits.length} figures but ` +
-          `limitsNote does not explain where they came from`,
-      )
-      assert.ok(
-        product.operatingLimits.length > 0,
-        `${product.slug}: operatingLimits is empty — omit the field instead`,
-      )
-      for (const limit of product.operatingLimits) {
-        assert.ok(limit.label.trim(), `${product.slug}: a limit has no label`)
-        assert.ok(limit.value.trim(), `${product.slug}: "${limit.label}" has no value`)
-      }
-    }
-  })
-
-  test('the limits note says these are not our own measurements', async () => {
-    // A reader must never be able to mistake a manufacturer's published figure
-    // for something AquaPure measured, or for a quotation.
-    for (const product of (await getProducts())) {
-      if (!product.limitsNote) continue
-      const note = product.limitsNote.toLowerCase()
-      assert.ok(
-        note.includes('manufacturer'),
-        `${product.slug}: limitsNote does not attribute the figures to manufacturer documentation`,
-      )
-      assert.ok(
-        note.includes('not a quotation') || note.includes('confirmed'),
-        `${product.slug}: limitsNote does not distinguish the figures from a quotation`,
-      )
-    }
-  })
-
-  test('no supplier brand or trademark reaches the published content', async () => {
-    // The brochures in Files/ belong to other companies. Their technical facts
-    // are usable; their names and imagery are not, by explicit decision.
-    // Anything appearing here would be an unlicensed brand reference on a page
-    // implying a supply relationship nobody has evidenced.
+  test('no supplier brand reaches the published text', async () => {
     const BRANDS = [
       'atlas filtri', 'permatech', 'aquawave', 'clairify', 'optimpure',
       'quantum disinfection', 'oasis sanic', 'borg & overström', 'qettle',
-      'hydra opentoclean',
+      'opentoclean', 'dp big f', 'hydra duo', 'hydra trio',
     ]
-    const haystacks: [string, string][] = []
-    for (const p of (await getProducts())) {
-      haystacks.push([`product ${p.slug}`, JSON.stringify(p)])
-    }
-    for (const s of (await getServices())) haystacks.push([`service ${s.slug}`, JSON.stringify(s)])
-    for (const g of (await getGuides())) haystacks.push([`guide ${g.slug}`, JSON.stringify(g)])
-    for (const f of (await getFaqs())) haystacks.push([`faq ${f.id}`, JSON.stringify(f)])
+    const records: [string, string][] = []
+    for (const p of await getProducts()) records.push([`product ${p.slug}`, JSON.stringify(p)])
+    for (const s of await getServices()) records.push([`service ${s.slug}`, JSON.stringify(s)])
+    for (const g of await getGuides()) records.push([`guide ${g.slug}`, JSON.stringify(g)])
+    for (const f of await getFaqs()) records.push([`faq ${f.id}`, JSON.stringify(f)])
 
-    for (const [where, text] of haystacks) {
+    for (const [where, text] of records) {
       const lower = text.toLowerCase()
       for (const brand of BRANDS) {
         assert.ok(
           !lower.includes(brand),
-          `${where}: mentions "${brand}". Supplier brands stay out of published ` +
-            `content — the figures are published as representative of the ` +
-            `equipment class, not as a named product.`,
+          `${where}: names "${brand}". The photographs may show a maker's mark; ` +
+            `the copy must not adopt the brand as ours.`,
         )
       }
     }
   })
 
-  test('every product without documentation says nothing rather than guessing', async () => {
-    // Regression guard for the tempting fix: copying one product's limits onto
-    // another because the page looked thin. Documented absence is the feature.
-    const documented = (await getProducts()).filter((p) => p.operatingLimits)
-    const undocumented = (await getProducts()).filter((p) => !p.operatingLimits)
-    assert.ok(documented.length > 0, 'no product publishes operating limits at all')
-    for (const p of undocumented) {
-      assert.equal(p.operatingLimits, undefined)
+  test('no manufacturer figure survived in product copy', async () => {
+    // The instruction was images, not numbers. Nothing numeric from the
+    // brochures is published — specifications are confirmed on the quotation
+    // instead, which is what specNote says on every product page.
+    for (const product of await getProducts()) {
+      assert.equal(
+        (product as { operatingLimits?: unknown }).operatingLimits,
+        undefined,
+        `${product.slug}: manufacturer figures are back`,
+      )
+      assert.ok(product.specNote.length > 40, `${product.slug}: specNote is missing`)
     }
+  })
+
+  test('every registered photograph exists and is a real image', async () => {
+    const { images, PHOTOGRAPHIC_KEYS } = await import('@/lib/images')
+    const { statSync, readFileSync } = await import('node:fs')
+
+    assert.ok(PHOTOGRAPHIC_KEYS.size > 0, 'no photographs are registered')
+    for (const key of PHOTOGRAPHIC_KEYS) {
+      const file = `public${images[key]}`
+      const size = statSync(file).size
+      // A gradient is ~16 KB. A real photograph of this size is bigger, and a
+      // truncated or zero-byte file would otherwise ship silently.
+      assert.ok(size > 25_000, `${file} is ${size} bytes — too small to be a photograph`)
+
+      // JPEG magic number, so a renamed placeholder cannot pass.
+      const head = readFileSync(file).subarray(0, 3)
+      assert.deepEqual([...head], [0xff, 0xd8, 0xff], `${file} is not a JPEG`)
+    }
+  })
+
+  test('content pointing at a photograph gets alt text, and gradients do not', async () => {
+    // The pairing that makes the alt-text gate meaningful: a real photograph is
+    // described, a placeholder is decoration. Checked here at the data layer;
+    // tests/seo.test.ts checks it again in the rendered HTML.
+    const { isPhotograph, images } = await import('@/lib/images')
+    assert.ok(isPhotograph(images.villaPreFilter), 'a registered photograph reads as decoration')
+    assert.ok(!isPhotograph(images.technician), 'a gradient reads as a photograph')
   })
 })

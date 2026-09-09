@@ -63,7 +63,7 @@ export default function Products({
                 <div className="relative overflow-hidden bg-slate-100">
                   <Photo
                     src={product.image}
-                    alt={`${product.name} — ${product.category} water treatment system installed in the UAE`}
+                    alt={`${product.name} — ${product.category.toLowerCase()} water treatment equipment`}
                     width={900}
                     height={600}
                     loading="lazy"

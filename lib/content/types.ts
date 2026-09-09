@@ -15,16 +15,6 @@ export type Step = { step: string; title: string; body: string }
 export type Problem = { problem: string; cause: string; fix: string }
 
 /** A side-by-side table. Every row must have one value per column. */
-/**
- * One feed-water or duty limit for a class of equipment.
- *
- * Deliberately not a product specification. `value` is the published limit of
- * representative equipment of this type, taken from manufacturer
- * documentation; what it tells a reader is whether the water at their property
- * is inside the envelope the technology needs. See Product.limitsNote.
- */
-export type Limit = { label: string; value: string; note?: string }
-
 export type Comparison = {
   caption: string
   columns: string[]
@@ -93,13 +83,6 @@ export type Product = {
   considerations: Point[]
   /** Why no specification table is published. */
   specNote: string
-  /**
-   * Feed-water and duty limits for this class of equipment. Optional: present
-   * only where manufacturer documentation is on file — see docs/EQUIPMENT-DATA.md.
-   */
-  operatingLimits?: Limit[]
-  /** Where the limits come from and what they are not. Required with them. */
-  limitsNote?: string
   relatedServices: string[]
   relatedGuides: string[]
   relatedLocations: string[]

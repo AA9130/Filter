@@ -160,7 +160,7 @@ export default async function ServiceDetailPage({
             <div className="relative overflow-hidden rounded-3xl border border-white/15 shadow-glow">
               <Photo
                 src={service.image}
-                alt={`${service.title} — AquaPure technician working on a water treatment system in the UAE`}
+                alt={`Water treatment equipment of the kind involved in ${service.title.toLowerCase()}`}
                 width={1200}
                 height={800}
                 priority

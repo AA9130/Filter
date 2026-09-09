@@ -3,7 +3,7 @@
     "slug": "compact-under-sink-ro",
     "name": "AquaPure Compact Under-Sink RO",
     "category": "Drinking Filters",
-    "image": "roSystem",
+    "image": "underSinkRo",
     "blurb": "An all-in-one reverse osmosis system with the storage tank built into the body, so it fits the cupboard under a normal apartment sink without a separate tank taking up the space beside it.",
     "features": [
       "Storage tank built into the unit — no separate tank to find room for",
@@ -85,48 +85,6 @@
       "summer-water-temperature-ro"
     ],
     "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
-    "operatingLimits": [
-      {
-        "label": "Feed pressure",
-        "value": "1.5–5 bar (20–70 psi)",
-        "note": "Below the minimum, a booster pump is part of the system rather than an accessory. On a high floor or in an older building this is the single most common reason a system 'does not work'."
-      },
-      {
-        "label": "Feed temperature",
-        "value": "5–38 °C",
-        "note": "Worth checking in a UAE summer. Water that has stood in a roof tank through the afternoon can arrive well above 38 °C, which is outside the rated range for the membrane — a local constraint that generic specifications do not mention."
-      },
-      {
-        "label": "Maximum feed TDS",
-        "value": "1,000 ppm",
-        "note": "Desalinated mains supply is normally far below this. Tanker-filled and well-fed properties are where it needs checking."
-      },
-      {
-        "label": "Maximum hardness",
-        "value": "291 ppm (17 grains per gallon)",
-        "note": "Above this, hardness is reduced before the RO or the membrane scales. This is what decides whether a softener has to precede the drinking-water system."
-      },
-      {
-        "label": "Maximum free chlorine",
-        "value": "1.0 ppm",
-        "note": "Chlorine oxidises a thin-film membrane. This limit is precisely why carbon pre-treatment is not an optional upgrade — it protects the most expensive part of the system."
-      },
-      {
-        "label": "Maximum iron / manganese",
-        "value": "0.3 ppm / 0.05 ppm",
-        "note": "Both stain fittings and foul membranes well before they are visible in a glass."
-      },
-      {
-        "label": "Maximum turbidity",
-        "value": "2 NTU",
-        "note": "Sediment pre-filtration exists to keep the feed inside this figure."
-      },
-      {
-        "label": "Feed pH",
-        "value": "6.0–8.5"
-      }
-    ],
-    "limitsNote": "These are the feed-water limits published for representative residential RO equipment, taken from manufacturer documentation held on file. They are not a quotation and not your unit's data sheet — they are the envelope the technology needs, and the reason we measure your water before recommending anything. Your configured system's figures are confirmed in writing after the site survey.",
     "relatedLocations": [
       "dubai",
       "abu-dhabi",
@@ -137,7 +95,7 @@
     "slug": "slim-tankless-ro",
     "name": "AquaPure Slim Tankless RO",
     "category": "Drinking Filters",
-    "image": "kitchenTap",
+    "image": "tanklessRo",
     "blurb": "Purifies on demand instead of storing water in a tank, in a casing slim enough to stand where a conventional system will not fit. The one we recommend when cupboard space is genuinely tight.",
     "features": [
       "Tankless — water is purified as you draw it, nothing sits in storage",
@@ -216,33 +174,6 @@
       "summer-water-temperature-ro"
     ],
     "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
-    "operatingLimits": [
-      {
-        "label": "Feed pressure",
-        "value": "above 2 bar (30 psi)",
-        "note": "A tankless unit needs MORE feed pressure than a tank system, not less: there is no stored buffer to draw from, so the membrane has to meet demand in real time. This is the specification that most often rules a tankless unit out."
-      },
-      {
-        "label": "Feed temperature",
-        "value": "5–38 °C",
-        "note": "As with any RO membrane. Summer roof-tank temperatures are the thing to check."
-      },
-      {
-        "label": "Maximum feed TDS",
-        "value": "1,000 ppm"
-      },
-      {
-        "label": "Maximum free chlorine",
-        "value": "1.0 ppm",
-        "note": "Carbon pre-treatment protects the membrane from oxidation."
-      },
-      {
-        "label": "Typical treated output",
-        "value": "around 60 litres per hour",
-        "note": "Produced on demand rather than stored, which is the whole point of the format."
-      }
-    ],
-    "limitsNote": "These are the feed-water limits published for representative residential RO equipment, taken from manufacturer documentation held on file. They are not a quotation and not your unit's data sheet — they are the envelope the technology needs, and the reason we measure your water before recommending anything. Your configured system's figures are confirmed in writing after the site survey.",
     "relatedLocations": [
       "dubai",
       "abu-dhabi",
@@ -253,7 +184,7 @@
     "slug": "modular-ro-with-uv",
     "name": "AquaPure Modular RO with UV Option",
     "category": "Drinking Filters",
-    "image": "uvSystem",
+    "image": "modularRo",
     "blurb": "A serviceable, modular under-sink system on a steel frame, with an optional UV stage. This is what we fit for villas on tanker or roof-tank supply, where drinking water needs sterilising as well as purifying.",
     "features": [
       "Modular housings — each stage inspected and changed independently",
@@ -333,48 +264,6 @@
       "villa-filter"
     ],
     "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
-    "operatingLimits": [
-      {
-        "label": "Feed pressure",
-        "value": "1.5–5 bar (20–70 psi)",
-        "note": "Below the minimum, a booster pump is part of the system rather than an accessory. On a high floor or in an older building this is the single most common reason a system 'does not work'."
-      },
-      {
-        "label": "Feed temperature",
-        "value": "5–38 °C",
-        "note": "Worth checking in a UAE summer. Water that has stood in a roof tank through the afternoon can arrive well above 38 °C, which is outside the rated range for the membrane — a local constraint that generic specifications do not mention."
-      },
-      {
-        "label": "Maximum feed TDS",
-        "value": "1,000 ppm",
-        "note": "Desalinated mains supply is normally far below this. Tanker-filled and well-fed properties are where it needs checking."
-      },
-      {
-        "label": "Maximum hardness",
-        "value": "291 ppm (17 grains per gallon)",
-        "note": "Above this, hardness is reduced before the RO or the membrane scales. This is what decides whether a softener has to precede the drinking-water system."
-      },
-      {
-        "label": "Maximum free chlorine",
-        "value": "1.0 ppm",
-        "note": "Chlorine oxidises a thin-film membrane. This limit is precisely why carbon pre-treatment is not an optional upgrade — it protects the most expensive part of the system."
-      },
-      {
-        "label": "Maximum iron / manganese",
-        "value": "0.3 ppm / 0.05 ppm",
-        "note": "Both stain fittings and foul membranes well before they are visible in a glass."
-      },
-      {
-        "label": "Maximum turbidity",
-        "value": "2 NTU",
-        "note": "Sediment pre-filtration exists to keep the feed inside this figure."
-      },
-      {
-        "label": "Feed pH",
-        "value": "6.0–8.5"
-      }
-    ],
-    "limitsNote": "These are the feed-water limits published for representative residential RO equipment, taken from manufacturer documentation held on file. They are not a quotation and not your unit's data sheet — they are the envelope the technology needs, and the reason we measure your water before recommending anything. Your configured system's figures are confirmed in writing after the site survey.",
     "relatedLocations": [
       "dubai",
       "abu-dhabi",
@@ -385,7 +274,7 @@
     "slug": "self-cleaning-villa-pre-filter",
     "name": "AquaPure Self-Cleaning Villa Pre-Filter",
     "category": "Villa Filters",
-    "image": "plumbingWork",
+    "image": "villaPreFilter",
     "blurb": "The first line of defence for a villa on tanker or roof-tank water. Instead of a cartridge you throw away, it has a reusable mesh that you rinse clean by opening a valve — sand and rust go straight down the drain.",
     "features": [
       "Self-cleaning: open the drain valve and the mesh flushes itself",
@@ -464,34 +353,6 @@
       "whole-house-needed"
     ],
     "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
-    "operatingLimits": [
-      {
-        "label": "Nominal filtration",
-        "value": "90 micron (50 micron with a pleated element)",
-        "note": "Read this number carefully before believing any 'whole house filter' marketing. At 90 micron it removes sand, rust and scale flakes. It does not touch chlorine, hardness, taste, dissolved solids or bacteria — and it is not supposed to."
-      },
-      {
-        "label": "Working pressure",
-        "value": "1.8–8 bar",
-        "note": "Some models are rated to 10 bar. Below the minimum the backwash will not clear the mesh properly."
-      },
-      {
-        "label": "Working temperature",
-        "value": "4–45 °C (hot-water versions to 80 °C)",
-        "note": "Fitting a cold-rated body on a hot line is a failure waiting to happen, and it is a mistake we do find on existing installations."
-      },
-      {
-        "label": "Flow capacity by connection",
-        "value": "3,500 L/h at ½\", 5,000 L/h at ¾\", 6,000 L/h at 1\", 8,000 L/h at 1¼\"",
-        "note": "Capacity follows the connection size, so the pipe it is fitted to sets the ceiling. Undersizing here throttles the whole property."
-      },
-      {
-        "label": "Drain requirement",
-        "value": "drain connection with backflow prevention (EN 1717)",
-        "note": "The flush has to go somewhere, and the drain must not be able to siphon back into the supply. Solving this at installation is much easier than retrofitting it."
-      }
-    ],
-    "limitsNote": "These are the published figures for representative point-of-entry self-cleaning filters, from manufacturer documentation held on file. They are not a quotation: the nominal filtration rating is the number worth understanding before buying anything sold as a whole-house filter, and the size actually fitted to your property is confirmed in writing after the site survey.",
     "relatedLocations": [
       "dubai",
       "abu-dhabi",
@@ -502,7 +363,7 @@
     "slug": "whole-villa-filtration",
     "name": "AquaPure Whole-Villa Filtration System",
     "category": "Villa Filters",
-    "image": "wholeHouse",
+    "image": "villaHousings",
     "blurb": "Large-capacity housings on a steel frame that treat every outlet in the property. We configure it as a single, double or triple stage after testing your water — there is no point paying for stages your villa does not need.",
     "features": [
       "Single, double or triple stage, configured to your water test",
@@ -586,19 +447,6 @@
       "limescale-cause"
     ],
     "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
-    "operatingLimits": [
-      {
-        "label": "Cartridge format",
-        "value": "4.5 inch outer diameter, 10 or 20 inch length",
-        "note": "The 'Big Blue' format. Larger housings mean longer cartridge life and less pressure drop across the property — the reason whole-property filtration does not use under-sink cartridges."
-      },
-      {
-        "label": "Configurations",
-        "value": "single, double or triple stage manifold",
-        "note": "Stage count follows the water test. A triple fitted where a single was needed is money spent on cartridges forever."
-      }
-    ],
-    "limitsNote": "These are the published formats for representative large-housing point-of-entry filtration, from manufacturer documentation held on file. Stage count, media choice and housing size are specified from your water test and measured demand, and confirmed on the written quotation.",
     "relatedLocations": [
       "dubai",
       "abu-dhabi",
@@ -609,7 +457,7 @@
     "slug": "chemical-free-disinfection",
     "name": "AquaPure Chemical-Free Disinfection Unit",
     "category": "Villa Filters",
-    "image": "cleanWater",
+    "image": "disinfectionUnit",
     "blurb": "Disinfection without chemicals, electricity or a lamp to replace. The water passes through a ceramic media that destroys bacteria on contact, and comes out tasting exactly as it went in.",
     "features": [
       "Kills bacteria on contact — nothing is dosed into your water",
@@ -684,37 +532,6 @@
       "certification-badges-explained"
     ],
     "specNote": "Exact capacities, dimensions, stage counts and pump specifications are confirmed per model on the written quotation, after the water test and the site survey. We do not publish specification tables, because the configuration is chosen for your property rather than picked from a catalogue.",
-    "operatingLimits": [
-      {
-        "label": "Maximum flow",
-        "value": "44 litres per minute",
-        "note": "Contact media works by residence time, so exceeding the rated flow reduces effectiveness rather than producing an alarm. Sizing against real peak demand matters."
-      },
-      {
-        "label": "Maximum pressure",
-        "value": "8.6 bar"
-      },
-      {
-        "label": "Water temperature",
-        "value": "5–38 °C"
-      },
-      {
-        "label": "Rated capacity",
-        "value": "around 740,000 litres",
-        "note": "Service life is measured in throughput rather than months, which is a genuine difference from a UV lamp's annual replacement."
-      },
-      {
-        "label": "Power required",
-        "value": "none",
-        "note": "It keeps disinfecting through a power cut. A UV chamber does not, and on a tank-fed villa that is a real distinction."
-      },
-      {
-        "label": "Published reduction",
-        "value": "up to Log 6 for the organisms tested",
-        "note": "A manufacturer laboratory figure for specified organisms (E. coli, MS2) under test conditions — Log 6 meaning a 99.9999% reduction. Laboratory performance is not a guarantee of the same result on your property, which is why disinfection is specified alongside a water test rather than instead of one."
-      }
-    ],
-    "limitsNote": "These are the published duty figures for representative chemical-free contact disinfection equipment, from manufacturer documentation held on file. They are not a quotation. The microbiological figure is the manufacturer's own laboratory result, scoped exactly as they scope it; we have not independently verified it and do not present it as ours. What suits your property is confirmed in writing after the water test and site survey.",
     "relatedLocations": [
       "dubai",
       "abu-dhabi",

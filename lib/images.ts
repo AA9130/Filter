@@ -5,12 +5,19 @@
  * place that knows what a key points at. Resolution happens once, in the content
  * seam — components and pages always receive a usable path, never a key.
  *
- * These are locally generated brand placeholders, deliberately not remote:
- * a corporate firewall or an offline laptop must never be able to break the
- * site's images, and a placeholder CDN is not a dependency worth having.
+ * The registry holds two kinds of image, and PHOTOGRAPHIC_KEYS is the line
+ * between them.
  *
- * They are gradients, not photographs — see PHOTOGRAPHIC_KEYS below, which is
- * what stops the site describing them as photographs it does not have.
+ * The keys listed there are real equipment photographs. Everything else is a
+ * locally generated brand gradient standing in for a photograph nobody has
+ * taken yet — people, premises and interiors, for which there is no source.
+ * Those are published as decoration with no alt text, because describing a
+ * gradient as "a technician under a kitchen sink" is a false statement to a
+ * screen reader and to Google Images alike.
+ *
+ * Nothing here is remote: a corporate firewall or an offline laptop must never
+ * be able to break the site's images, and a placeholder CDN is not a dependency
+ * worth having.
  *
  * TO USE YOUR OWN PHOTOGRAPHY: drop files into public/images/ with these exact
  * names (any web format — update the extension below), or point a value at a
@@ -36,6 +43,17 @@ export const images = {
   commercial: '/images/commercial.jpg',
   teamAbout: '/images/teamAbout.jpg',
   labTest: '/images/labTest.jpg',
+
+  // Real equipment photography, composed from the supplier documentation in
+  // Files/. See docs/EQUIPMENT-DATA.md for which document each came from and
+  // which of them carry a manufacturer's mark on the product itself.
+  villaPreFilter: '/images/villaPreFilter.jpg',
+  filterElement: '/images/filterElement.jpg',
+  villaHousings: '/images/villaHousings.jpg',
+  underSinkRo: '/images/underSinkRo.jpg',
+  tanklessRo: '/images/tanklessRo.jpg',
+  modularRo: '/images/modularRo.jpg',
+  disinfectionUnit: '/images/disinfectionUnit.jpg',
 } as const
 
 export type ImageKey = keyof typeof images
@@ -73,7 +91,15 @@ export function resolveImage(value: string, fallback: ImageKey = 'technician'): 
  * and add the key here. The descriptive alt text is already written at every
  * call site and starts being used again with no other change.
  */
-export const PHOTOGRAPHIC_KEYS: ReadonlySet<ImageKey> = new Set<ImageKey>([])
+export const PHOTOGRAPHIC_KEYS: ReadonlySet<ImageKey> = new Set<ImageKey>([
+  'villaPreFilter',
+  'filterElement',
+  'villaHousings',
+  'underSinkRo',
+  'tanklessRo',
+  'modularRo',
+  'disinfectionUnit',
+])
 
 /** Registry path -> key, so a literal `src` can be recognised as a placeholder. */
 const PATH_TO_KEY: ReadonlyMap<string, ImageKey> = new Map(

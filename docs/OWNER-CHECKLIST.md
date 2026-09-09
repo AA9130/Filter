@@ -200,28 +200,50 @@ figure a competitor can contradict.
 
 ## 8. Photography
 
-`public/images/` holds sixteen **generated gradients** at 1600×1000 — on-brand
-colour washes, not photographs. `heroFamily.jpg` contains no family;
-`technician.jpg` contains no technician. This is the most visible outstanding
-item on the site: a visitor sees blue panels where photographs belong.
+`public/images/` now holds **seven real equipment photographs** and **nine
+generated gradients**.
 
-Because they are not photographs, they are published as decoration with **no alt
-text**. The descriptive alt text is already written at every call site — it is
-withheld rather than deleted, on the same principle as the claim registry: the
-site does not describe something it does not have. `PHOTOGRAPHIC_KEYS` in
-`lib/images.ts` is the gate.
+The photographs were composed from the supplier brochures in `Files/` and cover
+the equipment: villa pre-filter, filter element, villa housings, under-sink RO,
+tankless RO, modular RO and the disinfection unit. Sixteen pages use them.
+`docs/EQUIPMENT-DATA.md` records which document each came from and, honestly,
+**which four carry the manufacturer's mark on the product** (`underSinkRo` shows
+"AquaWave", `tanklessRo` a small "PERMATECH" badge, `modularRo` shows "OASIS",
+`disinfectionUnit` shows "CLAIRIFY"). Nothing has been erased. If you would
+rather those four were not published, replace those four files and say so —
+the three villa images carry no branding at all.
 
-**To publish real photography:**
+**Two things to confirm with your suppliers**, because they are yours to
+confirm and not mine:
 
-1. Replace `public/images/<key>.jpg` with the real photograph. Keep the filename.
-   Aim for 1600×1000 or larger; Next.js generates every smaller size and serves
-   AVIF/WebP automatically.
+1. That you have permission to use their product photography. Dealers usually
+   do; it is worth having in writing.
+2. That the four branded images are how you want your product pages to look,
+   given your product names are your own.
+
+### Still outstanding, and the highest-value item on the site
+
+There is **no photograph of a person, a van, a premises or an installation** in
+this project. Those nine slots are gradients: `heroFamily`, `technician`,
+`teamAbout`, `kitchenTap`, `labTest`, `heroGlass`, `cleanWater`, `waterDrop`,
+`plumbingWork`, `dubaiSkyline`, `commercial`, `softener`. The homepage hero and
+the About page are both still gradients.
+
+Because they are not photographs, they publish as decoration with **no alt
+text** — the descriptive sentence is written at each call site and withheld
+rather than deleted, on the same principle as the claim registry.
+`PHOTOGRAPHIC_KEYS` in `lib/images.ts` is the gate.
+
+**To publish your own photography:**
+
+1. Replace `public/images/<key>.jpg`, keeping the filename. 1600x1000 or larger;
+   Next.js generates every smaller size and serves AVIF/WebP automatically.
 2. Add that key to `PHOTOGRAPHIC_KEYS` in `lib/images.ts`.
-3. Run `npm run verify`. The descriptive alt text switches back on by itself.
+3. Check the alt text at the call site describes your photograph.
+4. `npm run verify`.
 
-Photograph your own technicians, vans and installations rather than buying stock.
-Stock photography of a generic plumber is a weaker E-E-A-T signal than a slightly
-imperfect real photo of your own work, and reverse image search makes stock
-obvious. Highest-value shots, in order: a technician mid-installation under a
-kitchen sink, a completed under-sink RO system, a TDS meter showing a reading,
-your team, your van.
+Shoot your own rather than buying stock. Stock photography of a generic plumber
+is a weaker E-E-A-T signal than a slightly imperfect real photo of your own
+work, and reverse image search makes stock obvious. Highest value, in order: a
+technician mid-installation under a kitchen sink, a completed install, a TDS
+meter showing a reading, your team, your van.
