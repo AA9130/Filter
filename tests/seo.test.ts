@@ -202,7 +202,15 @@ describe('prerendered HTML', { skip: hasBuild ? false : 'no build — run `npm r
       [/12,000/, 'customer count'],
       [/\b4\.9\s?\/\s?5\b/, 'average rating'],
       [/1,284/, 'review count'],
-      [/\bNSF\b/, 'NSF certification'],
+      // Not a bare /\bNSF\b/ any more. The site now teaches readers how to read
+      // an NSF badge (faq certification-badges-explained), which cannot be done
+      // without naming NSF. What must never appear is AquaPure claiming the
+      // certification for itself — so the pattern targets the assertion, and a
+      // separate test below checks the scoping language travels with it.
+      [/(?:we|our|us|AquaPure)[^.<]{0,80}\b(?:NSF|WQA)[\s/-]*(?:certified|approved)/i,
+        'NSF certification as its own'],
+      [/\b(?:NSF|WQA)[\s/-]*(?:certified|approved)\s+(?:by us|installer|dealer|partner)/i,
+        'NSF certification as its own'],
       [/\bESMA\b/, 'ESMA approval'],
       [/Dubai Municipality (?:Compl|plumbing|approv)/i, 'municipality compliance'],
       [/fully insured/i, 'technician insurance'],
@@ -216,6 +224,23 @@ describe('prerendered HTML', { skip: hasBuild ? false : 'no build — run `npm r
       for (const [pattern, what] of forbidden) {
         assert.doesNotMatch(page.html, pattern, `${page.path} publishes ${what}`)
       }
+    }
+  })
+
+  test('NSF is never named without narrowing what the badge covers', () => {
+    // The other half of the pattern above. Naming NSF is allowed for teaching;
+    // naming it and leaving the reader with the impression it certifies
+    // performance is the thing that misleads. If a page mentions NSF at all, it
+    // has to say what the certification does not cover.
+    const SCOPING =
+      /material requirements only|material safety and structural integrity only|certifies nothing about what|does not certify/i
+    for (const page of pages) {
+      if (!/\bNSF\b/.test(page.html)) continue
+      assert.match(
+        page.html,
+        SCOPING,
+        `${page.path} names NSF without ever narrowing what the certification covers`,
+      )
     }
   })
 

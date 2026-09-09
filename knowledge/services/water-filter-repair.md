@@ -18,7 +18,7 @@ related_guides:
   - "ro-water-purifier-leaking"
   - "ro-purifier-low-pressure"
   - "how-often-to-replace-ro-filters"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Water Filter and RO System Repair in the UAE
 

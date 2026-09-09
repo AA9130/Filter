@@ -13,7 +13,7 @@ related_services:
 related_guides:
   - "hard-water-and-limescale-uae"
   - "ro-vs-water-softener"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # AquaPure Automatic Water Softener
 

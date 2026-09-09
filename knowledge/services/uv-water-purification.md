@@ -19,7 +19,7 @@ related_guides:
   - "ro-vs-uv-water-purifier"
   - "whole-house-water-filter-uae"
   - "is-uae-tap-water-safe-to-drink"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # UV Water Purification and Disinfection in the UAE
 

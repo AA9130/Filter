@@ -1,6 +1,6 @@
 ---
 type: "index"
-generated: "2026-09-08"
+generated: "2026-09-09"
 ---
 # AquaPure UAE knowledge base
 
@@ -17,7 +17,7 @@ retrieval. To change anything here, change the content and re-run the sync.
 | `products/` | content/products.json | 7 products |
 | `locations/` | content/locations.json | 7 emirates |
 | `guides/` | content/guides.json | 12 guides |
-| `faqs/` | content/faqs.json | 30 questions |
+| `faqs/` | content/faqs.json | 32 questions |
 | `claims/` | content/claims.json | 34 claims and their status |
 
 Every factual assertion about the business passes through the claim registry

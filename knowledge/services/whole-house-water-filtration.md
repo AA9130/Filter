@@ -19,7 +19,7 @@ related_guides:
   - "whole-house-water-filter-uae"
   - "hard-water-and-limescale-uae"
   - "ro-vs-water-softener"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Whole House Water Filtration for UAE Properties
 

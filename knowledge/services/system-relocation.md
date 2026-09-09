@@ -18,7 +18,7 @@ related_products:
 related_guides:
   - "best-water-purifier-dubai-apartment"
   - "tank-vs-tankless-ro"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Water Filter System Relocation Within the UAE
 

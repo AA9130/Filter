@@ -51,7 +51,10 @@ const FORBIDDEN: Array<[RegExp, string]> = [
   [/12,000/, 'customer count'],
   [/\b4\.9\s?\/\s?5\b/, 'average rating'],
   [/1,284/, 'review count'],
-  [/\bNSF\b/, 'NSF certification'],
+  // Naming NSF is allowed — the site teaches readers how to read the badge.
+  // Claiming it for AquaPure is not. See UNSCOPED_NSF below for the other half.
+  [/(?:we|our|us|AquaPure)[^.<]{0,80}\b(?:NSF|WQA)[\s/-]*(?:certified|approved)/i,
+    'NSF certification as its own'],
   [/\bESMA\b/, 'ESMA approval'],
   [/Dubai Municipality (?:Compl|plumbing|approv)/i, 'municipality compliance'],
   [/fully insured/i, 'technician insurance'],
@@ -59,6 +62,16 @@ const FORBIDDEN: Array<[RegExp, string]> = [
   [/Certified [Tt]echnicians/, 'technician certification'],
   [/\bAED\s?\d/, 'a published price'],
 ]
+
+/**
+ * The scoping language that has to travel with any mention of NSF.
+ *
+ * Mirrors DISCUSSABLE_CLAIMS in lib/claims.ts, which is the authority. The
+ * duplication is deliberate: this script audits built HTML, where record-level
+ * provenance is gone, so it checks the property that must hold on the page.
+ */
+const UNSCOPED_NSF =
+  /material requirements only|material safety and structural integrity only|certifies nothing about what|does not certify/i
 
 function analyse(file: string): Page {
   const rel = relative(BUILD, file).replace(/\.html$/, '')
@@ -149,6 +162,16 @@ for (const page of pages) {
 
   for (const [pattern, what] of FORBIDDEN) {
     if (pattern.test(page.html)) problems.push(`${where}: publishes ${what} — an unverified claim`)
+  }
+
+  // A page may name NSF only while narrowing what the certification covers.
+  // Naming it and leaving the reader to assume it certifies performance is the
+  // misleading case, and it is the one this catches.
+  if (/\bNSF\b/.test(page.html) && !UNSCOPED_NSF.test(page.html)) {
+    problems.push(
+      `${where}: names NSF without narrowing what the certification covers — ` +
+        `add the scoping language or remove the mention`,
+    )
   }
 
   if (titleLength > 65) notes.push(`${where}: title is ${titleLength} chars and will be truncated`)

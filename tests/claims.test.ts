@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import {
   allClaims, getClaim, isPublishable, publishableValue, requireClaim,
   publishableClaims, blockedClaims, claimsNeedingVerification, screenText,
+  DISCUSSABLE_CLAIMS,
 } from '@/lib/claims'
 
 /**
@@ -147,6 +148,74 @@ describe('text screening', () => {
     ]
     for (const text of fine) {
       assert.deepEqual(screenText(text), [], `false positive on: ${text}`)
+    }
+  })
+})
+
+describe('the discussion exemption', () => {
+  /**
+   * DISCUSSABLE_CLAIMS lets content name a blocked claim in order to explain it.
+   * That is a hole in the screen, so these tests exist to keep it a keyhole.
+   */
+  test('is small enough to audit by reading it', () => {
+    assert.ok(
+      DISCUSSABLE_CLAIMS.size <= 3,
+      `${DISCUSSABLE_CLAIMS.size} claims are discussable. This list is a hole in ` +
+        `the claim screen and must stay small enough that a reviewer can check ` +
+        `every entry by hand. If it needs to grow, the screen is the wrong tool.`,
+    )
+  })
+
+  test('every entry says why, and points at where', () => {
+    for (const [claimId, discussion] of DISCUSSABLE_CLAIMS) {
+      assert.ok(
+        discussion.why.length > 60,
+        `${claimId}: no explanation of why the mention is not an assertion`,
+      )
+      assert.match(
+        discussion.why,
+        /content\/|docs\//,
+        `${claimId}: does not name the file that relies on the exemption`,
+      )
+    }
+  })
+
+  test('forgives a mention only when the scoping language is present', () => {
+    // The exemption is conditional. This is the case it must still catch: the
+    // badge asserted flatly, with nothing narrowing what it covers.
+    const bare = 'All our media is NSF certified for your peace of mind.'
+    assert.deepEqual(
+      screenText(bare, ['nsf_wqa_certified_media']).map((v) => v.claimId),
+      ['nsf_wqa_certified_media'],
+      'a bare NSF claim passed screening just because the record asked to discuss it',
+    )
+
+    // And the case it must forgive: the same phrase, scoped honestly.
+    const scoped =
+      'A supplier badge reading "NSF certified" is usually NSF/ANSI 42 for ' +
+      'material requirements only, which certifies nothing about what the ' +
+      'equipment removes.'
+    assert.deepEqual(
+      screenText(scoped, ['nsf_wqa_certified_media']),
+      [],
+      'honest scoping was still flagged',
+    )
+
+    // Undeclared, the scoped text is still a violation: a record has to opt in.
+    assert.deepEqual(
+      screenText(scoped).map((v) => v.claimId),
+      ['nsf_wqa_certified_media'],
+      'the exemption applied without the record declaring discussesClaims',
+    )
+  })
+
+  test('the claim it discusses is still blocked', () => {
+    // The whole point: explaining the badge must not quietly publish the claim.
+    for (const claimId of DISCUSSABLE_CLAIMS.keys()) {
+      assert.ok(
+        blockedClaims().some((claim) => claim.id === claimId),
+        `${claimId} is discussable but no longer blocked — remove the exemption`,
+      )
     }
   })
 })

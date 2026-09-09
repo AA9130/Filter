@@ -71,6 +71,11 @@ const products = validateAll<Product>('content/products.json', productsJson, {
     maintenance: ['title', 'body'],
     considerations: ['title', 'body'],
   },
+  // Operating limits are optional: they exist only where manufacturer
+  // documentation is on file (see docs/EQUIPMENT-DATA.md), and a product
+  // without any is more honest than a product with invented ones.
+  optionalObjectArrays: { operatingLimits: ['label', 'value'] },
+  pairs: [['operatingLimits', 'limitsNote']],
   images: ['image'],
 }).map((product) => ({ ...product, image: resolveImage(product.image, 'roSystem') }))
 

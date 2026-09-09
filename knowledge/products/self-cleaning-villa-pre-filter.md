@@ -12,7 +12,7 @@ related_services:
 related_guides:
   - "whole-house-water-filter-uae"
   - "hard-water-and-limescale-uae"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # AquaPure Self-Cleaning Villa Pre-Filter
 

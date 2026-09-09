@@ -1,9 +1,9 @@
 ---
 type: "faq-collection"
 category: "choosing"
-count: "8"
+count: "9"
 url: "https://aquapureuae.ae/faqs"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # FAQs — choosing
 
@@ -54,3 +54,9 @@ _id: `tank-vs-tankless` · last verified 2026-09-08_
 A carbon filter improves what you can smell and taste — chlorine, taste, odour — and a sediment stage removes what you can see. Neither removes dissolved salts and metals, because those pass straight through. So if your water reads high on TDS or tastes salty, carbon will not fix it. If your water reads low on TDS and the only complaint is a chlorine smell, carbon fixes it at a fraction of the cost, wastes no water and needs no drain connection. Measuring first is what tells you which situation you are in, and it takes ten minutes.
 
 _id: `carbon-vs-ro` · last verified 2026-09-08_
+
+## Does “NSF certified” mean a water filter actually removes contaminants?
+
+Usually not, and this is the most widely misread badge in the industry. NSF/ANSI standards are split by purpose, and the certification most often quoted in water-treatment marketing covers materials rather than performance. Manufacturer documentation is normally explicit about it: certification statements on real equipment read “a NSF Certified Component to NSF/ANSI 42 for material requirements only”, or “certified against NSF/ANSI 42 — material safety and structural integrity only”. What that certifies is that the plastics and metals touching your drinking water are safe to do so, and that the housing will not burst under pressure. It certifies nothing about what the product removes. A genuine performance certification names the standard and the contaminant — NSF/ANSI 53 for health-related reduction claims, NSF/ANSI 58 for reverse osmosis systems, NSF/ANSI 55 for ultraviolet, NSF/ANSI 44 for softeners — and it comes with a certificate number you can look up in NSF’s public listings. So when a supplier shows you a badge, ask three questions: which standard number, certifying what specifically, and what is the certificate number. If the answer is 42 and the phrase “material requirements only” appears in the small print, the badge is telling you the housing is food-safe — which is worth having, and is not a filtration claim. Also check whether the certificate covers the whole system or one component inside it, because a certified component in an uncertified system is a common way of implying more than has been tested.
+
+_id: `certification-badges-explained` · last verified 2026-09-09_

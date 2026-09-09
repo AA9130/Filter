@@ -23,7 +23,7 @@ priority_services:
   - "water-filter-installation"
   - "water-softener"
   - "water-filter-amc"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Water filtration in Ras Al Khaimah
 

@@ -14,7 +14,7 @@ related_guides:
   - "whole-house-water-filter-uae"
   - "ro-vs-water-softener"
   - "hard-water-and-limescale-uae"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # AquaPure Whole-Villa Filtration System
 

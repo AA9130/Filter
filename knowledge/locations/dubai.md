@@ -31,7 +31,7 @@ priority_services:
   - "water-filter-repair"
   - "whole-house-water-filtration"
   - "water-filter-amc"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Water filtration in Dubai
 

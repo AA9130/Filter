@@ -267,3 +267,102 @@ describe('search query database', () => {
     }
   })
 })
+
+describe('equipment data taken from manufacturer documentation', () => {
+  /**
+   * Operating limits are the one place the site publishes hard numbers about
+   * equipment, so they get the tightest guard rails in the suite. Every figure
+   * traces to a document in Files/, mapped in docs/EQUIPMENT-DATA.md.
+   *
+   * The failure being prevented is specific: a number appearing on a product
+   * page with nothing saying where it came from or what it is not. That is
+   * indistinguishable from an invented specification, which is the whole thing
+   * this project is built to avoid.
+   */
+  test('no figure is published without the note that sources it', async () => {
+    for (const product of (await getProducts())) {
+      if (!product.operatingLimits) {
+        // No documentation on file is a legitimate state. What is not
+        // legitimate is a note with nothing to source.
+        assert.equal(
+          product.limitsNote,
+          undefined,
+          `${product.slug}: has limitsNote but no operatingLimits`,
+        )
+        continue
+      }
+      assert.ok(
+        product.limitsNote && product.limitsNote.trim().length > 80,
+        `${product.slug}: publishes ${product.operatingLimits.length} figures but ` +
+          `limitsNote does not explain where they came from`,
+      )
+      assert.ok(
+        product.operatingLimits.length > 0,
+        `${product.slug}: operatingLimits is empty — omit the field instead`,
+      )
+      for (const limit of product.operatingLimits) {
+        assert.ok(limit.label.trim(), `${product.slug}: a limit has no label`)
+        assert.ok(limit.value.trim(), `${product.slug}: "${limit.label}" has no value`)
+      }
+    }
+  })
+
+  test('the limits note says these are not our own measurements', async () => {
+    // A reader must never be able to mistake a manufacturer's published figure
+    // for something AquaPure measured, or for a quotation.
+    for (const product of (await getProducts())) {
+      if (!product.limitsNote) continue
+      const note = product.limitsNote.toLowerCase()
+      assert.ok(
+        note.includes('manufacturer'),
+        `${product.slug}: limitsNote does not attribute the figures to manufacturer documentation`,
+      )
+      assert.ok(
+        note.includes('not a quotation') || note.includes('confirmed'),
+        `${product.slug}: limitsNote does not distinguish the figures from a quotation`,
+      )
+    }
+  })
+
+  test('no supplier brand or trademark reaches the published content', async () => {
+    // The brochures in Files/ belong to other companies. Their technical facts
+    // are usable; their names and imagery are not, by explicit decision.
+    // Anything appearing here would be an unlicensed brand reference on a page
+    // implying a supply relationship nobody has evidenced.
+    const BRANDS = [
+      'atlas filtri', 'permatech', 'aquawave', 'clairify', 'optimpure',
+      'quantum disinfection', 'oasis sanic', 'borg & overström', 'qettle',
+      'hydra opentoclean',
+    ]
+    const haystacks: [string, string][] = []
+    for (const p of (await getProducts())) {
+      haystacks.push([`product ${p.slug}`, JSON.stringify(p)])
+    }
+    for (const s of (await getServices())) haystacks.push([`service ${s.slug}`, JSON.stringify(s)])
+    for (const g of (await getGuides())) haystacks.push([`guide ${g.slug}`, JSON.stringify(g)])
+    for (const f of (await getFaqs())) haystacks.push([`faq ${f.id}`, JSON.stringify(f)])
+
+    for (const [where, text] of haystacks) {
+      const lower = text.toLowerCase()
+      for (const brand of BRANDS) {
+        assert.ok(
+          !lower.includes(brand),
+          `${where}: mentions "${brand}". Supplier brands stay out of published ` +
+            `content — the figures are published as representative of the ` +
+            `equipment class, not as a named product.`,
+        )
+      }
+    }
+  })
+
+  test('every product without documentation says nothing rather than guessing', async () => {
+    // Regression guard for the tempting fix: copying one product's limits onto
+    // another because the page looked thin. Documented absence is the feature.
+    const documented = (await getProducts()).filter((p) => p.operatingLimits)
+    const undocumented = (await getProducts()).filter((p) => !p.operatingLimits)
+    assert.ok(documented.length > 0, 'no product publishes operating limits at all')
+    for (const p of undocumented) {
+      assert.equal(p.operatingLimits, undefined)
+    }
+  })
+})

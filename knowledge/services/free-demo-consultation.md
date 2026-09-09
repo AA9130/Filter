@@ -19,7 +19,7 @@ related_guides:
   - "how-to-reduce-water-tds"
   - "is-uae-tap-water-safe-to-drink"
   - "ro-installation-cost-dubai"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Free On-Site Water Test and Consultation
 

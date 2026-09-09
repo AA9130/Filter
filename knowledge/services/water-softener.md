@@ -19,7 +19,7 @@ related_guides:
   - "hard-water-and-limescale-uae"
   - "ro-vs-water-softener"
   - "whole-house-water-filter-uae"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Water Softeners for UAE Homes and Businesses
 

@@ -27,7 +27,7 @@ priority_services:
   - "water-filter-amc"
   - "water-softener"
   - "water-filter-replacement"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Water filtration in Abu Dhabi
 

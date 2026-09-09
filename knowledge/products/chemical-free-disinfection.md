@@ -12,7 +12,7 @@ related_services:
 related_guides:
   - "ro-vs-uv-water-purifier"
   - "whole-house-water-filter-uae"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # AquaPure Chemical-Free Disinfection Unit
 

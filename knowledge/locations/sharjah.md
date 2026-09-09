@@ -26,7 +26,7 @@ priority_services:
   - "water-filter-repair"
   - "water-filter-installation"
   - "water-filter-amc"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Water filtration in Sharjah
 

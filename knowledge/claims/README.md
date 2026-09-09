@@ -2,7 +2,7 @@
 type: "claim-registry"
 total: "34"
 publishable: "16"
-generated: "2026-09-08"
+generated: "2026-09-09"
 ---
 # Claim registry
 

@@ -14,7 +14,7 @@ related_guides:
   - "ro-vs-uv-water-purifier"
   - "whole-house-water-filter-uae"
   - "how-often-to-replace-ro-filters"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # AquaPure Modular RO with UV Option
 

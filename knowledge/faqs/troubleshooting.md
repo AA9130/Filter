@@ -1,9 +1,9 @@
 ---
 type: "faq-collection"
 category: "troubleshooting"
-count: "3"
+count: "4"
 url: "https://aquapureuae.ae/faqs"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # FAQs — troubleshooting
 
@@ -24,3 +24,9 @@ _id: `ro-leaking` · last verified 2026-09-08_
 Three common reasons. The carbon stage is exhausted — carbon adsorbs until it is saturated, and a saturated cartridge stops improving taste while still passing water perfectly well. The water has been standing in the storage tank for days, which flattens the taste; drawing off a tank's worth restores it. Or the RO has no remineralisation stage, so the water is genuinely very low in dissolved minerals and reads as flat rather than dirty — a mineral cartridge addresses that. If the taste is metallic rather than flat, the pipework between the filter and the tap is worth inspecting.
 
 _id: `water-tastes-bad` · last verified 2026-09-08_
+
+## Can UAE summer water temperature damage a reverse osmosis system?
+
+It can take the system outside the conditions it is rated for, which is a real and widely overlooked problem here. Residential RO equipment is typically specified for a feed temperature of around 5–38 °C. In a UAE summer, water that has stood in a rooftop or exposed ground tank through the afternoon can reach or exceed the top of that range before it ever gets to the kitchen. Two things follow. First, warm feed water increases the flux through a thin-film membrane, so a system can appear to be performing well — more water, faster — while salt rejection falls and treated TDS quietly rises. Second, sustained operation above the rated temperature shortens membrane life and can soften or deform plastic housings and fittings, which is a leak risk rather than just a performance one. The practical answers are mundane and effective: insulate or shade the storage tank, avoid running the system on the hottest water of the day where you have the choice, and measure treated TDS in August rather than trusting a reading taken in February. If a system tastes worse in summer than in winter, this is the first thing worth measuring — not the cartridges.
+
+_id: `summer-water-temperature-ro` · last verified 2026-09-09_

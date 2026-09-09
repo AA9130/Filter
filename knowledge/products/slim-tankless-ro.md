@@ -12,7 +12,7 @@ related_services:
 related_guides:
   - "tank-vs-tankless-ro"
   - "best-water-purifier-dubai-apartment"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # AquaPure Slim Tankless RO
 

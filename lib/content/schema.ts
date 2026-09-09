@@ -29,6 +29,16 @@ type Rules = {
   arrays?: string[]
   /** Arrays whose entries are objects: field → required keys on each entry. */
   objectArrays?: Record<string, string[]>
+  /** Same, but the field may be absent entirely. Validated only when present. */
+  optionalObjectArrays?: Record<string, string[]>
+  /**
+   * Fields that must appear together or not at all, as [field, partner].
+   *
+   * Used for data that would be misleading unsourced: operating limits without
+   * the note saying where they come from and what they are not is exactly the
+   * unattributed specification this project refuses to publish.
+   */
+  pairs?: [string, string][]
   icons?: string[]
   images?: string[]
   claims?: string[]
@@ -58,8 +68,7 @@ function checkRecord(where: string, record: Record<string, unknown>, rules: Rule
     }
   }
 
-  for (const [field, keys] of Object.entries(rules.objectArrays ?? {})) {
-    const value = record[field]
+  const checkObjectArray = (field: string, keys: string[], value: unknown): void => {
     if (!Array.isArray(value) || value.length === 0) {
       throw new ContentError(where, `"${field}" must be a non-empty array of objects`)
     }
@@ -74,6 +83,28 @@ function checkRecord(where: string, record: Record<string, unknown>, rules: Rule
         }
       }
     })
+  }
+
+  for (const [field, keys] of Object.entries(rules.objectArrays ?? {})) {
+    checkObjectArray(field, keys, record[field])
+  }
+
+  for (const [field, keys] of Object.entries(rules.optionalObjectArrays ?? {})) {
+    if (record[field] !== undefined) checkObjectArray(field, keys, record[field])
+  }
+
+  for (const [field, partner] of rules.pairs ?? []) {
+    const hasField = record[field] !== undefined
+    const hasPartner = typeof record[partner] === 'string' && record[partner] !== ''
+    if (hasField && !hasPartner) {
+      throw new ContentError(
+        where,
+        `"${field}" is present but "${partner}" is missing. Figures must carry the note that says where they came from and what they are not — unsourced specifications are exactly what this project does not publish.`,
+      )
+    }
+    if (hasPartner && !hasField) {
+      throw new ContentError(where, `"${partner}" is present but "${field}" is missing`)
+    }
   }
 
   for (const field of rules.icons ?? []) {

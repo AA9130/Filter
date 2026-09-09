@@ -329,12 +329,73 @@ const TEXT_SIGNATURES: Array<{ claimId: string; patterns: RegExp[] }> = [
  * pipeline's validators and available to any test that wants to assert a page
  * stays clean.
  */
-export function screenText(text: string): ClaimViolation[] {
+/**
+ * Claims the site may NAME without asserting them, and the scoping language
+ * that has to accompany the mention.
+ *
+ * This is a hole in the screen, so it is built to be as small as possible.
+ *
+ * The need is real. The strongest thing this site can say about certification
+ * is that the industry's badges usually mean less than readers assume — that
+ * "NSF certified" on water-treatment marketing is typically NSF/ANSI 42 for
+ * material safety, which certifies the housing is safe to touch drinking water
+ * and certifies nothing about what the equipment removes. Explaining that
+ * requires naming NSF, and a plain text screen cannot tell the difference
+ * between naming a claim and making one.
+ *
+ * So the exemption is conditional, not a bypass: it applies only to text that
+ * also contains the scoping language in `requires`. Text that says
+ * "NSF certified" without ever narrowing what that covers is still a
+ * violation, which is the case worth catching. Every entry needs a `why`, and
+ * `tests/claims.test.ts` holds the list to a hard ceiling so it cannot grow
+ * into a general escape hatch.
+ */
+export type ClaimDiscussion = { requires: RegExp; why: string }
+
+export const DISCUSSABLE_CLAIMS: ReadonlyMap<string, ClaimDiscussion> = new Map([
+  [
+    'nsf_wqa_certified_media',
+    {
+      requires:
+        /material requirements only|material safety and structural integrity only|certifies nothing about what|does not certify/i,
+      why:
+        'content/faqs.json → nsf-certified-meaning teaches a reader how to read an ' +
+        'NSF badge, quoting manufacturers\' own scoping. It claims no certification ' +
+        'for AquaPure; nsf_wqa_certified_media stays unverified. See docs/EQUIPMENT-DATA.md.',
+    },
+  ],
+])
+
+/**
+ * Screen text for claims it is not allowed to make.
+ *
+ * `discusses` names claims this text deliberately mentions in order to explain
+ * them. A named claim is forgiven only if the required scoping language is
+ * present — see DISCUSSABLE_CLAIMS.
+ *
+ * `scope` is where that scoping language is looked for, and defaults to `text`.
+ * It exists because a reader consumes a whole record, not one field: an FAQ's
+ * question can name a badge while the narrowing sits in its answer, and judging
+ * the question alone would flag honest content. Callers that screen field by
+ * field should pass the record's full text as the scope.
+ */
+export function screenText(
+  text: string,
+  discusses: readonly string[] = [],
+  scope: string = text,
+): ClaimViolation[] {
   const violations: ClaimViolation[] = []
 
   for (const { claimId, patterns } of TEXT_SIGNATURES) {
     const claim = byId.get(claimId)
     if (claim?.allowedForPublication) continue
+
+    // Naming a claim in order to interrogate it is allowed, but only where the
+    // text also narrows what the badge actually covers.
+    if (discusses.includes(claimId)) {
+      const discussion = DISCUSSABLE_CLAIMS.get(claimId)
+      if (discussion && discussion.requires.test(scope)) continue
+    }
 
     for (const pattern of patterns) {
       const match = text.match(pattern)

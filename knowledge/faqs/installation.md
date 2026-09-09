@@ -3,7 +3,7 @@ type: "faq-collection"
 category: "installation"
 count: "2"
 url: "https://aquapureuae.ae/faqs"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # FAQs — installation
 

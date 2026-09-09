@@ -175,7 +175,11 @@ describe('llms.txt', () => {
     // The disclaimer block deliberately names the things not claimed, so screen
     // only the part above it, which is the part that asserts things.
     const asserted = text.split('The following are NOT claimed')[0]
-    const violations = screenText(asserted)
+    // llms.txt reproduces every FAQ answer, including the one that explains what
+    // an NSF badge does and does not certify. That mention is forgiven only
+    // because the scoping language travels with it — screenText re-checks that
+    // here rather than taking the exemption on trust.
+    const violations = screenText(asserted, ['nsf_wqa_certified_media'])
     assert.deepEqual(
       violations.map((violation) => violation.claimId),
       [],

@@ -22,7 +22,7 @@ priority_services:
   - "water-filter-amc"
   - "water-filter-installation"
   - "water-filter-replacement"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Water filtration in Fujairah
 

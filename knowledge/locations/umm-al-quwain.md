@@ -22,7 +22,7 @@ priority_services:
   - "uv-water-purification"
   - "water-softener"
   - "water-filter-amc"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Water filtration in Umm Al Quwain
 

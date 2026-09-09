@@ -18,7 +18,7 @@ related_products:
 related_guides:
   - "how-often-to-replace-ro-filters"
   - "whole-house-water-filter-uae"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Water Filter AMC Plans Across the UAE
 

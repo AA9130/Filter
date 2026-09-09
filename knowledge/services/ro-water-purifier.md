@@ -20,7 +20,7 @@ related_guides:
   - "how-to-reduce-water-tds"
   - "tank-vs-tankless-ro"
   - "how-often-to-replace-ro-filters"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # RO Water Purifier Systems in the UAE
 

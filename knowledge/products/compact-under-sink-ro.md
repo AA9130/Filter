@@ -14,7 +14,7 @@ related_guides:
   - "best-water-purifier-dubai-apartment"
   - "tank-vs-tankless-ro"
   - "how-often-to-replace-ro-filters"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # AquaPure Compact Under-Sink RO
 

@@ -19,7 +19,7 @@ related_guides:
   - "how-often-to-replace-ro-filters"
   - "how-to-reduce-water-tds"
   - "ro-purifier-low-pressure"
-last_verified: "2026-09-08"
+last_verified: "2026-09-09"
 ---
 # Water Filter and Membrane Replacement Across the UAE
 
